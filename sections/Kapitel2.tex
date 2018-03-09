@@ -1,0 +1,312 @@
+%!TEX root = main.tex
+
+\section{Kapitel 2: Funktionen\hfill}
+\label{sec:abschnitt}
+
+% Unterkapitel: Grundlegendes
+
+\subsection{Grundlegendes\hfill}
+\label{sec:unterabschnitt}
+
+\subsubsection{Synonyme für Funktionen\hfill}
+\label{sec:unterunterabschnitt}
+\begin{itemize}
+	\item Unterprogramm
+	\item Subroutine
+	\item Prozedur (Funktion ohne Rückgabewert)
+	\item Methode (in der Objektorientierten Programmierung)
+\end{itemize}
+
+\subsubsection{Aufgabe einer Funktion\hfill}
+\label{sec:unterunterabschnitt}
+\begin{itemize}
+	\item Gleichartige, funktional zusammengehörende Programmteile unter einem eigenene Namen zusammenfassen. Der Programmteil kann mit diesem Namen aufgerufen werden.
+	\item Einige Funktionen (im speziellen mathematische) sollen parametrisiert werden können, z.B. die Cosinusfunktion macht nur Sinn, wenn sie mit unterschiedlichen Argumenten aufgerufen werden kann.
+	\item Divide et impera (divide and conquer, teile und herrsche):
+	\\ Ein grosses Problem ist einfacher zu lösen, wenn es in mehrere einfachere Teilprobleme aufgeteilt wird.
+\end{itemize}
+
+\subsubsection{Funktionen (Vergleich zu C)\hfill}
+\label{sec:unterunterabschnitt}
+\begin{itemize}
+	\item Alles was in C möglich ist, gibt es auch in C++
+	\item Einige Punkte sind in C++ zusätzlich eingeführt worden:
+	\begin{itemize}
+		\item Operatorfunktion (Spezialität von C++, folgt später)
+		\item inline-Funktion
+		\item Vorbelegung von Parametern (default-Argumente)
+		\item Überladen von Funktionen (overloading)
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Definition von Funktionen\hfill}
+\label{sec:unterunterabschnitt}
+\begin{itemize}
+	\item Funktionskopf
+	\begin{itemize}
+		\item legt die Aufrufschnittstelle (Signatur) der Funktion fest
+		\item besteht aus:
+		\begin{itemize}
+			\item Rückgabetyp
+			\item Funktionsname (fast beliebig wählbar)
+			\item Parameterliste
+		\end{itemize}
+	\end{itemize}
+	\item Funktionsrumpf
+	\begin{itemize}
+		\item Lokale Vereinbarungen und Anweisungen innerhalb eines Blocks
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Deklaration von Funktionen (Funktionsprototypen)}
+\label{sec:unterunterabschnitt}
+\lstinputlisting{\listings/fktproto.cpp}
+
+\subsubsection{Kosten einer Funktion\hfill}
+\label{sec:unterunterabschnitt}
+\begin{itemize}
+	\item Der Code einer Funktion ist nur einmal im Speicher vorhanden
+	\begin{itemize}
+		\item Vorteil: spart Speicher
+	\end{itemize}
+	\item Der Aufruf einer Funktion bewirkt eine zeitliche Einbusseim Vergleich zu einer direkten Befehlsausführung
+	\begin{itemize}
+		\item Nachteil: Zeitverlust, Overhead
+	\end{itemize}
+\end{itemize}
+
+% Unterkapitel: C-Makro
+
+\subsection{C-Makro\hfill}
+\label{sec:unterabschnitt}
+
+\subsubsection{C-Makro mit \#define\hfill}
+\label{sec:unterunterabschnitt}
+\begin{itemize}
+	\item C-Makros bewirken eine reine Textersetzung ohne jegliche Typenprüfung
+	\item Bei Nebeneffekten (welche zwar vermieden werden sollten) verhalten sich Makros oft nicht wie beabsichtigt
+\end{itemize}
+\begin{achtung}	% Achtung-Box
+C-Makros lösen zwar das Problem mit dem Overhead, sind aber sehr unsicher. Bitte nicht einsetzen!
+\end{achtung}
+
+
+\subsubsection{Beispiel mit C-Makro: Maximum zweier int-Werte\hfill}
+\label{sec:unterrunterabschnitt}
+\noindent
+\begin{minipage}{\linewidth}
+\begin{lstlisting}
+\#define MAX(a,b)	((a)>(b) ? (a) : (b))
+
+int z1 = 4;
+int z2 = 6;
+int m = MAX(z1,z2);
+*@ \textbf{wird expandiert zu: m = ((z1)\flq(z2) ? (z1) : (z2));	// m=6, z1=4, z2=6} @*
+m = MAX(++z1,++z2);
+*@ \textbf{erwartet wird: m=7, z1=5, z2=7}@*
+\end{lstlisting}
+\end{minipage}
+
+\subsubsection{Beispiel mit C-Makro: Was passiert wirklich?\hfill}
+\label{sec:unterunterabschnitt}
+\noindent
+\begin{minipage}{\linewidth}
+\begin{lstlisting}
+m = MAX(++z1,++z2);
+*@\textbf{wird expandiert zu:}@*
+*@\textbf{ m = ((++z1)\flq(++z2) ? (++z1) : (++z2)); m = ((\color{red}5\color{black})\flq(\color{red}7\color{black}) ? (++z1) : (\color{red}8\color{black}));}@*
+*@\textbf{\color{red}// z2 wird zweimal inkrementiert!\color{black}}@*
+*@\textbf{// m=\color{red}8\color{black}, z1=5 ,z2=\color{red}8\color{black} }@*
+*@\textbf{erwartet wird:}@*
+*@\textbf{m=7, z1=5, z2=7}@*
+\end{lstlisting}
+\end{minipage}
+
+% Unterkapitel: inline-Funktionen
+
+\subsection{inline-Funktionen\hfill}
+\label{sec:unterabschnitt}
+
+\subsubsection{inline-Funktionen: Grundlegendes\hfill}
+\label{sec:unterunterabschnitt}
+\begin{itemize}
+	\item Lösen das Overhead-Problem
+	\begin{itemize}
+		\item Code wird direkt eingefügt, kein Funktionsaufruf
+	\end{itemize}
+	\item Typenprüfung findet statt
+	\item Einsetzen wenn der Codeumfang der Funktion sehr klein ist und die Funktion häufig aufgerufen wird (z.B. in Schleifen)
+	\item Achtung: Rekursive Funktionen und Funktionen, auf die mit einem Funktionspointer gezeigt wird, werden nicht inlined.
+\end{itemize}
+
+\subsubsection{Beispiel mit inline-Code: Maximum zweier int-Werte}
+\label{sec:unterunterabschnitt}
+\noindent
+\begin{minipage}{\linewidth}
+\begin{lstlisting}
+inline int max(int a, int b)
+{
+	return a \flq b ? a : b;
+}
+
+int main()
+{
+	int z1 = 4;
+	int z2 = 6;
+	int m = max(z1, z2);
+	*@\textbf{// m=6, z1=4, z2=6}@*
+	m = max(++z1, ++z2);
+	*@\textbf{// m=7, z1=5, z2=7}@*
+}
+\end{lstlisting}
+\end{minipage}
+
+% Unterkapitel: Grundsätze der Optimierungen
+
+\subsection{Grundsätze für Optimierungen\hfill}
+\label{sec:unterabschnitt}
+\LARGE{\#1: Optimize: don't do it}
+\\
+\LARGE{\#2: If you have to do it: do it later}
+\normalsize
+
+% Unterkapitel: default-Argumente
+
+\subsection{default-Argumente\hfill}
+\label{sec:unterabschnitt}
+
+\subsubsection{Vorbelegte Parameter (default-Argumente)\hfill}
+\label{sec:unterunterabschnitt}
+\begin{minipage}{\linewidth}
+\begin{lstlisting}
+void prtDate(int day=1, int month=3, int year=2009);
+\end{lstlisting}
+\end{minipage}
+\normalsize
+\begin{itemize}
+	\item Parametern können im Funktionsprototypen (\color{red}bitte nur dort!\color{black}) Defaultwerte zugewiesen werden.
+	\item Beim Funktionsaufruf können (aber müssen nicht) die Parameter mit default-Werten weggelassen werden
+\\ \begin{achtung}Hinter (rechts von) einem default-Argument darf kein nicht vorbelegter Parameter mehr folgen, d.h. wenn bei einem Parameter ein default definiert wird, dann müssen bei allen weiteren Parametern dieser Funktion ebenfalls defaults definiert werden.
+		\end{achtung}
+	\item Grund: Die Parameterübergabe erfolgt in C++ von links nach rechts
+\end{itemize}
+
+\subsubsection{Beispiel: default-Argumente\hfill}
+\label{sec:unterunterabschnitt}
+\noindent
+\begin{minipage}{\linewidth}
+\begin{lstlisting}
+void prtDate(int day=1, int month=3, int year=2009);
+	
+*@{\textbf{\color{green}// erlaubt sind z.B. die folgenden Aufrufe:\color{black}}}@*
+prtDate();			// 1-3-2009
+prtDate(23);		// 23-3-2009
+prtDate(15,6);		// 15-6-2009
+prtDate(24,7,2012);	// 24-7-2012
+
+	
+
+*@\textbf{\color{red}// nicht erlaubt sind z.B. diese Deklarationen:\color{black}}@*
+void prtDate2(int day=7, *@\color{red}int month\color{black}@*, int year=2009);
+void prtDate3(int day, int month=3,*@ \color{red}int year\color{black}@*);
+\end{lstlisting}
+\end{minipage}
+
+\subsubsection{Nutzen von default-Argumenten\hfill}
+\label{sec:unterunterabschnitt}
+\begin{itemize}
+	\item Wenn in einer bereits existierenden Funktion neue Argumente aufgenommen werden müssen, dann:
+	\begin{itemize}
+		\item Neue Argumente hinten als default-Argumente anfügen
+		\item Die bereits bestehenden alten Aufrufe (mit weniger Argumenten) können unverändert beibehalten werden
+		\item Die Implementation der Funktion muss angepasst werden
+	\end{itemize}
+	\item Sehr nützlich z.B. bei Konstruktoren in der objektorientierten Programmierung
+\end{itemize}
+
+% Unterkapitel: Overloading
+
+\subsection{Overloading\hfill}
+\label{sec:unterabschnitt}
+
+\subsubsection{Überladen von Funktionen (overloading)\hfill}
+\label{sec:unterunterabschnitt}
+\begin{itemize}
+	\item Zweck:
+	\begin{itemize}
+		\item[\-] Eine Funktion sollte allenfalls mit unterschiedlichen Parametern aufgerufen werden können\\
+		\item[\-] void print(char ch);
+		\item[\-] void print(int i);
+		\item[\-] void print(double d);
+	\end{itemize}
+	\item Alternative (in C) wäre:
+	\begin{itemize}
+		\item[\-] void printChar(char ch);
+		\item[\-] void printInt(int i);
+		\item[\-] void printDouble(double d);
+		\item[\-] \color{red} Ist umständlicher und unverständlicher\color{black}
+ 	\end{itemize}
+\end{itemize}
+
+\subsubsection{Overloading in C++\hfill}
+\label{sec:unterunterabschnitt}
+\begin{itemize}
+	\item Die Identifikation einer Funktion erfolgt über die Signatur, nicht nur über den Namen
+	\begin{itemize}
+		\item Die Signatur besteht aus:
+			\\ Name der Funktion \textbf{plus} die Parameterliste (Reihenfolge, Anzahl, Typ)
+			\\ (Der Returntyp wird nicht berücksichtigt)
+	\end{itemize}
+	\item Der Name der Funktion ist identisch
+	\item Die Implementation muss für jede überladene Funktion separat erfolgen
+\end{itemize}
+\begin{hinweis}	 % Hinweis-Box
+Overloading sollte zurückhaltend eingesetzt werden. Wenn möglich sind default-Argumente vorzuziehen.
+\end{hinweis}
+
+\subsubsection{Deklaration von überladenen Funktionen: Regeln\hfill}
+\label{sec:unterunterabschnitt}
+\begin{itemize}
+	\item Entsprechen Rückgabetyp und Parameterliste der zweiten Deklaration denen der ersten, so wird die zweite als gültige Re-Deklaration der ersten aufgefasst.
+	\item Unterscheiden sich die beiden Deklarationen nur bezüglich ihrer Rückgabetypen, so behandelt der Compiler die zweite Deklaration als fehlerhafte Re-Deklaration der ersten.
+		\\ Der Rückgabetyp von Funktionen kann nicht als Unterscheidungskriterium verwendet werden.
+	\item Nur wenn beide Deklarationen sich in Anzahl oder Typ ihrer Parameter unterscheiden, werden sie als zwei verschiedene Deklarationen mit demselben Funktionsnamen betrachtet (überladene Funktionen).
+\end{itemize}
+
+\subsubsection{Funktionen sollen nur dann überladen werden, wenn ...\hfill}
+\label{sec:unterunterabschnitt}
+\begin{itemize}
+	\item \textbf{die Funktionen eine vergleichbare Operation bezeichnen, die jeweils mit anderen Parametertypen ausgeführt wird}
+	\item \textbf{dieselbe Wirkung nicht durch default-Parameter erreicht werden kann}
+\end{itemize}
+
+% Unterkapitel: default-Parameter vs. Overloading
+
+\subsection{default-Parameter vs. Overloading\hfill}
+\label{sec:unterabschnitt}
+\noindent
+\begin{minipage}{\linewidth}
+\begin{lstlisting}
+*@\textbf{\color{red}// Variante mit Overloading}@*
+*@\textbf{\color{red}// 3 unterschiedliche Funktionen belegen Speicher}@*
+*@\textbf{\color{red}// 3 unterschiedliche Funktionenmüssen gewartet werden}@*
+void print(int i);
+void print(int i, int width);
+void print(int i, char fillchar, int width):
+	
+	
+*@\textbf{\color{green}// Variante mit default-Parametern}@*
+*@\textbf{\color{green}// Eine einzige Funktion belegt Speicher}@*
+*@\textbf{\color{green}// Nur eine Funktion muss gewartet werden}@*
+void print(int i, int width=0, char fillchar=0);	
+\end{lstlisting}
+\end{minipage}
+\\
+\\
+\begin{achtung}
+keinesfalls default-Parameter in überladenen Funktionen verwenden
+\end{achtung}
+% ENDE
+
+
+ 
