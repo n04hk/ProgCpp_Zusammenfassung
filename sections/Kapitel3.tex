@@ -74,7 +74,7 @@ pointer = \&alpha;
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
 *@// Datentyp des Pointers	Kennzeichnung des Pointers durch '\color{blue}*\color{black}'@*
-*@\color{red}Typname\color{blue}* \color{black} pointerName;@*
+*@\color{\ownRed}Typname\color{blue}* \color{black} pointerName;@*
 
 // Konkrete Beispiele:
 
@@ -222,7 +222,7 @@ Von rechts nach links lesen:\\ ''text ist ein Pointer auf eine char-Konstante''\
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
 char ch = text[1];		// erlaubt (==  'i')
-text[1] = 's';			*@\color{red}// nicht erlaubt@*
+text[1] = 's';			*@\color{\ownRed}// nicht erlaubt@*
 text = ''Ein anderer String'';	// erlaubt
 \end{lstlisting}
 \end{minipage}
@@ -243,7 +243,7 @@ Von rechts nach links lesen:\\ ''text ist ein konstanter Pointer auf ein char''\
 \begin{lstlisting}
 char ch = test[1];		// erlaubt (== 'i')
 text[1] = 's';			// erlaubt
-text = ''Ein anderer String'';	*@\color{red}// nicht erlaubt@*
+text = ''Ein anderer String'';	*@\color{\ownRed}// nicht erlaubt@*
 \end{lstlisting}
 \end{minipage}
 \\ \\ \\ \\
@@ -262,8 +262,8 @@ Von rechts nach links lesen:\\''text ist ein konstanter Pointer auf eine char-Ko
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
 char ch = text[1];		// erlaubt (== 'i')
-text[1] = 's':			*@\color{red}// nicht erlaubt@*
-text = ''Ein anderer String'';	*@\color{red}// nicht erlaubt@*
+text[1] = 's':			*@\color{\ownRed}// nicht erlaubt@*
+text = ''Ein anderer String'';	*@\color{\ownRed}// nicht erlaubt@*
 \end{lstlisting}
 \end{minipage}
 \\ \\ \\ \\
@@ -298,9 +298,9 @@ in C++ sollten void-Pointer kaum noch angewendet werden
 \begin{lstlisting}
 int a;
 int* pi = &a;
-void* pv = pi;			*@\color{green}// ok@*
-double* pd = pv			*@\color{red}// Error (in C erlaubt)@*
-pd = static_cast<double*>pv;	*@\color{green}// ok@*
+void* pv = pi;			*@\color{\ownBlue}// ok@*
+double* pd = pv			*@\color{\ownRed}// Error (in C erlaubt)@*
+pd = static_cast<double*>pv;	*@\color{\ownBlue}// ok@*
 \end{lstlisting}
 \end{minipage}
 
@@ -423,7 +423,7 @@ int main()
 {
 	int x = 4;
 	int y = 3;
-	swap(x, y);	*@\color{red}// nur Kopien werden vertauscht!\color{black}@*
+	swap(x, y);	*@\color{\ownRed}// nur Kopien werden vertauscht!\color{black}@*
 	return 0;
 }
 \end{lstlisting}
@@ -443,7 +443,7 @@ int main()
 {
 	int x = 4;
 	int y = 3;
-	swap(x, y);	*@\color{green}// OK!\color{black}@*
+	swap(x, y);	*@\color{\ownBlue}// OK!\color{black}@*
 	return 0;
 }
 \end{lstlisting}
@@ -463,7 +463,7 @@ int main()
 {
 	int x = 4;
 	int y = 3;
-	swap(&x, &y);	*@\color{red}// OK, jedoch muehsame Syntax und evtl. ineffizient\color{black}@*
+	swap(&x, &y);	*@\color{\ownRed}// OK, jedoch muehsame Syntax und evtl. ineffizient\color{black}@*
 	return 0;
 }
 \end{lstlisting}

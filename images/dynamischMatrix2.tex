@@ -1,0 +1,21 @@
+%!TEX root=main.tex
+\begin{tikzpicture}
+	\node[draw, fit={(-.5,2.5) (0,3)}, inner sep=0pt] (A) {};	% m
+	\fill (-.25,2.75) circle [radius=.8mm];
+	\node at (-.25,3.25) {m};
+
+	\node[draw, fit={(0,0) (.5,.5)}, inner sep=0pt] {};	% m0-3
+	\fill (.25,.25) circle [radius=.8mm];
+	\node at (-.5,.25) {m{[3]}};
+	\node[draw, fit={(0,.5) (.5,1)}, inner sep=0pt] {};
+	\fill (.25,.75) circle [radius=.8mm];
+	\node at (-.5,.75) {m{[2]}};
+	\node[draw, fit={(0,1) (.5,1.5)}, inner sep=0pt] {};
+	\fill (.25,1.25) circle [radius=.8mm];
+	\node at (-.5,1.25) {m{[1]}};
+	\node[draw, fit={(0,1.5) (.5,2)}, inner sep=0pt] (B) {};
+	\fill (.25,1.75) circle [radius=.8mm];
+	\node at (-.5,1.75) {m{[0]}};
+	
+	\draw[-Latex] (-.25,2.75) -- (B);  % Pointer
+\end{tikzpicture}

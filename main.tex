@@ -6,7 +6,7 @@
 \author{Noah Kälin}
 \date{\today}
 
-% Zeolenlänge
+% Zeilenlänge
 \usepackage[margin=2cm]{geometry}
 
 % deutsche Silbentrennung
@@ -22,7 +22,8 @@
 \usepackage[table]{xcolor}
 
 % Farben
-
+\def\ownRed{red}
+\def\ownBlue{blue}
 
 % Achtung-Box: Definition
 \newenvironment{achtung}[1][Achtung]{
@@ -59,6 +60,11 @@
 	morekeywords={*, const}
 }
 
+% TikZ
+\usepackage{tikz}
+\usetikzlibrary{fit}
+\usetikzlibrary{arrows.meta}
+
 % fuer Stichwortverzeichnis
 \usepackage{makeidx}
 
@@ -72,6 +78,16 @@
 \graphicspath{{images/}}
 \def\listings{./listings}
 \def\appendix{./appendix}
+\def\images{./images}
+
+% Hyperlinks
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, 	%set true if you want colored links
+    linktoc=all,     	%set to all if you want both sections and subsections linked
+    linkcolor=red	%choose some color if you want links to stand out
+}
+
 
 % Dokumentbeginn
 \begin{document}

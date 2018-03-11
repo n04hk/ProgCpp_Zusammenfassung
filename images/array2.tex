@@ -1,0 +1,23 @@
+%!TEX root = main.tex
+
+\begin{tikzpicture}
+	\node[draw, fit={(-7,0) (-5,1)}, inner sep=0pt, label=center:alpha{[2]}] (A) {};	% row
+	\node[draw, fit={(-7,1) (-5,2)}, inner sep=0pt, label=center:alpha{[1]}] (B) {};
+	\node[draw, fit={(-7,2) (-5,3)}, inner sep=0pt, label=center:alpha{[0]}] (C) {};	
+
+	\node[draw, fit={(0,0) (1.5,1)}, inner sep=0pt, label=center:{[2][0]}] (AA) {};	% matrix
+	\node[draw, fit={(1.5,0) (3,1)}, inner sep=0pt, label=center:{[2][1]}] (AB) {};
+	\node[draw, fit={(3,0) (4.5,1)}, inner sep=0pt, label=center:{[2][2]}] (AC) {};
+	\node[draw, fit={(4.5,0) (6,1)}, inner sep=0pt, label=center:{[2][3]}] (AD) {};
+	\node[draw, fit={(0,1) (1.5,2)}, inner sep=0pt, label=center:{[1][0]}] (BA) {};
+	\node[draw, fit={(1.5,1) (3,2)}, inner sep=0pt, label=center:{[1][1]}] (BB) {};
+	\node[draw, fit={(3,1) (4.5,2)}, inner sep=0pt, label=center:{[1][2]}] (BC) {};
+	\node[draw, fit={(4.5,1) (6,2)}, inner sep=0pt, label=center:{[1][3]}] (BD) {};
+	\node[draw, fit={(0,2) (1.5,3)}, inner sep=0pt, label=center:{[0][0]}] (CA) {};
+	\node[draw, fit={(1.5,2) (3,3)}, inner sep=0pt, label=center:{[0][1]}] (CB) {};	
+	\node[draw, fit={(3,2) (4.5,3)}, inner sep=0pt, label=center:{[0][2]}] (CC) {};
+	\node[draw, fit={(4.5,2) (6,3)}, inner sep=0pt, label=center:{[0][3]}] (CD) {};
+	
+	\draw[-Latex] (-1,2.5) node[left] {$Zeilenindex$}  -- (.4,2.5);						% pointers
+	\draw[-Latex] (1,4) node[above] {$Spaltenindex$} -- (1,2.75);
+\end{tikzpicture}

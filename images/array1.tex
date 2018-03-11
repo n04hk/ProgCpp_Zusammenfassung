@@ -1,0 +1,22 @@
+%!TEX root = main.tex
+
+\begin{tikzpicture}
+	\node[draw, fit={(0,3.5) (2.5,4.5)}, inner sep=0pt, label=center:alpha{[0]}] (A) {};	% upper rectangles
+	\node[draw, fit={(2.5,3.5) (5,4.5)}, inner sep=0pt, label=center:alpha{[1]}] (B) {};
+	\node[draw, fit={(5,3.5) (7.5,4.5)}, inner sep=0pt, label=center:alpha{[2]}] (C) {};
+	\node[draw, fit={(7.5,3.5) (10,4.5)}, inner sep=0pt, label=center:alpha{[3]}] (D) {};
+	\node[draw, fit={(10,3.5) (12.5,4.5)}, inner sep=0pt, label=center:alpha{[4]}] (E) {};
+
+	\draw[-Latex] (-.5,3) node[below] {$alpha$}  -- (A);						% pointers
+	\draw[-Latex] (4.5,3) node[below] {$\&alpha[2]$} -- (C);
+	
+	\node[draw, fit={(7.5,1.625) (12.5,2.825)}, fill=gray!50, inner sep=0pt, label=center:alpha{[i]}{==}*(alpha + i)] () {};	% textbox
+	
+	\node[draw, fit={(0,0) (2.5,1)}, inner sep=0pt, label=center:*alpha] (F) {};	% lower rectangles
+	\node[draw, fit={(2.5,0) (5,1)}, inner sep=0pt, label=center:*(alpha+1)] (G) {};
+	\node[draw, fit={(5,0) (7.5,1)}, inner sep=0pt, label=center:*(alpha+2)] (H) {};
+	\node[draw, fit={(7.5,0) (10,1)}, inner sep=0pt, label=center:*(alpha+3)] (I) {};
+	\node[draw, fit={(10,0) (12.5,1)}, inner sep=0pt, label=center:*(alpha+4)] (J) {};
+	
+	\draw[-Latex] (-.5,1.5) node[above] {$alpha$} -- (F);
+\end{tikzpicture}

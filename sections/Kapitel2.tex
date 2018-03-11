@@ -114,9 +114,9 @@ m = MAX(++z1,++z2);
 \begin{lstlisting}
 m = MAX(++z1,++z2);
 *@\textbf{wird expandiert zu:}@*
-*@\textbf{ m = ((++z1)\flq(++z2) ? (++z1) : (++z2)); m = ((\color{red}5\color{black})\flq(\color{red}7\color{black}) ? (++z1) : (\color{red}8\color{black}));}@*
-*@\textbf{\color{red}// z2 wird zweimal inkrementiert!\color{black}}@*
-*@\textbf{// m=\color{red}8\color{black}, z1=5 ,z2=\color{red}8\color{black} }@*
+*@\textbf{ m = ((++z1)\flq(++z2) ? (++z1) : (++z2)); m = ((\color{\ownRed}5\color{black})\flq(\color{\ownRed}7\color{black}) ? (++z1) : (\color{\ownRed}8\color{black}));}@*
+*@\textbf{\color{\ownRed}// z2 wird zweimal inkrementiert!\color{black}}@*
+*@\textbf{// m=\color{\ownRed}8\color{black}, z1=5 ,z2=\color{\ownRed}8\color{black} }@*
 *@\textbf{erwartet wird:}@*
 *@\textbf{m=7, z1=5, z2=7}@*
 \end{lstlisting}
@@ -184,7 +184,7 @@ void prtDate(int day=1, int month=3, int year=2009);
 \end{minipage}
 \normalsize
 \begin{itemize}
-	\item Parametern können im Funktionsprototypen (\color{red}bitte nur dort!\color{black}) Defaultwerte zugewiesen werden.
+	\item Parametern können im Funktionsprototypen (\color{\ownRed}bitte nur dort!\color{black}) Defaultwerte zugewiesen werden.
 	\item Beim Funktionsaufruf können (aber müssen nicht) die Parameter mit default-Werten weggelassen werden
 \\ \begin{achtung}Hinter (rechts von) einem default-Argument darf kein nicht vorbelegter Parameter mehr folgen, d.h. wenn bei einem Parameter ein default definiert wird, dann müssen bei allen weiteren Parametern dieser Funktion ebenfalls defaults definiert werden.
 		\end{achtung}
@@ -198,7 +198,7 @@ void prtDate(int day=1, int month=3, int year=2009);
 \begin{lstlisting}
 void prtDate(int day=1, int month=3, int year=2009);
 	
-*@{\textbf{\color{green}// erlaubt sind z.B. die folgenden Aufrufe:\color{black}}}@*
+*@{\textbf{\color{\ownBlue}// erlaubt sind z.B. die folgenden Aufrufe:\color{black}}}@*
 prtDate();			// 1-3-2009
 prtDate(23);		// 23-3-2009
 prtDate(15,6);		// 15-6-2009
@@ -206,9 +206,9 @@ prtDate(24,7,2012);	// 24-7-2012
 
 	
 
-*@\textbf{\color{red}// nicht erlaubt sind z.B. diese Deklarationen:\color{black}}@*
-void prtDate2(int day=7, *@\color{red}int month\color{black}@*, int year=2009);
-void prtDate3(int day, int month=3,*@ \color{red}int year\color{black}@*);
+*@\textbf{\color{\ownRed}// nicht erlaubt sind z.B. diese Deklarationen:\color{black}}@*
+void prtDate2(int day=7, *@\color{\ownRed}int month\color{black}@*, int year=2009);
+void prtDate3(int day, int month=3,*@ \color{\ownRed}int year\color{black}@*);
 \end{lstlisting}
 \end{minipage}
 
@@ -244,7 +244,7 @@ void prtDate3(int day, int month=3,*@ \color{red}int year\color{black}@*);
 		\item[\-] void printChar(char ch);
 		\item[\-] void printInt(int i);
 		\item[\-] void printDouble(double d);
-		\item[\-] \color{red} Ist umständlicher und unverständlicher\color{black}
+		\item[\-] \color{\ownRed} Ist umständlicher und unverständlicher\color{black}
  	\end{itemize}
 \end{itemize}
 
@@ -287,17 +287,17 @@ Overloading sollte zurückhaltend eingesetzt werden. Wenn möglich sind default-
 \noindent
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
-*@\textbf{\color{red}// Variante mit Overloading}@*
-*@\textbf{\color{red}// 3 unterschiedliche Funktionen belegen Speicher}@*
-*@\textbf{\color{red}// 3 unterschiedliche Funktionenmüssen gewartet werden}@*
+*@\textbf{\color{\ownRed}// Variante mit Overloading}@*
+*@\textbf{\color{\ownRed}// 3 unterschiedliche Funktionen belegen Speicher}@*
+*@\textbf{\color{\ownRed}// 3 unterschiedliche Funktionenmüssen gewartet werden}@*
 void print(int i);
 void print(int i, int width);
 void print(int i, char fillchar, int width):
 	
 	
-*@\textbf{\color{green}// Variante mit default-Parametern}@*
-*@\textbf{\color{green}// Eine einzige Funktion belegt Speicher}@*
-*@\textbf{\color{green}// Nur eine Funktion muss gewartet werden}@*
+*@\textbf{\color{\ownBlue}// Variante mit default-Parametern}@*
+*@\textbf{\color{\ownBlue}// Eine einzige Funktion belegt Speicher}@*
+*@\textbf{\color{\ownBlue}// Nur eine Funktion muss gewartet werden}@*
 void print(int i, int width=0, char fillchar=0);	
 \end{lstlisting}
 \end{minipage}
