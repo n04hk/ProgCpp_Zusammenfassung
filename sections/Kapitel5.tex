@@ -89,7 +89,7 @@ extern int Foo_globalVariable;
 	\item Werden lokale Variablen mit demselben Namen wie eine globale Variable oder wie eine Variable in einem umfassenden (äusseren) Block definiert, so ist innerhalb des Blockes nur die lokale Variable sichtbar. Die globale Variable bzw. die Variable in dem umfassenden Block wird durch die Namensgleichheit verdeckt.
 \end{itemize}
 
-\subsubsection{Schlussfolgerung (naheliegend aber falsch\hfill}
+\subsubsection{Schlussfolgerung (naheliegend aber falsch)\hfill}
 \label{sec:unterunterabschnitt}
 \begin{itemize}
 	\item Alle Variablen global definieren, dann muss ich mir keine Sorgen um die Sichtbarkeit machen
@@ -367,7 +367,7 @@ int main()
 	\item[\-] const-Objekte können nicht verändert werden (read-only)
 	\item volatile
 	\item[\-]Der Compiler wird angewiesen, keine Optimierungen (soweit sie die Variable betreffen) vorzunehmen
-	\item voloatile wird oft bei Embedded Systems angewandt, wenn z.B. ''hinter'' einer Variable ein Register liegt.
+	\item volatile wird oft bei Embedded Systems angewandt, wenn z.B. ''hinter'' einer Variable ein Register liegt.
 	\item const und volatile können auch kombiniert werden, z.B. bei read-only-Hardwareregistern
 \end{itemize}
 
