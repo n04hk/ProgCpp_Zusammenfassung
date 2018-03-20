@@ -1,15 +1,15 @@
 %!TEX root = main.tex
 
 \section{Kapitel 5: Scope, Deklarationen, Type Casts\hfill}
-\label{sec:abschnitt}
+\label{sec:Kapitel 5: Scope, Deklarationen, Type Casts}
 
 % Unterabschnitt: Strukturen
 
 \subsection{Strukturen\hfill}
-\label{sec:unterabschnitt}
+\label{sec:Strukturen}
 
 \subsubsection{Strukturen in C++\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Strukturen in C++}
 \begin{itemize}
 	\item Grundsätzlich sind Strukturen in C++ identisch zu Strukturen in C
 	\item In C++ haben Strukturen noch zusätzliche Möglichkeiten (folgt im Zusammenhang mit Klassen)
@@ -31,10 +31,10 @@ Point p1;
 
 % Unterabschnitt: Gültigkeitsbereiche, Namensräume und Sichtbarkeit
 \subsection{Gültigkeitsbereiche, Namensräume und Sichtbarkeit\hfill}
-\label{sec:unterabschnitt}
+\label{sec:Gueltigkeitsbereiche, Namensraeume und Sichtbarkeit}
 
 \subsubsection{Gültigkeitsbereiche von Namen (Scope)\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Gueltigkeitsbereiche von Namen (Scope)}
 \begin{itemize}
 	\item Prinzipiell identisch wie in C
 	\item Der Compiler arbeitet immer Dateiweise
@@ -53,7 +53,7 @@ extern int Foo_globalVariable;
 \end{itemize}
 
 \subsubsection{Gültigkeitsbereiche in C++\hfill}
-\label{secunterunterabschnitt}
+\label{sec:Gueltigkeitsbereiche in C++}
 \begin{itemize}
 	\item Lokaler Gültigkeitsbereich (local scope)
 	\item[\-] Alle in einem Block deklarierten Bezeichner gelten von ihrer Deklaration an bis zum Ende des aktuellen Blocks
@@ -66,14 +66,14 @@ extern int Foo_globalVariable;
 \end{itemize}
 
 \subsubsection{Gültigkeit (Scope) von Variablen\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Gueltigkeit (Scope) von Variablen}
 \begin{itemize}
 	\item Eine Variable ist an einer bestimmten Stelle gültig, wenn ihr Name an dieser Stelle dem Compiler durch eine Vereinbarung bekannt ist
 	\item Gültige Variablen können für den Programmierer unsichtbar sein, wenn sie durch eine andere Variable desselben Namens verdeckt werden
 \end{itemize}
 
 \subsubsection{Lebensdauer von Variablen\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Lebensdauer von Variablen}
 \begin{itemize}
 	\item Die Lebensdauer ist die Zeitspanne, in der das Laufzeitsystem des Compilers der Variablen einen Platz im Speicher zur Verfügung stellt
 	\item Mit anderen Worten, während ihrer Lebensdauer besitzt eine Variable einen Speicherplatz
@@ -82,7 +82,7 @@ extern int Foo_globalVariable;
 \end{itemize}
 
 \subsubsection{Sichtbarkeit von Variablen\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Sichtbarkeit von Variablen}
 \begin{itemize}
 	\item Variablen von inneren Blöcken sind nach aussen nicht sichtbar
 	\item Globale Variablen und Variablen in äusseren Blöcken sind in inneren Blöcken sichtbar
@@ -90,7 +90,7 @@ extern int Foo_globalVariable;
 \end{itemize}
 
 \subsubsection{Schlussfolgerung (naheliegend aber falsch)\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Schlussfolgerung (naheliegend aber falsch)}
 \begin{itemize}
 	\item Alle Variablen global definieren, dann muss ich mir keine Sorgen um die Sichtbarkeit machen
 \end{itemize}
@@ -107,7 +107,7 @@ $\rightarrow$ Stimmt schon, aber:
 \end{itemize}
 
 \subsubsection{Lebensdauer (grau) und Sichtbarkeit (weiss)}
-\label{sec:unterunterabschnitt}
+\label{sec:Lebensdauer (grau) und Sichtbarkeit (weiss)}
 \noindent
 \begin{figure}[hh]
 	\centering
@@ -115,7 +115,7 @@ $\rightarrow$ Stimmt schon, aber:
 \end{figure}
 
 \subsubsection{Codierstil\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Codierstil}
 \begin{itemize}
 	\item Variablen so lokal wie möglich definieren, d.h. im innersten möglichen Block (Tipp: nur am Anfang eines Blocks)
 	\item Globale Variablen wenn immer möglich vermeiden. Sie müssen speziell gekennzeichnet werden. Sie sollen (in C) mit einem Prefix (Modulkürzel) gefolgt von einem underscore character (\_) beginnen. Dadurch werden die Namen eindeutig.
@@ -135,10 +135,10 @@ Besser (in C++): Namespace definieren
 % Unterkapitel: Namensräume (Namespaces)
 
 \subsection{Namensräume (Namespaces)\hfill}
-\label{sec:unterabschnitt}
+\label{sec:Namensraeume (Namespaces)}
 
 \subsubsection{Namensräume\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Namensraeume}
 \textbf{Namen, die zu verschiedenen Namensräumen gehören, dürfen auch innerhalb desselben Gültigkeitsbereichs gleich sein.}
 In C gibt es die folgenden Namensräume (gilt auch für C++):
 \begin{itemize}
@@ -153,7 +153,7 @@ Dadurch können (und sollen unbedingt!) die in C üblichen Modulkürzel vermiede
 \end{hinweis}
 
 \subsubsection{Explizite Namensräume in C++\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Explizite Namensraeume in C++}
 \begin{itemize}
 	\item Nebst den vordefinierten (impliziten) Namensräumen des vorherigen Abschnitts können in C++ explizit eigene Namensräume (namespaces) definiert werden.
 	\item Bezeichner müssen nur innerhalb ihres Namensraums eindeutig sein
@@ -162,7 +162,7 @@ Dadurch können (und sollen unbedingt!) die in C üblichen Modulkürzel vermiede
 \end{itemize}
 
 \subsubsection{C++-Mechanismen für Namespaces\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:C++-Mechanismen fuer Namespaces}
 \begin{itemize}
 	\item Deklaration von Namespaces
 	\item Namespace-Alias
@@ -178,7 +178,7 @@ namespace fbssLib = financial_branch_and_system_service_library;
 \end{itemize}
 
 \subsubsection{Deklaration von Namespaces\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Deklaration von Namespaces}
 \begin{itemize}
 	\item Alle in einem Namespace deklarierten Bezeichner werden diesem Namespace zugeordnet
 	\item Auf die Bezeichner des Namespaces kann mit dem Scope-Operator :: zugegriffen werden
@@ -188,7 +188,7 @@ namespace fbssLib = financial_branch_and_system_service_library;
 \end{itemize}
 
 \subsubsection{Deklaration von Namespaces: Beispiel\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Deklaration von Namespaces: Beispiel}
 \noindent
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
@@ -214,7 +214,7 @@ namespace myLib2
 \end{minipage}
 
 \subsubsection{using-Deklaration\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:using-Deklaration}
 \begin{itemize}
 	\item Eine using-Deklaration ''importiert'' Namen aus einem Namensraum und macht ihn ohne explizite Namensraumangabe verwendbar
 	\item Sie kann lokal in einem Block oder global ausserhalb eines Blocks verwendet werden
@@ -232,7 +232,7 @@ int main()
 \end{minipage}
 
 \subsubsection{using-Direktive\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:using-Direktive}
 \begin{itemize}
 	\item Eine using-Direktive macht alle Namen aus einem Namensraum ohne explizite Namensraumangabe verwendbar
 \end{itemize}
@@ -249,7 +249,7 @@ int main()
 \end{minipage}
 
 \subsubsection{using namespace kann zu Konflikten führen\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:using namespace kann zu Konflikten fuehren}
 \begin{itemize}
 	\item Wenn bei mehreren using namespace-Deklarationen und/oder -Direktiven die Namen (ohne Namespace-Angabe) nicht eindeutig sind, müssen die Namen voll qualifiziert verwendet werden (mit Namespace-Angabe)
 \end{itemize}
@@ -278,7 +278,7 @@ namespace myLib2
 \end{minipage}
 
 \subsubsection{Namenlose Namespaces\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Namenlose Namespaces}
 \begin{itemize}
 	\item Ein namenloser Namespace wird wie ein spezieller Namensraum mit einem systemweit eindeutigen Namen behandelt
 \end{itemize}
@@ -297,7 +297,7 @@ namespace
 \end{minipage}
 
 \subsubsection{Zugriff auf globale Variable mit Scope-Operator\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Zugriff auf globale Variable mit Scope-Operator}
 \noindent
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
@@ -315,10 +315,10 @@ int main()
 % Unterabschnitt: Speicherklassen
 
 \subsection{Speicherklassen\hfill}
-\label{sec:unterabschnitt}
+\label{sec:Speicherklassen}
 
 \subsubsection{Speicherklassen in C++\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Speicherklassen in C++}
 \begin{itemize}
 	\item auto
 	\item[\-] Ist default, wenn nichts geschrieben wird. Eine mit auto deklarierte Variable wird nach Beendigung des Scopes automatisch entfernt.\\
@@ -332,7 +332,7 @@ int main()
 \end{itemize}
 
 \subsubsection{Speicherklasse static: Variablen\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Speicherklasse static: Variablen}
 \begin{itemize}
 	\item static-Variablen sind im Datenbereich, nicht auf dem Stack
 	\item Sie werden automatisch auf 0 initialisiert, wenn nichts anderes steht
@@ -343,7 +343,7 @@ int main()
 \end{itemize}
 
 \subsubsection{Speicherklasse static: Funktionen\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Speicherklasse static: Funktionen}
 \begin{itemize}
 	\item static-Funktionen sind nur in der Datei, in welcher sie definiert sind, sichtbar
 	\item Alle Funktionen, welche nicht aussen (für andere Units) sichtbar sein sollen, sollten deshalb \textbf{in C} als static definiert werden\color{\ownRed}
@@ -351,7 +351,7 @@ int main()
 \end{itemize}
 
 \subsubsection{Speicherklasse extern: Externe Variablen\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Speicherklasse extern: Externe Variablen}
 \begin{itemize}
 	\item Eine externe Variable kann nur in einer einzigen Datei definiert werden (ohne Speicherklasse extern)
 	\item In den anderen Dateien wird sie mit extern deklariert (bekannt gemacht)
@@ -361,7 +361,7 @@ int main()
 \end{itemize}
 
 \subsubsection{Typqualifikationen (Kap. 9.2.2)\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Typqualifikationen (Kap. 9.2.2)}
 \begin{itemize}
 	\item const
 	\item[\-] const-Objekte können nicht verändert werden (read-only)
@@ -372,7 +372,7 @@ int main()
 \end{itemize}
 
 \subsubsection{Funktionsattribute\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Funktionsattribute}
 \begin{itemize}
 	\item inline
 	\item[\-] bereits bekannt
@@ -385,10 +385,10 @@ int main()
 % Unterkapitel: Typdefinitionen
 
 \subsection{Typdefinitionen\hfill}
-\label{sec:unterabschnitt}
+\label{sec:Typdefinitionen}
 
 \subsubsection{typedef zur Vereinbarung eigener Datentypen\hfill}
-\label{sec:uterunterabschnitt}
+\label{sec:typedef zur Vereinbarung eigener Datentypen}
 \begin{itemize}
 	\item analog C
 	\item In C++ kann aber z.B. bei structs das typedef weggelassen werden
@@ -416,7 +416,7 @@ struct Point {
 \end{itemize}
 
 \subsubsection{Beispiel\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Beispiel}
 \noindent
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
@@ -445,7 +445,7 @@ int main(void)
 \end{minipage}
 
 \subsubsection{Gewährleistung von Portabilität\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Gewaehrleistung von Portabilitaet}
 \begin{itemize}
 	\item Oft muss z.B. ein Register ein 16 Bit breiter Wert geschrieben werden. Welcher Typ ist nun 16 Bit breit?
 	\item Das ist implementationsabhängig (vielleicht unsigned short, unsigned int, ...)
@@ -460,7 +460,7 @@ typedef unsigned short uint16_t;
 \end{itemize}
 
 \subsubsection{Wie setzt der Compiler ein typedef um?\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Wie setzt der Compiler ein typedef um?}
 \begin{itemize}
 	\item Ein typedef ist mehr oder weniger eine reine Textersetzung. Erklärung anhand des folgenden Beispiels:
 	\item[\-]
@@ -483,16 +483,16 @@ typedef struct {int x;
 \end{itemize}
 
 \subsection{Initialisierung\hfill}
-\label{sec:unterabschnitt}
+\label{sec:Initialisierung}
 \begin{itemize}
 	\item analog C
 \end{itemize}
 
 \subsection{Type-Case (Typumwandlungen)\hfill}
-\label{sec:unterabschnitt}
+\label{sec:Type-Case (Typumwandlungen)}
 
 \subsubsection{Typumwandlungen im Allgemeinen\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Typumwandlungen im Allgemeinen}
 \begin{itemize}
 	\item Unsafe conversion
 	\item[\-] Wenn bei der Typumwandlung signifikante Stellen verloren gehen können (typischerweise bei einer Umwandlung von einem ''grösseren'' in einen ''kleineren'' Typ, z.B. von double nach int)
@@ -502,14 +502,14 @@ typedef struct {int x;
 \end{itemize}
 
 \subsubsection{Implizite Typumwandlung\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Implizite Typumwandlung}
 \begin{itemize}
 	\item Die implizite (automatische) Typumwandlung wird auch als Standard-Typumwandlung bezeichnet
 	\item Sie erfolgt analog zur Programmiersprache C (siehe dort)
 \end{itemize}
 
 \subsubsection{Explizite Typumwandlung\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Explizite Typumwandlung}
 \begin{itemize}
 	\item Nebst den impliziten (automatischen) Typumwandlungen kann in C++ mit Hilfe von 6 verschiedenen cast-Operatoren eine explizite Typumwandlung bewirkt werden.
 	\item Bei der expliziten Typumwandlung gibt der Programmierer explizit an, was er will.
@@ -521,7 +521,7 @@ typedef struct {int x;
 \end{itemize}
 
 \subsubsection{Explizite Typumwandlung \#1, 2: C-Stil und Funktionsstil\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Explizite Typumwandlung 1}
 \begin{itemize}
 	\item Stroustrup: ''The C and C+ cast is a sledgehammer...''
 	\item Syntax für C-Stil (einzige Variante in C):
@@ -545,7 +545,7 @@ int a = int(4.6);	// a == 4
 \end{itemize}
 
 \subsubsection{Typumwandlung mit C-Stil und Funktionsstil\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Typumwandlung mit C-Stil und Funktionsstil}
 \textbf{Typumwandlung ist...}
 \begin{itemize}
 	\item einfache Reinterpretation der bitweisen Darstellung des Ausdrucks
@@ -559,7 +559,7 @@ Diese beiden Casts sollten in C++ nicht verwendet werden!
 \end{achtung}
 
 \subsubsection{Explizite Typumwandlung \#3: const\_cast\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Explizite Typumwandlung 3}
 \textbf{Anwendung:}\\
 Ausschliesslich die (vorübergehende) Entfernung des const-Qualifikators, d.h. die Umwandlung eines Ausdrucks vom Typ T mit den optionalen Qualifikatoren const und volatile in einen Ausdruck desselben Typs ohne den Qualifikator const\\
 \textbf{Syntax:}
@@ -578,19 +578,19 @@ const char* findSubString(const char* str, const char* subStr)
 Die Funktion strstr() akzeptiert nur Parameter com Typ char* (ohne const)
 
 \subsubsection{Explizite Typumwandlung \#4: static\_cast\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Explizite Typumwandlung 4}
 \textbf{Anwendung:}\\
 Umwandlung von Objekten einer Klasse auf Objekte einer Basisklasse oder die Umwandlung mittels einer Umwandlungsfunktion.\\
 Wenn schon Type cast, dann ist static\_cast die häufigste.
 
 \subsubsection{Explizite Typumwandlung \#5: dynamic\_cast\hfill}
-\label{esc:unterunterabschnitt}
+\label{esc:Explizite Typumwandlung 5}
 \textbf{Anwendung:}\\
 Umwandlung von polymorphen Objekten im Zusammenhang mit dem Typsystem von C++ eingesetzt (Stichwort RTTI = Runtime Type Information System)\\
 Näheres folgt später im Zusammenhang mit Klassen und Polymorphismus.
 
 \subsubsection{Explizite Typumwandlung \#6: reinterpret\_cast\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Explizite Typumwandlung 6}
 \textbf{Anwendung:}\\
 reinterpret\_cast ist eine neue Interpretation der zugrunde liegenden Bitkette.\\
 \textbf{Syntax:}

@@ -12,7 +12,7 @@
 \contentsline {subsubsection}{\numberline {1.2.2}Styleguide: Bezeichner (\raisebox {-0.9ex}{\~{ }}Namen)\hfill }{6}{subsubsection.1.2.2}
 \contentsline {subsection}{\numberline {1.3}Typkonzept\hfill }{7}{subsection.1.3}
 \contentsline {subsubsection}{\numberline {1.3.1}Datentypen\hfill }{7}{subsubsection.1.3.1}
-\contentsline {subsubsection}{\numberline {1.3.2}\#define (Kap. 4.5)\hfill }{7}{subsubsection.1.3.2}
+\contentsline {subsubsection}{\numberline {1.3.2}{\#}define (Kap. 4.5)\hfill }{7}{subsubsection.1.3.2}
 \contentsline {subsection}{\numberline {1.4}Ausdr\IeC {\"u}cke und Operatoren\hfill }{7}{subsection.1.4}
 \contentsline {subsubsection}{\numberline {1.4.1}Ausdr\IeC {\"u}cke und Operatoren\hfill }{7}{subsubsection.1.4.1}
 \contentsline {subsection}{\numberline {1.5}Anweisungen\hfill }{8}{subsection.1.5}
@@ -21,24 +21,24 @@
 \contentsline {subsubsection}{\numberline {1.6.1}Streamkonzept\hfill }{8}{subsubsection.1.6.1}
 \contentsline {subsubsection}{\numberline {1.6.2}Einsatz von Streams\hfill }{8}{subsubsection.1.6.2}
 \contentsline {subsubsection}{\numberline {1.6.3}Ausgabe: Klasse ostream\hfill }{9}{subsubsection.1.6.3}
-\contentsline {subsubsection}{\numberline {1.6.4}Eingabe: Klasse istream}{9}{subsubsection.1.6.4}
+\contentsline {subsubsection}{\numberline {1.6.4}Eingabe: Klasse istream\hfill }{9}{subsubsection.1.6.4}
 \contentsline {subsubsection}{\numberline {1.6.5}Formatierte Ein- und Ausgabe\hfill }{9}{subsubsection.1.6.5}
-\contentsline {subsubsection}{\numberline {1.6.6}Format-Flags um \IeC {\"U}berblick (unvollst\IeC {\"a}ndig)\hfill }{9}{subsubsection.1.6.6}
+\contentsline {subsubsection}{\numberline {1.6.6}Format-Flags um \IeC {\"U}berblick {(unvollst\IeC {\"a}ndig)}\hfill }{9}{subsubsection.1.6.6}
 \contentsline {section}{\numberline {2}Kapitel 2: Funktionen\hfill }{10}{section.2}
 \contentsline {subsection}{\numberline {2.1}Grundlegendes\hfill }{10}{subsection.2.1}
 \contentsline {subsubsection}{\numberline {2.1.1}Synonyme f\IeC {\"u}r Funktionen\hfill }{10}{subsubsection.2.1.1}
 \contentsline {subsubsection}{\numberline {2.1.2}Aufgabe einer Funktion\hfill }{10}{subsubsection.2.1.2}
 \contentsline {subsubsection}{\numberline {2.1.3}Funktionen (Vergleich zu C)\hfill }{10}{subsubsection.2.1.3}
 \contentsline {subsubsection}{\numberline {2.1.4}Definition von Funktionen\hfill }{10}{subsubsection.2.1.4}
-\contentsline {subsubsection}{\numberline {2.1.5}Deklaration von Funktionen (Funktionsprototypen)}{11}{subsubsection.2.1.5}
+\contentsline {subsubsection}{\numberline {2.1.5}Deklaration von Funktionen (Funktionsprototypen) \hfill }{11}{subsubsection.2.1.5}
 \contentsline {subsubsection}{\numberline {2.1.6}Kosten einer Funktion\hfill }{11}{subsubsection.2.1.6}
 \contentsline {subsection}{\numberline {2.2}C-Makro\hfill }{11}{subsection.2.2}
-\contentsline {subsubsection}{\numberline {2.2.1}C-Makro mit \#define\hfill }{11}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.1}C-Makro mit {\#define}\hfill }{11}{subsubsection.2.2.1}
 \contentsline {subsubsection}{\numberline {2.2.2}Beispiel mit C-Makro: Maximum zweier int-Werte\hfill }{12}{subsubsection.2.2.2}
 \contentsline {subsubsection}{\numberline {2.2.3}Beispiel mit C-Makro: Was passiert wirklich?\hfill }{12}{subsubsection.2.2.3}
 \contentsline {subsection}{\numberline {2.3}inline-Funktionen\hfill }{12}{subsection.2.3}
 \contentsline {subsubsection}{\numberline {2.3.1}inline-Funktionen: Grundlegendes\hfill }{12}{subsubsection.2.3.1}
-\contentsline {subsubsection}{\numberline {2.3.2}Beispiel mit inline-Code: Maximum zweier int-Werte}{13}{subsubsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.3.2}Beispiel mit inline-Code: Maximum zweier int-Werte\hfill }{13}{subsubsection.2.3.2}
 \contentsline {subsection}{\numberline {2.4}Grunds\IeC {\"a}tze f\IeC {\"u}r Optimierungen\hfill }{13}{subsection.2.4}
 \contentsline {subsection}{\numberline {2.5}default-Argumente\hfill }{13}{subsection.2.5}
 \contentsline {subsubsection}{\numberline {2.5.1}Vorbelegte Parameter (default-Argumente)\hfill }{13}{subsubsection.2.5.1}
@@ -159,3 +159,40 @@
 \contentsline {subsubsection}{\numberline {5.7.7}Explizite Typumwandlung \#4: static\_cast\hfill }{46}{subsubsection.5.7.7}
 \contentsline {subsubsection}{\numberline {5.7.8}Explizite Typumwandlung \#5: dynamic\_cast\hfill }{46}{subsubsection.5.7.8}
 \contentsline {subsubsection}{\numberline {5.7.9}Explizite Typumwandlung \#6: reinterpret\_cast\hfill }{46}{subsubsection.5.7.9}
+\contentsline {section}{\numberline {6}Kapitel 6: Module und Datenkapseln\hfill }{48}{section.6}
+\contentsline {subsection}{\numberline {6.1}Modul (Unit)\hfill }{48}{subsection.6.1}
+\contentsline {subsubsection}{\numberline {6.1.1}Motivation\hfill }{48}{subsubsection.6.1.1}
+\contentsline {subsubsection}{\numberline {6.1.2}Nomenklatur: Modul vs. Unit\hfill }{48}{subsubsection.6.1.2}
+\contentsline {subsubsection}{\numberline {6.1.3}Ziele der Modularisierung\hfill }{48}{subsubsection.6.1.3}
+\contentsline {subsubsection}{\numberline {6.1.4}Eigenschaften einer Unit (eines Moduls)\hfill }{48}{subsubsection.6.1.4}
+\contentsline {subsubsection}{\numberline {6.1.5}Bestandteile eine C++-Programms\hfill }{48}{subsubsection.6.1.5}
+\contentsline {subsubsection}{\numberline {6.1.6}Unitkonzept\hfill }{49}{subsubsection.6.1.6}
+\contentsline {subsection}{\numberline {6.2}Geheimnisprinpzip (Information Hiding)\hfill }{49}{subsection.6.2}
+\contentsline {subsubsection}{\numberline {6.2.1}Information Hiding\hfill }{49}{subsubsection.6.2.1}
+\contentsline {subsubsection}{\numberline {6.2.2}Konzept der Datenkapsel\hfill }{49}{subsubsection.6.2.2}
+\contentsline {subsubsection}{\numberline {6.2.3}Beispiel f\IeC {\"u}r Datenzugriff bei Datenkapsel\hfill }{50}{subsubsection.6.2.3}
+\contentsline {subsubsection}{\numberline {6.2.4}Beispiel f\IeC {\"u}r Unit Rechteck (ohne Datenkapsel)\hfill }{50}{subsubsection.6.2.4}
+\contentsline {subsubsection}{\numberline {6.2.5}Beispiel f\IeC {\"u}r Unit Rechteck: Verbesserung \#1}{51}{subsubsection.6.2.5}
+\contentsline {subsubsection}{\numberline {6.2.6}Beispiel f\IeC {\"u}r Unit Rechteck: Verbesserung \#2}{51}{subsubsection.6.2.6}
+\contentsline {subsubsection}{\numberline {6.2.7}Unit nutzen\hfill }{52}{subsubsection.6.2.7}
+\contentsline {subsubsection}{\numberline {6.2.8}Unit-Schnittstelle definieren (in Headerdatei)\hfill }{52}{subsubsection.6.2.8}
+\contentsline {subsubsection}{\numberline {6.2.9}Deklarationsreihenfolge in der Headerdatei (*.h)\hfill }{52}{subsubsection.6.2.9}
+\contentsline {subsubsection}{\numberline {6.2.10}Reihenfolge in der Implementierungsdatei (*.cpp)\hfill }{52}{subsubsection.6.2.10}
+\contentsline {subsubsection}{\numberline {6.2.11}\#include-Konzept}{53}{subsubsection.6.2.11}
+\contentsline {subsubsection}{\numberline {6.2.12}Unit compilieren\hfill }{53}{subsubsection.6.2.12}
+\contentsline {subsubsection}{\numberline {6.2.13}Units linken\hfill }{53}{subsubsection.6.2.13}
+\contentsline {subsubsection}{\numberline {6.2.14}Buildprozess\hfill }{53}{subsubsection.6.2.14}
+\contentsline {subsection}{\numberline {6.3}Make-Tool}{53}{subsection.6.3}
+\contentsline {subsubsection}{\numberline {6.3.1}Abh\IeC {\"a}ngigkeiten zwischen Dateien}{53}{subsubsection.6.3.1}
+\contentsline {subsubsection}{\numberline {6.3.2}make-File}{54}{subsubsection.6.3.2}
+\contentsline {subsubsection}{\numberline {6.3.3}Beispiel: makefile}{54}{subsubsection.6.3.3}
+\contentsline {section}{\numberline {7}Kapitel 7: Eclipse IDE}{55}{section.7}
+\contentsline {subsection}{\numberline {7.1}Eclipse}{55}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Workspace}{55}{subsection.7.2}
+\contentsline {subsubsection}{\numberline {7.2.1}Ressourcen (Resources)}{55}{subsubsection.7.2.1}
+\contentsline {subsubsection}{\numberline {7.2.2}Project}{55}{subsubsection.7.2.2}
+\contentsline {subsection}{\numberline {7.3}Debugger}{55}{subsection.7.3}
+\contentsline {subsubsection}{\numberline {7.3.1}Testen und Debugging}{55}{subsubsection.7.3.1}
+\contentsline {subsubsection}{\numberline {7.3.2}Funktionen eines Debuggers}{55}{subsubsection.7.3.2}
+\contentsline {subsubsection}{\numberline {7.3.3}Assertions (Zusicherungen)}{56}{subsubsection.7.3.3}
+\contentsline {subsubsection}{\numberline {7.3.4}Zu beachten bei Assertions}{56}{subsubsection.7.3.4}

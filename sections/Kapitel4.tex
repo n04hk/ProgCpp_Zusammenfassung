@@ -1,15 +1,15 @@
 %!TEX root = main.tex
 
 \section{Kapitel 4: Arrays, Dynamische Speicherverwaltung\hfill}
-\label{sec:abschnitt}
+\label{sec:Kapitel 4: Arrays, Dynamische Speicherverwaltung}
 
 % Unterabschnitt: Arrays:Vektoren
 
 \subsection{Arrays: Vektoren\hfill}
-\label{sec:unterabschnitt}
+\label{sec:Arrays: Vektoren}
 
 \subsubsection{Problemstellung\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Problemstellung}
 Sie müssen 10 Messwerte (z.B. Temperaturwerte) vom Typ int speichern.
 \noindent
 \begin{minipage}{\linewidth}
@@ -31,7 +31,7 @@ Diese Darstellung ist sehr unhandlich.\\
 Wie würden sie 1000 Messwerte abspeichern?
 
 \subsubsection{Der Array (Feld, Vektor)\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Der Array (Feld, Vektor)}
 Ein Array bietet eine kompakte Zusammenfassung von mehreren Variablen des gleichen Typs.
 \noindent
 \begin{minipage}{\linewidth}
@@ -43,7 +43,7 @@ double zahl[5];	// ein Array von 5 double-Werten
 \end{minipage}
 
 \subsubsection{Zugriff auf ein Arrayelement\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Zugriff auf ein Arrayelement}
 \begin{hinweis}
 Der Zugriff auf ein Element eines Arrays erfolgt über den Array-Index. Ist ein Array mit n Elementen definiert, so ist darauf zu achten, dass in C++ (wie in C) der Index mit 0 beginnt und mit n-1 endet.
 \end{hinweis}
@@ -62,10 +62,10 @@ alpha[5] = 4;	\color{\ownRed}// Bereichsueberschreitung (geht in C++!)\color{bla
 % Unterabschnitt: Arrays und Pointer
 
 \subsection{Arrays und Pointer\hfill}
-\label{sec:unterabschnitt}
+\label{sec:Arrays und Pointer}
 
 \subsubsection{Pro Memoria: Eindimensionales Array (Vektor)\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Pro Memoria: Eindimensionales Array (Vektor)}
 \noindent
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
@@ -82,7 +82,7 @@ ptr = &alpha[2];
 \end{figure}
 
 \subsubsection{Äquivalenz von Array- und Pointernotation\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Aequivalenz von Array- und Pointernotation}
 Der Name des Array kann als konstante Adresse des ersten (Index 0) Elementes des Arrays betrachtet werden.\\
 \vspace{5mm}
 \begin{figure}[h]
@@ -91,7 +91,7 @@ Der Name des Array kann als konstante Adresse des ersten (Index 0) Elementes des
 \end{figure}
 
 \subsubsection{Vergleichen von Arrays\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Vergleichen von Arrays}
 \begin{itemize}
 	\item\color{\ownRed}In C++ gibt es keinen Operator ==, der zwei Arrays miteinander vergleicht\color{black}
 	\item Arrayvergleiche müssen explizit Element um Element durchgeführt werden
@@ -100,7 +100,7 @@ Der Name des Array kann als konstante Adresse des ersten (Index 0) Elementes des
 \end{itemize}
 	
 \subsubsection{Arrayname ist ein nicht modifizierbarer L-Wert\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Arrayname ist ein nicht modifizierbarer L-Wert}
 \begin{itemize}
 	\item Der Arrayname ist die konstante Adresse des ersten Elementes des Arrays und kann nicht verändert werden
 	\item Auf den Arraynamen können nur die beiden Operatoren sizeof und \& angewandt werden
@@ -109,7 +109,7 @@ Der Name des Array kann als konstante Adresse des ersten (Index 0) Elementes des
 \end{itemize}
 
 \subsubsection{Automatische Initialisierung von Arrays\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Automatische Initialisierung von Arrays}
 \begin{itemize}
 	\item Globale Arrays werden automatisch mit 0 initialisiert
 	\begin{itemize}
@@ -122,7 +122,7 @@ Der Name des Array kann als konstante Adresse des ersten (Index 0) Elementes des
 \end{itemize}
 
 \subsubsection{Explizite Initialisierung von Arrays\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Explizite Initialisierung von Arrays}
 \begin{itemize}
 	\item Bei der Definition eines Arrays kann ein Array explizit (''manuell'') initialisiert werden
 	\item Der Definition folgt ein Zuweisungsoperator und eine Liste von Initialisierungswerten
@@ -133,7 +133,7 @@ Der Name des Array kann als konstante Adresse des ersten (Index 0) Elementes des
 \end{itemize}
 
 \subsubsection{Beispiel: Explizite Initialisierung von Arrays\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Beispiel: Explizite Initialisierung von Arrays}
 \noindent
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
@@ -153,7 +153,7 @@ alpha[2] = 3;
 \end{minipage}
 
 \subsubsection{Goodies für die explizite Initialisierung\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Goodies fuer die explizite Initialisierung}
 \begin{itemize}
 	\item Werden bei der Initialisierung weniger Werte angegeben als der Array Elemente hat, so werden die restlichen Elemente mit 0 belegt.\\
 	\noindent
@@ -175,7 +175,7 @@ alpha[2] = 3;
 % Unterabschnitt: Mehrdimensionale Arrays
 
 \subsection{Mehrdimensionale Arrays\hfill}
-\label{sec:unterabschnitt}
+\label{sec:Mehrdimensionale Arrays}
 \noindent
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
@@ -192,7 +192,7 @@ Kann betrachtet werden als Vektor alpha[0] bis alpha[2], wobei jedes Vektoreleme
 \end{figure}
 
 \subsubsection{Initialisierung eines mehrdimensionalen Arrays\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Initialisierung eines mehrdimensionalen Arrays}
 \noindent
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
@@ -225,7 +225,7 @@ int alpha[3][4] = {1, 3, 5, 7, 2, 4, 6, 8, 3, 5, 7, 9};
 % Unterabschnitt: Übergabe von Arrays und Zeichenketten
 
 \subsection{Übergabe von Arrays und Zeichenketten\hfill}
-\label{sec:unterabschnitt}
+\label{sec:Uebergabe von Arrays und Zeichenketten}
 \begin{itemize}
 	\item Bei der Übergabe eines Arrays an eine Funktion wird als Argument der Arrayname übergeben. (i.e. Pointer auf erstes Element des Arrays)
 	\item Der formale Parameter für die Übergabe eines eindimensionalen Arrays kann ein offenes Array sein oder ein Pointer auf den Komponententyp des Arrays.
@@ -233,7 +233,7 @@ int alpha[3][4] = {1, 3, 5, 7, 2, 4, 6, 8, 3, 5, 7, 9};
 \end{itemize}
 
 \subsubsection{Beispiel: Array (Vektor) als Parameter\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Beispiel: Array (Vektor) als Parameter}
 \noindent
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
@@ -253,7 +253,7 @@ int main()
 \end{minipage}
 
 \subsubsection{Übergabe einer Matrix mittels offenem Array\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Uebergabe einer Matrix mittels offenem Array}
 \noindent
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
@@ -272,16 +272,16 @@ void printMat(const double* const mat[],	// Matrix
 \end{itemize}
 
 \subsubsection{Zeichenketten (Strings)\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Zeichenketten (Strings)}
 \begin{itemize}
 	\item Strings sind char-Arrays, abgeschlossen mit dem Zeichen `\textbackslash0`, bzw. 0 (alles analog C)
 \end{itemize}
 
 \subsection{Dynamische Speicherverwaltung\hfill}
-\label{sec:unterabschnitt}
+\label{sec:Dynamische Speicherverwaltung}
 
 \subsubsection{Pro Memoria: Variablen\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Pro Memoria: Variablen}
 \begin{itemize}
 	\item Variablen erleichtern u.a. den Zugriff auf Speicherstellen
 	\begin{itemize}
@@ -298,7 +298,7 @@ void printMat(const double* const mat[],	// Matrix
 \end{itemize}
 
 \subsubsection{Dynamische Speicherverwaltung\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Dynamische Speicherverwaltung 2}
 \begin{itemize}
 	\item Speicher kann zur Laufzeit (dynamisch) vom System angefordert werden
 	\begin{itemize}
@@ -316,7 +316,7 @@ Zugriff auf dynamischen Speicher nie verlieren!
 \end{achtung}
 
 \subsubsection{Dynamische Speicherverwaltung: Syntax\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Dynamische Speicherverwaltung: Syntax}
 \noindent
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
@@ -338,7 +338,7 @@ delete pCh2;	*@\color{\ownRed}// ergibt Fehler, bereits über pCh1 freigegeben@*
 \end{minipage}
 
 \subsubsection{Dynamische Speicherverwaltung: Vorsichtsmassnahmen\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Dynamische Speicherverwaltung: Vorsichtsmassnahmen}
 \begin{itemize}
 	\item der delete-Operator kann auch auf den Nullpointer angewendet werden. Es passiert dadurch (definiert) nichts.
 	\item Die Anwendung des delete-Operators auf einen  bereits freigegebenen Speicherbereich kann Probleme verursachen
@@ -355,7 +355,7 @@ delete pInt;	// ist problemlos
 \end{minipage}
 
 \subsubsection{Memory Leak, Garbage Collection\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Memory Leak, Garbage Collection}
 \begin{itemize}
 	\item Dynamisch allozierter Speicher, welcher nicht freigegeben wurde oder auf welchen der Zugriff verloren ging, belegt weiterhin Platz im Speicher.
 	\item Der faktisch nutzbare Speicher wird somit immer kleiner. Es ist, als ob der Speicher ein Leck hätte. Dieses Fehlverhalten wird deshalb als \textbf{Memory Leak} bezeichnet.
@@ -364,7 +364,7 @@ delete pInt;	// ist problemlos
 \end{itemize}
 
 \subsubsection{Dynamische Allozierung von Arrays\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Dynamische Allozierung von Arrays}
 \begin{itemize}
 	\item In C++ kann Speicher für einen Array auch erst zur Laufzeit (dynamisch) vom System angefordert (alloziert) werden
 	\begin{itemize}
@@ -387,7 +387,7 @@ delete[] pInt;	// korrekter Befehl
 \end{minipage} 
 
 \subsubsection{Dynamische Allozierung von Matrizen\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Dynamische Allozierung von Matrizen}
 \begin{itemize}
 	\item Oft wird eine m x n - Matrix als ein eindimensionaler Array der Grösse (m*n) implementiert. Der Zugriff geht dann jedoch nur noch über Pointer:
 	\noindent
@@ -405,7 +405,7 @@ delete[] pInt;	// korrekter Befehl
 \end{itemize}
 
 \subsubsection{Dynamische Matrix mit 4 Zeilen und 3 Spalten\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Dynamische Matrix mit 4 Zeilen und 3 Spalten}
 \noindent
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
@@ -447,7 +447,7 @@ for (int i=0; i<4; ++i)
 Für die Konstanten 3 und 4 könnten auch Variablen verwendet werden (im Gegensatz zu einer statisch definierten Matrix).
 
 \subsubsection{Zugriff auf dynamisch erzeugte Matrix\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Zugriff auf dynamisch erzeugte Matrix}
 \noindent
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
@@ -466,7 +466,7 @@ m[2][1] = 34.675;	// Der Zugriff erfolgt einfach ueber die Arrayindizes
 \\
 
 \subsubsection{Dynamische Matrix freigeben\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Dynamische Matrix freigeben}
 \noindent
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
@@ -503,7 +503,7 @@ m zeigt immer noch auf die alte Adresse, an welcher sich aber keine gültigen Da
 \end{achtung}
 
 \subsubsection{Effizienz der Matriximplementationen\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Effizienz der Matriximplementationen}
 \begin{itemize}
 	\item Nur mit dieser gezeigten Variante kann auf ein Matrixelement über die Arrayindizes zugegriffen werden:
 	\begin{minipage}{\linewidth}

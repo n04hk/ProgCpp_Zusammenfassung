@@ -1,14 +1,13 @@
 %!TEX root = main.tex
 
 \section{Kapitel 1\hfill}
-\label{sec:abschnitt}
+\label{sec:Kapitel1}
 
 \subsection{Einführung\hfill}
-\label{sec:unterabschnitt}
+\label{sec:Einfuehrung}
 
 \subsubsection{Charakteristiken von C++\hfill}
-\label{sec:unterunterabschnitt}
-
+\label{sec:Charakteristiken von C++}
 \begin{itemize}
 	\item C++ erlaubt sowohl prozedurale, objektorientierte als auch generische Programmierung
 		Achtung: nicht jedes C++-Programm ist objektorientiert
@@ -19,7 +18,7 @@
 \end{itemize}
 
 \subsubsection{Entstehung von C++\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Entstehung von C++}
 \begin{itemize}
 	\item C 					Ritchie 1971, typisiert
 	\item ANSI C 				seit 1983
@@ -34,7 +33,7 @@
 \end{itemize}
 
 \subsubsection{Welches C++?\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Welches C++?}
 \begin{itemize}
 	\item \textbf{Im Modul ProgCPP setzen wir den Standard 14882:2003, d.h. C++03 ein}
 	\item Wieso nicht C++11 oder C++14?
@@ -48,7 +47,7 @@
 \end{itemize}
 
 \subsubsection{C++-Unterstützung von Texas Instruments (TI)\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:C++-Unterstuetzung von Texas Instruments (TI)}
 \begin{itemize}
 	\item TI als Repräsentant für einen Anbieter von Embedded-Entwicklungsumgebungen
 	\item The TI compilers for all devices support
@@ -65,15 +64,15 @@
 \end{itemize}
 
 \subsubsection{Hello World!\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Hello World!}
 \noindent
 \begin{minipage}{\linewidth}
 \lstinputlisting{\listings/hello.cpp}
+\label{lst:Hello World!}
 \end{minipage}
 
 \subsubsection{C++-Compiler (noch nicht Eclipse)\hfill}
-\label{sec:unterunterabschnitt}
-
+\label{sec:C++-Compiler (noch nicht Eclipse)}
 Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) oder clang++ verwendet werden
 \\
 \begin{center}
@@ -83,10 +82,10 @@ Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) ode
 \end{center}
 
 \subsection{Lexikalische Elemente von C++\hfill}
-\label{sec:unterabschnitt}
+\label{sec:Lexikalische Elemente von C++}
 
 \subsubsection{Lexikalische Elemente\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Lexikalische Elemente}
 \begin{itemize}
 	\item C++ ist hier völlig identisch zu C
 	\begin{itemize}
@@ -101,7 +100,7 @@ Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) ode
 \end{itemize}
 
 \subsubsection{Styleguide: Bezeichner (\raisebox{-0.9ex}{\~{ }}Namen)\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Styleguide: Bezeichner}
 \begin{itemize}
 	\item Variablen, Konstanten und Objekte
 	\begin{itemize}
@@ -133,10 +132,10 @@ Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) ode
 \end{itemize}
 
 \subsection{Typkonzept\hfill}
-\label{sec:unterabschnitt}
+\label{sec:Typkonzept}
 
 \subsubsection{Datentypen\hfill}
-\label{sec::unterunterabschnitt}
+\label{sec:Datentypen}
 \begin{itemize}
 	\item In C++ gibt es die gleichen Basisdatentypen (plain old data types, POD types) wie in C
 	\item Zusätzlich: es gibt einen Typ für boole'sche Werte: \textbf{bool}
@@ -144,8 +143,8 @@ Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) ode
 	\item Der Typ \textbf{bool} hat die beiden Werte \textbf{true} und \textbf{false}
 \end{itemize}
 
-\subsubsection{\#define		(Kap. 4.5)\hfill}
-\label{sec:unterunterabschnitt}
+\subsubsection{{\#}define		(Kap. 4.5)\hfill}
+\label{sec:define}
 \begin{itemize}
 	\item In C oft noch geduldet, in C++ verpönt
 	\item \emph{\#define} bewirkt eine reine Textersetzung durch den Präprozessor, umgeht dadurch Syntax- und Typprüfung
@@ -164,20 +163,20 @@ Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) ode
 \end{itemize}
 
 \subsection{Ausdrücke und Operatoren\hfill}
-\label{sec:unterabschnitt}
+\label{sec:Ausdruecke und Operatoren}
 
 \subsubsection{Ausdrücke und Operatoren\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Ausdruecke und Operatoren 2}
 \begin{itemize}
 	\item C++ ist hier völlig identisch zu C
 	\item Es gibt noch ein paar zusätzliche Operatoren in C++ (z.B. für type casting)
 \end{itemize}
 
 \subsection{Anweisungen\hfill}
-\label{sec:unterabschnitt}
+\label{sec:Anweisungen}
 
 \subsubsection{Anweisungen: ebenfalls nichts neues\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Anweisungen: ebenfalls nichts neues}
 \begin{itemize}
 	\item Die Syntax der Blockanweisung ist identisch zu C
 	\item Die Syntax der Steuerstrukturen ist identisch zu C
@@ -196,10 +195,10 @@ Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) ode
 \end{itemize}
 
 \subsection{Streams\hfill}
-\label{sec:unterabschnitt}
+\label{sec:Streams}
 
 \subsubsection{Streamkonzept\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Streamkonzept}
 \begin{itemize}
 	\item Ein Stream repräsentiert einen sequentiellen Datenstrom
 	\item Die Operatoren auf dem Stream sind << und >>
@@ -215,7 +214,7 @@ Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) ode
 \end{itemize}
 
 \subsubsection{Einsatz von Streams\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Einsatz von Streams}
 \begin{itemize}
 	\item In C werden printf() und scanf() mit stdin, stdout, stderr verwendet
 	\item printf() und scanf() könnten in C++ immer noch verwendet werden. Dies soll jedoch im Normalfall vermieden werden.
@@ -225,7 +224,7 @@ Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) ode
 \end{itemize}
 
 \subsubsection{Ausgabe: Klasse ostream\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Ausgabe: Klasse ostream}
 \begin{itemize}
 	\item Methoden für die Ausgabe von vordefinierten Datentypen, z.B.:
 		\\ ostream\& operator \flq\flq(int n);
@@ -238,8 +237,8 @@ Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) ode
 		\\cout \flq\flq \grqq Hallo  \grqq \flq\flq i \flq\flq endl;
 \end{itemize}
 
-\subsubsection{Eingabe: Klasse istream}
-\label{sec:unterunterabschnit}
+\subsubsection{Eingabe: Klasse istream\hfill}
+\label{sec:Eingabe: Klasse istream}
 \begin{itemize}
 	\item Methoden für die Eingabe von vordefinierten Datentypen, z.B.:
 		\\ istream\& operator \frq\frq(int\& n);
@@ -254,15 +253,15 @@ Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) ode
 \end{itemize}
 
 \subsubsection{Formatierte Ein- und Ausgabe\hfill}
-\label{sec:subsubsection}
+\label{sec:Formatierte Ein- und Ausgabe}
 ios, eine Basisklasse von iostream, stellt verschiedene Möglichkeiten (Format Flags) vor, um die Ein- und Ausgabe zu beeinflussen.
 \\ \\
 Beispiel:
 \\ \\
 cout \flq\flq \color{\ownRed} showbase \flq\flq \color{\ownBlue} hex \flq\flq \color{black}27;	// Ausgabe: \color{\ownRed}0x\color{\ownBlue}1b \color{black}
 
-\subsubsection{Format-Flags um Überblick (unvollständig)\hfill}
-\label{sec:unterunterabschnitt}
+\subsubsection{Format-Flags um Überblick {(unvollständig)}\hfill}
+\label{sec:Format-Flags um Ueberblick}
 \rowcolors{1}{gray!25}{gray!5}
 \begin{tabularx}{\textwidth}{|p{0.25\textwidth}|X|X|}
 	\hline

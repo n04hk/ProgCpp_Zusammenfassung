@@ -1,13 +1,13 @@
 %!TEX root = main.tex
 
 \section{Kapitel 3: Pointer und Referenzen\hfill}
-\label{sec:abschnitt}
+\label{sec:Kapitel 3: Pointer und Referenzen}
 
 \subsection{Höhere und strukturierte Datentypen\hfill}
-\label{sec:unterabschnitt}
+\label{sec:Hoehere und strukturierte Datentypen}
 
 \subsubsection{Höhere Datentypen\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Hoehere Datentypen}
 \begin{itemize}
 	\item Pointer
 	\item Referenzen
@@ -15,7 +15,7 @@
 \end{itemize}
 
 \subsubsection{Strukturierte Datentypen\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Strukturierte Datentypen}
 \begin{itemize}
 	\item Strukturen
 	\item Klassen
@@ -24,17 +24,17 @@
 % Unterkapitel: Pointer
 
 \subsection{Pointer\hfill}
-\label{sec:unterabschnitt}
+\label{sec:Pointer}
 
 \subsubsection{Adresse\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Adresse}
 \begin{itemize}
 	\item Die Nummereiner Speicherzelle wird als \textbf{Adresse} bezeichnet
 	\item Bei einem byteweise adressierbaren Speicher(ist üblich) liegt an jeder Adresse genau 1 Byte
 \end{itemize}
 
 \subsubsection{Pointer\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Pointer}
 \begin{itemize}
 	\item Synonym: Zeiger
 	\item Ein Pointer ist eine Variable, welche die Adresse einer im Speicher befindlichen Variablen oder Funktion aufnehmen kann
@@ -43,7 +43,7 @@
 \end{itemize}
 
 \subsubsection{Standarddarstellung von Pointern\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Standarddarstellung von Pointern}
 \noindent
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
@@ -59,7 +59,7 @@ pointer = \&alpha;
 \end{figure}
 
 \subsubsection{Pointer und Datentyp\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Pointer und Datentyp}
 \begin{itemize}
 	\item Pointer in C++ sind typisiert (wie in C), sie zeigen auf eine Variable des definierten Typs
 	\item Oder anders ausgedrückt:
@@ -69,7 +69,7 @@ pointer = \&alpha;
 \end{itemize}
 
 \subsubsection{Definition einer Pointervariablen\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Definition einer Pointervariablen}
 \noindent
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
@@ -88,7 +88,7 @@ double* ptr2;	// ptr2 ist ein Pointer auf double
 \end{figure}
 
 \subsubsection{Initialisierung mit Null-Pointer\hfill}
-\label{sec_unterunterabschnitt}
+\label{sec_Initialisierung mit Null-Pointer}
 Mit dem Null-Pointer wird angezeigt, dass der Pointer auf \textbf{kein} Objekt zeigt. Dem Pointer wird ein definierter Nullwert zugewiesen.\\
 \\
 \begin{hinweis}
@@ -108,7 +108,7 @@ int* ptr = 0;	// bitte nicht NULL verwenden!
 \end{figure}
 
 \subsubsection{Der Adressoperator \& \textbf{(Referenzierung)}\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Der Adressoperator}
 Ist x eine Variable vom Typ Typname, so liefert der Ausdruck \&x einen Pointer auf die Variable x, d.h. er liefert die Adresse der Variablen x.\\
 \\
 \noindent
@@ -124,7 +124,7 @@ ptr = &wert;		// ptr zeigt nun auf die Variable wert, d.h.
 \end{minipage}
 
 \subsubsection{Kopieren von Adressen\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Kopieren von Adressen}
 \noindent
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
@@ -161,7 +161,7 @@ ptr2 = ptr1;
 \\ \\ \\
 
 \subsubsection{Der Inhaltsoperator * \textbf{(Dereferenzierung)}\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Der Inhaltsoperator}
 Ist ptr ein Pointer vom Typ Typname, so liefert der Ausdruck *ptr den Inhalt der Speicherzelle, auf welche ptr zeigt.\\
 \\
 \noindent
@@ -179,7 +179,7 @@ ptr = &wert;	// ptr zeigt nun auf die Variable wert, d.h.
 \end{minipage}
 
 \subsubsection{Darstellung in graphischer Pointernotation\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Darstellung in graphischer Pointernotation}
 \noindent
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
@@ -206,7 +206,7 @@ ptr = &wert;
 \\ \\ \\
 
 \subsubsection{const bei Pointern: Vorsicht\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:const bei Pointern: Vorsicht}
 \underline{1. Variante: konstanter String}\\
 \noindent
 \begin{minipage}{\linewidth}
@@ -282,7 +282,7 @@ ptr ist ein Pointer auf eine int-Konstante.
 \\
 
 \subsubsection{void-Pointer\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:void-Pointer}
 \begin{itemize}
 	\item void-Pointer sind Objekte, die eine gültige Adresse darstellen
 	\item einem void-Pointer kann jeder Pointer zugewiesen werden
@@ -305,7 +305,7 @@ pd = static_cast<double*>pv;	*@\color{\ownBlue}// ok@*
 \end{minipage}
 
 \subsubsection{Pointer auf Funktionen\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Pointer auf Funktionen}
 \begin{itemize}
 	\item Jede Funktion befindet sich an einer definierten Adresse im Codespeicher
 	\item Diese Adresse kann ebenfalls ermittelt werden
@@ -316,7 +316,7 @@ In C++ gibt es für viele Situationen bessere Alternativen zu Funktionspointern 
 \end{hinweis}
 
 \subsubsection{Interruptvektortabelle: Tabelle von Funktionspointern\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Interruptvektortabelle: Tabelle von Funktionspointern}
 \centering
 \begin{tabularx}{0.25\textwidth}{|X|}
 	\hline
@@ -335,20 +335,20 @@ In C++ gibt es für viele Situationen bessere Alternativen zu Funktionspointern 
 ISR = Interrupt Service Routine
 
 \subsubsection{Umsetzung von Funktionspointern in C/C++\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Umsetzung von Funktionspointern in C/C++}
 Der Name der Funktion kann als Adresse auf den ersten Befehl der Funktion verwendet werden (analog Array).
 
 \subsubsection{Beispiel für Funktionspointer}
-\label{sec:unterunterabschnitt}
+\label{sec:Beispiel fuer Funktionspointer}
 \lstinputlisting{\listings/ftptr.cpp}
 
 % Unterkapitel: Referenzen
 
 \subsection{Referenzen\hfill}
-\label{secc:unterabschnitt}
+\label{secc:Referenzen}
 
 \subsubsection{Was ist eine Referenz?\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Was ist eine Referenz?}
 \begin{itemize}
 	\item Eine Referenz ist ein Alternativname (Alias) für ein Objekt
 	\item Referenzen ähneln Pointern, sind aber nicht dasselbe. Bei einem Pointer wird immer eine Adresse ermittelt, d.h. dieses Datenobjekt muss sich im adressierbaren Bereich befinden. Eine Referenz kann aber auch auf ein Register verweisen. Grundsätzlich sind Referenzen effizienter als Pointer.
@@ -358,7 +358,7 @@ Der Name der Funktion kann als Adresse auf den ersten Befehl der Funktion verwen
 \end{itemize}
 
 \subsubsection{Syntax von Referenzen\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Syntax von Referenzen}
 \noindent
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
@@ -375,7 +375,7 @@ Referenzen können nach der Definition nicht ''umgehängt'' werden, d.h. eine Re
 \end{hinweis}
 
 \subsubsection{Einsatz von Referenzen\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Einsatz von Referenzen}
 \begin{itemize}
 	\item In folgenden zwei Fällen einsetzen:
 	\begin{itemize}
@@ -387,7 +387,7 @@ Referenzen können nach der Definition nicht ''umgehängt'' werden, d.h. eine Re
 \end{itemize}
 
 \subsubsection{Pointer und Referenzen auf lokale Variablen\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Pointer und Referenzen auf lokale Variablen}
 \begin{achtung}
 Sie dürfen niemals einen Pointer oder eine Referenz auf eine lokale Variable oder ein lokales Objekt mittels return zurückgeben
 \end{achtung}
@@ -396,10 +396,10 @@ Grund:\\Nach Beendigung der Funktion sind die lokalen Variablen ungültig.
 % Unterkapitel: Zeiger/Referenzen
 
 \subsection{Zeiger und Referenzen als Parameter und Rückgabewerte\hfill}
-\label{sec:unterabschnitt}
+\label{sec:Zeiger und Referenzen als Parameter und Rueckgabewerte}
 
 \subsubsection{Call by Value vs. Call by Reference\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Call by Value vs. Call by Reference}
 \begin{itemize}
 	\item Parameter, die by value übergeben werden (Wertparameter) werden kopiert, in der Funktion wird mit Kopien gearbeitet.
 	\item Bei Referenzparametern (call by reference) wird nur eine Referenz (Alias) des Originals übergeben.
@@ -407,7 +407,7 @@ Grund:\\Nach Beendigung der Funktion sind die lokalen Variablen ungültig.
 \end{itemize}
 
 \subsubsection{3 Beispiele\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:3 Beispiele}
 \underline{Versuch 1: Call by value}
 \noindent
 \begin{minipage}{\linewidth}
@@ -470,7 +470,7 @@ int main()
 \end{minipage}
 
 \subsubsection{Call by reference: wann einsetzen?\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Call by reference: wann einsetzen?}
 \#1: wenn Parameter in der Funktion verändert werden sollen\\
 \#2: wenn ''grosse'' Parameter übergeben werden sollen (struct, class)\\
 zu \#2: wenn verhindert werden soll, dass der Parameter verändert wird, so kann dieser mit const deklariert werden\\
@@ -485,7 +485,7 @@ Parameterübergabe und Rückgabe von Objekten by value ist ein Hauptgrund für l
 \end{achtung}
 
 \subsubsection{Merke\hfill}
-\label{sec:unterunterabschnitt}
+\label{sec:Merke}
 \begin{achtung}
 Variablen einer Struktur und Variablen einer Klasse (Objekte) müssen immer by reference übergeben werden, niemals by value.\\
 Read-only Parameter werden zusätzlich mit const spezifiziert.
