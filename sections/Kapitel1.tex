@@ -1,12 +1,12 @@
 %!TEX root = main.tex
 
-\section{Kapitel 1\hfill}
+\section{Kapitel 1}
 \label{sec:Kapitel1}
 
-\subsection{Einführung\hfill}
+\subsection{Einführung}
 \label{sec:Einfuehrung}
 
-\subsubsection{Charakteristiken von C++\hfill}
+\subsubsection{Charakteristiken von C++}
 \label{sec:Charakteristiken von C++}
 \begin{itemize}
 	\item C++ erlaubt sowohl prozedurale, objektorientierte als auch generische Programmierung
@@ -17,7 +17,7 @@
 	\item C++ ist sicherer als C
 \end{itemize}
 
-\subsubsection{Entstehung von C++\hfill}
+\subsubsection{Entstehung von C++}
 \label{sec:Entstehung von C++}
 \begin{itemize}
 	\item C 					Ritchie 1971, typisiert
@@ -32,7 +32,7 @@
 	\\ \textbf{ISO/IEC 14882:2014 Programming Languages - C++, aka C++14}
 \end{itemize}
 
-\subsubsection{Welches C++?\hfill}
+\subsubsection{Welches C++?}
 \label{sec:Welches C++?}
 \begin{itemize}
 	\item \textbf{Im Modul ProgCPP setzen wir den Standard 14882:2003, d.h. C++03 ein}
@@ -46,7 +46,7 @@
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{C++-Unterstützung von Texas Instruments (TI)\hfill}
+\subsubsection{C++-Unterstützung von Texas Instruments (TI)}
 \label{sec:C++-Unterstuetzung von Texas Instruments (TI)}
 \begin{itemize}
 	\item TI als Repräsentant für einen Anbieter von Embedded-Entwicklungsumgebungen
@@ -63,7 +63,7 @@
 	\item Noch neuere Versionen erst recht nicht
 \end{itemize}
 
-\subsubsection{Hello World!\hfill}
+\subsubsection{Hello World!}
 \label{sec:Hello World!}
 \noindent
 \begin{minipage}{\linewidth}
@@ -71,7 +71,7 @@
 \label{lst:Hello World!}
 \end{minipage}
 
-\subsubsection{C++-Compiler (noch nicht Eclipse)\hfill}
+\subsubsection{C++-Compiler (noch nicht Eclipse)}
 \label{sec:C++-Compiler (noch nicht Eclipse)}
 Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) oder clang++ verwendet werden
 \\
@@ -81,25 +81,25 @@ Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) ode
 \textbf{clang++ -o hello hello.cpp}
 \end{center}
 
-\subsection{Lexikalische Elemente von C++\hfill}
+\subsection{Lexikalische Elemente von C++}
 \label{sec:Lexikalische Elemente von C++}
 
-\subsubsection{Lexikalische Elemente\hfill}
+\subsubsection{Lexikalische Elemente}
 \label{sec:Lexikalische Elemente}
 \begin{itemize}
 	\item C++ ist hier völlig identisch zu C
 	\begin{itemize}
 		\item Bezeichner
-		\item Schlüsselwörter (werden ergänzt durch zusätzliche \textbf(\color{\ownRed}REFERENZ\color{black})
+		\item Schlüsselwörter (werden ergänzt durch zusätzliche \textbf(\color{red}REFERENZ\color{black})
 		\item Literale
 		\item Operatoren (werden ergänzt durch zusätzliche)
 		\item Kommentare
 	\end{itemize}
 	\item Codierstil beachten
-		\\ Die Ellemtel-Richtlinien haben sich etabliert \textbf(\color{\ownRed}siehe Anhang)
+		\\ Die Ellemtel-Richtlinien haben sich etabliert \textbf(\color{red}siehe Anhang)
 \end{itemize}
 
-\subsubsection{Styleguide: Bezeichner (\raisebox{-0.9ex}{\~{ }}Namen)\hfill}
+\subsubsection{Styleguide: Bezeichner (\raisebox{-0.9ex}{\~{ }}Namen)}
 \label{sec:Styleguide: Bezeichner}
 \begin{itemize}
 	\item Variablen, Konstanten und Objekte
@@ -131,10 +131,10 @@ Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) ode
 	\end{itemize}
 \end{itemize}
 
-\subsection{Typkonzept\hfill}
+\subsection{Typkonzept}
 \label{sec:Typkonzept}
 
-\subsubsection{Datentypen\hfill}
+\subsubsection{Datentypen}
 \label{sec:Datentypen}
 \begin{itemize}
 	\item In C++ gibt es die gleichen Basisdatentypen (plain old data types, POD types) wie in C
@@ -143,39 +143,39 @@ Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) ode
 	\item Der Typ \textbf{bool} hat die beiden Werte \textbf{true} und \textbf{false}
 \end{itemize}
 
-\subsubsection{{\#}define		(Kap. 4.5)\hfill}
+\subsubsection{{\#}define		(Kap. 4.5)}
 \label{sec:define}
 \begin{itemize}
 	\item In C oft noch geduldet, in C++ verpönt
 	\item \emph{\#define} bewirkt eine reine Textersetzung durch den Präprozessor, umgeht dadurch Syntax- und Typprüfung
 	\item Für die Definition von symbolischen Konstanten soll statt \emph{ \#define} das Schlüsselwort \textbf{const} oder \textbf{enum} verwendet 	werden
- 	\color{\ownRed}
+ 	\color{red}
 	\item schlecht:
 	\\
 	\#define PI			3.14159
 	\\ 
 	\#define VERSUCHE\_MAX	4
-	\color{\ownBlue}
+	\color{green}
 	\item gut:
 	\\const double pi = 3.14159;
 	\\const int versucheMax = 4;
 	\\enum \{versucheMax = 4\};	// noch besser als const int
 \end{itemize}
 
-\subsection{Ausdrücke und Operatoren\hfill}
+\subsection{Ausdrücke und Operatoren}
 \label{sec:Ausdruecke und Operatoren}
 
-\subsubsection{Ausdrücke und Operatoren\hfill}
+\subsubsection{Ausdrücke und Operatoren}
 \label{sec:Ausdruecke und Operatoren 2}
 \begin{itemize}
 	\item C++ ist hier völlig identisch zu C
 	\item Es gibt noch ein paar zusätzliche Operatoren in C++ (z.B. für type casting)
 \end{itemize}
 
-\subsection{Anweisungen\hfill}
+\subsection{Anweisungen}
 \label{sec:Anweisungen}
 
-\subsubsection{Anweisungen: ebenfalls nichts neues\hfill}
+\subsubsection{Anweisungen: ebenfalls nichts neues}
 \label{sec:Anweisungen: ebenfalls nichts neues}
 \begin{itemize}
 	\item Die Syntax der Blockanweisung ist identisch zu C
@@ -194,15 +194,15 @@ Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) ode
 	\end{itemize}
 \end{itemize}
 
-\subsection{Streams\hfill}
+\subsection{Streams}
 \label{sec:Streams}
 
-\subsubsection{Streamkonzept\hfill}
+\subsubsection{Streamkonzept}
 \label{sec:Streamkonzept}
 \begin{itemize}
 	\item Ein Stream repräsentiert einen sequentiellen Datenstrom
 	\item Die Operatoren auf dem Stream sind << und >>
-		\\ Für vordefinierte Datentypen sind diese Operatoren schon definiert, für eigene selbstdefinierte Klassen können diese Operatoren überladen werden \textbf{\color{\ownRed}(KAPITEL ANGEBEN)}\color{black}
+		\\ Für vordefinierte Datentypen sind diese Operatoren schon definiert, für eigene selbstdefinierte Klassen können diese Operatoren überladen werden \textbf{\color{red}(KAPITEL ANGEBEN)}\color{black}
 	\item C++ stellt 4 Standardströme zur Verfügung
 	\begin{itemize}
 		\item cin:	Standard-Eingabestrom, normalerweise die Tastatur
@@ -213,7 +213,7 @@ Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) ode
 	\item Alle diese Ströme können auch mit einer Datei verbunden werden
 \end{itemize}
 
-\subsubsection{Einsatz von Streams\hfill}
+\subsubsection{Einsatz von Streams}
 \label{sec:Einsatz von Streams}
 \begin{itemize}
 	\item In C werden printf() und scanf() mit stdin, stdout, stderr verwendet
@@ -223,7 +223,7 @@ Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) ode
 	\item cin und cout müssen immer ganz links in einer Befehlszeile stehen. Die Daten kommen von cin (Tastatur, Operator \frq\frq) und gehen zu cout (Konsole, Operator \flq\flq)
 \end{itemize}
 
-\subsubsection{Ausgabe: Klasse ostream\hfill}
+\subsubsection{Ausgabe: Klasse ostream}
 \label{sec:Ausgabe: Klasse ostream}
 \begin{itemize}
 	\item Methoden für die Ausgabe von vordefinierten Datentypen, z.B.:
@@ -237,7 +237,7 @@ Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) ode
 		\\cout \flq\flq \grqq Hallo  \grqq \flq\flq i \flq\flq endl;
 \end{itemize}
 
-\subsubsection{Eingabe: Klasse istream\hfill}
+\subsubsection{Eingabe: Klasse istream}
 \label{sec:Eingabe: Klasse istream}
 \begin{itemize}
 	\item Methoden für die Eingabe von vordefinierten Datentypen, z.B.:
@@ -252,15 +252,15 @@ Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) ode
 		\\ cin \frq\frq d \frq\frq str;
 \end{itemize}
 
-\subsubsection{Formatierte Ein- und Ausgabe\hfill}
+\subsubsection{Formatierte Ein- und Ausgabe}
 \label{sec:Formatierte Ein- und Ausgabe}
 ios, eine Basisklasse von iostream, stellt verschiedene Möglichkeiten (Format Flags) vor, um die Ein- und Ausgabe zu beeinflussen.
 \\ \\
 Beispiel:
 \\ \\
-cout \flq\flq \color{\ownRed} showbase \flq\flq \color{\ownBlue} hex \flq\flq \color{black}27;	// Ausgabe: \color{\ownRed}0x\color{\ownBlue}1b \color{black}
+cout \flq\flq \color{red} showbase \flq\flq \color{green} hex \flq\flq \color{black}27;	// Ausgabe: \color{red}0x\color{green}1b \color{black}
 
-\subsubsection{Format-Flags um Überblick {(unvollständig)}\hfill}
+\subsubsection{Format-Flags um Überblick {(unvollständig)}}
 \label{sec:Format-Flags um Ueberblick}
 \rowcolors{1}{gray!25}{gray!5}
 \begin{tabularx}{\textwidth}{|p{0.25\textwidth}|X|X|}

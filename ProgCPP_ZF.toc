@@ -1,0 +1,198 @@
+\select@language {ngerman}
+\contentsline {section}{\numberline {1}Kapitel 1}{5}{section.1}
+\contentsline {subsection}{\numberline {1.1}Einf\IeC {\"u}hrung}{5}{subsection.1.1}
+\contentsline {subsubsection}{\numberline {1.1.1}Charakteristiken von C++}{5}{subsubsection.1.1.1}
+\contentsline {subsubsection}{\numberline {1.1.2}Entstehung von C++}{5}{subsubsection.1.1.2}
+\contentsline {subsubsection}{\numberline {1.1.3}Welches C++?}{5}{subsubsection.1.1.3}
+\contentsline {subsubsection}{\numberline {1.1.4}C++-Unterst\IeC {\"u}tzung von Texas Instruments (TI)}{5}{subsubsection.1.1.4}
+\contentsline {subsubsection}{\numberline {1.1.5}Hello World!}{6}{subsubsection.1.1.5}
+\contentsline {subsubsection}{\numberline {1.1.6}C++-Compiler (noch nicht Eclipse)}{6}{subsubsection.1.1.6}
+\contentsline {subsection}{\numberline {1.2}Lexikalische Elemente von C++}{6}{subsection.1.2}
+\contentsline {subsubsection}{\numberline {1.2.1}Lexikalische Elemente}{6}{subsubsection.1.2.1}
+\contentsline {subsubsection}{\numberline {1.2.2}Styleguide: Bezeichner (\raisebox {-0.9ex}{\~{ }}Namen)}{6}{subsubsection.1.2.2}
+\contentsline {subsection}{\numberline {1.3}Typkonzept}{7}{subsection.1.3}
+\contentsline {subsubsection}{\numberline {1.3.1}Datentypen}{7}{subsubsection.1.3.1}
+\contentsline {subsubsection}{\numberline {1.3.2}{\#}define (Kap. 4.5)}{7}{subsubsection.1.3.2}
+\contentsline {subsection}{\numberline {1.4}Ausdr\IeC {\"u}cke und Operatoren}{7}{subsection.1.4}
+\contentsline {subsubsection}{\numberline {1.4.1}Ausdr\IeC {\"u}cke und Operatoren}{7}{subsubsection.1.4.1}
+\contentsline {subsection}{\numberline {1.5}Anweisungen}{7}{subsection.1.5}
+\contentsline {subsubsection}{\numberline {1.5.1}Anweisungen: ebenfalls nichts neues}{7}{subsubsection.1.5.1}
+\contentsline {subsection}{\numberline {1.6}Streams}{7}{subsection.1.6}
+\contentsline {subsubsection}{\numberline {1.6.1}Streamkonzept}{7}{subsubsection.1.6.1}
+\contentsline {subsubsection}{\numberline {1.6.2}Einsatz von Streams}{8}{subsubsection.1.6.2}
+\contentsline {subsubsection}{\numberline {1.6.3}Ausgabe: Klasse ostream}{8}{subsubsection.1.6.3}
+\contentsline {subsubsection}{\numberline {1.6.4}Eingabe: Klasse istream}{8}{subsubsection.1.6.4}
+\contentsline {subsubsection}{\numberline {1.6.5}Formatierte Ein- und Ausgabe}{8}{subsubsection.1.6.5}
+\contentsline {subsubsection}{\numberline {1.6.6}Format-Flags um \IeC {\"U}berblick {(unvollst\IeC {\"a}ndig)}}{9}{subsubsection.1.6.6}
+\contentsline {section}{\numberline {2}Kapitel 2: Funktionen}{10}{section.2}
+\contentsline {subsection}{\numberline {2.1}Grundlegendes}{10}{subsection.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}Synonyme f\IeC {\"u}r Funktionen}{10}{subsubsection.2.1.1}
+\contentsline {subsubsection}{\numberline {2.1.2}Aufgabe einer Funktion}{10}{subsubsection.2.1.2}
+\contentsline {subsubsection}{\numberline {2.1.3}Funktionen (Vergleich zu C)}{10}{subsubsection.2.1.3}
+\contentsline {subsubsection}{\numberline {2.1.4}Definition von Funktionen}{10}{subsubsection.2.1.4}
+\contentsline {subsubsection}{\numberline {2.1.5}Deklaration von Funktionen (Funktionsprototypen)}{10}{subsubsection.2.1.5}
+\contentsline {subsubsection}{\numberline {2.1.6}Kosten einer Funktion}{11}{subsubsection.2.1.6}
+\contentsline {subsection}{\numberline {2.2}C-Makro}{11}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}C-Makro mit {\#define}}{11}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2}Beispiel mit C-Makro: Maximum zweier int-Werte}{11}{subsubsection.2.2.2}
+\contentsline {subsubsection}{\numberline {2.2.3}Beispiel mit C-Makro: Was passiert wirklich?}{11}{subsubsection.2.2.3}
+\contentsline {subsection}{\numberline {2.3}inline-Funktionen}{11}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}inline-Funktionen: Grundlegendes}{11}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}Beispiel mit inline-Code: Maximum zweier int-Werte}{12}{subsubsection.2.3.2}
+\contentsline {subsection}{\numberline {2.4}Grunds\IeC {\"a}tze f\IeC {\"u}r Optimierungen}{12}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}default-Argumente}{12}{subsection.2.5}
+\contentsline {subsubsection}{\numberline {2.5.1}Vorbelegte Parameter (default-Argumente)}{12}{subsubsection.2.5.1}
+\contentsline {subsubsection}{\numberline {2.5.2}Beispiel: default-Argumente}{13}{subsubsection.2.5.2}
+\contentsline {subsubsection}{\numberline {2.5.3}Nutzen von default-Argumenten}{13}{subsubsection.2.5.3}
+\contentsline {subsection}{\numberline {2.6}Overloading}{13}{subsection.2.6}
+\contentsline {subsubsection}{\numberline {2.6.1}\IeC {\"U}berladen von Funktionen (overloading)}{13}{subsubsection.2.6.1}
+\contentsline {subsubsection}{\numberline {2.6.2}Overloading in C++}{13}{subsubsection.2.6.2}
+\contentsline {subsubsection}{\numberline {2.6.3}Deklaration von \IeC {\"u}berladenen Funktionen: Regeln}{14}{subsubsection.2.6.3}
+\contentsline {subsubsection}{\numberline {2.6.4}Funktionen sollen nur dann \IeC {\"u}berladen werden, wenn ...}{14}{subsubsection.2.6.4}
+\contentsline {subsection}{\numberline {2.7}default-Parameter vs. Overloading}{14}{subsection.2.7}
+\contentsline {section}{\numberline {3}Kapitel 3: Pointer und Referenzen}{15}{section.3}
+\contentsline {subsection}{\numberline {3.1}H\IeC {\"o}here und strukturierte Datentypen}{15}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}H\IeC {\"o}here Datentypen}{15}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}Strukturierte Datentypen}{15}{subsubsection.3.1.2}
+\contentsline {subsection}{\numberline {3.2}Pointer}{15}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Adresse}{15}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Pointer}{15}{subsubsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.3}Standarddarstellung von Pointern}{15}{subsubsection.3.2.3}
+\contentsline {subsubsection}{\numberline {3.2.4}Pointer und Datentyp}{15}{subsubsection.3.2.4}
+\contentsline {subsubsection}{\numberline {3.2.5}Definition einer Pointervariablen}{16}{subsubsection.3.2.5}
+\contentsline {subsubsection}{\numberline {3.2.6}Initialisierung mit Null-Pointer}{16}{subsubsection.3.2.6}
+\contentsline {subsubsection}{\numberline {3.2.7}Der Adressoperator \& \textbf {(Referenzierung)}}{16}{subsubsection.3.2.7}
+\contentsline {subsubsection}{\numberline {3.2.8}Kopieren von Adressen}{17}{subsubsection.3.2.8}
+\contentsline {subsubsection}{\numberline {3.2.9}Der Inhaltsoperator * \textbf {(Dereferenzierung)}}{17}{subsubsection.3.2.9}
+\contentsline {subsubsection}{\numberline {3.2.10}Darstellung in graphischer Pointernotation}{18}{subsubsection.3.2.10}
+\contentsline {subsubsection}{\numberline {3.2.11}const bei Pointern: Vorsicht}{18}{subsubsection.3.2.11}
+\contentsline {subsubsection}{\numberline {3.2.12}void-Pointer}{20}{subsubsection.3.2.12}
+\contentsline {subsubsection}{\numberline {3.2.13}Pointer auf Funktionen}{20}{subsubsection.3.2.13}
+\contentsline {subsubsection}{\numberline {3.2.14}Interruptvektortabelle: Tabelle von Funktionspointern}{20}{subsubsection.3.2.14}
+\contentsline {subsubsection}{\numberline {3.2.15}Umsetzung von Funktionspointern in C/C++}{20}{subsubsection.3.2.15}
+\contentsline {subsubsection}{\numberline {3.2.16}Beispiel f\IeC {\"u}r Funktionspointer}{20}{subsubsection.3.2.16}
+\contentsline {subsection}{\numberline {3.3}Referenzen}{21}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Was ist eine Referenz?}{21}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.2}Syntax von Referenzen}{21}{subsubsection.3.3.2}
+\contentsline {subsubsection}{\numberline {3.3.3}Einsatz von Referenzen}{21}{subsubsection.3.3.3}
+\contentsline {subsubsection}{\numberline {3.3.4}Pointer und Referenzen auf lokale Variablen}{22}{subsubsection.3.3.4}
+\contentsline {subsection}{\numberline {3.4}Zeiger und Referenzen als Parameter und R\IeC {\"u}ckgabewerte}{22}{subsection.3.4}
+\contentsline {subsubsection}{\numberline {3.4.1}Call by Value vs. Call by Reference}{22}{subsubsection.3.4.1}
+\contentsline {subsubsection}{\numberline {3.4.2}3 Beispiele}{22}{subsubsection.3.4.2}
+\contentsline {subsubsection}{\numberline {3.4.3}Call by reference: wann einsetzen?}{23}{subsubsection.3.4.3}
+\contentsline {subsubsection}{\numberline {3.4.4}Merke}{23}{subsubsection.3.4.4}
+\contentsline {section}{\numberline {4}Kapitel 4: Arrays, Dynamische Speicherverwaltung}{25}{section.4}
+\contentsline {subsection}{\numberline {4.1}Arrays: Vektoren}{25}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}Problemstellung}{25}{subsubsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.2}Der Array (Feld, Vektor)}{25}{subsubsection.4.1.2}
+\contentsline {subsubsection}{\numberline {4.1.3}Zugriff auf ein Arrayelement}{25}{subsubsection.4.1.3}
+\contentsline {subsection}{\numberline {4.2}Arrays und Pointer}{25}{subsection.4.2}
+\contentsline {subsubsection}{\numberline {4.2.1}Pro Memoria: Eindimensionales Array (Vektor)}{25}{subsubsection.4.2.1}
+\contentsline {subsubsection}{\numberline {4.2.2}\IeC {\"A}quivalenz von Array- und Pointernotation}{26}{subsubsection.4.2.2}
+\contentsline {subsubsection}{\numberline {4.2.3}Vergleichen von Arrays}{26}{subsubsection.4.2.3}
+\contentsline {subsubsection}{\numberline {4.2.4}Arrayname ist ein nicht modifizierbarer L-Wert}{26}{subsubsection.4.2.4}
+\contentsline {subsubsection}{\numberline {4.2.5}Automatische Initialisierung von Arrays}{26}{subsubsection.4.2.5}
+\contentsline {subsubsection}{\numberline {4.2.6}Explizite Initialisierung von Arrays}{26}{subsubsection.4.2.6}
+\contentsline {subsubsection}{\numberline {4.2.7}Beispiel: Explizite Initialisierung von Arrays}{27}{subsubsection.4.2.7}
+\contentsline {subsubsection}{\numberline {4.2.8}Goodies f\IeC {\"u}r die explizite Initialisierung}{27}{subsubsection.4.2.8}
+\contentsline {subsection}{\numberline {4.3}Mehrdimensionale Arrays}{27}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}Initialisierung eines mehrdimensionalen Arrays}{28}{subsubsection.4.3.1}
+\contentsline {subsection}{\numberline {4.4}\IeC {\"U}bergabe von Arrays und Zeichenketten}{28}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}Beispiel: Array (Vektor) als Parameter}{28}{subsubsection.4.4.1}
+\contentsline {subsubsection}{\numberline {4.4.2}\IeC {\"U}bergabe einer Matrix mittels offenem Array}{28}{subsubsection.4.4.2}
+\contentsline {subsubsection}{\numberline {4.4.3}Zeichenketten (Strings)}{29}{subsubsection.4.4.3}
+\contentsline {subsection}{\numberline {4.5}Dynamische Speicherverwaltung}{29}{subsection.4.5}
+\contentsline {subsubsection}{\numberline {4.5.1}Pro Memoria: Variablen}{29}{subsubsection.4.5.1}
+\contentsline {subsubsection}{\numberline {4.5.2}Dynamische Speicherverwaltung}{29}{subsubsection.4.5.2}
+\contentsline {subsubsection}{\numberline {4.5.3}Dynamische Speicherverwaltung: Syntax}{29}{subsubsection.4.5.3}
+\contentsline {subsubsection}{\numberline {4.5.4}Dynamische Speicherverwaltung: Vorsichtsmassnahmen}{29}{subsubsection.4.5.4}
+\contentsline {subsubsection}{\numberline {4.5.5}Memory Leak, Garbage Collection}{30}{subsubsection.4.5.5}
+\contentsline {subsubsection}{\numberline {4.5.6}Dynamische Allozierung von Arrays}{30}{subsubsection.4.5.6}
+\contentsline {subsubsection}{\numberline {4.5.7}Dynamische Allozierung von Matrizen}{30}{subsubsection.4.5.7}
+\contentsline {subsubsection}{\numberline {4.5.8}Dynamische Matrix mit 4 Zeilen und 3 Spalten}{30}{subsubsection.4.5.8}
+\contentsline {subsubsection}{\numberline {4.5.9}Zugriff auf dynamisch erzeugte Matrix}{31}{subsubsection.4.5.9}
+\contentsline {subsubsection}{\numberline {4.5.10}Dynamische Matrix freigeben}{32}{subsubsection.4.5.10}
+\contentsline {subsubsection}{\numberline {4.5.11}Effizienz der Matriximplementationen}{33}{subsubsection.4.5.11}
+\contentsline {section}{\numberline {5}Kapitel 5: Scope, Deklarationen, Type Casts}{34}{section.5}
+\contentsline {subsection}{\numberline {5.1}Strukturen}{34}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}Strukturen in C++}{34}{subsubsection.5.1.1}
+\contentsline {subsection}{\numberline {5.2}G\IeC {\"u}ltigkeitsbereiche, Namensr\IeC {\"a}ume und Sichtbarkeit}{34}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}G\IeC {\"u}ltigkeitsbereiche von Namen (Scope)}{34}{subsubsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2}G\IeC {\"u}ltigkeitsbereiche in C++}{34}{subsubsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.3}G\IeC {\"u}ltigkeit (Scope) von Variablen}{34}{subsubsection.5.2.3}
+\contentsline {subsubsection}{\numberline {5.2.4}Lebensdauer von Variablen}{35}{subsubsection.5.2.4}
+\contentsline {subsubsection}{\numberline {5.2.5}Sichtbarkeit von Variablen}{35}{subsubsection.5.2.5}
+\contentsline {subsubsection}{\numberline {5.2.6}Schlussfolgerung (naheliegend aber falsch)}{35}{subsubsection.5.2.6}
+\contentsline {subsubsection}{\numberline {5.2.7}Lebensdauer (grau) und Sichtbarkeit (weiss)}{35}{subsubsection.5.2.7}
+\contentsline {subsubsection}{\numberline {5.2.8}Codierstil}{35}{subsubsection.5.2.8}
+\contentsline {subsection}{\numberline {5.3}Namensr\IeC {\"a}ume (Namespaces)}{36}{subsection.5.3}
+\contentsline {subsubsection}{\numberline {5.3.1}Namensr\IeC {\"a}ume}{36}{subsubsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.2}Explizite Namensr\IeC {\"a}ume in C++}{36}{subsubsection.5.3.2}
+\contentsline {subsubsection}{\numberline {5.3.3}C++-Mechanismen f\IeC {\"u}r Namespaces}{36}{subsubsection.5.3.3}
+\contentsline {subsubsection}{\numberline {5.3.4}Deklaration von Namespaces}{36}{subsubsection.5.3.4}
+\contentsline {subsubsection}{\numberline {5.3.5}Deklaration von Namespaces: Beispiel}{37}{subsubsection.5.3.5}
+\contentsline {subsubsection}{\numberline {5.3.6}using-Deklaration}{37}{subsubsection.5.3.6}
+\contentsline {subsubsection}{\numberline {5.3.7}using-Direktive}{37}{subsubsection.5.3.7}
+\contentsline {subsubsection}{\numberline {5.3.8}using namespace kann zu Konflikten f\IeC {\"u}hren}{37}{subsubsection.5.3.8}
+\contentsline {subsubsection}{\numberline {5.3.9}Namenlose Namespaces}{38}{subsubsection.5.3.9}
+\contentsline {subsubsection}{\numberline {5.3.10}Zugriff auf globale Variable mit Scope-Operator}{38}{subsubsection.5.3.10}
+\contentsline {subsection}{\numberline {5.4}Speicherklassen}{38}{subsection.5.4}
+\contentsline {subsubsection}{\numberline {5.4.1}Speicherklassen in C++}{38}{subsubsection.5.4.1}
+\contentsline {subsubsection}{\numberline {5.4.2}Speicherklasse static: Variablen}{39}{subsubsection.5.4.2}
+\contentsline {subsubsection}{\numberline {5.4.3}Speicherklasse static: Funktionen}{39}{subsubsection.5.4.3}
+\contentsline {subsubsection}{\numberline {5.4.4}Speicherklasse extern: Externe Variablen}{39}{subsubsection.5.4.4}
+\contentsline {subsubsection}{\numberline {5.4.5}Typqualifikationen (Kap. 9.2.2)}{39}{subsubsection.5.4.5}
+\contentsline {subsubsection}{\numberline {5.4.6}Funktionsattribute}{39}{subsubsection.5.4.6}
+\contentsline {subsection}{\numberline {5.5}Typdefinitionen}{39}{subsection.5.5}
+\contentsline {subsubsection}{\numberline {5.5.1}typedef zur Vereinbarung eigener Datentypen\hfill }{39}{subsubsection.5.5.1}
+\contentsline {subsubsection}{\numberline {5.5.2}Beispiel}{40}{subsubsection.5.5.2}
+\contentsline {subsubsection}{\numberline {5.5.3}Gew\IeC {\"a}hrleistung von Portabilit\IeC {\"a}t}{40}{subsubsection.5.5.3}
+\contentsline {subsubsection}{\numberline {5.5.4}Wie setzt der Compiler ein typedef um?}{40}{subsubsection.5.5.4}
+\contentsline {subsection}{\numberline {5.6}Initialisierung}{41}{subsection.5.6}
+\contentsline {subsection}{\numberline {5.7}Type-Case (Typumwandlungen)}{41}{subsection.5.7}
+\contentsline {subsubsection}{\numberline {5.7.1}Typumwandlungen im Allgemeinen}{41}{subsubsection.5.7.1}
+\contentsline {subsubsection}{\numberline {5.7.2}Implizite Typumwandlung}{41}{subsubsection.5.7.2}
+\contentsline {subsubsection}{\numberline {5.7.3}Explizite Typumwandlung}{41}{subsubsection.5.7.3}
+\contentsline {subsubsection}{\numberline {5.7.4}Explizite Typumwandlung \#1, 2: C-Stil und Funktionsstil}{41}{subsubsection.5.7.4}
+\contentsline {subsubsection}{\numberline {5.7.5}Typumwandlung mit C-Stil und Funktionsstil}{42}{subsubsection.5.7.5}
+\contentsline {subsubsection}{\numberline {5.7.6}Explizite Typumwandlung \#3: const\_cast}{42}{subsubsection.5.7.6}
+\contentsline {subsubsection}{\numberline {5.7.7}Explizite Typumwandlung \#4: static\_cast}{42}{subsubsection.5.7.7}
+\contentsline {subsubsection}{\numberline {5.7.8}Explizite Typumwandlung \#5: dynamic\_cast}{42}{subsubsection.5.7.8}
+\contentsline {subsubsection}{\numberline {5.7.9}Explizite Typumwandlung \#6: reinterpret\_cast}{42}{subsubsection.5.7.9}
+\contentsline {section}{\numberline {6}Kapitel 6: Module und Datenkapseln}{43}{section.6}
+\contentsline {subsection}{\numberline {6.1}Modul (Unit)}{43}{subsection.6.1}
+\contentsline {subsubsection}{\numberline {6.1.1}Motivation}{43}{subsubsection.6.1.1}
+\contentsline {subsubsection}{\numberline {6.1.2}Nomenklatur: Modul vs. Unit}{43}{subsubsection.6.1.2}
+\contentsline {subsubsection}{\numberline {6.1.3}Ziele der Modularisierung}{43}{subsubsection.6.1.3}
+\contentsline {subsubsection}{\numberline {6.1.4}Eigenschaften einer Unit (eines Moduls)}{43}{subsubsection.6.1.4}
+\contentsline {subsubsection}{\numberline {6.1.5}Bestandteile eine C++-Programms}{43}{subsubsection.6.1.5}
+\contentsline {subsubsection}{\numberline {6.1.6}Unitkonzept}{43}{subsubsection.6.1.6}
+\contentsline {subsection}{\numberline {6.2}Geheimnisprinpzip (Information Hiding)}{43}{subsection.6.2}
+\contentsline {subsubsection}{\numberline {6.2.1}Information Hiding}{43}{subsubsection.6.2.1}
+\contentsline {subsubsection}{\numberline {6.2.2}Konzept der Datenkapsel}{44}{subsubsection.6.2.2}
+\contentsline {subsubsection}{\numberline {6.2.3}Beispiel f\IeC {\"u}r Datenzugriff bei Datenkapsel}{44}{subsubsection.6.2.3}
+\contentsline {subsubsection}{\numberline {6.2.4}Beispiel f\IeC {\"u}r Unit Rechteck (ohne Datenkapsel)}{45}{subsubsection.6.2.4}
+\contentsline {subsubsection}{\numberline {6.2.5}Beispiel f\IeC {\"u}r Unit Rechteck: Verbesserung \#1}{45}{subsubsection.6.2.5}
+\contentsline {subsubsection}{\numberline {6.2.6}Beispiel f\IeC {\"u}r Unit Rechteck: Verbesserung \#2}{46}{subsubsection.6.2.6}
+\contentsline {subsubsection}{\numberline {6.2.7}Unit nutzen}{46}{subsubsection.6.2.7}
+\contentsline {subsubsection}{\numberline {6.2.8}Unit-Schnittstelle definieren (in Headerdatei)}{46}{subsubsection.6.2.8}
+\contentsline {subsubsection}{\numberline {6.2.9}Deklarationsreihenfolge in der Headerdatei (*.h)}{46}{subsubsection.6.2.9}
+\contentsline {subsubsection}{\numberline {6.2.10}Reihenfolge in der Implementierungsdatei (*.cpp)}{47}{subsubsection.6.2.10}
+\contentsline {subsubsection}{\numberline {6.2.11}\#include-Konzept}{47}{subsubsection.6.2.11}
+\contentsline {subsubsection}{\numberline {6.2.12}Unit compilieren}{47}{subsubsection.6.2.12}
+\contentsline {subsubsection}{\numberline {6.2.13}Units linken}{47}{subsubsection.6.2.13}
+\contentsline {subsubsection}{\numberline {6.2.14}Buildprozess}{47}{subsubsection.6.2.14}
+\contentsline {subsection}{\numberline {6.3}Make-Tool}{48}{subsection.6.3}
+\contentsline {subsubsection}{\numberline {6.3.1}Abh\IeC {\"a}ngigkeiten zwischen Dateien}{48}{subsubsection.6.3.1}
+\contentsline {subsubsection}{\numberline {6.3.2}make-File}{48}{subsubsection.6.3.2}
+\contentsline {subsubsection}{\numberline {6.3.3}Beispiel: makefile}{48}{subsubsection.6.3.3}
+\contentsline {section}{\numberline {7}Kapitel 7: Eclipse IDE}{49}{section.7}
+\contentsline {subsection}{\numberline {7.1}Eclipse}{49}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Workspace}{49}{subsection.7.2}
+\contentsline {subsubsection}{\numberline {7.2.1}Ressourcen (Resources)}{49}{subsubsection.7.2.1}
+\contentsline {subsubsection}{\numberline {7.2.2}Project}{49}{subsubsection.7.2.2}
+\contentsline {subsection}{\numberline {7.3}Debugger}{49}{subsection.7.3}
+\contentsline {subsubsection}{\numberline {7.3.1}Testen und Debugging}{49}{subsubsection.7.3.1}
+\contentsline {subsubsection}{\numberline {7.3.2}Funktionen eines Debuggers}{49}{subsubsection.7.3.2}
+\contentsline {subsubsection}{\numberline {7.3.3}Assertions (Zusicherungen)}{49}{subsubsection.7.3.3}
+\contentsline {subsubsection}{\numberline {7.3.4}Zu beachten bei Assertions}{50}{subsubsection.7.3.4}
