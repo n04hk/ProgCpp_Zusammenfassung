@@ -1,14 +1,14 @@
 %!TEX root = main.tex
 
-\section{Kapitel 2: Funktionen}
-\label{sec:Kapitel 2: Funktionen}
+\part{Funktionen}
+\label{sec:Funktionen}
 
 % Unterkapitel: Grundlegendes
 
-\subsection{Grundlegendes}
+\section{Grundlegendes}
 \label{sec:Grundlegendes}
 
-\subsubsection{Synonyme für Funktionen}
+\subsection{Synonyme für Funktionen}
 \label{sec:Synonyme fuer Funktionen}
 \begin{itemize}
 	\item Unterprogramm
@@ -17,7 +17,7 @@
 	\item Methode (in der Objektorientierten Programmierung)
 \end{itemize}
 
-\subsubsection{Aufgabe einer Funktion}
+\subsection{Aufgabe einer Funktion}
 \label{sec:Aufgabe einer Funktion}
 \begin{itemize}
 	\item Gleichartige, funktional zusammengehörende Programmteile unter einem eigenene Namen zusammenfassen. Der Programmteil kann mit diesem Namen aufgerufen werden.
@@ -26,7 +26,7 @@
 	\\ Ein grosses Problem ist einfacher zu lösen, wenn es in mehrere einfachere Teilprobleme aufgeteilt wird.
 \end{itemize}
 
-\subsubsection{Funktionen (Vergleich zu C)}
+\subsection{Funktionen (Vergleich zu C)}
 \label{sec:Funktionen (Vergleich zu C)}
 \begin{itemize}
 	\item Alles was in C möglich ist, gibt es auch in C++
@@ -39,7 +39,7 @@
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{Definition von Funktionen}
+\subsection{Definition von Funktionen}
 \label{sec:Definition von Funktionen}
 \begin{itemize}
 	\item Funktionskopf
@@ -58,11 +58,11 @@
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{Deklaration von Funktionen (Funktionsprototypen)}
+\subsection{Deklaration von Funktionen (Funktionsprototypen)}
 \label{sec:Deklaration von Funktionen}
 \lstinputlisting{\listings/fktproto.cpp}
 
-\subsubsection{Kosten einer Funktion}
+\subsection{Kosten einer Funktion}
 \label{sec:Kosten einer Funktion}
 \begin{itemize}
 	\item Der Code einer Funktion ist nur einmal im Speicher vorhanden
@@ -77,10 +77,10 @@
 
 % Unterkapitel: C-Makro
 
-\subsection{C-Makro}
+\section{C-Makro}
 \label{sec:C-Makro}
 
-\subsubsection{C-Makro mit {\#define}}
+\subsection{C-Makro mit {\#define}}
 \label{sec:C-Makro mit define}
 \begin{itemize}
 	\item C-Makros bewirken eine reine Textersetzung ohne jegliche Typenprüfung
@@ -91,7 +91,7 @@ C-Makros lösen zwar das Problem mit dem Overhead, sind aber sehr unsicher. Bitt
 \end{achtung}
 
 
-\subsubsection{Beispiel mit C-Makro: Maximum zweier int-Werte}
+\subsection{Beispiel mit C-Makro: Maximum zweier int-Werte}
 \label{sec:Beispiel mit C-Makro: Maximum zweier int-Werte}
 \noindent
 \begin{minipage}{\linewidth}
@@ -107,7 +107,7 @@ m = MAX(++z1,++z2);
 \end{lstlisting}
 \end{minipage}
 
-\subsubsection{Beispiel mit C-Makro: Was passiert wirklich?}
+\subsection{Beispiel mit C-Makro: Was passiert wirklich?}
 \label{sec:Beispiel mit C-Makro: Was passiert wirklich?}
 \noindent
 \begin{minipage}{\linewidth}
@@ -124,10 +124,10 @@ m = MAX(++z1,++z2);
 
 % Unterkapitel: inline-Funktionen
 
-\subsection{inline-Funktionen}
+\section{inline-Funktionen}
 \label{sec:inline-Funktionen}
 
-\subsubsection{inline-Funktionen: Grundlegendes}
+\subsection{Grundlegendes}
 \label{sec:inline-Funktionen: Grundlegendes}
 \begin{itemize}
 	\item Lösen das Overhead-Problem
@@ -139,7 +139,7 @@ m = MAX(++z1,++z2);
 	\item Achtung: Rekursive Funktionen und Funktionen, auf die mit einem Funktionspointer gezeigt wird, werden nicht inlined.
 \end{itemize}
 
-\subsubsection{Beispiel mit inline-Code: Maximum zweier int-Werte}
+\subsection{Beispiel mit inline-Code: Maximum zweier int-Werte}
 \label{sec:Beispiel mit inline-Code: Maximum zweier int-Werte}
 \noindent
 \begin{minipage}{\linewidth}
@@ -163,7 +163,7 @@ int main()
 
 % Unterkapitel: Grundsätze der Optimierungen
 
-\subsection{Grundsätze für Optimierungen}
+\section{Grundsätze für Optimierungen}
 \label{sec:Grundsaetze fuer Optimierungen}
 \LARGE{\#1: Optimize: don't do it}
 \\
@@ -172,10 +172,10 @@ int main()
 
 % Unterkapitel: default-Argumente
 
-\subsection{default-Argumente}
+\section{default-Argumente}
 \label{sec:default-Argumente}
 
-\subsubsection{Vorbelegte Parameter (default-Argumente)}
+\subsection{Vorbelegte Parameter (default-Argumente)}
 \label{sec:Vorbelegte Parameter (default-Argumente)}
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
@@ -212,7 +212,7 @@ void prtDate3(int day, int month=3,*@ \color{red}int year\color{black}@*);
 \end{lstlisting}
 \end{minipage}
 
-\subsubsection{Nutzen von default-Argumenten}
+\subsection{Nutzen von default-Argumenten}
 \label{sec:Nutzen von default-Argumenten}
 \begin{itemize}
 	\item Wenn in einer bereits existierenden Funktion neue Argumente aufgenommen werden müssen, dann:
@@ -226,10 +226,10 @@ void prtDate3(int day, int month=3,*@ \color{red}int year\color{black}@*);
 
 % Unterkapitel: Overloading
 
-\subsection{Overloading}
+\section{Overloading}
 \label{sec:Overloading}
 
-\subsubsection{Überladen von Funktionen (overloading)}
+\subsection{Überladen von Funktionen (overloading)}
 \label{sec:Ueberladen von Funktionen (overloading)}
 \begin{itemize}
 	\item Zweck:
@@ -248,7 +248,7 @@ void prtDate3(int day, int month=3,*@ \color{red}int year\color{black}@*);
  	\end{itemize}
 \end{itemize}
 
-\subsubsection{Overloading in C++}
+\subsection{Overloading in C++}
 \label{sec:Overloading in C++}
 \begin{itemize}
 	\item Die Identifikation einer Funktion erfolgt über die Signatur, nicht nur über den Namen
@@ -282,7 +282,7 @@ Overloading sollte zurückhaltend eingesetzt werden. Wenn möglich sind default-
 
 % Unterkapitel: default-Parameter vs. Overloading
 
-\subsection{default-Parameter vs. Overloading}
+\section{default-Parameter vs. Overloading}
 \label{sec:default-Parameter vs. Overloading}
 \noindent
 \begin{minipage}{\linewidth}

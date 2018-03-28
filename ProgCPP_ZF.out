@@ -1,197 +1,225 @@
-\BOOKMARK [1][-]{section.1}{Kapitel 1}{}% 1
-\BOOKMARK [2][-]{subsection.1.1}{Einf\374hrung}{section.1}% 2
-\BOOKMARK [3][-]{subsubsection.1.1.1}{Charakteristiken von C++}{subsection.1.1}% 3
-\BOOKMARK [3][-]{subsubsection.1.1.2}{Entstehung von C++}{subsection.1.1}% 4
-\BOOKMARK [3][-]{subsubsection.1.1.3}{Welches C++?}{subsection.1.1}% 5
-\BOOKMARK [3][-]{subsubsection.1.1.4}{C++-Unterst\374tzung von Texas Instruments \(TI\)}{subsection.1.1}% 6
-\BOOKMARK [3][-]{subsubsection.1.1.5}{Hello World!}{subsection.1.1}% 7
-\BOOKMARK [3][-]{subsubsection.1.1.6}{C++-Compiler \(noch nicht Eclipse\)}{subsection.1.1}% 8
-\BOOKMARK [2][-]{subsection.1.2}{Lexikalische Elemente von C++}{section.1}% 9
-\BOOKMARK [3][-]{subsubsection.1.2.1}{Lexikalische Elemente}{subsection.1.2}% 10
-\BOOKMARK [3][-]{subsubsection.1.2.2}{Styleguide: Bezeichner \(\037Namen\)}{subsection.1.2}% 11
-\BOOKMARK [2][-]{subsection.1.3}{Typkonzept}{section.1}% 12
-\BOOKMARK [3][-]{subsubsection.1.3.1}{Datentypen}{subsection.1.3}% 13
-\BOOKMARK [3][-]{subsubsection.1.3.2}{\043define \(Kap. 4.5\)}{subsection.1.3}% 14
-\BOOKMARK [2][-]{subsection.1.4}{Ausdr\374cke und Operatoren}{section.1}% 15
-\BOOKMARK [3][-]{subsubsection.1.4.1}{Ausdr\374cke und Operatoren}{subsection.1.4}% 16
-\BOOKMARK [2][-]{subsection.1.5}{Anweisungen}{section.1}% 17
-\BOOKMARK [3][-]{subsubsection.1.5.1}{Anweisungen: ebenfalls nichts neues}{subsection.1.5}% 18
-\BOOKMARK [2][-]{subsection.1.6}{Streams}{section.1}% 19
-\BOOKMARK [3][-]{subsubsection.1.6.1}{Streamkonzept}{subsection.1.6}% 20
-\BOOKMARK [3][-]{subsubsection.1.6.2}{Einsatz von Streams}{subsection.1.6}% 21
-\BOOKMARK [3][-]{subsubsection.1.6.3}{Ausgabe: Klasse ostream}{subsection.1.6}% 22
-\BOOKMARK [3][-]{subsubsection.1.6.4}{Eingabe: Klasse istream}{subsection.1.6}% 23
-\BOOKMARK [3][-]{subsubsection.1.6.5}{Formatierte Ein- und Ausgabe}{subsection.1.6}% 24
-\BOOKMARK [3][-]{subsubsection.1.6.6}{Format-Flags um \334berblick \(unvollst\344ndig\)}{subsection.1.6}% 25
-\BOOKMARK [1][-]{section.2}{Kapitel 2: Funktionen}{}% 26
-\BOOKMARK [2][-]{subsection.2.1}{Grundlegendes}{section.2}% 27
-\BOOKMARK [3][-]{subsubsection.2.1.1}{Synonyme f\374r Funktionen}{subsection.2.1}% 28
-\BOOKMARK [3][-]{subsubsection.2.1.2}{Aufgabe einer Funktion}{subsection.2.1}% 29
-\BOOKMARK [3][-]{subsubsection.2.1.3}{Funktionen \(Vergleich zu C\)}{subsection.2.1}% 30
-\BOOKMARK [3][-]{subsubsection.2.1.4}{Definition von Funktionen}{subsection.2.1}% 31
-\BOOKMARK [3][-]{subsubsection.2.1.5}{Deklaration von Funktionen \(Funktionsprototypen\)}{subsection.2.1}% 32
-\BOOKMARK [3][-]{subsubsection.2.1.6}{Kosten einer Funktion}{subsection.2.1}% 33
-\BOOKMARK [2][-]{subsection.2.2}{C-Makro}{section.2}% 34
-\BOOKMARK [3][-]{subsubsection.2.2.1}{C-Makro mit \043define}{subsection.2.2}% 35
-\BOOKMARK [3][-]{subsubsection.2.2.2}{Beispiel mit C-Makro: Maximum zweier int-Werte}{subsection.2.2}% 36
-\BOOKMARK [3][-]{subsubsection.2.2.3}{Beispiel mit C-Makro: Was passiert wirklich?}{subsection.2.2}% 37
-\BOOKMARK [2][-]{subsection.2.3}{inline-Funktionen}{section.2}% 38
-\BOOKMARK [3][-]{subsubsection.2.3.1}{inline-Funktionen: Grundlegendes}{subsection.2.3}% 39
-\BOOKMARK [3][-]{subsubsection.2.3.2}{Beispiel mit inline-Code: Maximum zweier int-Werte}{subsection.2.3}% 40
-\BOOKMARK [2][-]{subsection.2.4}{Grunds\344tze f\374r Optimierungen}{section.2}% 41
-\BOOKMARK [2][-]{subsection.2.5}{default-Argumente}{section.2}% 42
-\BOOKMARK [3][-]{subsubsection.2.5.1}{Vorbelegte Parameter \(default-Argumente\)}{subsection.2.5}% 43
-\BOOKMARK [3][-]{subsubsection.2.5.2}{Beispiel: default-Argumente}{subsection.2.5}% 44
-\BOOKMARK [3][-]{subsubsection.2.5.3}{Nutzen von default-Argumenten}{subsection.2.5}% 45
-\BOOKMARK [2][-]{subsection.2.6}{Overloading}{section.2}% 46
-\BOOKMARK [3][-]{subsubsection.2.6.1}{\334berladen von Funktionen \(overloading\)}{subsection.2.6}% 47
-\BOOKMARK [3][-]{subsubsection.2.6.2}{Overloading in C++}{subsection.2.6}% 48
-\BOOKMARK [3][-]{subsubsection.2.6.3}{Deklaration von \374berladenen Funktionen: Regeln}{subsection.2.6}% 49
-\BOOKMARK [3][-]{subsubsection.2.6.4}{Funktionen sollen nur dann \374berladen werden, wenn ...}{subsection.2.6}% 50
-\BOOKMARK [2][-]{subsection.2.7}{default-Parameter vs. Overloading}{section.2}% 51
-\BOOKMARK [1][-]{section.3}{Kapitel 3: Pointer und Referenzen}{}% 52
-\BOOKMARK [2][-]{subsection.3.1}{H\366here und strukturierte Datentypen}{section.3}% 53
-\BOOKMARK [3][-]{subsubsection.3.1.1}{H\366here Datentypen}{subsection.3.1}% 54
-\BOOKMARK [3][-]{subsubsection.3.1.2}{Strukturierte Datentypen}{subsection.3.1}% 55
-\BOOKMARK [2][-]{subsection.3.2}{Pointer}{section.3}% 56
-\BOOKMARK [3][-]{subsubsection.3.2.1}{Adresse}{subsection.3.2}% 57
-\BOOKMARK [3][-]{subsubsection.3.2.2}{Pointer}{subsection.3.2}% 58
-\BOOKMARK [3][-]{subsubsection.3.2.3}{Standarddarstellung von Pointern}{subsection.3.2}% 59
-\BOOKMARK [3][-]{subsubsection.3.2.4}{Pointer und Datentyp}{subsection.3.2}% 60
-\BOOKMARK [3][-]{subsubsection.3.2.5}{Definition einer Pointervariablen}{subsection.3.2}% 61
-\BOOKMARK [3][-]{subsubsection.3.2.6}{Initialisierung mit Null-Pointer}{subsection.3.2}% 62
-\BOOKMARK [3][-]{subsubsection.3.2.7}{Der Adressoperator \046 \(Referenzierung\)}{subsection.3.2}% 63
-\BOOKMARK [3][-]{subsubsection.3.2.8}{Kopieren von Adressen}{subsection.3.2}% 64
-\BOOKMARK [3][-]{subsubsection.3.2.9}{Der Inhaltsoperator * \(Dereferenzierung\)}{subsection.3.2}% 65
-\BOOKMARK [3][-]{subsubsection.3.2.10}{Darstellung in graphischer Pointernotation}{subsection.3.2}% 66
-\BOOKMARK [3][-]{subsubsection.3.2.11}{const bei Pointern: Vorsicht}{subsection.3.2}% 67
-\BOOKMARK [3][-]{subsubsection.3.2.12}{void-Pointer}{subsection.3.2}% 68
-\BOOKMARK [3][-]{subsubsection.3.2.13}{Pointer auf Funktionen}{subsection.3.2}% 69
-\BOOKMARK [3][-]{subsubsection.3.2.14}{Interruptvektortabelle: Tabelle von Funktionspointern}{subsection.3.2}% 70
-\BOOKMARK [3][-]{subsubsection.3.2.15}{Umsetzung von Funktionspointern in C/C++}{subsection.3.2}% 71
-\BOOKMARK [3][-]{subsubsection.3.2.16}{Beispiel f\374r Funktionspointer}{subsection.3.2}% 72
-\BOOKMARK [2][-]{subsection.3.3}{Referenzen}{section.3}% 73
-\BOOKMARK [3][-]{subsubsection.3.3.1}{Was ist eine Referenz?}{subsection.3.3}% 74
-\BOOKMARK [3][-]{subsubsection.3.3.2}{Syntax von Referenzen}{subsection.3.3}% 75
-\BOOKMARK [3][-]{subsubsection.3.3.3}{Einsatz von Referenzen}{subsection.3.3}% 76
-\BOOKMARK [3][-]{subsubsection.3.3.4}{Pointer und Referenzen auf lokale Variablen}{subsection.3.3}% 77
-\BOOKMARK [2][-]{subsection.3.4}{Zeiger und Referenzen als Parameter und R\374ckgabewerte}{section.3}% 78
-\BOOKMARK [3][-]{subsubsection.3.4.1}{Call by Value vs. Call by Reference}{subsection.3.4}% 79
-\BOOKMARK [3][-]{subsubsection.3.4.2}{3 Beispiele}{subsection.3.4}% 80
-\BOOKMARK [3][-]{subsubsection.3.4.3}{Call by reference: wann einsetzen?}{subsection.3.4}% 81
-\BOOKMARK [3][-]{subsubsection.3.4.4}{Merke}{subsection.3.4}% 82
-\BOOKMARK [1][-]{section.4}{Kapitel 4: Arrays, Dynamische Speicherverwaltung}{}% 83
-\BOOKMARK [2][-]{subsection.4.1}{Arrays: Vektoren}{section.4}% 84
-\BOOKMARK [3][-]{subsubsection.4.1.1}{Problemstellung}{subsection.4.1}% 85
-\BOOKMARK [3][-]{subsubsection.4.1.2}{Der Array \(Feld, Vektor\)}{subsection.4.1}% 86
-\BOOKMARK [3][-]{subsubsection.4.1.3}{Zugriff auf ein Arrayelement}{subsection.4.1}% 87
-\BOOKMARK [2][-]{subsection.4.2}{Arrays und Pointer}{section.4}% 88
-\BOOKMARK [3][-]{subsubsection.4.2.1}{Pro Memoria: Eindimensionales Array \(Vektor\)}{subsection.4.2}% 89
-\BOOKMARK [3][-]{subsubsection.4.2.2}{\304quivalenz von Array- und Pointernotation}{subsection.4.2}% 90
-\BOOKMARK [3][-]{subsubsection.4.2.3}{Vergleichen von Arrays}{subsection.4.2}% 91
-\BOOKMARK [3][-]{subsubsection.4.2.4}{Arrayname ist ein nicht modifizierbarer L-Wert}{subsection.4.2}% 92
-\BOOKMARK [3][-]{subsubsection.4.2.5}{Automatische Initialisierung von Arrays}{subsection.4.2}% 93
-\BOOKMARK [3][-]{subsubsection.4.2.6}{Explizite Initialisierung von Arrays}{subsection.4.2}% 94
-\BOOKMARK [3][-]{subsubsection.4.2.7}{Beispiel: Explizite Initialisierung von Arrays}{subsection.4.2}% 95
-\BOOKMARK [3][-]{subsubsection.4.2.8}{Goodies f\374r die explizite Initialisierung}{subsection.4.2}% 96
-\BOOKMARK [2][-]{subsection.4.3}{Mehrdimensionale Arrays}{section.4}% 97
-\BOOKMARK [3][-]{subsubsection.4.3.1}{Initialisierung eines mehrdimensionalen Arrays}{subsection.4.3}% 98
-\BOOKMARK [2][-]{subsection.4.4}{\334bergabe von Arrays und Zeichenketten}{section.4}% 99
-\BOOKMARK [3][-]{subsubsection.4.4.1}{Beispiel: Array \(Vektor\) als Parameter}{subsection.4.4}% 100
-\BOOKMARK [3][-]{subsubsection.4.4.2}{\334bergabe einer Matrix mittels offenem Array}{subsection.4.4}% 101
-\BOOKMARK [3][-]{subsubsection.4.4.3}{Zeichenketten \(Strings\)}{subsection.4.4}% 102
-\BOOKMARK [2][-]{subsection.4.5}{Dynamische Speicherverwaltung}{section.4}% 103
-\BOOKMARK [3][-]{subsubsection.4.5.1}{Pro Memoria: Variablen}{subsection.4.5}% 104
-\BOOKMARK [3][-]{subsubsection.4.5.2}{Dynamische Speicherverwaltung}{subsection.4.5}% 105
-\BOOKMARK [3][-]{subsubsection.4.5.3}{Dynamische Speicherverwaltung: Syntax}{subsection.4.5}% 106
-\BOOKMARK [3][-]{subsubsection.4.5.4}{Dynamische Speicherverwaltung: Vorsichtsmassnahmen}{subsection.4.5}% 107
-\BOOKMARK [3][-]{subsubsection.4.5.5}{Memory Leak, Garbage Collection}{subsection.4.5}% 108
-\BOOKMARK [3][-]{subsubsection.4.5.6}{Dynamische Allozierung von Arrays}{subsection.4.5}% 109
-\BOOKMARK [3][-]{subsubsection.4.5.7}{Dynamische Allozierung von Matrizen}{subsection.4.5}% 110
-\BOOKMARK [3][-]{subsubsection.4.5.8}{Dynamische Matrix mit 4 Zeilen und 3 Spalten}{subsection.4.5}% 111
-\BOOKMARK [3][-]{subsubsection.4.5.9}{Zugriff auf dynamisch erzeugte Matrix}{subsection.4.5}% 112
-\BOOKMARK [3][-]{subsubsection.4.5.10}{Dynamische Matrix freigeben}{subsection.4.5}% 113
-\BOOKMARK [3][-]{subsubsection.4.5.11}{Effizienz der Matriximplementationen}{subsection.4.5}% 114
-\BOOKMARK [1][-]{section.5}{Kapitel 5: Scope, Deklarationen, Type Casts}{}% 115
-\BOOKMARK [2][-]{subsection.5.1}{Strukturen}{section.5}% 116
-\BOOKMARK [3][-]{subsubsection.5.1.1}{Strukturen in C++}{subsection.5.1}% 117
-\BOOKMARK [2][-]{subsection.5.2}{G\374ltigkeitsbereiche, Namensr\344ume und Sichtbarkeit}{section.5}% 118
-\BOOKMARK [3][-]{subsubsection.5.2.1}{G\374ltigkeitsbereiche von Namen \(Scope\)}{subsection.5.2}% 119
-\BOOKMARK [3][-]{subsubsection.5.2.2}{G\374ltigkeitsbereiche in C++}{subsection.5.2}% 120
-\BOOKMARK [3][-]{subsubsection.5.2.3}{G\374ltigkeit \(Scope\) von Variablen}{subsection.5.2}% 121
-\BOOKMARK [3][-]{subsubsection.5.2.4}{Lebensdauer von Variablen}{subsection.5.2}% 122
-\BOOKMARK [3][-]{subsubsection.5.2.5}{Sichtbarkeit von Variablen}{subsection.5.2}% 123
-\BOOKMARK [3][-]{subsubsection.5.2.6}{Schlussfolgerung \(naheliegend aber falsch\)}{subsection.5.2}% 124
-\BOOKMARK [3][-]{subsubsection.5.2.7}{Lebensdauer \(grau\) und Sichtbarkeit \(weiss\)}{subsection.5.2}% 125
-\BOOKMARK [3][-]{subsubsection.5.2.8}{Codierstil}{subsection.5.2}% 126
-\BOOKMARK [2][-]{subsection.5.3}{Namensr\344ume \(Namespaces\)}{section.5}% 127
-\BOOKMARK [3][-]{subsubsection.5.3.1}{Namensr\344ume}{subsection.5.3}% 128
-\BOOKMARK [3][-]{subsubsection.5.3.2}{Explizite Namensr\344ume in C++}{subsection.5.3}% 129
-\BOOKMARK [3][-]{subsubsection.5.3.3}{C++-Mechanismen f\374r Namespaces}{subsection.5.3}% 130
-\BOOKMARK [3][-]{subsubsection.5.3.4}{Deklaration von Namespaces}{subsection.5.3}% 131
-\BOOKMARK [3][-]{subsubsection.5.3.5}{Deklaration von Namespaces: Beispiel}{subsection.5.3}% 132
-\BOOKMARK [3][-]{subsubsection.5.3.6}{using-Deklaration}{subsection.5.3}% 133
-\BOOKMARK [3][-]{subsubsection.5.3.7}{using-Direktive}{subsection.5.3}% 134
-\BOOKMARK [3][-]{subsubsection.5.3.8}{using namespace kann zu Konflikten f\374hren}{subsection.5.3}% 135
-\BOOKMARK [3][-]{subsubsection.5.3.9}{Namenlose Namespaces}{subsection.5.3}% 136
-\BOOKMARK [3][-]{subsubsection.5.3.10}{Zugriff auf globale Variable mit Scope-Operator}{subsection.5.3}% 137
-\BOOKMARK [2][-]{subsection.5.4}{Speicherklassen}{section.5}% 138
-\BOOKMARK [3][-]{subsubsection.5.4.1}{Speicherklassen in C++}{subsection.5.4}% 139
-\BOOKMARK [3][-]{subsubsection.5.4.2}{Speicherklasse static: Variablen}{subsection.5.4}% 140
-\BOOKMARK [3][-]{subsubsection.5.4.3}{Speicherklasse static: Funktionen}{subsection.5.4}% 141
-\BOOKMARK [3][-]{subsubsection.5.4.4}{Speicherklasse extern: Externe Variablen}{subsection.5.4}% 142
-\BOOKMARK [3][-]{subsubsection.5.4.5}{Typqualifikationen \(Kap. 9.2.2\)}{subsection.5.4}% 143
-\BOOKMARK [3][-]{subsubsection.5.4.6}{Funktionsattribute}{subsection.5.4}% 144
-\BOOKMARK [2][-]{subsection.5.5}{Typdefinitionen}{section.5}% 145
-\BOOKMARK [3][-]{subsubsection.5.5.1}{typedef zur Vereinbarung eigener Datentypen}{subsection.5.5}% 146
-\BOOKMARK [3][-]{subsubsection.5.5.2}{Beispiel}{subsection.5.5}% 147
-\BOOKMARK [3][-]{subsubsection.5.5.3}{Gew\344hrleistung von Portabilit\344t}{subsection.5.5}% 148
-\BOOKMARK [3][-]{subsubsection.5.5.4}{Wie setzt der Compiler ein typedef um?}{subsection.5.5}% 149
-\BOOKMARK [2][-]{subsection.5.6}{Initialisierung}{section.5}% 150
-\BOOKMARK [2][-]{subsection.5.7}{Type-Case \(Typumwandlungen\)}{section.5}% 151
-\BOOKMARK [3][-]{subsubsection.5.7.1}{Typumwandlungen im Allgemeinen}{subsection.5.7}% 152
-\BOOKMARK [3][-]{subsubsection.5.7.2}{Implizite Typumwandlung}{subsection.5.7}% 153
-\BOOKMARK [3][-]{subsubsection.5.7.3}{Explizite Typumwandlung}{subsection.5.7}% 154
-\BOOKMARK [3][-]{subsubsection.5.7.4}{Explizite Typumwandlung \0431, 2: C-Stil und Funktionsstil}{subsection.5.7}% 155
-\BOOKMARK [3][-]{subsubsection.5.7.5}{Typumwandlung mit C-Stil und Funktionsstil}{subsection.5.7}% 156
-\BOOKMARK [3][-]{subsubsection.5.7.6}{Explizite Typumwandlung \0433: const\137cast}{subsection.5.7}% 157
-\BOOKMARK [3][-]{subsubsection.5.7.7}{Explizite Typumwandlung \0434: static\137cast}{subsection.5.7}% 158
-\BOOKMARK [3][-]{subsubsection.5.7.8}{Explizite Typumwandlung \0435: dynamic\137cast}{subsection.5.7}% 159
-\BOOKMARK [3][-]{subsubsection.5.7.9}{Explizite Typumwandlung \0436: reinterpret\137cast}{subsection.5.7}% 160
-\BOOKMARK [1][-]{section.6}{Kapitel 6: Module und Datenkapseln}{}% 161
-\BOOKMARK [2][-]{subsection.6.1}{Modul \(Unit\)}{section.6}% 162
-\BOOKMARK [3][-]{subsubsection.6.1.1}{Motivation}{subsection.6.1}% 163
-\BOOKMARK [3][-]{subsubsection.6.1.2}{Nomenklatur: Modul vs. Unit}{subsection.6.1}% 164
-\BOOKMARK [3][-]{subsubsection.6.1.3}{Ziele der Modularisierung}{subsection.6.1}% 165
-\BOOKMARK [3][-]{subsubsection.6.1.4}{Eigenschaften einer Unit \(eines Moduls\)}{subsection.6.1}% 166
-\BOOKMARK [3][-]{subsubsection.6.1.5}{Bestandteile eine C++-Programms}{subsection.6.1}% 167
-\BOOKMARK [3][-]{subsubsection.6.1.6}{Unitkonzept}{subsection.6.1}% 168
-\BOOKMARK [2][-]{subsection.6.2}{Geheimnisprinpzip \(Information Hiding\)}{section.6}% 169
-\BOOKMARK [3][-]{subsubsection.6.2.1}{Information Hiding}{subsection.6.2}% 170
-\BOOKMARK [3][-]{subsubsection.6.2.2}{Konzept der Datenkapsel}{subsection.6.2}% 171
-\BOOKMARK [3][-]{subsubsection.6.2.3}{Beispiel f\374r Datenzugriff bei Datenkapsel}{subsection.6.2}% 172
-\BOOKMARK [3][-]{subsubsection.6.2.4}{Beispiel f\374r Unit Rechteck \(ohne Datenkapsel\)}{subsection.6.2}% 173
-\BOOKMARK [3][-]{subsubsection.6.2.5}{Beispiel f\374r Unit Rechteck: Verbesserung \0431}{subsection.6.2}% 174
-\BOOKMARK [3][-]{subsubsection.6.2.6}{Beispiel f\374r Unit Rechteck: Verbesserung \0432}{subsection.6.2}% 175
-\BOOKMARK [3][-]{subsubsection.6.2.7}{Unit nutzen}{subsection.6.2}% 176
-\BOOKMARK [3][-]{subsubsection.6.2.8}{Unit-Schnittstelle definieren \(in Headerdatei\)}{subsection.6.2}% 177
-\BOOKMARK [3][-]{subsubsection.6.2.9}{Deklarationsreihenfolge in der Headerdatei \(*.h\)}{subsection.6.2}% 178
-\BOOKMARK [3][-]{subsubsection.6.2.10}{Reihenfolge in der Implementierungsdatei \(*.cpp\)}{subsection.6.2}% 179
-\BOOKMARK [3][-]{subsubsection.6.2.11}{\043include-Konzept}{subsection.6.2}% 180
-\BOOKMARK [3][-]{subsubsection.6.2.12}{Unit compilieren}{subsection.6.2}% 181
-\BOOKMARK [3][-]{subsubsection.6.2.13}{Units linken}{subsection.6.2}% 182
-\BOOKMARK [3][-]{subsubsection.6.2.14}{Buildprozess}{subsection.6.2}% 183
-\BOOKMARK [2][-]{subsection.6.3}{Make-Tool}{section.6}% 184
-\BOOKMARK [3][-]{subsubsection.6.3.1}{Abh\344ngigkeiten zwischen Dateien}{subsection.6.3}% 185
-\BOOKMARK [3][-]{subsubsection.6.3.2}{make-File}{subsection.6.3}% 186
-\BOOKMARK [3][-]{subsubsection.6.3.3}{Beispiel: makefile}{subsection.6.3}% 187
-\BOOKMARK [1][-]{section.7}{Kapitel 7: Eclipse IDE}{}% 188
-\BOOKMARK [2][-]{subsection.7.1}{Eclipse}{section.7}% 189
-\BOOKMARK [2][-]{subsection.7.2}{Workspace}{section.7}% 190
-\BOOKMARK [3][-]{subsubsection.7.2.1}{Ressourcen \(Resources\)}{subsection.7.2}% 191
-\BOOKMARK [3][-]{subsubsection.7.2.2}{Project}{subsection.7.2}% 192
-\BOOKMARK [2][-]{subsection.7.3}{Debugger}{section.7}% 193
-\BOOKMARK [3][-]{subsubsection.7.3.1}{Testen und Debugging}{subsection.7.3}% 194
-\BOOKMARK [3][-]{subsubsection.7.3.2}{Funktionen eines Debuggers}{subsection.7.3}% 195
-\BOOKMARK [3][-]{subsubsection.7.3.3}{Assertions \(Zusicherungen\)}{subsection.7.3}% 196
-\BOOKMARK [3][-]{subsubsection.7.3.4}{Zu beachten bei Assertions}{subsection.7.3}% 197
+\BOOKMARK [0][-]{part.1}{I Einf\374hrung}{}% 1
+\BOOKMARK [1][-]{section.1}{Charakteristiken von C++}{part.1}% 2
+\BOOKMARK [1][-]{section.2}{Entstehung von C++}{part.1}% 3
+\BOOKMARK [1][-]{section.3}{Welches C++?}{part.1}% 4
+\BOOKMARK [1][-]{section.4}{C++-Unterst\374tzung von Texas Instruments \(TI\)}{part.1}% 5
+\BOOKMARK [1][-]{section.5}{Hello World!}{part.1}% 6
+\BOOKMARK [1][-]{section.6}{C++-Compiler \(noch nicht Eclipse\)}{part.1}% 7
+\BOOKMARK [1][-]{section.7}{Lexikalische Elemente von C++}{part.1}% 8
+\BOOKMARK [1][-]{section.8}{Styleguide: Bezeichner \(\037Namen\)}{part.1}% 9
+\BOOKMARK [1][-]{section.9}{Typkonzept}{part.1}% 10
+\BOOKMARK [2][-]{subsection.9.1}{Datentypen}{section.9}% 11
+\BOOKMARK [2][-]{subsection.9.2}{\043define \(Kap. 4.5\)}{section.9}% 12
+\BOOKMARK [1][-]{section.10}{Ausdr\374cke und Operatoren}{part.1}% 13
+\BOOKMARK [1][-]{section.11}{Anweisungen}{part.1}% 14
+\BOOKMARK [1][-]{section.12}{Streams}{part.1}% 15
+\BOOKMARK [2][-]{subsection.12.1}{Streamkonzept}{section.12}% 16
+\BOOKMARK [2][-]{subsection.12.2}{Einsatz von Streams}{section.12}% 17
+\BOOKMARK [2][-]{subsection.12.3}{Ausgabe: Klasse ostream}{section.12}% 18
+\BOOKMARK [2][-]{subsection.12.4}{Eingabe: Klasse istream}{section.12}% 19
+\BOOKMARK [2][-]{subsection.12.5}{Formatierte Ein- und Ausgabe}{section.12}% 20
+\BOOKMARK [3][-]{subsubsection.12.5.1}{Format-Flags um \334berblick \(unvollst\344ndig\)}{subsection.12.5}% 21
+\BOOKMARK [0][-]{part.2}{II Funktionen}{}% 22
+\BOOKMARK [1][-]{section.13}{Grundlegendes}{part.2}% 23
+\BOOKMARK [2][-]{subsection.13.1}{Synonyme f\374r Funktionen}{section.13}% 24
+\BOOKMARK [2][-]{subsection.13.2}{Aufgabe einer Funktion}{section.13}% 25
+\BOOKMARK [2][-]{subsection.13.3}{Funktionen \(Vergleich zu C\)}{section.13}% 26
+\BOOKMARK [2][-]{subsection.13.4}{Definition von Funktionen}{section.13}% 27
+\BOOKMARK [2][-]{subsection.13.5}{Deklaration von Funktionen \(Funktionsprototypen\)}{section.13}% 28
+\BOOKMARK [2][-]{subsection.13.6}{Kosten einer Funktion}{section.13}% 29
+\BOOKMARK [1][-]{section.14}{C-Makro}{part.2}% 30
+\BOOKMARK [2][-]{subsection.14.1}{C-Makro mit \043define}{section.14}% 31
+\BOOKMARK [2][-]{subsection.14.2}{Beispiel mit C-Makro: Maximum zweier int-Werte}{section.14}% 32
+\BOOKMARK [2][-]{subsection.14.3}{Beispiel mit C-Makro: Was passiert wirklich?}{section.14}% 33
+\BOOKMARK [1][-]{section.15}{inline-Funktionen}{part.2}% 34
+\BOOKMARK [2][-]{subsection.15.1}{Grundlegendes}{section.15}% 35
+\BOOKMARK [2][-]{subsection.15.2}{Beispiel mit inline-Code: Maximum zweier int-Werte}{section.15}% 36
+\BOOKMARK [1][-]{section.16}{Grunds\344tze f\374r Optimierungen}{part.2}% 37
+\BOOKMARK [1][-]{section.17}{default-Argumente}{part.2}% 38
+\BOOKMARK [2][-]{subsection.17.1}{Vorbelegte Parameter \(default-Argumente\)}{section.17}% 39
+\BOOKMARK [3][-]{subsubsection.17.1.1}{Beispiel: default-Argumente}{subsection.17.1}% 40
+\BOOKMARK [2][-]{subsection.17.2}{Nutzen von default-Argumenten}{section.17}% 41
+\BOOKMARK [1][-]{section.18}{Overloading}{part.2}% 42
+\BOOKMARK [2][-]{subsection.18.1}{\334berladen von Funktionen \(overloading\)}{section.18}% 43
+\BOOKMARK [2][-]{subsection.18.2}{Overloading in C++}{section.18}% 44
+\BOOKMARK [3][-]{subsubsection.18.2.1}{Deklaration von \374berladenen Funktionen: Regeln}{subsection.18.2}% 45
+\BOOKMARK [3][-]{subsubsection.18.2.2}{Funktionen sollen nur dann \374berladen werden, wenn ...}{subsection.18.2}% 46
+\BOOKMARK [1][-]{section.19}{default-Parameter vs. Overloading}{part.2}% 47
+\BOOKMARK [0][-]{part.3}{III Pointer und Referenzen}{}% 48
+\BOOKMARK [1][-]{section.20}{H\366here und strukturierte Datentypen}{part.3}% 49
+\BOOKMARK [2][-]{subsection.20.1}{H\366here Datentypen}{section.20}% 50
+\BOOKMARK [2][-]{subsection.20.2}{Strukturierte Datentypen}{section.20}% 51
+\BOOKMARK [1][-]{section.21}{Pointer}{part.3}% 52
+\BOOKMARK [2][-]{subsection.21.1}{Adresse}{section.21}% 53
+\BOOKMARK [2][-]{subsection.21.2}{Standarddarstellung von Pointern}{section.21}% 54
+\BOOKMARK [2][-]{subsection.21.3}{Pointer und Datentyp}{section.21}% 55
+\BOOKMARK [2][-]{subsection.21.4}{Definition einer Pointervariablen}{section.21}% 56
+\BOOKMARK [3][-]{subsubsection.21.4.1}{Initialisierung mit Null-Pointer}{subsection.21.4}% 57
+\BOOKMARK [3][-]{subsubsection.21.4.2}{Der Adressoperator \046 \(Referenzierung\)}{subsection.21.4}% 58
+\BOOKMARK [3][-]{subsubsection.21.4.3}{Kopieren von Adressen}{subsection.21.4}% 59
+\BOOKMARK [3][-]{subsubsection.21.4.4}{Der Inhaltsoperator * \(Dereferenzierung\)}{subsection.21.4}% 60
+\BOOKMARK [3][-]{subsubsection.21.4.5}{Darstellung in graphischer Pointernotation}{subsection.21.4}% 61
+\BOOKMARK [3][-]{subsubsection.21.4.6}{const bei Pointern: Vorsicht}{subsection.21.4}% 62
+\BOOKMARK [3][-]{subsubsection.21.4.7}{void-Pointer}{subsection.21.4}% 63
+\BOOKMARK [3][-]{subsubsection.21.4.8}{Pointer auf Funktionen}{subsection.21.4}% 64
+\BOOKMARK [3][-]{subsubsection.21.4.9}{Interruptvektortabelle: Tabelle von Funktionspointern}{subsection.21.4}% 65
+\BOOKMARK [3][-]{subsubsection.21.4.10}{Umsetzung von Funktionspointern in C/C++}{subsection.21.4}% 66
+\BOOKMARK [3][-]{subsubsection.21.4.11}{Beispiel f\374r Funktionspointer}{subsection.21.4}% 67
+\BOOKMARK [1][-]{section.22}{Referenzen}{part.3}% 68
+\BOOKMARK [2][-]{subsection.22.1}{Syntax}{section.22}% 69
+\BOOKMARK [2][-]{subsection.22.2}{Einsatz}{section.22}% 70
+\BOOKMARK [1][-]{section.23}{Pointer und Referenzen auf lokale Variablen}{part.3}% 71
+\BOOKMARK [1][-]{section.24}{Zeiger und Referenzen als Parameter und R\374ckgabewerte}{part.3}% 72
+\BOOKMARK [2][-]{subsection.24.1}{Call by Value vs. Call by Reference}{section.24}% 73
+\BOOKMARK [3][-]{subsubsection.24.1.1}{3 Beispiele}{subsection.24.1}% 74
+\BOOKMARK [2][-]{subsection.24.2}{Call by reference: wann einsetzen?}{section.24}% 75
+\BOOKMARK [2][-]{subsection.24.3}{Merke}{section.24}% 76
+\BOOKMARK [0][-]{part.4}{IV Arrays, Dynamische Speicherverwaltung}{}% 77
+\BOOKMARK [1][-]{section.25}{Arrays}{part.4}% 78
+\BOOKMARK [2][-]{subsection.25.1}{Arrays: Vektoren}{section.25}% 79
+\BOOKMARK [2][-]{subsection.25.2}{Der Array \(Feld, Vektor\)}{section.25}% 80
+\BOOKMARK [3][-]{subsubsection.25.2.1}{Zugriff auf ein Arrayelement}{subsection.25.2}% 81
+\BOOKMARK [2][-]{subsection.25.3}{Arrays und Pointer}{section.25}% 82
+\BOOKMARK [3][-]{subsubsection.25.3.1}{Pro Memoria: Eindimensionales Array \(Vektor\)}{subsection.25.3}% 83
+\BOOKMARK [2][-]{subsection.25.4}{\304quivalenz von Array- und Pointernotation}{section.25}% 84
+\BOOKMARK [2][-]{subsection.25.5}{Vergleichen von Arrays}{section.25}% 85
+\BOOKMARK [2][-]{subsection.25.6}{Arrayname ist ein nicht modifizierbarer L-Wert}{section.25}% 86
+\BOOKMARK [2][-]{subsection.25.7}{Automatische Initialisierung von Arrays}{section.25}% 87
+\BOOKMARK [2][-]{subsection.25.8}{Explizite Initialisierung von Arrays}{section.25}% 88
+\BOOKMARK [3][-]{subsubsection.25.8.1}{Beispiel}{subsection.25.8}% 89
+\BOOKMARK [3][-]{subsubsection.25.8.2}{Goodies f\374r die explizite Initialisierung}{subsection.25.8}% 90
+\BOOKMARK [2][-]{subsection.25.9}{Mehrdimensionale Arrays}{section.25}% 91
+\BOOKMARK [3][-]{subsubsection.25.9.1}{Initialisierung eines mehrdimensionalen Arrays}{subsection.25.9}% 92
+\BOOKMARK [1][-]{section.26}{\334bergabe von Arrays und Zeichenketten}{part.4}% 93
+\BOOKMARK [2][-]{subsection.26.1}{Beispiel: Array \(Vektor\) als Parameter}{section.26}% 94
+\BOOKMARK [2][-]{subsection.26.2}{\334bergabe einer Matrix mittels offenem Array}{section.26}% 95
+\BOOKMARK [2][-]{subsection.26.3}{Zeichenketten \(Strings\)}{section.26}% 96
+\BOOKMARK [1][-]{section.27}{Dynamische Speicherverwaltung}{part.4}% 97
+\BOOKMARK [2][-]{subsection.27.1}{Pro Memoria: Variablen}{section.27}% 98
+\BOOKMARK [2][-]{subsection.27.2}{Dynamische Speicherverwaltung}{section.27}% 99
+\BOOKMARK [2][-]{subsection.27.3}{Syntax}{section.27}% 100
+\BOOKMARK [2][-]{subsection.27.4}{Vorsichtsmassnahmen}{section.27}% 101
+\BOOKMARK [2][-]{subsection.27.5}{Memory Leak, Garbage Collection}{section.27}% 102
+\BOOKMARK [2][-]{subsection.27.6}{Dynamische Allozierung von Arrays}{section.27}% 103
+\BOOKMARK [2][-]{subsection.27.7}{Dynamische Allozierung von Matrizen}{section.27}% 104
+\BOOKMARK [3][-]{subsubsection.27.7.1}{Dynamische Matrix mit 4 Zeilen und 3 Spalten}{subsection.27.7}% 105
+\BOOKMARK [3][-]{subsubsection.27.7.2}{Zugriff auf dynamisch erzeugte Matrix}{subsection.27.7}% 106
+\BOOKMARK [3][-]{subsubsection.27.7.3}{Dynamische Matrix freigeben}{subsection.27.7}% 107
+\BOOKMARK [2][-]{subsection.27.8}{Effizienz der Matriximplementationen}{section.27}% 108
+\BOOKMARK [0][-]{part.5}{V Scope, Deklarationen, Type Casts}{}% 109
+\BOOKMARK [1][-]{section.28}{Strukturen in C++}{part.5}% 110
+\BOOKMARK [1][-]{section.29}{G\374ltigkeitsbereiche, Namensr\344ume und Sichtbarkeit}{part.5}% 111
+\BOOKMARK [2][-]{subsection.29.1}{G\374ltigkeitsbereiche von Namen \(Scope\)}{section.29}% 112
+\BOOKMARK [2][-]{subsection.29.2}{G\374ltigkeitsbereiche in C++}{section.29}% 113
+\BOOKMARK [2][-]{subsection.29.3}{G\374ltigkeit \(Scope\) von Variablen}{section.29}% 114
+\BOOKMARK [2][-]{subsection.29.4}{Lebensdauer von Variablen}{section.29}% 115
+\BOOKMARK [2][-]{subsection.29.5}{Sichtbarkeit von Variablen}{section.29}% 116
+\BOOKMARK [2][-]{subsection.29.6}{Schlussfolgerung \(naheliegend aber falsch\)}{section.29}% 117
+\BOOKMARK [2][-]{subsection.29.7}{Lebensdauer \(grau\) und Sichtbarkeit \(weiss\)}{section.29}% 118
+\BOOKMARK [2][-]{subsection.29.8}{Codierstil}{section.29}% 119
+\BOOKMARK [1][-]{section.30}{Namensr\344ume \(Namespaces\)}{part.5}% 120
+\BOOKMARK [2][-]{subsection.30.1}{Explizite Namensr\344ume in C++}{section.30}% 121
+\BOOKMARK [2][-]{subsection.30.2}{C++-Mechanismen f\374r Namespaces}{section.30}% 122
+\BOOKMARK [2][-]{subsection.30.3}{Deklaration von Namespaces}{section.30}% 123
+\BOOKMARK [3][-]{subsubsection.30.3.1}{Beispiel}{subsection.30.3}% 124
+\BOOKMARK [2][-]{subsection.30.4}{using-Deklaration}{section.30}% 125
+\BOOKMARK [2][-]{subsection.30.5}{using-Direktive}{section.30}% 126
+\BOOKMARK [2][-]{subsection.30.6}{using namespace kann zu Konflikten f\374hren}{section.30}% 127
+\BOOKMARK [2][-]{subsection.30.7}{Namenlose Namespaces}{section.30}% 128
+\BOOKMARK [2][-]{subsection.30.8}{Zugriff auf globale Variable mit Scope-Operator}{section.30}% 129
+\BOOKMARK [1][-]{section.31}{Speicherklassen}{part.5}% 130
+\BOOKMARK [2][-]{subsection.31.1}{Speicherklassen in C++}{section.31}% 131
+\BOOKMARK [3][-]{subsubsection.31.1.1}{Speicherklasse static: Variablen}{subsection.31.1}% 132
+\BOOKMARK [3][-]{subsubsection.31.1.2}{Speicherklasse static: Funktionen}{subsection.31.1}% 133
+\BOOKMARK [3][-]{subsubsection.31.1.3}{Speicherklasse extern: Externe Variablen}{subsection.31.1}% 134
+\BOOKMARK [2][-]{subsection.31.2}{Typqualifikationen \(Kap. 9.2.2\)}{section.31}% 135
+\BOOKMARK [2][-]{subsection.31.3}{Funktionsattribute}{section.31}% 136
+\BOOKMARK [1][-]{section.32}{Typdefinitionen}{part.5}% 137
+\BOOKMARK [2][-]{subsection.32.1}{typedef zur Vereinbarung eigener Datentypen}{section.32}% 138
+\BOOKMARK [3][-]{subsubsection.32.1.1}{Beispiel}{subsection.32.1}% 139
+\BOOKMARK [2][-]{subsection.32.2}{Gew\344hrleistung von Portabilit\344t}{section.32}% 140
+\BOOKMARK [2][-]{subsection.32.3}{Wie setzt der Compiler ein typedef um?}{section.32}% 141
+\BOOKMARK [1][-]{section.33}{Initialisierung}{part.5}% 142
+\BOOKMARK [1][-]{section.34}{Type-Cast \(Typumwandlungen\)}{part.5}% 143
+\BOOKMARK [2][-]{subsection.34.1}{Typumwandlungen im Allgemeinen}{section.34}% 144
+\BOOKMARK [2][-]{subsection.34.2}{Implizite Typumwandlung}{section.34}% 145
+\BOOKMARK [2][-]{subsection.34.3}{Explizite Typumwandlung}{section.34}% 146
+\BOOKMARK [3][-]{subsubsection.34.3.1}{Explizite Typumwandlung \0431, 2: C-Stil und Funktionsstil}{subsection.34.3}% 147
+\BOOKMARK [3][-]{subsubsection.34.3.2}{Typumwandlung mit C-Stil und Funktionsstil}{subsection.34.3}% 148
+\BOOKMARK [3][-]{subsubsection.34.3.3}{Explizite Typumwandlung \0433: const\137cast}{subsection.34.3}% 149
+\BOOKMARK [3][-]{subsubsection.34.3.4}{Explizite Typumwandlung \0434: static\137cast}{subsection.34.3}% 150
+\BOOKMARK [3][-]{subsubsection.34.3.5}{Explizite Typumwandlung \0435: dynamic\137cast}{subsection.34.3}% 151
+\BOOKMARK [3][-]{subsubsection.34.3.6}{Explizite Typumwandlung \0436: reinterpret\137cast}{subsection.34.3}% 152
+\BOOKMARK [0][-]{part.6}{VI Module und Datenkapseln}{}% 153
+\BOOKMARK [1][-]{section.35}{Modul \(Unit\)}{part.6}% 154
+\BOOKMARK [2][-]{subsection.35.1}{Nomenklatur: Modul vs. Unit}{section.35}% 155
+\BOOKMARK [2][-]{subsection.35.2}{Ziele der Modularisierung}{section.35}% 156
+\BOOKMARK [2][-]{subsection.35.3}{Eigenschaften einer Unit \(eines Moduls\)}{section.35}% 157
+\BOOKMARK [2][-]{subsection.35.4}{Bestandteile eine C++-Programms}{section.35}% 158
+\BOOKMARK [2][-]{subsection.35.5}{Unitkonzept}{section.35}% 159
+\BOOKMARK [2][-]{subsection.35.6}{Geheimnisprinpzip \(Information Hiding\)}{section.35}% 160
+\BOOKMARK [3][-]{subsubsection.35.6.1}{Information Hiding}{subsection.35.6}% 161
+\BOOKMARK [3][-]{subsubsection.35.6.2}{Konzept der Datenkapsel}{subsection.35.6}% 162
+\BOOKMARK [3][-]{subsubsection.35.6.3}{Beispiel f\374r Datenzugriff bei Datenkapsel}{subsection.35.6}% 163
+\BOOKMARK [3][-]{subsubsection.35.6.4}{Beispiel f\374r Unit Rechteck \(ohne Datenkapsel\)}{subsection.35.6}% 164
+\BOOKMARK [3][-]{subsubsection.35.6.5}{Beispiel f\374r Unit Rechteck: Verbesserung \0431}{subsection.35.6}% 165
+\BOOKMARK [3][-]{subsubsection.35.6.6}{Beispiel f\374r Unit Rechteck: Verbesserung \0432}{subsection.35.6}% 166
+\BOOKMARK [2][-]{subsection.35.7}{Unit nutzen}{section.35}% 167
+\BOOKMARK [2][-]{subsection.35.8}{Unit-Schnittstelle definieren \(in Headerdatei\)}{section.35}% 168
+\BOOKMARK [2][-]{subsection.35.9}{Deklarationsreihenfolge in der Headerdatei \(*.h\)}{section.35}% 169
+\BOOKMARK [2][-]{subsection.35.10}{Reihenfolge in der Implementierungsdatei \(*.cpp\)}{section.35}% 170
+\BOOKMARK [2][-]{subsection.35.11}{\043include-Konzept}{section.35}% 171
+\BOOKMARK [2][-]{subsection.35.12}{Unit compilieren}{section.35}% 172
+\BOOKMARK [2][-]{subsection.35.13}{Units linken}{section.35}% 173
+\BOOKMARK [2][-]{subsection.35.14}{Buildprozess}{section.35}% 174
+\BOOKMARK [2][-]{subsection.35.15}{Make-Tool}{section.35}% 175
+\BOOKMARK [3][-]{subsubsection.35.15.1}{Abh\344ngigkeiten zwischen Dateien}{subsection.35.15}% 176
+\BOOKMARK [3][-]{subsubsection.35.15.2}{make-File}{subsection.35.15}% 177
+\BOOKMARK [3][-]{subsubsection.35.15.3}{Beispiel: makefile}{subsection.35.15}% 178
+\BOOKMARK [0][-]{part.7}{VII Eclipse IDE}{}% 179
+\BOOKMARK [1][-]{section.36}{Eclipse}{part.7}% 180
+\BOOKMARK [2][-]{subsection.36.1}{Workspace}{section.36}% 181
+\BOOKMARK [2][-]{subsection.36.2}{Ressourcen \(Resources\)}{section.36}% 182
+\BOOKMARK [2][-]{subsection.36.3}{Project}{section.36}% 183
+\BOOKMARK [2][-]{subsection.36.4}{Debugger}{section.36}% 184
+\BOOKMARK [3][-]{subsubsection.36.4.1}{Testen und Debugging}{subsection.36.4}% 185
+\BOOKMARK [3][-]{subsubsection.36.4.2}{Funktionen eines Debuggers}{subsection.36.4}% 186
+\BOOKMARK [3][-]{subsubsection.36.4.3}{Assertions \(Zusicherungen\)}{subsection.36.4}% 187
+\BOOKMARK [3][-]{subsubsection.36.4.4}{Zu beachten bei Assertions}{subsection.36.4}% 188
+\BOOKMARK [0][-]{part.8}{VIII Klassen}{}% 189
+\BOOKMARK [1][-]{section.37}{Beispielprojekt Stack}{part.8}% 190
+\BOOKMARK [2][-]{subsection.37.1}{Stack}{section.37}% 191
+\BOOKMARK [3][-]{subsubsection.37.1.1}{Stack - Operationen}{subsection.37.1}% 192
+\BOOKMARK [3][-]{subsubsection.37.1.2}{Demo: Codebeispiel f\374r Stack \(Stack\137Datenkapsel\)}{subsection.37.1}% 193
+\BOOKMARK [2][-]{subsection.37.2}{Queue}{section.37}% 194
+\BOOKMARK [3][-]{subsubsection.37.2.1}{Queue - Operationen}{subsection.37.2}% 195
+\BOOKMARK [1][-]{section.38}{Objektorientierte Programmierung}{part.8}% 196
+\BOOKMARK [2][-]{subsection.38.1}{Modell und Realit\344t}{section.38}% 197
+\BOOKMARK [2][-]{subsection.38.2}{Zu \(subjektiven\) Sichtweise des Betrachters}{section.38}% 198
+\BOOKMARK [2][-]{subsection.38.3}{Prozedurale vs. Objektorientierte Sicht}{section.38}% 199
+\BOOKMARK [1][-]{section.39}{Unified Modeling Language \(UML\)}{part.8}% 200
+\BOOKMARK [2][-]{subsection.39.1}{Entstehung der UML}{section.39}% 201
+\BOOKMARK [2][-]{subsection.39.2}{Was ist UML?}{section.39}% 202
+\BOOKMARK [2][-]{subsection.39.3}{Klassenbegriff}{section.39}% 203
+\BOOKMARK [2][-]{subsection.39.4}{UML-Notation der Klasse}{section.39}% 204
+\BOOKMARK [2][-]{subsection.39.5}{Klasse definieren und Objekte anlegen: Syntax}{section.39}% 205
+\BOOKMARK [1][-]{section.40}{Zugriffsschutz bei Klassen}{part.8}% 206
+\BOOKMARK [2][-]{subsection.40.1}{Zugriffsschutz mit public, protected und private}{section.40}% 207
+\BOOKMARK [3][-]{subsubsection.40.1.1}{\334blicher Aufbau einer Klassenschnittstelle}{subsection.40.1}% 208
+\BOOKMARK [2][-]{subsection.40.2}{Operationen einer Klasse}{section.40}% 209
+\BOOKMARK [2][-]{subsection.40.3}{Information Hiding}{section.40}% 210
+\BOOKMARK [1][-]{section.41}{Beispiel einer Klasse: Rechteck \(Rectangle\)}{part.8}% 211
+\BOOKMARK [2][-]{subsection.41.1}{Klassendeklaration}{section.41}% 212
+\BOOKMARK [2][-]{subsection.41.2}{Klassendefinition}{section.41}% 213
+\BOOKMARK [2][-]{subsection.41.3}{Klassendefinition direkt}{section.41}% 214
+\BOOKMARK [2][-]{subsection.41.4}{Reprise: Projekt Stack}{section.41}% 215
+\BOOKMARK [2][-]{subsection.41.5}{Klassenschnittstelle}{section.41}% 216
+\BOOKMARK [1][-]{section.42}{Elementfunktionen}{part.8}% 217
+\BOOKMARK [2][-]{subsection.42.1}{Klassifizierung von Elementfunktionen}{section.42}% 218
+\BOOKMARK [2][-]{subsection.42.2}{inline-Elementfunktionen}{section.42}% 219
+\BOOKMARK [2][-]{subsection.42.3}{Projekt Stack}{section.42}% 220
+\BOOKMARK [2][-]{subsection.42.4}{const - Elementfunktionen}{section.42}% 221
+\BOOKMARK [3][-]{subsubsection.42.4.1}{const - Elementfunktionen: Schlussfolgerung}{subsection.42.4}% 222
+\BOOKMARK [2][-]{subsection.42.5}{Projekt Stack}{section.42}% 223
+\BOOKMARK [2][-]{subsection.42.6}{mutable-Attribut}{section.42}% 224
+\BOOKMARK [2][-]{subsection.42.7}{Projekt Stack}{section.42}% 225

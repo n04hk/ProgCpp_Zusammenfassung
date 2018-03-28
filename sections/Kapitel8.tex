@@ -1,0 +1,469 @@
+%!TEX root = main.tex
+
+\part{Klassen}
+\label{sec:Klassen}
+
+\section{Beispielprojekt Stack}
+\label{sec:Beispielprojekt Stack}
+
+\subsection{Stack}
+\label{Stack}
+\noindent
+\begin{figure}[hh]
+	\centering
+	\includegraphics[width=0.2\linewidth]{images/klasse1.pdf}
+\end{figure}
+\begin{itemize}
+	\item Der Stack ist ein oft verwendetes Speicherkonstrukt für Daten
+	\item Bei einem Stack werden neue Elemente immer oben eingefügt
+	\item Elemente werden immer auch wieder oben weggenommen
+	\item Synonyme:
+	\begin{itemize}
+		\item Stapel
+		\item LIFO (Last In First Out)
+		\item (Kellerspeicher)
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Stack - Operationen}
+\label{sec:Stack - Operationen}
+
+\begin{tabular}{ll}
+	\hline 
+	push() & ein neues Objekt einfügen \\ 
+	\hline 
+	pop() & ein Objekt entfernen \\ 
+	\hline 
+	isEmpty() & liefert true falls der Stack leer ist \\ 
+	\hline 
+	isFull() & liefert true falls der Stack voll ist \\ 
+	\hline 
+	init() & initialisiert einen leeren Stack \\ 
+	\hline 
+\end{tabular}
+
+\subsubsection{Demo: Codebeispiel für Stack (Stack\_Datenkapsel)}
+\label{sec:Demo: Codebeispiel für Stack}
+\lstinputlisting{listings/Stack_Datenkapsel/stack.h}
+\lstinputlisting{listings/Stack_Datenkapsel/stack.cpp}
+\lstinputlisting{listings/Stack_Datenkapsel/stacktest.cpp}
+
+\subsection{Queue}
+\label{sec:Queue}
+\noindent
+\begin{figure}[hh]
+	\centering
+	\includegraphics[width=0.5\linewidth]{images/klasse2.pdf}
+\end{figure}
+\begin{itemize}
+	\item Die Queue ist ein weiteres Speicherkonstrukt für Daten
+	\item Bei einer Queue werden neue Elemente immer am Ende (tail) eingefügt
+	\item Elemente werden immer am Anfang (head) weggenommen
+	\item Synonyme:
+	\begin{itemize}
+		\item Warteschlange
+		\item FIFO (First In First Out)
+		\item Pipe
+		\item Buffer (engl.)
+		\item Puffer (dt.)
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Queue - Operationen}
+\label{sec:Queue - Operationen}
+\begin{tabular}{lc}
+	enqueue() / write() & ein neues Objekt hinzufügen \\ 
+	\hline 
+	dequeue() / read() & ein Objekt entfernen \\ 
+	\hline 
+	isFull() & liefert true falls die Queue voll ist \\ 
+	\hline 
+	isEmpty() & liefert true falls die Queue leer ist \\ 
+	init() & initialisiert eine leere Queue \\ 
+\end{tabular} 
+
+\section{Objektorientierte Programmierung}
+\label{sec:Objektorientierte Programmierung}
+
+\subsection{Modell und Realität}
+\label{Modell und Realität}
+\begin{itemize}
+	\item Ein Modell ist eine Abstraktion (Reduktion) der Realität auf das Wesentliche, den Modellierer Interessierende, niemals aber die ganze Realität
+	\item Ein Modell spiegelt immer auch die Sichtweise des Betrachters
+\end{itemize}
+
+\subsection{Zu (subjektiven) Sichtweise des Betrachters}
+\label{Zur (subjektiven) Sichtweise des Betrachters}
+Ein zur Hälfte mit Wasser gefülltes Glas:
+\begin{itemize}
+	\item Optimist:
+	\item[\-] Glas ist halb voll
+	\item Pessimist:
+	\item[\-] Glas ist halb leer
+	\item Ingenieur:
+	\item[\-] Glas ist überdimensioniert
+\end{itemize}
+
+\subsection{Prozedurale vs. Objektorientierte Sicht}
+\label{sec:Prozedurale vs. Objektorientierte Sicht}
+Die Objektorientierte Sicht ist meist die intuitivere Sicht der Realität als die prozedurale, da physisch existierende Objekte direkt als Objekte in einem objektorientierten Design modelliert werden können.
+
+\section{Unified Modeling Language (UML)}
+\label{sec:Unified Modeling Language}
+\href{www.uml.org}{UML}
+
+\subsection{Entstehung der UML}
+\label{sec:Entstehung der UML}
+\begin{figure}[hh]
+	\centering
+	\includegraphics[width=0.5\linewidth]{images/klasse3.pdf}
+\end{figure}
+
+\subsection{Was ist UML?}
+\label{sec:Was ist UML?}
+\begin{itemize}
+	\item UML steht für Unified Modeling Language
+	\item UML ist eine graphische Modellierungssprache
+	\item Ziel der UML
+	\begin{itemize}
+		\item fortlaufendes (objektorientiertes) Modellierungskonzept für alle Software-Entwicklungsphasen
+	\end{itemize}
+	\item UML ist heute der de facto Standard für die Softwaremodellierung
+	\item UML ist (programmier-)sprachunabhängig
+	\item UML unterstützt den gesamten Entwicklungsprozess
+	\item UML integriert (fast) alle früheren Modellierungstechniken
+	\begin{itemize}
+		\item Datenmodellierung
+		\item Prozessmodellierung
+		\item Zustands- und Verhaltensmodellierung
+		\item Steuerfluss-Modellierung
+	\end{itemize}
+\end{itemize}
+\vspace{1cm}
+\begin{itemize}
+	\item UML ist...
+	\begin{itemize}
+		\item \textbf{kein} Softwareprozess-Modell
+		\item \textbf{kein} Lebenszyklusmodell
+		\item \textbf{keine} Programmiersprache
+		\item nicht ohne Redundanz
+		\begin{itemize}
+			\item es gibt oft mehrere Möglichkeiten, etwas zu modellieren
+		\end{itemize}
+		\item \textbf{kein} Softwaretool
+	\end{itemize}
+\end{itemize}
+
+\subsection{Klassenbegriff}
+\label{sec:Klassenbegriff}
+\begin{itemize}
+	\item Eine Klasse ist eine Struktur (eine Struktur besteht nur aus Daten), die mit den Funktionen, welche auf diesen Daten arbeiten, erweitert wurde.
+	\item Eine Klasse ist also eine Struktur, welche die Daten und die Funktionen auf diesen Daten in ein syntaktisches Konstrukt packt.
+	\item \textbf{Die Klasse ist die Umsetzung der Datenkapsel.}
+	\item Eine Klassendeklaration ist eine Typendefinition. Die "Variablen" einer Klasse werden als "Objekte" bezeichnet.
+\end{itemize}
+
+\subsection{UML-Notation der Klasse}
+\begin{itemize}
+	\item Eine Klasse ist der Bauplan für Objekte
+	\item Eine Klasse besteht aus Daten (Attribute) und den Funktionen (Methoden) auf diesen Daten
+	\item Sichtbarkeit:
+	\begin{itemize}
+		\item[\-] +: public
+		\item[\-] -: private
+		\item[\-] \#: protected
+	\end{itemize}
+\end{itemize}
+
+\subsection{Klasse definieren und Objekte anlegen: Syntax}
+\label{sec:Klasse definieren und Objekte anlegen: Syntax}
+Der Name der Klasse kann fast beliebig gewählt werden.\\
+\textbf{Konvention:} mit Grossbuchstaben beginnen
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	class Classname	// Deklaration der Klasse
+	{
+	
+		...
+	
+	};
+	
+	Classname obj1;	// Objekt definieren
+	Classname obj2;	// Objekt definieren
+	Classname* objPtr;	// Objekt-Pointer definieren
+	Classname& objRef = obj1;	// Objekt-Referenz definieren
+	\end{lstlisting}
+\end{minipage}
+
+\section{Zugriffsschutz bei Klassen}
+\label{Zugriffsschutz bei Klassen}
+\begin{itemize}
+	\item Innerhalb der Klasse hat jede Methode der Klasse auf die Elemente Zugriff. (innerhalb der Klasse sind die Methoden und Attribute der Klasse "lokale Globale")
+	\item Von ausserhalb der Klasse gibt es grundsätzlich keinen Zugriff auf Klassenelemente (default, d.h. wenn nichts steht)
+	\item Alles, was von aussen zugreifbar sein soll, muss explizit mit public: gekennzeichnet werden
+	\item Obwohl nicht unbedingt notwendig, werden die nach aussen nicht sichtbaren Elemente üblicherweise dennoch explizit mit private: gekennzeichnet
+\end{itemize}
+
+\subsection{Zugriffsschutz mit public, protected und private}
+\label{sec:Zugriffsschutz mit public, protected und private}
+\begin{itemize}
+	\item public: Elemente können innerhalb und ausserhalb der Klasse angesprochen werden
+	\begin{itemize}
+		\item fast alle Methoden sind public
+		\item Attribute sollen nie public sein
+	\end{itemize}
+	\item protected: Elemente können von innerhalb der Klasse und von abgeleiteten Klassen angesprochen werden
+	\begin{itemize}
+		\item nur sparsam einsetzen
+	\end{itemize}
+	\item private: Elemente können nur innerhalb der Klasse angesprochen werden
+	\begin{itemize}
+		\item grundsätzlich für alle Attribute und für einzelne (lokale) Methoden
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Üblicher Aufbau einer Klassenschnittstelle}
+\label{sec:Ueblicher Aufbau einer Klassenschnittstelle}
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	class Classname	// Deklaration der Klasse
+	{
+		public:
+			...
+		protected:
+			...
+		private:
+			...
+	};
+	\end{lstlisting}
+\end{minipage}
+\begin{achtung}
+	Strichpunkt nicht vergessen!
+\end{achtung}
+
+\subsection{Operationen einer Klasse}
+\label{sec:Operationen einer Klasse}
+...(= Funktionen, die im Klassenrumpf definiert sind) werden als Elementfunktionen oder Methoden bezeichnet.\\
+Üblicherweise beginnen Elementfunktionen mit einem Kleinbuchstaben und werden in camelCase (mixedCase) notiert.
+
+Beispiel:\\
+\color{green}isEmpty()\color{black}\\
+nicht:\\
+\color{red}is\_empty(), isempty(), IsEmpty(), Isempty(), etc.\color{black}
+
+\subsection{Information Hiding}
+\label{sec:Information Hiding}
+\begin{itemize}
+	\item Klassen exportieren generell ausschliesslich Methoden.
+	\item[\-] Alle Daten sind im Innern (private-Abschnitt) verborgen, der Zugriff erfolgt über die so genannten Elementfukntionen.
+	\item Jede Klasse besteht damit aus zwei Dateien, der Schnittstellendatei (.h) und der Implementierungsdatei (.cpp)
+\end{itemize}
+
+\section{Beispiel einer Klasse: Rechteck (Rectangle)}
+\label{sec:Beispiel einer Klasse: Rechteck}
+\begin{itemize}
+	\item Welche Attribute besitzt ein Rechteck?
+	\begin{itemize}
+		\item Länge a
+		\item Breite b
+	\end{itemize}
+	\item Welche Funktionen (Methoden) sollen möglich sein?
+	\begin{itemize}
+		\item a und b setzen
+		\item a und b abfragen
+		\item Flächeninhalt abfragen
+	\end{itemize}
+\end{itemize}
+\begin{figure}[hh]
+	\centering
+	\includegraphics[width=0.3\linewidth]{images/klasse4.pdf}
+\end{figure}
+
+\subsection{Klassendeklaration}
+\label{sec:Klassendeklaration}
+\noindent
+\begin{minipage}{\linewidth}
+	\lstinputlisting{listings/rectangle.h}
+\end{minipage}
+
+\subsection{Klassendefinition}
+\label{sec:Klassendefinition}
+\noindent
+\begin{minipage}{\linewidth}
+	\lstinputlisting{listings/rectangle.cpp}
+\end{minipage}
+
+\subsection{Klassendefinition direkt}
+\label{sec:Klassendefinition direkt}
+\noindent
+\begin{minipage}{\linewidth}
+	\lstinputlisting{listings/rectangle_direkt.h}
+\end{minipage}
+\begin{hinweis}
+	Ist ok bei sehr kurzen Methoden. Verletzt Information Hiding, Methoden sind jedoch implizit inline.
+\end{hinweis}
+
+\subsection{Reprise: Projekt Stack}
+\label{sec:Reprise: Projekt Stack}
+\begin{itemize}
+	\item Ausgangspunkt
+	\begin{itemize}
+		\item Datenkapsel, rein prozedural
+		\item Daten dateiglobal, nur einfach vorhanden. Deshalb können nicht mehrere Stacks gebildet werden.
+	\end{itemize}
+	\item Ziel
+	\begin{itemize}
+		\item ich möchte Daten und Funktionen besser zusammenfassen können
+		\item ich will mehrere Stacks gleichzeitig instanzieren können (in der prozeduralen Variante könnte das erreicht werden, indem der jeweilige Stack immer als zusätzlicher Parameter den Funktionen übergeben wird)
+	\end{itemize}
+	\item Schritt 1: Klassendeklaration erstellen (in Headerfile stack.h)
+\end{itemize}
+
+\subsection{Klassenschnittstelle}
+\label{sec:Klassenschnittstelle}
+Die Schnittstelle einer Klasse sollte minimal und vollständig sein. Vollständig in dem Sinne, dass Benutzer der Klasse alle sinnvollen Aktionen ausführen können. Minimal wiederum bedeutet, dass das Klassen-Interface so klein wie möglich sein sollte.
+
+\section{Elementfunktionen}
+\label{sec:Elementfunktionen}
+\begin{itemize}
+	\item ...sind Funktionen, die in der Schnittstelle der Klasse spezifiziert sind
+	\item Elementfunktionen haben vollen Zugriff auf alle Klassenelemente (auch auf solche, die mit private gekennzeichnet sind)
+	\item Auf Elementfunktionen kann nur unter Bezugnahme auf ein Objekt der Klasse, bzw. mit dem Scope-Operator (::) zugegriffen werden
+	\item Elementfunktionen sollen prinzipiell in der Implementierungsdatei (.cpp) implementiert werden. Dem Funktionsnamen muss dabei der Klassenname gefolgt von :: vorgestellt werden
+	\item[\-] Beispiel:
+	\item[\-] int Stack::pop()
+\end{itemize}
+
+\subsection{Klassifizierung von Elementfunktionen}
+\label{sec:Klassifizierung von Elementfunktionen}
+\begin{itemize}
+	\item Konstruktoren/Destruktoren
+	\begin{itemize}
+		\item Konstruktor: erzeugen eines Objekts
+		\item Destruktor: vernichten, freigeben eines Objekts
+	\end{itemize}
+	\item Modifikatoren
+	\begin{itemize}
+		\item ändern den Zustand eines Objekts (Attribute ändern)
+	\end{itemize}
+	\item Selektoren
+	\begin{itemize}
+		\item greifen nur lesend auf ein Objekt zu (immer const definieren!)
+		\item Beispiel:
+		\item[\-] bool Stack::isEmpty() const;
+	\end{itemize}
+	\item Iteratoren
+	\begin{itemize}
+		\item Erlauben, auf Elemente eines Objekts in einer definierten Reihenfolge zuzugreifen
+	\end{itemize}
+\end{itemize}
+
+\subsection{inline-Elementfunktionen}
+\label{sec:inline-Elementfunktionen}
+\begin{itemize}
+	\item Elementfunktionen, die innerhalb der Deklaration der Klassenschnittstelle (im .h-File) implementiert sind, werden als (implizite) inline-Funktionen behandelt
+	\item Elementfunktionen können in der Klassenimplementation explizit mit dem Schlüsselwort inline gekennzeichnet werden
+	\item \color{red} Implizite inline-Funktionen verletzen das Information Hiding Prinzip und sollten deshalb puristisch betrachtet grundsätzlich vermieden werden\color{black}
+	\item \color{green} Jedoch: die impliziten inline-Funktionen sind die Funktionen, die garantiert immer inline verwendet werden (mit einigen wenigen Ausnahmen)
+\end{itemize}
+
+\subsection{Projekt Stack}
+\label{sec:Projekt Stack}
+\begin{itemize}
+	\item Schritt 1: Klassendeklaration erstellen (in Headerfile stack.h)
+	\item Schritt 2: Klassendefinition erstellen (in Implementationsfile stack.cpp)
+	\item Schritt 3: Testprogramm anpassen (in stacktest.cpp)
+\end{itemize}
+
+\subsection{const - Elementfunktionen}
+\label{sec:const - Elementfunktionen}
+\begin{itemize}
+	\item Elementfunktionen, die den Zustand eines Objekts nicht ändern (Selektoren) sollen explizit mit dem Schlüsselwort const gekennzeichnet werden
+	\item Das Schlüsselwort const muss sowohl im Prototypen als auch in der Implementierung geschrieben werden
+	\item beispiel:
+	\item[\-] \begin{minipage}{\linewidth}
+		\begin{lstlisting}
+		bool Stack::isEmpty() const;
+		...
+		bool Stack::isEmpty() const
+		{
+			return top == 0;
+		}
+		\end{lstlisting}
+	\end{minipage}
+\end{itemize}
+Um zu verhindern, dass const-Objekte über den "Umweg" von Elementfunktionen verändert werden, dürfen "normale" Elementfunktionen nicht auf const-Objekte angewandt werden.
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	class Stack
+	{
+		public:
+			int pop();
+			bool isEmpty() const;
+		private:
+			...
+	};
+	...
+	void fooReadOnly(const Stack& s)
+	{
+		bool b = s.isEmpty();	*@\color{green}// ok. s ist const, isEmpty() ist auch const@*
+		int i = s.pop();	*@\color{red}// Fehler. s ist const, pop() nicht!@*
+	}
+	\end{lstlisting}
+\end{minipage}
+
+\subsubsection{const - Elementfunktionen: Schlussfolgerung}
+\label{sec:const - Elementfunktionen: Schlussfolgerung}
+Damit mit const-Objekten überhaupt etwas gemacht werden kann, müssen die Elementfunktionen, welche die Attribute nicht verändern, konsequent mit const gekennzeichnet werden
+
+\subsection{Projekt Stack}
+\label{sec:Projekt Stack 2}
+\begin{itemize}
+	\item Schritt 1: Klassendeklaration erstellen (in Headerfile stack.h)
+	\item Schritt 2: Klassendefinition erstellen (in Implementationsfile stack.cpp)
+	\item Schritt 3: Testprogramm anpassen (in stacktest.cpp)
+	\item Schritt 4: Selektoren mit const gekennzeichnet
+\end{itemize}
+
+\subsection{mutable-Attribut}
+\label{sec:mutable-Attribut}
+Ein Datenelement, das nie const werden soll (auch nicht bei const-Elementfunktionen) kann mit mutable gekennzeichnet werden.
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	class Stack
+	{
+		public:
+			int pop();
+			int peek() const; // peek() ist read-only, liest nur das oberste Element
+			bool isEmpty() const;
+		private:
+			int elem[maxElems]; // Array fuer Speicherung des Stacks
+			int top; // Arrayindex des naechsten freien Elements
+			mutable bool error; // true: Fehler passiert; false: sonst
+			// mutable: auch const-Methoden koennen dieses Attribut setzen
+	};
+	
+	int Stack::peek() const
+	{
+		error = top == 0; // 'error' soll auch in const-Methode gesetzt werden koennen
+		if (!error)
+			return elem[top-1];
+		else
+			return elem[top];
+	}
+	\end{lstlisting}
+\end{minipage}
+
+\subsection{Projekt Stack}
+\label{sec:Projekt Stack 3}
+\begin{itemize}
+	\item Schritt 1: Klassendeklaration erstellen (in Headerfile stack.h)
+	\item Schritt 2: Klassendefinition erstellen (in Implementationsfile stack.cpp)
+	\item Schritt 3: Testprogramm anpassen (in stacktest.cpp)
+	\item Schritt 4: Selektoren mit const gekennzeichnet
+	\item Schritt 5: mutable Attribut setzen wo nötig (zurückhaltend einsetzen)
+\end{itemize}

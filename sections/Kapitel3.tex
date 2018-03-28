@@ -1,12 +1,12 @@
 %!TEX root = main.tex
 
-\section{Kapitel 3: Pointer und Referenzen}
-\label{sec:Kapitel 3: Pointer und Referenzen}
+\part{Pointer und Referenzen}
+\label{sec:Pointer und Referenzen}
 
-\subsection{Höhere und strukturierte Datentypen}
+\section{Höhere und strukturierte Datentypen}
 \label{sec:Hoehere und strukturierte Datentypen}
 
-\subsubsection{Höhere Datentypen}
+\subsection{Höhere Datentypen}
 \label{sec:Hoehere Datentypen}
 \begin{itemize}
 	\item Pointer
@@ -14,7 +14,7 @@
 	\item Vektoren
 \end{itemize}
 
-\subsubsection{Strukturierte Datentypen}
+\subsection{Strukturierte Datentypen}
 \label{sec:Strukturierte Datentypen}
 \begin{itemize}
 	\item Strukturen
@@ -23,18 +23,8 @@
 
 % Unterkapitel: Pointer
 
-\subsection{Pointer}
+\section{Pointer}
 \label{sec:Pointer}
-
-\subsubsection{Adresse}
-\label{sec:Adresse}
-\begin{itemize}
-	\item Die Nummereiner Speicherzelle wird als \textbf{Adresse} bezeichnet
-	\item Bei einem byteweise adressierbaren Speicher(ist üblich) liegt an jeder Adresse genau 1 Byte
-\end{itemize}
-
-\subsubsection{Pointer}
-\label{sec:subPointer}
 \begin{itemize}
 	\item Synonym: Zeiger
 	\item Ein Pointer ist eine Variable, welche die Adresse einer im Speicher befindlichen Variablen oder Funktion aufnehmen kann
@@ -42,7 +32,14 @@
 	\item Pointer in C++ sind zu 99.99\% identisch zu Pointern in C
 \end{itemize}
 
-\subsubsection{Standarddarstellung von Pointern}
+\subsection{Adresse}
+\label{sec:Adresse}
+\begin{itemize}
+	\item Die Nummereiner Speicherzelle wird als \textbf{Adresse} bezeichnet
+	\item Bei einem byteweise adressierbaren Speicher(ist üblich) liegt an jeder Adresse genau 1 Byte
+\end{itemize}
+
+\subsection{Standarddarstellung von Pointern}
 \label{sec:Standarddarstellung von Pointern}
 \noindent
 \begin{minipage}{\linewidth}
@@ -58,7 +55,7 @@ pointer = \&alpha;
 	\includegraphics[width=0.4\linewidth]{images/pointer1.pdf}
 \end{figure}
 
-\subsubsection{Pointer und Datentyp}
+\subsection{Pointer und Datentyp}
 \label{sec:Pointerund Datentyp}
 \begin{itemize}
 	\item Pointer in C++ sind typisiert (wie in C), sie zeigen auf eine Variable des definierten Typs
@@ -68,7 +65,7 @@ pointer = \&alpha;
 		\\ (z.B. 32 Bits für $2^{32}$ Adressen)
 \end{itemize}
 
-\subsubsection{Definition einer Pointervariablen}
+\subsection{Definition einer Pointervariablen}
 \label{sec:Definition einer Pointervariablen}
 \noindent
 \begin{minipage}{\linewidth}
@@ -344,11 +341,9 @@ Der Name der Funktion kann als Adresse auf den ersten Befehl der Funktion verwen
 
 % Unterkapitel: Referenzen
 
-\subsection{Referenzen}
+\section{Referenzen}
 \label{secc:Referenzen}
-
-\subsubsection{Was ist eine Referenz?}
-\label{sec:Was ist eine Referenz?}
+Was ist eine Referenz?
 \begin{itemize}
 	\item Eine Referenz ist ein Alternativname (Alias) für ein Objekt
 	\item Referenzen ähneln Pointern, sind aber nicht dasselbe. Bei einem Pointer wird immer eine Adresse ermittelt, d.h. dieses Datenobjekt muss sich im adressierbaren Bereich befinden. Eine Referenz kann aber auch auf ein Register verweisen. Grundsätzlich sind Referenzen effizienter als Pointer.
@@ -357,8 +352,8 @@ Der Name der Funktion kann als Adresse auf den ersten Befehl der Funktion verwen
 	\item In gewissen Fällen braucht es Pointer. Wenn nicht, dann sollen Referenzen bevorzugt werden.
 \end{itemize}
 
-\subsubsection{Syntax von Referenzen}
-\label{sec:Syntax von Referenzen}
+\subsection{Syntax}
+\label{sec:Syntax}
 \noindent
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
@@ -374,8 +369,8 @@ r1++;	// x == 8, r1 == 8 (dasselbe Objekt)
 Referenzen können nach der Definition nicht ''umgehängt'' werden, d.h. eine Referenz kann und muss nur bei der Definition initialisiert werden und kann nicht später auf etwas anders ''zeigen''.
 \end{hinweis}
 
-\subsubsection{Einsatz von Referenzen}
-\label{sec:Einsatz von Referenzen}
+\subsection{Einsatz}
+\label{sec:Einsatz}
 \begin{itemize}
 	\item In folgenden zwei Fällen einsetzen:
 	\begin{itemize}
@@ -386,7 +381,7 @@ Referenzen können nach der Definition nicht ''umgehängt'' werden, d.h. eine Re
 	\item Sonst: zurückhaltend einsetzen
 \end{itemize}
 
-\subsubsection{Pointer und Referenzen auf lokale Variablen}
+\section{Pointer und Referenzen auf lokale Variablen}
 \label{sec:Pointer und Referenzen auf lokale Variablen}
 \begin{achtung}
 Sie dürfen niemals einen Pointer oder eine Referenz auf eine lokale Variable oder ein lokales Objekt mittels return zurückgeben
@@ -395,10 +390,10 @@ Grund:\\Nach Beendigung der Funktion sind die lokalen Variablen ungültig.
 
 % Unterkapitel: Zeiger/Referenzen
 
-\subsection{Zeiger und Referenzen als Parameter und Rückgabewerte}
+\section{Zeiger und Referenzen als Parameter und Rückgabewerte}
 \label{sec:Zeiger und Referenzen als Parameter und Rueckgabewerte}
 
-\subsubsection{Call by Value vs. Call by Reference}
+\subsection{Call by Value vs. Call by Reference}
 \label{sec:Call by Value vs. Call by Reference}
 \begin{itemize}
 	\item Parameter, die by value übergeben werden (Wertparameter) werden kopiert, in der Funktion wird mit Kopien gearbeitet.
@@ -469,7 +464,7 @@ int main()
 \end{lstlisting}
 \end{minipage}
 
-\subsubsection{Call by reference: wann einsetzen?}
+\subsection{Call by reference: wann einsetzen?}
 \label{sec:Call by reference: wann einsetzen?}
 \#1: wenn Parameter in der Funktion verändert werden sollen\\
 \#2: wenn ''grosse'' Parameter übergeben werden sollen (struct, class)\\
@@ -484,7 +479,7 @@ int foo(const BigType& b);
 Parameterübergabe und Rückgabe von Objekten by value ist ein Hauptgrund für langsame C++-Programme!
 \end{achtung}
 
-\subsubsection{Merke}
+\subsection{Merke}
 \label{sec:Merke}
 \begin{achtung}
 Variablen einer Struktur und Variablen einer Klasse (Objekte) müssen immer by reference übergeben werden, niemals by value.\\

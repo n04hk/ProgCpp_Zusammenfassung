@@ -1,13 +1,11 @@
 %!TEX root = main.tex
 
-\section{Kapitel 6: Module und Datenkapseln}
+\part{Module und Datenkapseln}
 \label{sec:Kapitel 6: Module und Datenkapseln}
 
-\subsection{Modul (Unit)}
+\section{Modul (Unit)}
 \label{sec:Modul (Unit)}
-
-\subsubsection{Motivation}
-\label{sec:Motivation}
+Motivation:\\
 \begin{itemize}
 	\item \textbf{Arbeitsteilung}
 	\item[\-] Grosse Programme werden von mehreren Personen entwickelt. Praktikabel ist, wenn nur eine Person an einer bestimmten Datei arbeitet.
@@ -17,7 +15,7 @@
 	\item[\-] Ein grosses  Programm in mehrere vernünftige Teile (Baugruppen, Units) aufteilen (Divide and conquer)
 \end{itemize}
 
-\subsubsection{Nomenklatur: Modul vs. Unit}
+\subsection{Nomenklatur: Modul vs. Unit}
 \label{sec:Nomenklatur: Modul vs. Unit}
 \begin{itemize}
 	\item Ein Programmbaustein wird traditionell mit Modul (der oder das Modul) bezeichnet
@@ -27,7 +25,7 @@
 	\item Prinzipiell spreche ich künftig meist von Unit und Unittest
 \end{itemize}
 
-\subsubsection{Ziele der Modularisierung}
+\subsection{Ziele der Modularisierung}
 \label{sec:Ziele der Modularisierung}
 \begin{itemize}
 	\item Klare, möglichst schlanke Schnittstellen definieren
@@ -36,7 +34,7 @@
 	\item Abhängigkeiten unter den Units sollen eine Hierarchie bilden, zirkuläre (gegenseitige) Abhängigkeiten müssen vermieden werden
 \end{itemize}
 
-\subsubsection{Eigenschaften einer Unit (eines Moduls)}
+\subsection{Eigenschaften einer Unit (eines Moduls)}
 \label{sec:Eigenschaften einer Unit (eines Moduls)}
 \begin{itemize}
 	\item realisiert eine in sich abgeschlossene Aufgabe
@@ -45,14 +43,14 @@
 	\item ihre Korrektheit kann ohne Kenntnis ihrer Einbettung in einem Gesamtsystem nachgewiesen werden (mittels Unittest)
 \end{itemize}
 
-\subsubsection{Bestandteile eine C++-Programms}
+\subsection{Bestandteile eine C++-Programms}
 \label{sec:Bestandteile eine C++-Programms}
 \begin{itemize}
 	\item \textbf{Eine} Hauptfunktion main()
 	\item Eine Reihe von unabhängigen Programmbausteinen (Units)
 \end{itemize}
 
-\subsubsection{Unitkonzept}
+\subsection{Unitkonzept}
 \label{sec:Unitkonzept}
 \begin{itemize}
 	\item Interface definiert die Schnittstelle, d.h. die Deklarationen wie Funktionsprototypen, etc. (Schaufenster)
@@ -185,7 +183,7 @@
 	Dank Datenkapsel darf das Attribut area entfernt werden. Die Schnittstelle ändert sich dadurch nicht.
 \end{hinweis}
 
-\subsubsection{Unit nutzen}
+\subsection{Unit nutzen}
 \label{sec:Unit nutzen}
 \noindent
 \begin{minipage}{\linewidth}
@@ -195,7 +193,7 @@
 	\end{lstlisting}
 \end{minipage}
 
-\subsubsection{Unit-Schnittstelle definieren (in Headerdatei)}
+\subsection{Unit-Schnittstelle definieren (in Headerdatei)}
 \label{sec:Unit-Schnittstelle definieren}
 \noindent
 \begin{minipage}{\linewidth}
@@ -214,7 +212,7 @@
 include-Guard: verhindert das mehrfache include derselben Datei
 \end{hinweis}
 
-\subsubsection{Deklarationsreihenfolge in der Headerdatei (*.h)}
+\subsection{Deklarationsreihenfolge in der Headerdatei (*.h)}
 \label{sec:Deklarationsreihenfolge in der Headerdatei}
 \begin{achtung}
 	kein using namespace ... in Headerdateien!
@@ -233,7 +231,7 @@ include-Guard: verhindert das mehrfache include derselben Datei
 	Punkte 2-7 sind innerhalb des inlcude-Guards.
 \end{hinweis}
 
-\subsubsection{Reihenfolge in der Implementierungsdatei (*.cpp)}
+\subsection{Reihenfolge in der Implementierungsdatei (*.cpp)}
 \label{sec:Reihenfolge in der Implementierungsdatei}
 \begin{enumerate}
 	\item Dateikommentar
@@ -246,7 +244,7 @@ include-Guard: verhindert das mehrfache include derselben Datei
 	\item[\-] \color{red} (Kommentare aus Headerdatei nicht wiederholen!)
 \end{enumerate}
 
-\subsubsection{\#include-Konzept}
+\subsection{\#include-Konzept}
 \label{sec:include-Konzept}
 \begin{itemize}
 	\item Mit den \#includes wird oft ein Riesenchaos veranstaltet
@@ -255,7 +253,7 @@ include-Guard: verhindert das mehrfache include derselben Datei
 \end{itemize}
 \textbf{Regel: In jeder Datei (*.h, *.cpp, *.c) werden genau die Headerdateien inkludiert, welche diese Datei selbst benötigt!}
 
-\subsubsection{Unit compilieren}
+\subsection{Unit compilieren}
 \label{sec:Unit compilieren}
 \begin{center}
 	\textbf{g++ \color{red}-c\color{black} foo.cpp}
@@ -265,7 +263,7 @@ include-Guard: verhindert das mehrfache include derselben Datei
 	\item Dies muss mit allen *.cpp-Dateien gemacht werden
 \end{itemize}
 
-\subsubsection{Units linken}
+\subsection{Units linken}
 \label{sec:Units linken}
 \begin{center}
 	g++ -o foo foo.o goo.o hoo.o
@@ -275,7 +273,7 @@ include-Guard: verhindert das mehrfache include derselben Datei
 	\item Dadurch werden allenfalls noch offene Verbindungen (Links) zu aufgerufenen Funktionen aufgelöst
 \end{itemize}
 
-\subsubsection{Buildprozess}
+\subsection{Buildprozess}
 \label{sec:Buildprozess}
 \begin{itemize}
 	\item Der Buildprozess beinhaltet alle Schritte, um ein ausführbares Programm zu erhalten, bzw. aufzubauen (englisch to build)

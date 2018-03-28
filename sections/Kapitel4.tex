@@ -1,15 +1,16 @@
 %!TEX root = main.tex
 
-\section{Kapitel 4: Arrays, Dynamische Speicherverwaltung}
-\label{sec:Kapitel 4: Arrays, Dynamische Speicherverwaltung}
+\part{Arrays, Dynamische Speicherverwaltung}
+\label{sec:Arrays, Dynamische Speicherverwaltung}
 
 % Unterabschnitt: Arrays:Vektoren
 
+\section{Arrays}
+\label{sec:Arrays}
+
 \subsection{Arrays: Vektoren}
 \label{sec:Arrays: Vektoren}
-
-\subsubsection{Problemstellung}
-\label{sec:Problemstellung}
+Problemstellung:\\
 Sie müssen 10 Messwerte (z.B. Temperaturwerte) vom Typ int speichern.
 \noindent
 \begin{minipage}{\linewidth}
@@ -30,7 +31,7 @@ int data10;
 Diese Darstellung ist sehr unhandlich.\\
 Wie würden sie 1000 Messwerte abspeichern?
 
-\subsubsection{Der Array (Feld, Vektor)}
+\subsection{Der Array (Feld, Vektor)}
 \label{sec:Der Array (Feld, Vektor)}
 Ein Array bietet eine kompakte Zusammenfassung von mehreren Variablen des gleichen Typs.
 \noindent
@@ -75,13 +76,12 @@ ptr = &alpha[2];
 *ptr = 3452;
 \end{lstlisting}
 \end{minipage}
-
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\linewidth]{images/pointer9.pdf}
 \end{figure}
 
-\subsubsection{Äquivalenz von Array- und Pointernotation}
+\subsection{Äquivalenz von Array- und Pointernotation}
 \label{sec:Aequivalenz von Array- und Pointernotation}
 Der Name des Array kann als konstante Adresse des ersten (Index 0) Elementes des Arrays betrachtet werden.\\
 \vspace{5mm}
@@ -90,7 +90,7 @@ Der Name des Array kann als konstante Adresse des ersten (Index 0) Elementes des
 	\input{images/array1}
 \end{figure}
 
-\subsubsection{Vergleichen von Arrays}
+\subsection{Vergleichen von Arrays}
 \label{sec:Vergleichen von Arrays}
 \begin{itemize}
 	\item\color{red}In C++ gibt es keinen Operator ==, der zwei Arrays miteinander vergleicht\color{black}
@@ -99,7 +99,7 @@ Der Name des Array kann als konstante Adresse des ersten (Index 0) Elementes des
 	\item Beispiel:\\Seien arr1 und arr2 zwei Arrays\\Der Vergleich arr1 == arr2 prüft, ob die Anfangsadressen der beiden Arrays identisch sind (wird kaum der Fall sein), nicht aber, ob deren Inhalte identisch sind.
 \end{itemize}
 	
-\subsubsection{Arrayname ist ein nicht modifizierbarer L-Wert}
+\subsection{Arrayname ist ein nicht modifizierbarer L-Wert}
 \label{sec:Arrayname ist ein nicht modifizierbarer L-Wert}
 \begin{itemize}
 	\item Der Arrayname ist die konstante Adresse des ersten Elementes des Arrays und kann nicht verändert werden
@@ -108,7 +108,7 @@ Der Name des Array kann als konstante Adresse des ersten (Index 0) Elementes des
 	\item Einem Arraynamen kann kein Wert zugewiesen werden (einer Pointervariablen schon)
 \end{itemize}
 
-\subsubsection{Automatische Initialisierung von Arrays}
+\subsection{Automatische Initialisierung von Arrays}
 \label{sec:Automatische Initialisierung von Arrays}
 \begin{itemize}
 	\item Globale Arrays werden automatisch mit 0 initialisiert
@@ -121,7 +121,7 @@ Der Name des Array kann als konstante Adresse des ersten (Index 0) Elementes des
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{Explizite Initialisierung von Arrays}
+\subsection{Explizite Initialisierung von Arrays}
 \label{sec:Explizite Initialisierung von Arrays}
 \begin{itemize}
 	\item Bei der Definition eines Arrays kann ein Array explizit (''manuell'') initialisiert werden
@@ -132,8 +132,8 @@ Der Name des Array kann als konstante Adresse des ersten (Index 0) Elementes des
 	\item Nach der Initialisierung können die Elemente nur noch einzeln geändert werden
 \end{itemize}
 
-\subsubsection{Beispiel: Explizite Initialisierung von Arrays}
-\label{sec:Beispiel: Explizite Initialisierung von Arrays}
+\subsubsection{Beispiel}
+\label{sec:ecplizites Array Beispiel}
 \noindent
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
@@ -182,7 +182,6 @@ alpha[2] = 3;
 int alpha[3][4];
 \end{lstlisting}
 \end{minipage}
-
 \textbf{Matrix}\\
 Kann betrachtet werden als Vektor alpha[0] bis alpha[2], wobei jedes Vektorelement wiederum einen Vektor mit 4 Elementen enthält\\
 \vspace{5mm}
@@ -224,7 +223,7 @@ int alpha[3][4] = {1, 3, 5, 7, 2, 4, 6, 8, 3, 5, 7, 9};
 
 % Unterabschnitt: Übergabe von Arrays und Zeichenketten
 
-\subsection{Übergabe von Arrays und Zeichenketten}
+\section{Übergabe von Arrays und Zeichenketten}
 \label{sec:Uebergabe von Arrays und Zeichenketten}
 \begin{itemize}
 	\item Bei der Übergabe eines Arrays an eine Funktion wird als Argument der Arrayname übergeben. (i.e. Pointer auf erstes Element des Arrays)
@@ -232,7 +231,7 @@ int alpha[3][4] = {1, 3, 5, 7, 2, 4, 6, 8, 3, 5, 7, 9};
 	\item Zeichenketten sind char-Arrays und werden deshalb gemäss der oben erwähnten Punkte gehandhabt.
 \end{itemize}
 
-\subsubsection{Beispiel: Array (Vektor) als Parameter}
+\subsection{Beispiel: Array (Vektor) als Parameter}
 \label{sec:Beispiel: Array (Vektor) als Parameter}
 \noindent
 \begin{minipage}{\linewidth}
@@ -252,7 +251,7 @@ int main()
 \end{lstlisting}
 \end{minipage}
 
-\subsubsection{Übergabe einer Matrix mittels offenem Array}
+\subsection{Übergabe einer Matrix mittels offenem Array}
 \label{sec:Uebergabe einer Matrix mittels offenem Array}
 \noindent
 \begin{minipage}{\linewidth}
@@ -271,16 +270,16 @@ void printMat(const double* const mat[],	// Matrix
 		matA[0][0] \hspace{2mm} ist vom Typ double
 \end{itemize}
 
-\subsubsection{Zeichenketten (Strings)}
+\subsection{Zeichenketten (Strings)}
 \label{sec:Zeichenketten (Strings)}
 \begin{itemize}
 	\item Strings sind char-Arrays, abgeschlossen mit dem Zeichen `\textbackslash0`, bzw. 0 (alles analog C)
 \end{itemize}
 
-\subsection{Dynamische Speicherverwaltung}
+\section{Dynamische Speicherverwaltung}
 \label{sec:Dynamische Speicherverwaltung}
 
-\subsubsection{Pro Memoria: Variablen}
+\subsection{Pro Memoria: Variablen}
 \label{sec:Pro Memoria: Variablen}
 \begin{itemize}
 	\item Variablen erleichtern u.a. den Zugriff auf Speicherstellen
@@ -297,7 +296,7 @@ void printMat(const double* const mat[],	// Matrix
 	\item Der Speicher einer Variablen wird automatisch freigegeben, sobald die Variable nicht mehr gültig ist
 \end{itemize}
 
-\subsubsection{Dynamische Speicherverwaltung}
+\subsection{Dynamische Speicherverwaltung}
 \label{sec:Dynamische Speicherverwaltung 2}
 \begin{itemize}
 	\item Speicher kann zur Laufzeit (dynamisch) vom System angefordert werden
@@ -315,7 +314,7 @@ void printMat(const double* const mat[],	// Matrix
 Zugriff auf dynamischen Speicher nie verlieren!
 \end{achtung}
 
-\subsubsection{Dynamische Speicherverwaltung: Syntax}
+\subsection{Syntax}
 \label{sec:Dynamische Speicherverwaltung: Syntax}
 \noindent
 \begin{minipage}{\linewidth}
@@ -337,7 +336,7 @@ delete pCh2;	*@\color{red}// ergibt Fehler, bereits über pCh1 freigegeben@*
 \end{lstlisting}
 \end{minipage}
 
-\subsubsection{Dynamische Speicherverwaltung: Vorsichtsmassnahmen}
+\subsection{Vorsichtsmassnahmen}
 \label{sec:Dynamische Speicherverwaltung: Vorsichtsmassnahmen}
 \begin{itemize}
 	\item der delete-Operator kann auch auf den Nullpointer angewendet werden. Es passiert dadurch (definiert) nichts.
@@ -354,7 +353,7 @@ delete pInt;	// ist problemlos
 \end{lstlisting}
 \end{minipage}
 
-\subsubsection{Memory Leak, Garbage Collection}
+\subsection{Memory Leak, Garbage Collection}
 \label{sec:Memory Leak, Garbage Collection}
 \begin{itemize}
 	\item Dynamisch allozierter Speicher, welcher nicht freigegeben wurde oder auf welchen der Zugriff verloren ging, belegt weiterhin Platz im Speicher.
@@ -363,7 +362,7 @@ delete pInt;	// ist problemlos
 	\item C++ besitzt keinen Garbage Collector. Der C++-Programmierer ist verantwortlich, dass allozierter Speicher wieder freigegeben wird.
 \end{itemize}
 
-\subsubsection{Dynamische Allozierung von Arrays}
+\subsection{Dynamische Allozierung von Arrays}
 \label{sec:Dynamische Allozierung von Arrays}
 \begin{itemize}
 	\item In C++ kann Speicher für einen Array auch erst zur Laufzeit (dynamisch) vom System angefordert (alloziert) werden
@@ -386,7 +385,7 @@ delete[] pInt;	// korrekter Befehl
 \end{lstlisting}
 \end{minipage} 
 
-\subsubsection{Dynamische Allozierung von Matrizen}
+\subsection{Dynamische Allozierung von Matrizen}
 \label{sec:Dynamische Allozierung von Matrizen}
 \begin{itemize}
 	\item Oft wird eine m x n - Matrix als ein eindimensionaler Array der Grösse (m*n) implementiert. Der Zugriff geht dann jedoch nur noch über Pointer:
@@ -502,7 +501,7 @@ delete[] m;	// Nun noch den Array mit den double* freigeben
 m zeigt immer noch auf die alte Adresse, an welcher sich aber keine gültigen Daten mehr befinden. (Allenfalls m wieder auf 0 setzen)
 \end{achtung}
 
-\subsubsection{Effizienz der Matriximplementationen}
+\subsection{Effizienz der Matriximplementationen}
 \label{sec:Effizienz der Matriximplementationen}
 \begin{itemize}
 	\item Nur mit dieser gezeigten Variante kann auf ein Matrixelement über die Arrayindizes zugegriffen werden:

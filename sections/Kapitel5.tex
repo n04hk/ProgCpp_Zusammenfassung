@@ -1,14 +1,11 @@
 %!TEX root = main.tex
 
-\section{Kapitel 5: Scope, Deklarationen, Type Casts}
+\part{Scope, Deklarationen, Type Casts}
 \label{sec:Kapitel 5: Scope, Deklarationen, Type Casts}
 
 % Unterabschnitt: Strukturen
 
-\subsection{Strukturen}
-\label{sec:Strukturen}
-
-\subsubsection{Strukturen in C++}
+\section{Strukturen in C++}
 \label{sec:Strukturen in C++}
 \begin{itemize}
 	\item Grundsätzlich sind Strukturen in C++ identisch zu Strukturen in C
@@ -30,10 +27,10 @@ Point p1;
 \end{itemize}
 
 % Unterabschnitt: Gültigkeitsbereiche, Namensräume und Sichtbarkeit
-\subsection{Gültigkeitsbereiche, Namensräume und Sichtbarkeit}
+\section{Gültigkeitsbereiche, Namensräume und Sichtbarkeit}
 \label{sec:Gueltigkeitsbereiche, Namensraeume und Sichtbarkeit}
 
-\subsubsection{Gültigkeitsbereiche von Namen (Scope)}
+\subsection{Gültigkeitsbereiche von Namen (Scope)}
 \label{sec:Gueltigkeitsbereiche von Namen (Scope)}
 \begin{itemize}
 	\item Prinzipiell identisch wie in C
@@ -52,7 +49,7 @@ extern int Foo_globalVariable;
 	\item Durch \#include der Headerdatei wird der Header geladen und die Namen bekannt gemacht
 \end{itemize}
 
-\subsubsection{Gültigkeitsbereiche in C++}
+\subsection{Gültigkeitsbereiche in C++}
 \label{sec:Gueltigkeitsbereiche in C++}
 \begin{itemize}
 	\item Lokaler Gültigkeitsbereich (local scope)
@@ -65,14 +62,14 @@ extern int Foo_globalVariable;
 	\item[\-] Alle in einer Klasse deklarierten Bezeichner gelten von ihrer Deklaration an in der gesamten Klasse
 \end{itemize}
 
-\subsubsection{Gültigkeit (Scope) von Variablen}
+\subsection{Gültigkeit (Scope) von Variablen}
 \label{sec:Gueltigkeit (Scope) von Variablen}
 \begin{itemize}
 	\item Eine Variable ist an einer bestimmten Stelle gültig, wenn ihr Name an dieser Stelle dem Compiler durch eine Vereinbarung bekannt ist
 	\item Gültige Variablen können für den Programmierer unsichtbar sein, wenn sie durch eine andere Variable desselben Namens verdeckt werden
 \end{itemize}
 
-\subsubsection{Lebensdauer von Variablen}
+\subsection{Lebensdauer von Variablen}
 \label{sec:Lebensdauer von Variablen}
 \begin{itemize}
 	\item Die Lebensdauer ist die Zeitspanne, in der das Laufzeitsystem des Compilers der Variablen einen Platz im Speicher zur Verfügung stellt
@@ -81,7 +78,7 @@ extern int Foo_globalVariable;
 	\item Lokale Variablen werden beim Aufruf des Blocks angelegt und beim Verlassen des Blocks wieder (automatisch!) ungültig
 \end{itemize}
 
-\subsubsection{Sichtbarkeit von Variablen}
+\subsection{Sichtbarkeit von Variablen}
 \label{sec:Sichtbarkeit von Variablen}
 \begin{itemize}
 	\item Variablen von inneren Blöcken sind nach aussen nicht sichtbar
@@ -89,7 +86,7 @@ extern int Foo_globalVariable;
 	\item Werden lokale Variablen mit demselben Namen wie eine globale Variable oder wie eine Variable in einem umfassenden (äusseren) Block definiert, so ist innerhalb des Blockes nur die lokale Variable sichtbar. Die globale Variable bzw. die Variable in dem umfassenden Block wird durch die Namensgleichheit verdeckt.
 \end{itemize}
 
-\subsubsection{Schlussfolgerung (naheliegend aber falsch)}
+\subsection{Schlussfolgerung (naheliegend aber falsch)}
 \label{sec:Schlussfolgerung (naheliegend aber falsch)}
 \begin{itemize}
 	\item Alle Variablen global definieren, dann muss ich mir keine Sorgen um die Sichtbarkeit machen
@@ -106,7 +103,7 @@ $\rightarrow$ Stimmt schon, aber:
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{Lebensdauer (grau) und Sichtbarkeit (weiss)}
+\subsection{Lebensdauer (grau) und Sichtbarkeit (weiss)}
 \label{sec:Lebensdauer (grau) und Sichtbarkeit (weiss)}
 \noindent
 \begin{figure}[hh]
@@ -114,7 +111,7 @@ $\rightarrow$ Stimmt schon, aber:
 	\includegraphics[width=0.7\linewidth]{images/scope1.pdf}
 \end{figure}
 
-\subsubsection{Codierstil}
+\subsection{Codierstil}
 \label{sec:Codierstil}
 \begin{itemize}
 	\item Variablen so lokal wie möglich definieren, d.h. im innersten möglichen Block (Tipp: nur am Anfang eines Blocks)
@@ -134,11 +131,8 @@ Besser (in C++): Namespace definieren
 
 % Unterkapitel: Namensräume (Namespaces)
 
-\subsection{Namensräume (Namespaces)}
+\section{Namensräume (Namespaces)}
 \label{sec:Namensraeume (Namespaces)}
-
-\subsubsection{Namensräume}
-\label{sec:Namensraeume}
 \textbf{Namen, die zu verschiedenen Namensräumen gehören, dürfen auch innerhalb desselben Gültigkeitsbereichs gleich sein.}
 In C gibt es die folgenden Namensräume (gilt auch für C++):
 \begin{itemize}
@@ -152,7 +146,7 @@ In C++ können zusätzlich explizit definierte Namensräume verwendet werden.\\
 Dadurch können (und sollen unbedingt!) die in C üblichen Modulkürzel vermieden werden.
 \end{hinweis}
 
-\subsubsection{Explizite Namensräume in C++}
+\subsection{Explizite Namensräume in C++}
 \label{sec:Explizite Namensraeume in C++}
 \begin{itemize}
 	\item Nebst den vordefinierten (impliziten) Namensräumen des vorherigen Abschnitts können in C++ explizit eigene Namensräume (namespaces) definiert werden.
@@ -161,7 +155,7 @@ Dadurch können (und sollen unbedingt!) die in C üblichen Modulkürzel vermiede
 	\item Sie haben bisher in allen C++-Übungen bereits den Namensraum std verwendet
 \end{itemize}
 
-\subsubsection{C++-Mechanismen für Namespaces}
+\subsection{C++-Mechanismen für Namespaces}
 \label{sec:C++-Mechanismen fuer Namespaces}
 \begin{itemize}
 	\item Deklaration von Namespaces
@@ -177,7 +171,7 @@ namespace fbssLib = financial_branch_and_system_service_library;
 	\item using-Direktive
 \end{itemize}
 
-\subsubsection{Deklaration von Namespaces}
+\subsection{Deklaration von Namespaces}
 \label{sec:Deklaration von Namespaces}
 \begin{itemize}
 	\item Alle in einem Namespace deklarierten Bezeichner werden diesem Namespace zugeordnet
@@ -187,7 +181,7 @@ namespace fbssLib = financial_branch_and_system_service_library;
 	\item Innerhalb einer Datei kann mehr als ein Namespace deklariert werden (eher unüblich) und ein Namespace kann in mehreren Dateien deklariert sein (häufig, d.h. die Elemente eines Namespaces werden in mehreren Dateien implementiert)
 \end{itemize}
 
-\subsubsection{Deklaration von Namespaces: Beispiel}
+\subsubsection{Beispiel}
 \label{sec:Deklaration von Namespaces: Beispiel}
 \noindent
 \begin{minipage}{\linewidth}
@@ -213,7 +207,7 @@ namespace myLib2
 \end{lstlisting}
 \end{minipage}
 
-\subsubsection{using-Deklaration}
+\subsection{using-Deklaration}
 \label{sec:using-Deklaration}
 \begin{itemize}
 	\item Eine using-Deklaration ''importiert'' Namen aus einem Namensraum und macht ihn ohne explizite Namensraumangabe verwendbar
@@ -231,7 +225,7 @@ int main()
 \end{lstlisting}
 \end{minipage}
 
-\subsubsection{using-Direktive}
+\subsection{using-Direktive}
 \label{sec:using-Direktive}
 \begin{itemize}
 	\item Eine using-Direktive macht alle Namen aus einem Namensraum ohne explizite Namensraumangabe verwendbar
@@ -248,7 +242,7 @@ int main()
 \end{lstlisting}
 \end{minipage}
 
-\subsubsection{using namespace kann zu Konflikten führen}
+\subsection{using namespace kann zu Konflikten führen}
 \label{sec:using namespace kann zu Konflikten fuehren}
 \begin{itemize}
 	\item Wenn bei mehreren using namespace-Deklarationen und/oder -Direktiven die Namen (ohne Namespace-Angabe) nicht eindeutig sind, müssen die Namen voll qualifiziert verwendet werden (mit Namespace-Angabe)
@@ -277,7 +271,7 @@ namespace myLib2
 \end{lstlisting}
 \end{minipage}
 
-\subsubsection{Namenlose Namespaces}
+\subsection{Namenlose Namespaces}
 \label{sec:Namenlose Namespaces}
 \begin{itemize}
 	\item Ein namenloser Namespace wird wie ein spezieller Namensraum mit einem systemweit eindeutigen Namen behandelt
@@ -296,7 +290,7 @@ namespace
 \end{lstlisting}
 \end{minipage}
 
-\subsubsection{Zugriff auf globale Variable mit Scope-Operator}
+\subsection{Zugriff auf globale Variable mit Scope-Operator}
 \label{sec:Zugriff auf globale Variable mit Scope-Operator}
 \noindent
 \begin{minipage}{\linewidth}
@@ -314,10 +308,10 @@ int main()
 
 % Unterabschnitt: Speicherklassen
 
-\subsection{Speicherklassen}
+\section{Speicherklassen}
 \label{sec:Speicherklassen}
 
-\subsubsection{Speicherklassen in C++}
+\subsection{Speicherklassen in C++}
 \label{sec:Speicherklassen in C++}
 \begin{itemize}
 	\item auto
@@ -360,7 +354,7 @@ int main()
 	\item extern-Deklarationen werden üblicherweise in einer Headerdatei deklariert und am Beginn der Datei mit \#include eingefügt
 \end{itemize}
 
-\subsubsection{Typqualifikationen (Kap. 9.2.2)}
+\subsection{Typqualifikationen (Kap. 9.2.2)}
 \label{sec:Typqualifikationen (Kap. 9.2.2)}
 \begin{itemize}
 	\item const
@@ -371,7 +365,7 @@ int main()
 	\item const und volatile können auch kombiniert werden, z.B. bei read-only-Hardwareregistern
 \end{itemize}
 
-\subsubsection{Funktionsattribute}
+\subsection{Funktionsattribute}
 \label{sec:Funktionsattribute}
 \begin{itemize}
 	\item inline
@@ -384,10 +378,10 @@ int main()
 
 % Unterkapitel: Typdefinitionen
 
-\subsection{Typdefinitionen}
+\section{Typdefinitionen}
 \label{sec:Typdefinitionen}
 
-\subsubsection{typedef zur Vereinbarung eigener Datentypen\hfill}
+\subsection{typedef zur Vereinbarung eigener Datentypen\hfill}
 \label{sec:typedef zur Vereinbarung eigener Datentypen}
 \begin{itemize}
 	\item analog C
@@ -444,7 +438,7 @@ int main(void)
 \end{lstlisting}
 \end{minipage}
 
-\subsubsection{Gewährleistung von Portabilität}
+\subsection{Gewährleistung von Portabilität}
 \label{sec:Gewaehrleistung von Portabilitaet}
 \begin{itemize}
 	\item Oft muss z.B. ein Register ein 16 Bit breiter Wert geschrieben werden. Welcher Typ ist nun 16 Bit breit?
@@ -459,7 +453,7 @@ typedef unsigned short uint16_t;
 \end{minipage}
 \end{itemize}
 
-\subsubsection{Wie setzt der Compiler ein typedef um?}
+\subsection{Wie setzt der Compiler ein typedef um?}
 \label{sec:Wie setzt der Compiler ein typedef um?}
 \begin{itemize}
 	\item Ein typedef ist mehr oder weniger eine reine Textersetzung. Erklärung anhand des folgenden Beispiels:
@@ -482,16 +476,16 @@ typedef struct {int x;
 \end{minipage}	
 \end{itemize}
 
-\subsection{Initialisierung}
+\section{Initialisierung}
 \label{sec:Initialisierung}
 \begin{itemize}
 	\item analog C
 \end{itemize}
 
-\subsection{Type-Case (Typumwandlungen)}
+\section{Type-Cast (Typumwandlungen)}
 \label{sec:Type-Case (Typumwandlungen)}
 
-\subsubsection{Typumwandlungen im Allgemeinen}
+\subsection{Typumwandlungen im Allgemeinen}
 \label{sec:Typumwandlungen im Allgemeinen}
 \begin{itemize}
 	\item Unsafe conversion
@@ -501,14 +495,14 @@ typedef struct {int x;
 	\item[\-] Wenn bei der Typumwandlung keine signifikanten Stellen verloren gehen können (typischerweise bei einer Umwandlung von einem ''kleineren'' in einen ''grösseren'' Typ, z.B. von in nach double
 \end{itemize}
 
-\subsubsection{Implizite Typumwandlung}
+\subsection{Implizite Typumwandlung}
 \label{sec:Implizite Typumwandlung}
 \begin{itemize}
 	\item Die implizite (automatische) Typumwandlung wird auch als Standard-Typumwandlung bezeichnet
 	\item Sie erfolgt analog zur Programmiersprache C (siehe dort)
 \end{itemize}
 
-\subsubsection{Explizite Typumwandlung}
+\subsection{Explizite Typumwandlung}
 \label{sec:Explizite Typumwandlung}
 \begin{itemize}
 	\item Nebst den impliziten (automatischen) Typumwandlungen kann in C++ mit Hilfe von 6 verschiedenen cast-Operatoren eine explizite Typumwandlung bewirkt werden.
