@@ -1,0 +1,214 @@
+%!TEX root = ProgCPP_ZF.tex
+
+\part{Preprocessor}
+\label{sec:Preprocessor}
+
+\section{Eigenschaften des Preprocessors}
+\label{sec:Eigenschaften des Preprocessors}
+\begin{itemize}
+	\item Wird vor der eigentlichen Übersetzung aktiviert
+	\item Führt textuelle Manipulationen von Source-Dateien durch
+	\begin{itemize}
+		\item Makro-Substitution
+		\item bedingte Übersetzung
+		\item Einfügen von Dateien
+	\end{itemize}
+	\item Der Output des Preprocessors wird dem eigentlichen Compiler übergeben
+	\item Die Direktiven des Preprocessors beginnen immer mit \#
+	\item Der Preprocessor ist zeilenorientiert
+\end{itemize}
+
+\section{Preprocessor-Direktiven und Bedingungsanweisungen}
+\label{sec:Preprocessor-Direktiven und Bedingungsanweisungen}
+\centering
+\begin{tabularx}{0.5\textwidth}{|X|X|}
+	\hline
+	\textbf{Direktiven} & \textbf{Bedingungsanweisungen}\\
+	\hline
+	\#define & \#if\\
+	\hline
+	\#undef & \#ifdef\\
+	\hline
+	\#include & \#ifndef\\
+	\hline
+	\#line & \#elif\\
+	\hline
+	\#error & \#else\\
+	\hline
+	\#pragma & \#endif\\
+	\hline
+\end{tabularx}
+\flushleft
+
+\subsection{\#define}
+\label{sec:define}
+\begin{itemize}
+	\item Definition von Makros (Gefahren betrachten!)\\
+	\noindent
+	\begin{minipage}{\linewidth}
+		\begin{lstlisting}
+		#define MAX(a,b) ((a)>(b)?(a):(b))	
+		\end{lstlisting}
+	\end{minipage}
+	\item Definition von symbolischen Konstanten (Gefahren beachten!)\\
+	\noindent
+	\begin{minipage}{\linewidth}
+		\begin{lstlisting}
+		#define PI 3.14159265358
+		\end{lstlisting}
+	\end{minipage}
+	\item Es erfolgt eine reine Textersetzung ohne Typenprüfung. Diese kann erst der Compiler vornehmen
+	\item \#defines haben keinen Scope
+	\item Simple Definition eines Symbols (z.B. bei Include-Guard)\\
+	\noindent
+	\begin{minipage}{\linewidth}
+		\begin{lstlisting}
+		#define FOO\_H\_
+		\end{lstlisting}
+	\end{minipage}
+\end{itemize}
+
+\subsection{\#undef}
+\label{sec:undef}
+Definition eines Symbols rückgängig machen
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	#undef MAX
+	#undef PI
+	#undef FOO_H_
+	\end{lstlisting}
+\end{minipage}
+
+\subsection{\#include}
+\label{sec:include}
+Vollständiges Einfügen einer Datei
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	#include <iostream>
+	// Datei iostream wird in den definierten Include-Verzeichnissen
+	// gesucht und eingefuegt
+	
+	#include "foo.h"
+	// Datei foo.h wird im aktuellen Verzeichnis gesucht und eingefuegt
+	
+	#include "../drivers/doo.h"
+	// Pfadangaben muessen immer relativ zum aktuellen Verzeichnis sein.
+	// Niemals absolute Pfade verwenden!
+	\end{lstlisting}
+\end{minipage}
+
+\subsection{\#line}
+\label{sec:line}
+Direktes Setzen der Nummerierung von Sourceode-Zeilen. Durch die optionale Angabe eines Dateinamens lässt sich der Compiler einen neuen Dateinamen unterschieben.\\
+Das kann z.B. bei vom Compiler erstellten Dateien nützlich sein.
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	#line 67 "main.cpp"
+	// die naechste Zeile im Sourcecode erhaelt die Nummer 67
+	// die Sourcedatei erhaelt den Namen "main.cpp"
+	\end{lstlisting}
+\end{minipage}
+
+\subsection{\#error}
+\label{sec:error}
+Sofortiger Abbruch des Compiler-Vorgangs und Ausgabe einer Fehlermeldung
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	#ifndef MODEL
+	#error MODEL ist nicht definiert
+	#endif
+	\end{lstlisting}
+\end{minipage}
+
+\subsection{\#pragma}
+\label{sec:pragma}
+\begin{itemize}
+	\item \#pragma-Direktiven erlauben die Verwendung von Implementierungs-spezifischen Direktiven. Entwicklungsumgebungen können somit ihre eigenen Anweisungen definieren.\\
+	\textbf{Diese Direktive ist damit per Definition nicht portabel.}
+	\item Konflikte entstehen keine, da eine Compiler unbekannte \#pragma-Direktiven ignoriert.
+	\item Die Portabilität ist damit aber nicht gewährleistet. Ein anderer Compiler versteht die Direktive u.U. nicht und erzeugt deshalb nicht den gewünschten Code.
+\end{itemize}
+
+\subsection{Bedingungsanweisungen}
+\label{sec:Bedingungsanweisungen}
+\begin{itemize}
+	\item Bedingungsanweisungen sind nach folgendem Schema aufgebaut\\
+	-----------------\\
+	Bedingungsprüfung\\
+	Direktiven\\
+	beliebig viele \#elif-Gruppen mit Direktiven\\
+	optional ein \#else mit Direktiven
+	\#endif
+	\item Mögliche Bedingungsprüfungen sind
+	\begin{itemize}
+		\item \#if gibt true, falls Bedingung true ist
+		\item \#ifdef SYMBOL gibt true, falls SYMBOL definiert ist
+		\item \#ifndef SYMBOL gibt true, falls SYMBOL nicht definiert ist
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Beispiele für Bedingungsanweisungen}
+\label{sec:Beispiele für Bedingungsanweisungen}
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	#if INT\_MAX > 32767
+		int i;
+	#else
+		long i;
+	#endif
+	
+	#ifdef TESTVERSION
+		printf("Zeilennummer: %d\n", __LINE__);
+		printf("Dateiname: %s\n", __FILE__);
+	#endif
+	
+	#ifndef CALCULATOR\_H\_
+	#define CALCULATOR\_H\_
+	// ...
+	#endif
+	\end{lstlisting}
+\end{minipage}
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	#if 0
+		// Auskommentieren des gesamten hier stehenden Codes.
+		// Ist sehr nuetzlich waehrend der Entwicklung.
+	\end{lstlisting}
+\end{minipage}
+
+\subsection{Weitere Features des Preprocessors}
+\label{sec:Weitere Features des Preprocessors}
+\begin{itemize}
+	\item \#-Operator (stringizing-Operator): Argument wird in String konvertiert
+	\item \#\#-Operator (token-past-Operator): Zeichenfolge links und rechts des Operators wird zusammengezogen
+	\item und weiteres (siehe Dokus)
+	\noindent
+	\begin{minipage}{\linewidth}
+		\begin{lstlisting}
+		#define SHOW(var, nr) printf(#var #nr " = %.1f\n", var ## nr)
+		
+		// Annahme: es gibt eine Variable x5 mit dem Wert 16.4
+		SHOW(x, 5);
+		// wird umgesetzt in printf("x" "5" " = %.1f\n", x5);
+		// d.h. in printf("x5 = %.1f\n", x5);
+		
+		// Ausgabe ist x5 = 16.4
+		\end{lstlisting}
+	\end{minipage}
+\end{itemize}
+\textbf{na ja!?}
+
+\subsection{Kritische Würdigung des Preprocessors}
+\label{sec:Kritische Würdigung des Preprocessors}
+\begin{itemize}
+	\item Preprocessoranweisungen sollten zurückhaltend eingesetzt werden, da der Code durch zu viele Preprocessoranweisungen sehr schnell unübersichtlich werden kann.
+	\item Auf den ersten Blick sind Preprocessoranweisungen oft nicht nachvollziehbar.
+	\item Häufig gibt es Alternativen, die ebenso effizient und zudem viel sicherer sind.
+	\item Richtig eingesetzt kann der Preprocessor sehr nützlich sein.
+\end{itemize}

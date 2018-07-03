@@ -1,0 +1,148 @@
+%!TEX root = ProgCPP_ZF.tex
+
+\part{Vererbung}
+\label{sec:Vererbung}
+
+\section{Motivation}
+\label{sec:Motivation}
+Sie müssen einen Webshop entwickeln. Sie verkaufen Bücher und CDs.\\
+Welche Eigenschaften und Methoden benötigen Sie, um ein Buch bzw. eine CD zu charakterisieren?
+
+\section{Artikel als Gemeinsamkeit von Buch und CD}
+\label{sec:Artikel als Gemeinsamkeit von Buch und CD}
+
+%%% Bild einfügen %%%
+
+\section{Grundkonzept}
+\label{sec:Grundkonzept}
+\begin{itemize}
+	\item Die Vererbung erlaubt, neue Klassen auf der Basis von bestehenden Klassen zu definieren. Dabei erbt (übernimmt) die neue (Unter-)Klasse alle Eigenschaften der bestehenden (Über-)Klasse.
+	\item Man sagt auch, die Oberklasse sei eine Basisklasse, Superclass, Abstraktion oder Generalisierung (Verallgemeinerung).
+	\item Die Unterklasse wird auch mit Subclass oder als Spezialisierung bezeichnet.
+\end{itemize}
+
+\section{Einsatz der Vererbung}
+\label{sec:Einsatz der Vererbung}
+\begin{itemize}
+	\item Bestehende Klassen erweitern
+	\begin{itemize}
+		\item zusätzliche Attribute erweitern
+		\item zusätzliche Elementfunktionen
+	\end{itemize}
+	\item Bestehende Methode einer Basisklasse ändern (überschreiben)
+	\item Das Finden von guten Basisklassen ist eine Hauptaufgabe in der Designphase.
+\end{itemize}
+
+\section{UML-Notation}
+\label{sec:UML-Notation}
+\begin{itemize}
+	\item Generalisierung/Spezialisierung
+	\item SubClass erbt sämtliche Eigenschaften von SuperClass
+	\item ist-ein Beziehung (SubClass \textbf{ist eine} SuperClass)
+	\item Pfeilspitze ist ein geschlossenes Dreieck
+\end{itemize}
+
+%%% Bild Folie 8 einfügen %%%
+
+\subsection{"ist ein"-Beziehung}
+\label{sec:"ist ein"-Beziehung}
+"ist ein"-Beziehung ("is a"-relationship)\\
+Beispiel: Baum \textbf{ist eine} Pflanze, Blume \textbf{ist eine} Pflanze.
+
+\section{Beispiel: Vererbungshierarchie Lebewesen}
+\label{sec:Beispiel: Vererbungshierarchie Lebewesen}
+
+%%% Bild Folie 10 einfügen %%%
+
+\subsection{C++-Syntax}
+\label{sec:C++-Syntax}
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	class SubClass *@\color{red}: public SuperClass\color{black}@*
+	{
+		public:
+		
+		protected:
+		
+		private:
+		
+	};
+	\end{lstlisting}
+\end{minipage}
+public ist Normalfall (private und protected sind auch möglich).
+
+\subsection{Zugriff auf Elemente der Basisklasse}
+\label{sec:Zugriff auf Elemente der Basisklasse}
+
+%%% Bild Folie 12 %%%
+
+\section{Spezifikation von Basisklassen}
+\label{sec:Spezifikation von Basisklassen}
+\begin{itemize}
+	\item Grundsatz: Vererbung sollte immer public sein (zu 99,99\%)
+	\item Falls bei Vererbung protected oder private in Betracht gezogen wird, kann der Grund dafür eine falsche Verwendung der Vererbung sein
+	\item Für ganz spezifische Anwendungen kann die Vererbung mit protected oder private sinnvoll sein
+\end{itemize}
+
+\section{Beispiel: ComicCharacter (Comics01)}
+\label{sec:Beispiel: ComicCharacter (Comics01)}
+
+%%% Comics01 einfügen
+%%% Bild (Klassen) von Folie 14
+
+
+\section{Einsatz von protected bei Klassenelementen}
+\label{sec:Einsatz von protected bei Klassenelementen}
+\begin{itemize}
+	\item Bei Datenelementen (Attributen) soll protected grundsätzlich nicht eingesetzt werden. Attribute sollen generell private sein.
+	\item Bei Elementfunktionen kann es in Einzelfällen sinnvoll sein, diese als protected zu definieren. Dadurch wird der Zugriff gegenüber einer public-Sichtbarkeit auf die abgeleiteten Klassen beschränkt.
+\end{itemize}
+
+\section{Objektgrösse bei der Vererbung}
+\label{sec:Objektgrösse bei der Vererbung}
+\begin{itemize}
+	\item Ein Objekt einer vererbten Klasse enthält alle Teile der Basisklasse(n) und zusätzlich noch die spezifischen eigenen Teile.
+	\item Das Objekt ist somit mindestens so gross wie jenes der Basisklasse(n). (es gibt keine Vererbung "by reference")
+	\item Wenn Vererbung schlecht eingesetzt wird (z.B. keine is-a-Beziehung), können unnötig grosse Objekte entstehen.
+	\item Bei einer Aggregationsbeziehung kann durchaus eine Referenz (oder ein Pointer) auf ein anderes Objekt verwendet werden, d.h. Aggregation "by reference" ist möglich.
+\end{itemize}
+
+\section{Schlechter (falscher) Einsatz von Vererbung}
+\label{sec:Schlechter (falscher) Einsatz von Vererbung}
+Zwischen Wald und Pflanze besteht nicht eine "ist-ein" Beziehung. Die richtige Beziehung wäre "hat-ein", da ein Wald mehrere Pflanzen hat (folgt später).
+
+%%% Bild Folie 17
+
+\section{Substitutionsprinzip}
+\label{sec:Substitutionsprinzip}
+\begin{itemize}
+	\item Ein Objekt einer Oberklasse kann Objekte einer beliebigen Unterklasse aufnehmen.
+	\item Ein Objekt einer Unterklasse kann keine Objekte der Oberklasse aufnehmen.
+	\item[\-]
+	\noindent
+	\begin{minipage}{\linewidth}
+		\begin{lstlisting}
+		class SuperClass{}; 
+		
+		class SubClass : public SuperClass {};
+		
+		SuperClass super;
+		SubClass sub;
+		super = sup; 	*@\color{green}// ok\color{black}@"
+		sub = super;	*@\color{red}// geht nicht \color{black}@*
+		\end{lstlisting}
+	\end{minipage}
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+

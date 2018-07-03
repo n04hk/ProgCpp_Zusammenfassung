@@ -1,4 +1,4 @@
-%!TEX root = main.tex
+%!TEX root = ProgCPP_ZF.tex
 
 \part{Klassen}
 \label{sec:Klassen}
@@ -467,3 +467,701 @@ Ein Datenelement, das nie const werden soll (auch nicht bei const-Elementfunktio
 	\item Schritt 4: Selektoren mit const gekennzeichnet
 	\item Schritt 5: mutable Attribut setzen wo nötig (zurückhaltend einsetzen)
 \end{itemize}
+
+\section{Konstruktoren/Destruktoren}
+\label{sec:Konstruktoren/Destruktoren}
+
+\subsection{this-Pointer}
+\label{sec:this-Pointer}
+Der this-Pointer ist ein Pointer auf das eigene aktuelle Objekt, welches eine Elementfunktion (Methode) aufgerufen hat.
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	const AnyClass& AnyClass::aMethod(const AnyClass& obj)
+	{
+		this->anyFoo();	// Aufruf einer Methode ueber this
+				// 'this' ist hier unnoetig, da Methode implizit mit aktuellem
+				// Objekt ausgefuehrt wird
+		if(this == &obj)// testen, ob eigene Adresse gleich der Adresse von obj ist
+			...
+			
+		return *this;	// eigenes Objekt zurueckgeben
+	}
+	\end{lstlisting}
+\end{minipage}
+
+\subsection{friend-Elemente}
+\label{sec:friend-Elemente}
+\begin{itemize}
+	\item[\-] friend - Jede Klasse kann andere Klassen oder Funktionen "zum Freund" erklären. Dadurch werden die Zugriffsregeln durchbrochen.
+	\item[\-] Jeder friend darf auf \textbf{alle} Elemente der Klasse zugreifen.
+	\item[\-] friend ist eine C++-Spezialität, welche die meisten anderen Programmiersprachen (z.B. Java) nicht anbieten.
+\end{itemize}
+\begin{achtung}
+	friends, insbesondere friend-Klassen, können ein Anzeichen für schlechtes Design sein. Sie durchbrechen wichtige Prinzipien der objektorientierten Programmierung.
+	\textbf{Die Verwendung von friend sollte daher weitgehend unterbleiben.}
+	\small{Für ausgewählte Anwendungen kann damit jedoch sehr elegant programmiert werden (siehe später).}
+\end{achtung}
+
+\subsection{static-Klassenelemente (Kap.11.5)}
+\label{sec:static-Klassenelemente}
+\begin{itemize}
+	\item Grundsätzlich besitzt jedes Objekt einer Klasse seine eigene private Instanz aller Attribute einer Klasse.
+	\item Wenn ein Attribut mit static gekennzeichnet wird, dann teilen sich alle Objekte dieser Klasse eine eigene Instanz dieses Attributs, d.h. ein statisches Attribut ist nur einmal für alle Objekte einer Klasse im Speicher vorhanden.
+	\item static-Elemente befinden sich ausserhalb eines Objektkontextes
+	\item static-Elemente können auch über den Klassennamen angesprochen werden (da sie sich im Kontext einer Klasse befinden)
+\end{itemize}
+
+\subsubsection{Syntax}
+\label{sec:static-Klassenelemente: Syntax}
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	class T
+	{
+		...
+		static int nrOfObjects = 34;	*@\color{red}// Initialisierung ist ab C++03@* 
+						*@\color{red}// in der Deklaration nicht mehr erlaubt!@*
+		static int nrOfObjects;	*@\color{green}// Deklaration@*
+	};
+	
+	static int T::nrOfObjects;	*@\color{red}// Die Initialisierung kann in der Definition (.cpp)@*
+				*@\color{red}// erfolgen. Das Schlüsselwort static muss hier weggelassen werden.@*
+	int T::nrOfObjects = 34;	*@\color{green}// Definition (ist notwendig)@*
+	
+	T myT;
+	myT.nrOfObjects++;		// Zugriff ueber Objekt (falls public)
+	T::nrOfObjects++;		// ZUgriff ueber Klasse (falls public)
+	\end{lstlisting}
+\end{minipage}
+
+\subsection{Konstruktor (Constructor, Ctor)}
+\label{sec:Konstruktor}
+Aufgaben:
+\begin{itemize}
+	\item die Neugründung einer Objekts einer Klasse
+	\item das "saubere" initialisieren des Objekts, d.h. \textbf{alle} Attribute des Objekts müssen auf einen definierten Wert gesetzt werden.
+	\item Der Konstruktor hat in C++ denselben Namen wie die Klasse, hat keinen Rückgabetyp (auch nicht void) und kann überladen werden\\
+	\begin{minipage}{\linewidth}
+		\begin{lstlisting}
+		Stack::Stack();	// (Default-) Konstruktor
+		\end{lstlisting}
+	\end{minipage}
+\end{itemize}
+
+\subsubsection{Aufruf}
+\label{sec:Aufruf}
+\begin{itemize}
+	\item Der Konstruktor soll nie explizit aufgerufen werden
+	\item Der Konstruktor wird vom System automatisch (implizit) aufgerufen, wenn ein Objekt erzeugt wird\\
+	\begin{minipage}{\linewidth}
+		\begin{lstlisting}
+		Stack s;
+		\end{lstlisting}
+	\end{minipage}
+	\item Wenn durch den new-Operator Speicher angefordert \textbf{und} erhalten wird, dann wird der Konstruktor vom System ebenfalls automatisch aufgerufen\\
+	\begin{minipage}{\linewidth}
+		\begin{lstlisting}
+		Stack* pS = new Stack;
+		\end{lstlisting}
+	\end{minipage}
+\end{itemize}
+
+\subsubadd{Welcher Konstruktor wird wann aufgerufen?}
+\label{sec:Welcher Konstruktor wird wann aufgerufen?}
+\begin{itemize}
+	\item Ein Konstruktor (Ctor) wird ausschliesslich dann und nur dann aufgerufen, wenn ein neues Objekt erzeugt wird
+	\item Wenn feststeht, dass ein Konstruktor benötigt wird, muss man sich noch überlegen, welcher der allenfalls überladenen Konstruktoren aufgerufen wird.
+\end{itemize}
+
+\subsubadd{Default-Konstruktor}
+\label{sec:Default-Konstruktor}
+\begin{itemize}
+	\item Der Default-Konstruktor ist der Konstruktor ohne Parameter\\
+	\begin{minipage}{\linewidth}
+		\begin{lstlisting}
+		Stack::Stack();	// Default-Konstruktor
+		\end{lstlisting}
+	\end{minipage}
+	\item Er wird immer aufgerufen, wenn bei der Objekterzeugung keine Parameter mitgegeben werden.\\
+	\begin{minipage}{\linewidth}
+		\begin{lstlisting}
+		Stack s;
+		\end{lstlisting}
+	\end{minipage}
+	\item Der Default-Konstruktor kann selbst definiert werden.
+	\begin{itemize}
+		\item Das ist insbesondere dann notwendig, wenn innerhalb des Objekts Speicher dynamisch alloziert werden muss (bei der Objekterzeugung).
+	\end{itemize}
+	\item Der Default-Konstruktor wird vom System automatisch erzeugt, wenn für eine Klasse kein Konstruktor explizit definiert ist.
+\end{itemize}
+
+\subsubsection{Beispiel: Klasse TString (nach Lippman)}
+\label{sec:Beispiel: Klasse TString }
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	class TString
+	{
+		public:		
+			TString();	// Default-Konstruktor
+			int getLen() const;
+		private:
+			int len;
+			char* str;
+	};
+	\end{lstlisting}	
+\end{minipage}
+
+\subsubsection{Implementation von TString::TString()}
+\label{sec:Implementation von TString::TString()}
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	// mit Anweisungen
+	TString::TString()
+	{
+		len = 0;
+		str = 0;
+	}
+	
+	// oder: mit Initialisierungsliste (ist besser)
+	TString::TString()
+		: len(0), str(0)
+	{
+	}
+	\end{lstlisting}
+\end{minipage}
+\begin{hinweis}
+	Objektinitialisierungen werden, sofern dies möglich ist, über die Initialisierungsliste des Konstruktors und nicht im Anweisungsteil durchgeführt. (Effizienzgründe)
+\end{hinweis}
+
+\subsubsection{Überladen von Konstruktoren}
+\label{sec:Überladen von Konstruktoren}
+\begin{itemize}
+	\item Der Default-Konstruktor wird implizit aufgerufen mit\\
+	\begin{lstlisting}
+	TString str;
+	\end{lstlisting}
+	\item Ein TString-Objekt soll auch z.B: mit folgenden Anweisungen gegründet werden können:\\
+	\begin{lstlisting}
+		TString str1 = "Hello";		// implicit call
+		TString str2 = TString("Guten Morgen");	// explicit call
+	\end{lstlisting}
+	\item Dazu bedarf es anderer (überladener) Konstruktoren.
+\end{itemize}
+
+\subsubsection{Erweiterung der Klasse TString}
+\label{sec:Erweiterung der Klasse TString}
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	class TString
+	{
+		public:
+			TString();		// Default-Konstruktor
+			TString(const char* p);
+			int getLen() const;
+		private:
+			int len;
+			char* str;
+	};
+	\end{lstlisting}
+\end{minipage}
+Implementation:
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	TString::TString(const char* p)
+	{
+		if(p==0)
+		{
+			len = 0;
+			str = 0;
+		}
+		else
+		{
+			len = strlen(p);
+			str = new char[len+1];
+			memcpy(str, p, len+1);
+		}
+	}
+	\end{lstlisting}
+\end{minipage}
+\begin{hinweis}
+	Hier geht Initialisierungsliste nicht.
+\end{hinweis}
+
+\subsubsection{Konstruktoren und Function Casts}
+\label{sec:Konstruktoren und Function Casts}
+\begin{itemize}
+	\item Konstruktoren mit nur einem Parameter können dazu verwendet werden, ein Objekt vom Typ T aus einem anderen Objekt zu erzeugen (Typumwandlung)
+	\item Beispiel:
+	\item[\-] TString soll so erweitert werden, dass dem Konstruktor eine ganze Zahl übergeben wird und dieser daraus den entsprechenden String erzeugt.
+	\begin{minipage}{\linewidth}
+		\begin{lstlisting}
+		TString::TString(int number);
+		
+		// explicit call:
+		TString str1 = TString(12345);	// erzeugt "12345"
+		
+		// implicit calls
+		TString str2 = 12345;	// erzeugt "12345"
+		str2 = 789;		// erzeugt temporaeres Objekt "789" und weist dieses str2 zu
+		\end{lstlisting}
+	\end{minipage}
+\end{itemize}
+
+\begin{itemize}
+	\item Die implicit calls (bei Ctors mit einem Parameter)
+	\begin{minipage}{\linewidth}
+		\begin{lstlisting}
+		TString str2 = 12345;
+		str2 = 789;
+		\end{lstlisting}
+	\end{minipage}
+	\item[\-] sind gelegentlich nicht erwünscht.
+	\item Wenn der Konstruktor mit explicit gekennzeichnet wird, kann dieser Ctor nicht mehr implizit, sondern nur explizit aufgerufen werden
+	\begin{minipage}{\linewidth}
+		\begin{lstlisting}
+		explicit TString::TString(int number);
+		
+		TString str1 = TString(12345);	*@\color{green}// ok (explicit)@*
+		TString str2 = 12345;		*@\color{red}// nicht erlaubt (implicit call)@*
+		str2 = 78;			*@\color{red}// nicht erlaubt (implicit call)@*
+		str1 = 567;			*@\color{red}// nicht erlaubt (implicit call)@*
+		\end{lstlisting}
+	\end{minipage}
+\end{itemize}
+
+\subsubsection{Erweiterung der Klasse TString 2}
+\label{sec:Erweiterung der Klasse TString 2}
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	class TString
+	{
+		public:
+			TString();		// Default-Konstruktor
+			TString(const char* p);
+			explicit TString(int number);
+			int getLen() const;
+		private:
+			int len;
+			char* str;
+	};
+	\end{lstlisting}
+\end{minipage}
+
+\subsubsection{Copy-Konstruktor}
+\label{sec:Copy-Konstruktor}
+\begin{itemize}
+	\item Der Copy-Konstruktor wird dazu verwendet, Objekte zu kopieren
+	\item Der Copy-Konstruktor erhält als Parameter immer eine konstante Referenz auf ein Objekt der Klasse. Für TString sieht er wie folgt aus:
+	\begin{lstlisting}
+	TString(const TString& s);	// Copy-Konstruktor
+	
+	// weoche Konstruktoren werden aufgerufen?
+	TString str1("Hello World");	// normaler Konstruktor TString(const char* p)
+	TString str2 = str1;		// Copy-Konstruktor, ist Initialisierung, nicht Zuweisung!
+	TSrting str3(str1);		// Copy-Konstruktor
+	\end{lstlisting}
+\end{itemize}
+
+\subsubsection{Copy-Konstruktor wird automatisch aufgerufen, wenn...}
+\label{sec:Copy-Konstruktor wird automatisch aufgerufen, wenn...}
+\begin{itemize}
+	\item ein Objekt erzeugt und mit einem anderen Objekt derselben Klasse initialisiert wird
+	\item ein Objekt als Wertparameter (by value) an eine Funktion übergeben wird (nicht aber bei Referenzierungsparametern $\rightarrow$ \color{red}wichtig!\color{black})
+	\item ein Objekt by value als Resultat einer Funktion zurückgegeben wird (nicht bei Referenzrückgaben)
+\end{itemize}
+Ein Copy Ctor wird nur dann benutzt, wenn ein neues Objekt erzeugt wird, aber nicht bei Zuweisungen, also Änderungen von Objekten.\\
+Bei Zuweisungen wird der vom System bereitgestellte Zuweisungsoperator benutzt, sofern kein eigener definiert wurde (später).
+
+\subsubsection{Erweiterung der Klasse TString 3}
+\label{sec:Erweiterung der Klasse TString 3}
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	class TString
+	{
+		public:
+			TString();		// Default-Konstruktor
+			TString(const TString& s);	// Copy-Konstruktor
+			TString(const char* p);
+			explicit TString(int number);
+			int getLen() const;
+		private:
+			int len;
+			char* str;
+	};
+	\end{lstlisting}
+\end{minipage}
+
+\subsubsection{Shallow Copy vs. Deep Copy}
+\label{sec:Shallow Copy vs. Deep Copy}
+\begin{itemize}
+	\item Wenn für eine Klasse kein Copy-Konstruktor definiert wird, erzeugt das System einen Standard-Copy-Konstruktor
+	\item Dieser kopiert alle Datenelemente (memberwise assignment). Bei Pointern, welche auf den Heap zeigen, wird nur die Adresse kopiert, nicht aber der Speicher auf dem Heap. Man nennt das shallow copy. (shallow=flach)
+	\item Bei einer deep copy werden auch die Speicherbereiche, auf welche Pointer zeigen, kopiert. Die deep copy muss in einem selbst definierten Copy-Konstruktor implementiert werden.
+	\item[\-]\begin{hinweis}
+		Wenn ein Objekt Speicher auf dem Heap alloziert, muss ein eigener Copy-Konstruktor definiert werden (in allen anderen Fällen meist nicht).
+	\end{hinweis}
+\end{itemize}
+
+\noindent
+\begin{figure}[hh]
+	\centering
+	\includegraphics[width=0.2\linewidth]{images/klasse5.pdf}
+\end{figure}
+
+\noindent
+\begin{figure}[hh]
+	\centering
+	\includegraphics[width=0.2\linewidth]{images/klasse6.pdf}
+\end{figure}
+
+
+\subsubsection{Copy-Konstruktor der Klasse TString}
+\label{sec:Copy-Konstruktor der Klasse TString}
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	TSrting::TString(const TSrting& s)
+		: len(s.len)
+		{
+			if (s.str == 0)
+			{
+				str = 0;
+			}
+			else
+			{
+				str = new char[len+1];
+				mamcpy(str, s.str, len+1);
+			}
+		}
+	\end{lstlisting}
+\end{minipage}
+
+\subsection{Destruktor (Destructor, Dtor)}
+\label{sec:Destruktor (Destructor, Dtor)}
+Aufgaben:
+\begin{itemize}
+	\item die vollständige "Zerstörung" eines nicht mehr benötigten Objekts
+	\item das "saubere" Entfernen eines Objekts
+	\item die häufigere Aufgabe ist die Freigabe von nicht mehr benötigtem Speicher auf dem Heap
+	\item sehr häufig (wenn kein Speicher auf dem Heap vorhanden ist) wird kein Destruktor definiert, da das System dann automatisch aufräumt
+\end{itemize}
+
+\subsubsection{Eigenschaften des Destruktors}
+\label{sec:Eigenschaften des Destruktors}
+\begin{itemize}
+	\item Destruktoren haben keine Argumente und keinen Rückgabetyp  (sie können auch nicht überladen werden)
+	\item Ihr Name besteht aus dem Klassennamen mit vorgestellte Tilde.
+	\begin{lstlisting}
+	~TString();		// Destruktor
+	\end{lstlisting}
+	\item Destruktoren werden automatisch aufgerufen, wenn der Gültigkeitsbereich des definierten Objekts ausläuft
+	\item Die Reihenfolge des Aufrufs der Destruktoren ist umgekehrt wie die der Konstruktoren (das zuletzt erzeugte Objekt wird zuerst aufgeräumt)
+	\item Nicht definierte Destruktoren werden automatisch erzeugt
+\end{itemize}
+
+\subsubsection{Erweiterung der Klasse TString 4}
+\label{sec:Erweiterung der Klasse TString 4}
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	class TString
+	{
+		public:
+			TString();		// Default-Konstruktor
+			TString(const TString& s);	// Copy-Konstruktor
+			TString(const char* p);
+			explicit TString(int number);
+			~TString();		// Destruktor
+			int getLen() const;
+		private:
+			int len;
+			char* str;
+	};
+	\end{lstlisting}
+\end{minipage}
+
+\subsubsection{Implementation des Destruktors}
+\label{sec:Implementation des Destruktors}
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	TString::~TString()
+	{
+		delete[] str;	// weil str ein Array auf dem Heap ist
+	}
+	\end{lstlisting}
+\end{minipage}
+
+\subsubsection{Schnittstelle der Klasse TString}
+\label{sec:Schnittstelle der Klasse TString}
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	class TString
+	{
+		public:
+			TString();		// Default-Konstruktor
+			TString(const TString& s);	// Copy-Konstruktor
+			TString(const char* p);
+			TString(int l, char fillChar);
+			explicit TString(int number);
+			~TString();		// Destruktor
+			int getLen() const;
+		private:
+			int len;
+			char* str;
+	};
+	\end{lstlisting}
+\end{minipage}
+
+\subsubsection{Demo: Klasse Stack}
+\label{sec:Demo: Klasse Stack}
+\begin{itemize}
+	\item Stack::init() durch ctor ersetzen
+	\item Verhalten bei privatem Default Ctor
+	\item Verhalten bei privatem Copy Ctor
+	\begin{itemize}
+		\item Wenn der Copy Ctor privat deklariert wird (ohne ihn zu implementieren), dann verhindert der Compiler das Kopieren von Objekten dieser Klassen
+		\item Das kann in gewissen Fällen ein durchaus erwünschtes Verhalten sein
+	\end{itemize}
+\end{itemize}
+
+\section{Handhabung von Klassen und Objekten}
+\label{sec:Handhabung von Klassen und Objekten}
+
+\subsection{Repetition}
+\begin{itemize}
+	\item Ctor wird immer (und nur dann) aufgerufen, wenn ein Objekt erzeugt wird. Dabei wird der passendste Ctor genommen.
+	\item Eine Methode (Funktion) wird immer mit einem Objekt aufgerufen, z.B. c1.print();\\
+	Auf dieses Objekt (hier: c1) kann innerhalb der Methoden der Klasse mit dem Pointer this zugegriffen werden.
+	\item Der Dtor wird immer dann automatisch aufgerufen, wenn ein Objekt seinen Scope verlässt, bzw. mit delete vom Heap gelöscht wird.
+	\item Eine Klasse ist der Bauplan für Objekte dieser Klasse.
+\end{itemize}
+
+\subsection{Welche Ctors werden bei folgenden Anweisungen aufgerufen?}
+\label{sec:Welche Ctors werden bei folgenden Anweisungen aufgerufen?}
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	class TString
+	{
+		public:
+			TString();
+			TString(const TString& s);
+			TString(const char* p);
+			explicit TString(int i);
+			// ...
+	};
+	
+	TString s1 = "Hoi";
+	TString s2;
+	TString s21 = s1;
+	s2 = s1;
+	TString& s3 = s21;
+	TString s4[2];
+	TString* p1 = &s21;
+	TString* p2 = new TString("Hallo");
+	TString* p3 = new TString[3];
+	TString s5[3] = {"Hoi, TString(), s2};
+	\end{lstlisting}
+\end{minipage}
+
+\subsection{Automatisch generierte Elementfunktionen (11.7.4)}
+\label{sec:Automatisch generierte Elementfunktionen (11.7.4)}
+\begin{itemize}
+	\item Die folgenden Elementfunktionen werden vom Compiler automatisch erstellt, falls sie im Programm benötigt und nicht vom Programmierer explizit deklariert werden:
+	\begin{itemize}
+		\item Default-Konstruktor
+		\item Copy-Konstruktor
+		\item Destruktor
+		\item Zuweisungsoperator
+		\item Adressoperator
+	\end{itemize}
+	\item Automatisch generierte Elementfunktionen können als private deklariert werden (implementieren ist nicht nötig!), um die Verbindung zu unterbinden.
+\end{itemize}
+
+\subsection{Kanonische Form von Klassen (11.7.5)}
+\label{sec:Kanonische Form von Klassen (11.7.5)}
+\begin{itemize}
+	\item Als kanonische Form einer Klasse bezeichnet man jene Form, die es erlaubt, eine Klasse wie einen "normalen" Datentyp zu benutzen.\\
+	Dies ist für alle Klassen anzustreben.
+	\item Dazu müssen drei Bedingungen erfüllt sein:
+	\begin{itemize}
+		\item Ein korrekter Default-Konstruktor, plus evtl. weitere Konstruktoren müssen vorhanden sein
+		\item Wenn die Klasse dynamische Daten enthält, braucht es auch einen Zuweisungsoperator (folgt später) und einen Copy-Konstruktor
+		\item Ein (virtueller) Destruktor garantiert die korrekte Zerstörung von Objekten
+	\end{itemize}
+\end{itemize}
+
+\subsection{Benutzerdefinierte Typumwandlungen: Problemstellung \& Lösung}
+\label{sec:Benutzerdefinierte Typumwandlungen: Problemstellung}
+\begin{itemize}
+	\item Wenn zwei ganze Zahlen unterschiedlichen Typs (z.B. int und short) addiert werden, so ist der Additionsoperator \textit{vom System} für folgende Varianten definiert:\\
+	int + int\\
+	int + short\\
+	short + int\\
+	short + short
+	\item Dasselbe gilt auch für alle weiteren Operatoren. (In C++ können Operatoren auch selbst für eigene Klassen definiert werden. Dies folgt später.)
+	\item Wenn nun eine neue Klasse VeryLargeInt eingeführt wird, so sind die Operatoren für diese Klasse noch nicht definiert. Nur schon für den Additionsoperator zwischen VeryLargeInt und int müssten folgende Varianten definiert werden:\\
+	int + VeryLargeInt\\
+	VeryLargeInt + int\\
+	VeryLargeInt + VeryLargeInt
+	\item Dasselbe gilt auch für alle weiteren Operatoren. Für die Grundoperatoren +, -, *, /, +=, -=, *=, /= müssten somit 24 Operatoren definiert werden.
+	\item Weitere wären für short, char, long etc. nötig.
+\end{itemize}
+Lösung:
+\begin{itemize}
+	\item Die einfachere Variante ist, wenn für jeden Typ eine Typumwandlung definiert wird.
+	\item Somit braucht es pro Typ eine Umwandlungsfunktion, die Operatoren arbeiten anschliessend nur noch mit der Klasse VeryLargeInt.\\
+	VeryLargeInt + VeryLargeInt
+	\item Für die Grundoperatoren +, -, *, /, +=, -=, *=, /= müssten nur noch die 8 Operatoren definiert werden.
+	\item Zusätzlich müsste noch die Typumwandlung von jedem Typ (short, int, etc.) in VeryLargeInt definiert werden. 
+\end{itemize}
+
+\subsection{Typumwandlung mit Konstruktor}
+\label{sec:Typumwandlung mit Konstruktor}
+\begin{itemize}
+	\item Häufig werden Typumwandlungen mit Hilfe von Konstruktoren implementiert:\\
+	VeryLargeInt(int);
+	\item \begin{achtung}
+		  Aufpassen bei Implicit Calls von Ctors.
+		  \end{achtung}
+\end{itemize}
+Beispiel:\\
+\begin{itemize}
+	\item In Embedded Systems müssen häufig Befehle als Bytestream über einen Kommunikationskanal übertragen werden. Die Befehle beinhalten meist eine Befehls-ID, eine bis mehrere Befehlsparameter, Längenangaben, etc.. Das Befehlsformat ist eindeutig definiert.
+	\item Der Befehl könnte in einer Klasse Command abgebildet werden.
+	\item Die Interpretation des Bytestreams könnte als Typumwandlung in einem Konstrukor implementiert werden:\\
+	\noindent
+	\begin{minipage}{\linewidth}
+		\begin{lstlisting}
+		Command(const uint8_t* byteStream);
+		\end{lstlisting}
+	\end{minipage}
+\end{itemize}
+
+\subsection{Weiterführende Themen}
+\label{sec:Weiterführende Themen}
+
+\subsubsection{Zeiger auf Klassenelemente}
+\label{sec:Zeiger auf Klassenelemente}
+\begin{itemize}
+	\item Kann in ganz speziellen Fällen nützlich sein
+	\item Grundsätzlich sollen Zeiger auf Klassenelemente vermieden werden (gehört nicht zum Stoff, behandeln wir nicht)
+	\item Im Modul Embedded Software Engineering wird eine elegante Anwendung davon präsentiert
+\end{itemize}
+
+\subsection{Unions (Varianten)}
+\label{sec:Unions (Varianten)}
+
+\subsubsection{Eigenschaften einer Union}
+\label{sec:Eigenschaften einer Union}
+\begin{itemize}
+	\item ähnlich einer Struktur
+	\item beinhaltet auch mehrere Felder unterschiedlichen Typs
+	\item im Gegensatz zur Struktur ist aber nur ein einziges Feld jeweils aktiv (abhängig vom Typ)
+	\item die Grösse einer Union ist so gross wie das grösste Feld in der Union
+	\item Bei der Union sind dieselben Operationen wie bei einer Struktur definiert (siehe dort)
+\end{itemize}
+
+\subsubsection{Definition von Uniontypen und Unionvariablen}
+\label{sec:Definition von Uniontypen und Unionvariablen}
+Verwenden des Schlüsselworts union\\
+Allgemeine Form:
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	union UnionName
+	{
+		public:				
+			...
+		private:
+			FeldTyp1 feld1;
+			FeldTyp2 feld2;
+			FeldTyp3 feld3;
+			...
+			FeldTypN feldN;
+	};
+	\end{lstlisting}
+\end{minipage}
+\begin{itemize}
+	\item UnionName kann frei gewählt werden
+	\item union UnionName ist ein hier selbst definierter Typ, der weiter verwendet werden kann
+	\item Der Datentyp ist definiert durch den Inhalt der geschweiften Klammer
+	\item Der Feldtyp kann wiederum eine Union oder auch eine Struktur sein
+\end{itemize}
+\begin{achtung}
+Der Programmierer muss verfolgen, welcher Typ jeweils in der Union gespeichert ist.\\
+Der Datentyp, der entnommen wird, muss der sein, der zuletzt gespeichert wurde.\\
+Sehr zurückhaltend einsetzen!
+\end{achtung}
+
+
+\subsubsection{Beispiel: Definition einer Union}
+\label{sec:Beispiel: Definition einer Union}
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	union Vario
+	{
+		private:
+			int 	intNam;
+			long	longNam;
+			double	doubleNam;
+	};
+	\end{lstlisting}
+\end{minipage}
+
+%%% Grafik Union einfügen %%%
+
+\subsection{Bitfelder}
+\label{sec:Bitfelder}
+
+\subsubsection{Eigenschaften von Bitfeldern}
+\label{sec:Eigenschaften von Bitfeldern}
+\begin{itemize}
+	\item innerhalb eines int können einzelne Bitgruppen definiert und angesprochen werden
+	\item sollte nicht eingesetzt werden, um damit Speicher zu sparen
+	\item bei Embedded Systems ist der Einsatz unter Umständen sehr nützlich, wenn auf einzelne Register zugegriffen werden soll
+	\item \textbf{ABER:} leider definiert der C++-Standard (und auch der C-Standard) nicht, ob die Bits von Links nach Rechts oder von Rechts nach Links aufgefüllt werden. Falls der Standard dies definieren würde, wären die Bitfelder ein sehr gutes Konstrukt.
+\end{itemize}
+
+\subsubsection{Definition von von Bitfeldern}
+\label{sec:Definitionvon von Bitfeldern}
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	struct FieldName
+	{
+		unsigned int a: 3;	// definiert 3 Bits fuer a
+		unsigned int b: 4;	// definiert die naechsten 4 Bits fue b
+		...
+	};
+	\end{lstlisting}
+\end{minipage}
+
+%%% Grefik von Bitfeld einfügen %%%
+
+\subsubsection{Bitfelder: Folgerungen}
+\label{sec:Bitfelder: Folgerungen}
+\begin{itemize}
+	\item Mit diesem Bitfeld-Mechanismus soll weder in C noch in C++ gearbeitet werden wenn der Code portabel sein soll.
+	\item Die bessere Alternative ist die Verwendung von Bitmasken-Operationen. Diese können in C++ bspw. in inline-Funktionen verpackt werden.
+\end{itemize}
+
+\subsection{Demo: Klasse Date}
+Eine Klasse zur Speicherung und Darstellung von Kalenderdaten, wie z.B. 17.4.2013
+
+%%% Datei einfügen %%%
+
+
+
+
+%%% Complex Folien einfügen %%%

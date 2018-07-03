@@ -1,0 +1,405 @@
+%!TEX root = ProgCPP_ZF.tex
+
+\part{Exceptions ("`Ausnahmen"')}
+
+\section{Exception vs. Error}
+\label{sec:Exception vs. Error}
+Bitte unterscheiden Sie zwischen Exception (Ausnahme) und Error (Fehler)\\
+\begin{itemize}
+	\item \textbf{Error (Fehler):} Abweichung zur Spezifikation ("falsch implementiert"). Errors sollten bei der Verifikation (Testen) entdeckt werden.
+	\item \textbf{Exception (Ausnahme):} abnormale (aber vorhersehbare und mögliche) Bedingung bei der Programmausführung.
+	\item Wir sprechen hier über Exception Handling (der Ausdruck Error Handling ist aus oben genannten Gründen eigentlich falsch, obwohl er sehr häufig verwendet wird). Leider heissen auch die Standardklassen in C++ häufig xyz\_error statt xyz\_exception (schade, ist nicht einmal konsistent)
+\end{itemize}
+
+\section{Mögliche Reaktionen auf Ausnahmen}
+\label{sec:Moegliche Reaktionen auf Ausnahmen}
+\begin{itemize}
+	\item \textbf{Ignorieren}\\
+		Motto: $"$Augen zu und durch$"$\\
+		Eine sehr risikoreiche Variante
+	\item \textbf{Programmabbruch}\\
+		Merkt immerhin, dass etwas nicht in Ordnung ist, die Reaktion ist aber unbefriedigend. Ist Exception Detection aber nicht eigentlich Exception Handling.
+	\item \textbf{Exceptioncodes} (nicht Fehlercodes)\\
+		Funktionen geben als Rückgabewert, als Parameter oder global einen Ausnahmecode an.
+\end{itemize}
+
+\section{Exceptioncodes als Rückgabewert}
+\label{sec:Exceptioncodes als Rueckgabewert}
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	if (eOk == s.push(elem))
+	{
+		...
+	}
+	else
+	{
+		... // handle exception
+	}
+	\end{lstlisting}
+\end{minipage}
+\begin{itemize}
+	\item Rückgabewert wird von Exceptioncodes belegt (ist unschön)
+	\item Geht nicht bei Konstruktoren (Ctors haben keinen Rückgabewert)
+	\item Bei differenzierten Exceptioncodes gibt es stark verschachtelte if ... else bei jedem Aufruf $\rightarrow$ unleserlich
+\end{itemize}
+
+\section{Exceptioncodes als Referenzparameter}
+\label{sec:Exceptioncodes als Referenzparameter}
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	s.push(elem, excpt);
+	if (eOk == excpt)
+	{
+		...
+	}
+	else
+	{
+		... // handle exception
+	}
+	\end{lstlisting}
+\end{minipage}
+\begin{itemize}
+	\item Aufruf wird mit zusätzlichem Referenzparameter für den Exceptioncode erweitert (ist unschön)
+	\item Bei differenzierten Exceptioncodes gibt es stark verschachtelte if ... else bei jedem Aufruf $\rightarrow$ unleserlich	
+\end{itemize}
+
+\section{Globaler Exceptioncode}
+\label{sec:Globaler Exceptioncode}
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	s.push(elem);	// globalException is set here
+	if (eOk == globalException)
+	{
+		...
+	}
+	else
+	{
+		... // handle Exception
+	}
+	\end{lstlisting}	
+\end{minipage}
+\begin{itemize}
+	\item Führt aufgrund des globalen Exceptioncodes zu schwer les- und wartbaren Programmen.
+	\item Bei differenzierten Exceptioncodes gibt es stark verschachtelte if ... else bei jedem Aufruf $\rightarrow$ unleserlich
+\end{itemize}
+
+\section{Wo sollen Exceptions behandelt werden?}
+\label{sec:Wo sollen Exceptions behandelt werden?}
+\begin{itemize}
+	\item Fact: Exceptions können irgendwo im Programm entstehen
+	\item Wie soll auf Exceptions reagiert werden?
+	\item Eine angemessene Reaktion kann häufig nicht ausschliesslich an der Stelle des Auftretens gemacht werden
+	\item Die Reaktion muss auch weiter "nach oben" gereicht werden können, bis auf die Applikationsebene, wo allenfalls eine Mitteilung an den Benutzer getätigt wird.
+	\item \begin{hinweis}
+		Grundsatz: Nur das regeln, was sinnvoll ist und auf einer bestimmten Stufe wirklich entschieden werden kann, sonst nach oben weiterreichen.
+	\end{hinweis}
+\end{itemize}
+
+\subsection{Beispiel: Übertragungssystem}
+\label{sec:Beispiel: Uebertragungssystem}
+\begin{itemize}
+	\item Übertragungssysteme werden häufig in Schichten aufgeteilt (OSI-Modell). Die unterste Schicht ist der Physical Layer, die oberste der Application Layer.
+	\item Annahme: In einer tiefen Schicht (Kanalcodierung) werden den Nutzbits noch Paritätsbits hinzugefügt, um Übertragungsfehler erkennen zu können.
+	\item Wie soll diese Schicht auf einen Fehler reagieren?
+	\begin{itemize}
+		\item Wenn genügend Paritätsbits mitgegeben werden, kann allenfalls das fehlerhafte Bit festgestellt und korrigiert werden.
+		\item Wenn nur festgestellt werden kann, dass etwas falsch ist, nicht aber das fehlerhafte Bit selbst: ???
+		\item Dann sollte diese Exception nach oben gereicht werden. Dort wird evtl. entschieden, den Block nochmals anzufordern, eine Meldung auszugeben, etc.
+	\end{itemize}
+\end{itemize}
+
+\section{Ziel für Exception Handling}
+\label{sec:Ziel für Exception Handling}
+\begin{itemize}
+	\item $"$Normaler$"$ Programmablauf (Schönwetterfall) wird durch das Exception Handling nicht tangiert
+	\item Der Normalfall soll einfach gelesen werden können
+	\item Der Ausnahmefall ist klar und einfach geregelt
+	\item Der Overhead soll möglichst klein sein
+	\item Die Weiterreichung an die nächsthöhere Funktion im Call Stack soll einfach sein
+\end{itemize}
+
+\section{Exception Handling in C++}
+\label{sec:Exception Handling in C++}
+\begin{itemize}
+	\item Exceptions werden in Form eines Objekts am Ort ihres Auftretens ausgeworfen (explizit oder auch $"$automatisch$"$) (werfen = to throw)
+	\item Exception Handler versuchen, diese Exception-Objekte aufzufangen (to catch)
+\end{itemize}
+
+\subsection{Exception Handling in C++: Syntax}
+\label{sec:Exception Handling in C++: Syntax}
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	try
+	{
+		... // Code, der eine Exception auswerfen koennte
+	}
+	catch (const MyExceptionClass& exc)
+	{
+		... // wenn ein Objekt der Klasse MyExceptionClass oder einer Unterklasse
+			// davon ausgeworfen wurde, dann kann dieser Handler das Objekt fangen
+	}
+	
+	// u.U. weitere Catches
+	\end{lstlisting}
+\end{minipage}
+
+\subsection{Auslösen (Werfen) von Ausnahmen}
+\label{sec:Ausloesen (Werfen) von Ausnahmen}
+\begin{itemize}
+	\item Ausnahmen können mit dem Schlüsselwort \textbf{throw} explizit ausgeworfen werden
+	\item Nach einem throw-Befehl wird das Programm abgebrochen und beim ersten passenden umgebenden Handler fortgesetzt
+	\item Dabei werden alle lokalen Objekte wieder automatisch zerstört (Stack unwinding)
+	\item Geworfen werden kann ein beliebiges Objekt (üblich: ein spezifisches C++-Ausnahmeobjekt)
+	\item (Ausschliesslich) innerhalb eines Exception Handlers ist auch die Form\\
+	\textbf{throw;}\\
+	erlaubt. Dadurch wird die Exception an den nächsten Handler weitergereicht (Exception propagation).
+\end{itemize}
+
+\subsubsection{Beispiel für Exception Handling: unübliche Variante}
+\label{sec:Beispiel für Exception Handling: unuebliche Variante}
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	class Xcpt
+	{
+		public:
+			Xcpt(const char* text);
+			~Xcpt();
+			const char* getDiagStr() const;
+		private:
+			const char* diagStr;
+	};
+	
+	void allocateFoo()
+	{
+		b1();
+		if (0 == allocation())
+			throw Xcpt("Allocation failed!");
+		b2();
+	}
+	\end{lstlisting}
+\end{minipage}
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	// Testprogramm
+	void testFoo()
+	{
+		a1();
+		try
+		{
+			a2();
+			allocateFoo();
+			a3();
+		}
+		catch (const Xcpt& exc)
+		{
+			cout << "Caught exception. Text: " << exc.getDiagStr() << endl;
+		}
+		a4();
+	}
+	\end{lstlisting}
+\end{minipage}
+
+\subsection{Vordefinierte Ausnahmeklassen}
+\label{sec:Vordefinierte Ausnahmeklassen}
+\begin{itemize}
+	\item Ausnahmeobjekte können beliebigen Typs sein (z.B. auch int). Meist werden jedoch spezifische hierarchisch organisierte C++-Ausnahmeklassen verwendet.
+	\item Vordefinierte Standardklasse: \textbf{exception}
+	%%% Bild base class einfügen %%%
+\end{itemize}
+
+\subsection{Exception-Hierarchie in C++}
+\label{sec:Exception-Hierarchie in C++}
+%%% Bild Hiererchie einfügen %%%
+
+\subsection{Laufzeit- vs. Logische "`Fehler"'}
+\label{sec:Laufzeit- vs. "Logische Fehler"}
+\begin{itemize}
+	\item Logische "Fehler" (logic\_error)
+	\begin{itemize}
+		\item Ausnahmen im Programmablauf, die bereits zur Entwicklungszeit ihre Ursachen haben.
+		\item Theoretisch könnten diese Ausnahmen verhindert werden.
+	\end{itemize}
+	\item Laufzeit"fehler" (runtime\_error)
+	\begin{itemize}
+		\item Nicht vorhersehbare Ausnahmen wie z.B. arithmetische Überläufe
+		\item Diese Ausnahmen treten erst zur Laufzeit auf, z.B. durch eine nicht erlaubte Benutzereingabe
+	\end{itemize}
+\end{itemize}
+
+\subsection{Exceptions und ihre Header-Dateien}
+\label{sec:Exceptions und ihre Header-Dateien}
+%%% Bild header-dateien einfügen %%%
+
+\subsection{Exception Handler}
+\label{sec:Exception Handler}
+\begin{itemize}
+	\item Ein oder mehrere Exception Handler können hintereinander definiert werden
+	\item Die einzelnen catch-Handler müssen sich in den Parametern unterscheiden
+	\item Wenn eine Exception geflogen kommt, wird \textbf{der erste passende Handler} genommen. Ein passender Handler macht ein catch auf genau diese Exception oder auf eine Basisklasse derselben.
+	\item \begin{achtung}
+	Deshalb (\textbf{sehr wichtig}):\\
+	Der allgemeinste Handler (am weitesten oben in der Hierarchie) muss der letzte catch-Handler sein.
+	\end{achtung}
+\end{itemize}
+
+\subsubsection{Handler mit beliebigne Exceptions ohne Hierarchie}
+\label{sec:Handler mit beliebigne Exceptions ohne Hierarchie}
+
+%%% Bild einfügen %%%
+
+\subsubsection{Handler mit System-Exceptions}
+\label{sec:Handler mit System-Exceptions}
+
+%%% Bild einfügen %%%
+
+\subsubsection{Handler mit schlechter Reihenfolge}
+\label{sec:Handler mit schlechter Reihenfolge}
+
+%%% Bild einfügen %%%
+
+\subsection{Exception Handler 2}
+\label{sec:Exception Handler 2}
+\begin{itemize}
+	\item Wenn kein Handler passt, dann wird im Aufrufstack nach oben gesucht, ob ein passender Handler vorhanden ist.
+	\item Wenn auch dort keiner gefunden wird, dann wird die Funktion terminate() aufgerufen.
+	\item terminate() beendet das Programm, kann aber auch selbst definiert werden.
+	\item[\-] Demo: uncaught.cpp
+	%%% Code einfügen %%%
+	\item Catch all\\
+	Der folgende Handler fängt ausnahmslos alle Exceptions ab (und muss wenn gewünscht deshalb immer als letzter aufgeführt werden):\\
+	\noindent
+	\begin{minipage}{\linewidth}
+		\begin{lstlisting}
+		catch(...)
+		{
+		}
+		\end{lstlisting}
+	\end{minipage}
+	\\
+	Demo: cuaghtAll.cpp
+	%%% Code einfügen %%%
+\end{itemize}
+
+\subsection{Exception Propagation}
+\label{sec:Exception Propagation}
+\begin{itemize}
+	\item Innerhalb eines Exception Handlers kann eine Exception mittels\\
+	\textbf{throw;}\\
+	weitergereicht werden.
+	\item Die Exceptiion wird dann auch nicht etwa an das nächste \textbf{catch(...)} weitergeleitet, sondern an die aufrufende Funktion.\\
+	Demo: propagate.cpp
+	%%% Code einfügen %%%
+\end{itemize}
+
+\subsection{Exception Specification}
+\label{sec:Exception Specification}
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	void foo() throw(/* Liste der Exceptions */);
+	\end{lstlisting}
+\end{minipage}
+\begin{itemize}
+	\item Die Liste spezifiziert, welche Exceptions von einem Aufrufer von foo() erwartet werden müssen.
+	\item Aber: garantiert auch, dass das Programm abstürzt, wenn eine andere als eine der spezifizierten Exceptions ausgeworfen wird, d.h. foo() muss dafür sorgen, dass wirklich nur die aufgelisteten Exceptions ausgeworfen werden.
+	\item Genauer: falls eine nicht spezifizierte Exception ausgeworfen wird, dann wird die Funktion unexpected () aufgerufen, welche üblicherweise das Programm abbricht.
+	\item unexpected() kann selbst definiert werden.
+\end{itemize}
+
+\subsubsection{Exception Specification: Beispiele}
+\label{sec:Exception Specification: Beispiele}
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	void foo1() throw(specificXcpt1, specificXcpt2);
+	// die zwei angegebenen Exceptions muessen vom Aufrufer von
+	// foo1() erwartet werden.
+	
+	void foo2() throw();
+	// KEINE Exceptions koennen geflogen kommen
+	
+	void foo3();
+	// beliebige Exceptions muessen erwartet werden
+	\end{lstlisting}
+\end{minipage}
+
+\subsubsection{Exception Handling in der Praxis}
+\label{sec:Exception Handling in der Praxis}
+\begin{itemize}
+	\item Exceptions sollen nur für Ausnahmen, nicht für den normalen Ablauf verwendet werden
+	\item Exceptions sollen nicht vorbeugende Abfragen ersetzen
+	\item Ein Programm soll nur gegen "entscheidende" Ausnahmen abgesichert werden
+	\item Wenn eine Exception ausgeworfen wird, dann wird normalerweise eine der vordefinierten Exceptionklassen oder eine (evtl. selbst definierte) Unterklasse davon genommen
+	\item Exception specifications werden, wenn überhaupt, nur bei ausgewählten (Schnittstellen-)Funktionen definiert
+	\item \textbf{Always throw exceptions by value, and catch them by const reference.}
+\end{itemize}
+
+\subsubsection{Throw exceptions by value, catch them by const reference}
+\label{sec:Throw exceptions by value, catch them by const reference}
+Was ist der Unterschied zwischen den folgenden Varianten?
+\begin{itemize}
+	\item catch (Xcpt\& e) {}
+	\item catch (const Xcpt\& e) {}
+	\item catch (Xcpt e) {}
+\end{itemize}
+
+\subsubsection{Handling von System Exceptions}
+\label{sec:Handling von System Exceptions}
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	int Calculator::divide()
+	{
+		if (0 == nr2)
+			throw runtime\_error("Division durch Null");
+		
+		return nr1 / nr2;
+	}
+	\end{lstlisting}
+\end{minipage}
+Q: In obiger Variante wird verhindert, dass überhaupt erst eine Division durch Null ausgeführt wird. Könnte die Division nicht einfach probiert werden? Das System sollte ja wenn nötig eine Runtime Exception selbständig auswerfen?
+\noindent
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}
+	int Calculator::divide()
+	{
+		return nr1 / nr2;
+	}
+	\end{lstlisting}
+\end{minipage}
+
+\subsubsection{Handling-Strategie von System Exceptions bei verschiedenen Programmiersprachen}
+\label{sec:Handling-Strategie von System Exceptions bei verschiedenen Programmiersprachen}
+\begin{itemize}
+	\item In Java und C\# gelangen die System Exceptions "in die Sprache", d.h. eine Low-Level Exception wird in eine Exception der Programmiersprache "gemappt".
+	\item Die Sprache C++ betreibt kein solches Exception Mapping, d.h. C++ wirft keine Low-Level Exceptions und diese können auch nicht mit catch(...) abgefangen werden.
+	\item Der Hauptgrund dafür ist einmal mehr Effizienz. Wenn ständig Exceptions herumfliegen (auch wenn sie nicht abgefangen werden), dann beeinträchtigt das die Performance.
+	\item Einzelne Systemumgebungen betreiben dennoch Exception Mapping in C++ (z.B: Microsoft in Visual C++). \tiny(Visual C++ ist auch nicht C++)
+\end{itemize}
+
+\subsubsection{Betreibt meine Umgebung Exception Mapping?}
+\label{sec:Betreibt meine Umgebung Exception Mapping?}
+\begin{itemize}
+	\item Mit Hilfe des folgenden Codeausschnitts kann einfach überprüft werden, ob eine bestimmte Umgebung Exception Mapping betreibt:
+	\noindent
+	\begin{minipage}{\linewidth}
+		\begin{lstlisting}
+		try
+		{
+			int a = 5;
+			int b = a/0;
+		}
+		catch (...)
+		{
+			cout << "Caught exception if exception is mapped" << endl;
+		}
+		\end{lstlisting}
+	\end{minipage}
+	\item Unter Umständen muss die Null über cin (zur Laufzeit) eingegeben werden, da "freundliche" Compiler allenfalls darauf hinweisen, dass eine Division durch Null nicht geht.
+\end{itemize}
