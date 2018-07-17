@@ -96,12 +96,12 @@ C-Makros lösen zwar das Problem mit dem Overhead, sind aber sehr unsicher. Bitt
 \noindent
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
-\#define MAX(a,b)	((a)>(b) ? (a) : (b))
+#define MAX(a,b)	((a)>(b) ? (a) : (b))
 
 int z1 = 4;
 int z2 = 6;
 int m = MAX(z1,z2);
-*@ \textbf{wird expandiert zu: m = ((z1)\flq(z2) ? (z1) : (z2));	// m=6, z1=4, z2=6} @*
+*@ \textbf{wird expandiert zu: m = ((z1)\frq(z2) ? (z1) : (z2));	// m=6, z1=4, z2=6} @*
 m = MAX(++z1,++z2);
 *@ \textbf{erwartet wird: m=7, z1=5, z2=7}@*
 \end{lstlisting}
@@ -114,7 +114,7 @@ m = MAX(++z1,++z2);
 \begin{lstlisting}
 m = MAX(++z1,++z2);
 *@\textbf{wird expandiert zu:}@*
-*@\textbf{ m = ((++z1)\flq(++z2) ? (++z1) : (++z2)); m = ((\color{red}5\color{black})\flq(\color{red}7\color{black}) ? (++z1) : (\color{red}8\color{black}));}@*
+*@\textbf{ m = ((++z1)\frq(++z2) ? (++z1) : (++z2)); m = ((\color{red}5\color{black})\frq(\color{red}7\color{black}) ? (++z1) : (\color{red}8\color{black}));}@*
 *@\textbf{\color{red}// z2 wird zweimal inkrementiert!\color{black}}@*
 *@\textbf{// m=\color{red}8\color{black}, z1=5 ,z2=\color{red}8\color{black} }@*
 *@\textbf{erwartet wird:}@*
@@ -146,7 +146,7 @@ m = MAX(++z1,++z2);
 \begin{lstlisting}
 inline int max(int a, int b)
 {
-	return a \flq b ? a : b;
+	return a > b ? a : b;
 }
 
 int main()

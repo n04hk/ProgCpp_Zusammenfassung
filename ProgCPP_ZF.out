@@ -281,46 +281,63 @@
 \BOOKMARK [1][-]{section.54}{Objektgr\366sse bei der Vererbung}{part.9}% 281
 \BOOKMARK [1][-]{section.55}{Schlechter \(falscher\) Einsatz von Vererbung}{part.9}% 282
 \BOOKMARK [1][-]{section.56}{Substitutionsprinzip}{part.9}% 283
-\BOOKMARK [0][-]{part.10}{X Exceptions \(\214Ausnahmen\215\)}{}% 284
-\BOOKMARK [1][-]{section.57}{Exception vs. Error}{part.10}% 285
-\BOOKMARK [1][-]{section.58}{M\366gliche Reaktionen auf Ausnahmen}{part.10}% 286
-\BOOKMARK [1][-]{section.59}{Exceptioncodes als R\374ckgabewert}{part.10}% 287
-\BOOKMARK [1][-]{section.60}{Exceptioncodes als Referenzparameter}{part.10}% 288
-\BOOKMARK [1][-]{section.61}{Globaler Exceptioncode}{part.10}% 289
-\BOOKMARK [1][-]{section.62}{Wo sollen Exceptions behandelt werden?}{part.10}% 290
-\BOOKMARK [2][-]{subsection.62.1}{Beispiel: \334bertragungssystem}{section.62}% 291
-\BOOKMARK [1][-]{section.63}{Ziel f\374r Exception Handling}{part.10}% 292
-\BOOKMARK [1][-]{section.64}{Exception Handling in C++}{part.10}% 293
-\BOOKMARK [2][-]{subsection.64.1}{Exception Handling in C++: Syntax}{section.64}% 294
-\BOOKMARK [2][-]{subsection.64.2}{Ausl\366sen \(Werfen\) von Ausnahmen}{section.64}% 295
-\BOOKMARK [3][-]{subsubsection.64.2.1}{Beispiel f\374r Exception Handling: un\374bliche Variante}{subsection.64.2}% 296
-\BOOKMARK [2][-]{subsection.64.3}{Vordefinierte Ausnahmeklassen}{section.64}% 297
-\BOOKMARK [2][-]{subsection.64.4}{Exception-Hierarchie in C++}{section.64}% 298
-\BOOKMARK [2][-]{subsection.64.5}{Laufzeit- vs. Logische \214Fehler\215}{section.64}% 299
-\BOOKMARK [2][-]{subsection.64.6}{Exceptions und ihre Header-Dateien}{section.64}% 300
-\BOOKMARK [2][-]{subsection.64.7}{Exception Handler}{section.64}% 301
-\BOOKMARK [3][-]{subsubsection.64.7.1}{Handler mit beliebigne Exceptions ohne Hierarchie}{subsection.64.7}% 302
-\BOOKMARK [3][-]{subsubsection.64.7.2}{Handler mit System-Exceptions}{subsection.64.7}% 303
-\BOOKMARK [3][-]{subsubsection.64.7.3}{Handler mit schlechter Reihenfolge}{subsection.64.7}% 304
-\BOOKMARK [2][-]{subsection.64.8}{Exception Handler 2}{section.64}% 305
-\BOOKMARK [2][-]{subsection.64.9}{Exception Propagation}{section.64}% 306
-\BOOKMARK [2][-]{subsection.64.10}{Exception Specification}{section.64}% 307
-\BOOKMARK [3][-]{subsubsection.64.10.1}{Exception Specification: Beispiele}{subsection.64.10}% 308
-\BOOKMARK [3][-]{subsubsection.64.10.2}{Exception Handling in der Praxis}{subsection.64.10}% 309
-\BOOKMARK [3][-]{subsubsection.64.10.3}{Throw exceptions by value, catch them by const reference}{subsection.64.10}% 310
-\BOOKMARK [3][-]{subsubsection.64.10.4}{Handling von System Exceptions}{subsection.64.10}% 311
-\BOOKMARK [3][-]{subsubsection.64.10.5}{Handling-Strategie von System Exceptions bei verschiedenen Programmiersprachen}{subsection.64.10}% 312
-\BOOKMARK [3][-]{subsubsection.64.10.6}{Betreibt meine Umgebung Exception Mapping?}{subsection.64.10}% 313
-\BOOKMARK [0][-]{part.11}{XI Preprocessor}{}% 314
-\BOOKMARK [1][-]{section.65}{Eigenschaften des Preprocessors}{part.11}% 315
-\BOOKMARK [1][-]{section.66}{Preprocessor-Direktiven und Bedingungsanweisungen}{part.11}% 316
-\BOOKMARK [2][-]{subsection.66.1}{\043define}{section.66}% 317
-\BOOKMARK [2][-]{subsection.66.2}{\043undef}{section.66}% 318
-\BOOKMARK [2][-]{subsection.66.3}{\043include}{section.66}% 319
-\BOOKMARK [2][-]{subsection.66.4}{\043line}{section.66}% 320
-\BOOKMARK [2][-]{subsection.66.5}{\043error}{section.66}% 321
-\BOOKMARK [2][-]{subsection.66.6}{\043pragma}{section.66}% 322
-\BOOKMARK [2][-]{subsection.66.7}{Bedingungsanweisungen}{section.66}% 323
-\BOOKMARK [3][-]{subsubsection.66.7.1}{Beispiele f\374r Bedingungsanweisungen}{subsection.66.7}% 324
-\BOOKMARK [2][-]{subsection.66.8}{Weitere Features des Preprocessors}{section.66}% 325
-\BOOKMARK [2][-]{subsection.66.9}{Kritische W\374rdigung des Preprocessors}{section.66}% 326
+\BOOKMARK [0][-]{part.10}{X Polymorphismus}{}% 284
+\BOOKMARK [1][-]{section.57}{Static vs. Dynamic Binding}{part.10}% 285
+\BOOKMARK [2][-]{subsection.57.1}{Dynamic Binding}{section.57}% 286
+\BOOKMARK [3][-]{subsubsection.57.1.1}{Beispiel: Zeichnen von geometrische Figuren}{subsection.57.1}% 287
+\BOOKMARK [2][-]{subsection.57.2}{Statischer vs. dynamischer Datentyp}{section.57}% 288
+\BOOKMARK [2][-]{subsection.57.3}{Aufruf von virtuellen Elementfunktionen}{section.57}% 289
+\BOOKMARK [3][-]{subsubsection.57.3.1}{Statischer Aufruf von virtuellen Elementfunktionen}{subsection.57.3}% 290
+\BOOKMARK [3][-]{subsubsection.57.3.2}{Dynamischer Aufruf von virtuellen Elementfunktionen}{subsection.57.3}% 291
+\BOOKMARK [2][-]{subsection.57.4}{Polymorphe Klassen \(Virtuelle Klassen\)}{section.57}% 292
+\BOOKMARK [3][-]{subsubsection.57.4.1}{Repr\344sentation virtueller Objekte im Speicher}{subsection.57.4}% 293
+\BOOKMARK [1][-]{section.58}{Abstrakte Klassen}{part.10}% 294
+\BOOKMARK [2][-]{subsection.58.1}{Anwendungen von abstrakten Klassen \(Beispiele\)}{section.58}% 295
+\BOOKMARK [1][-]{section.59}{Mehrfachvererbung \(Multiple Inheritance, MI\)}{part.10}% 296
+\BOOKMARK [2][-]{subsection.59.1}{Virtuelle Basisklassen}{section.59}% 297
+\BOOKMARK [1][-]{section.60}{Laufzeit-Typinformationen \(Run-Time Type Information, RTTI\)}{part.10}% 298
+\BOOKMARK [2][-]{subsection.60.1}{Operator dynamic\137cast}{section.60}% 299
+\BOOKMARK [2][-]{subsection.60.2}{Operator typeid}{section.60}% 300
+\BOOKMARK [0][-]{part.11}{XI Exceptions \(\214Ausnahmen\215\)}{}% 301
+\BOOKMARK [1][-]{section.61}{Exception vs. Error}{part.11}% 302
+\BOOKMARK [1][-]{section.62}{M\366gliche Reaktionen auf Ausnahmen}{part.11}% 303
+\BOOKMARK [1][-]{section.63}{Exceptioncodes als R\374ckgabewert}{part.11}% 304
+\BOOKMARK [1][-]{section.64}{Exceptioncodes als Referenzparameter}{part.11}% 305
+\BOOKMARK [1][-]{section.65}{Globaler Exceptioncode}{part.11}% 306
+\BOOKMARK [1][-]{section.66}{Wo sollen Exceptions behandelt werden?}{part.11}% 307
+\BOOKMARK [2][-]{subsection.66.1}{Beispiel: \334bertragungssystem}{section.66}% 308
+\BOOKMARK [1][-]{section.67}{Ziel f\374r Exception Handling}{part.11}% 309
+\BOOKMARK [1][-]{section.68}{Exception Handling in C++}{part.11}% 310
+\BOOKMARK [2][-]{subsection.68.1}{Exception Handling in C++: Syntax}{section.68}% 311
+\BOOKMARK [2][-]{subsection.68.2}{Ausl\366sen \(Werfen\) von Ausnahmen}{section.68}% 312
+\BOOKMARK [3][-]{subsubsection.68.2.1}{Beispiel f\374r Exception Handling: un\374bliche Variante}{subsection.68.2}% 313
+\BOOKMARK [2][-]{subsection.68.3}{Vordefinierte Ausnahmeklassen}{section.68}% 314
+\BOOKMARK [2][-]{subsection.68.4}{Exception-Hierarchie in C++}{section.68}% 315
+\BOOKMARK [2][-]{subsection.68.5}{Laufzeit- vs. Logische \214Fehler\215}{section.68}% 316
+\BOOKMARK [2][-]{subsection.68.6}{Exceptions und ihre Header-Dateien}{section.68}% 317
+\BOOKMARK [2][-]{subsection.68.7}{Exception Handler}{section.68}% 318
+\BOOKMARK [3][-]{subsubsection.68.7.1}{Handler mit beliebigne Exceptions ohne Hierarchie}{subsection.68.7}% 319
+\BOOKMARK [3][-]{subsubsection.68.7.2}{Handler mit System-Exceptions}{subsection.68.7}% 320
+\BOOKMARK [3][-]{subsubsection.68.7.3}{Handler mit schlechter Reihenfolge}{subsection.68.7}% 321
+\BOOKMARK [2][-]{subsection.68.8}{Exception Handler 2}{section.68}% 322
+\BOOKMARK [2][-]{subsection.68.9}{Exception Propagation}{section.68}% 323
+\BOOKMARK [2][-]{subsection.68.10}{Exception Specification}{section.68}% 324
+\BOOKMARK [3][-]{subsubsection.68.10.1}{Exception Specification: Beispiele}{subsection.68.10}% 325
+\BOOKMARK [3][-]{subsubsection.68.10.2}{Exception Handling in der Praxis}{subsection.68.10}% 326
+\BOOKMARK [3][-]{subsubsection.68.10.3}{Throw exceptions by value, catch them by const reference}{subsection.68.10}% 327
+\BOOKMARK [3][-]{subsubsection.68.10.4}{Handling von System Exceptions}{subsection.68.10}% 328
+\BOOKMARK [3][-]{subsubsection.68.10.5}{Handling-Strategie von System Exceptions bei verschiedenen Programmiersprachen}{subsection.68.10}% 329
+\BOOKMARK [3][-]{subsubsection.68.10.6}{Betreibt meine Umgebung Exception Mapping?}{subsection.68.10}% 330
+\BOOKMARK [0][-]{part.12}{XII Preprocessor}{}% 331
+\BOOKMARK [1][-]{section.69}{Eigenschaften des Preprocessors}{part.12}% 332
+\BOOKMARK [1][-]{section.70}{Preprocessor-Direktiven und Bedingungsanweisungen}{part.12}% 333
+\BOOKMARK [2][-]{subsection.70.1}{\043define}{section.70}% 334
+\BOOKMARK [2][-]{subsection.70.2}{\043undef}{section.70}% 335
+\BOOKMARK [2][-]{subsection.70.3}{\043include}{section.70}% 336
+\BOOKMARK [2][-]{subsection.70.4}{\043line}{section.70}% 337
+\BOOKMARK [2][-]{subsection.70.5}{\043error}{section.70}% 338
+\BOOKMARK [2][-]{subsection.70.6}{\043pragma}{section.70}% 339
+\BOOKMARK [2][-]{subsection.70.7}{Bedingungsanweisungen}{section.70}% 340
+\BOOKMARK [3][-]{subsubsection.70.7.1}{Beispiele f\374r Bedingungsanweisungen}{subsection.70.7}% 341
+\BOOKMARK [2][-]{subsection.70.8}{Weitere Features des Preprocessors}{section.70}% 342
+\BOOKMARK [2][-]{subsection.70.9}{Kritische W\374rdigung des Preprocessors}{section.70}% 343
