@@ -1,15 +1,10 @@
 %!TEX root = ProgCPP_ZF.tex
 
 \part{Funktionen}
-\label{sec:Funktionen}
-
-% Unterkapitel: Grundlegendes
 
 \section{Grundlegendes}
-\label{sec:Grundlegendes}
 
 \subsection{Synonyme für Funktionen}
-\label{sec:Synonyme fuer Funktionen}
 \begin{itemize}
 	\item Unterprogramm
 	\item Subroutine
@@ -18,16 +13,14 @@
 \end{itemize}
 
 \subsection{Aufgabe einer Funktion}
-\label{sec:Aufgabe einer Funktion}
 \begin{itemize}
-	\item Gleichartige, funktional zusammengehörende Programmteile unter einem eigenene Namen zusammenfassen. Der Programmteil kann mit diesem Namen aufgerufen werden.
+	\item Gleichartige, funktional zusammengehörende Programmteile unter einem eigenen Namen zusammenfassen. Der Programmteil kann mit diesem Namen aufgerufen werden.
 	\item Einige Funktionen (im speziellen mathematische) sollen parametrisiert werden können, z.B. die Cosinusfunktion macht nur Sinn, wenn sie mit unterschiedlichen Argumenten aufgerufen werden kann.
-	\item Divide et impera (divide and conquer, teile und herrsche):
-	\\ Ein grosses Problem ist einfacher zu lösen, wenn es in mehrere einfachere Teilprobleme aufgeteilt wird.
+	\item Divide et impera (divide and conquer, teile und herrsche):\\
+	Ein grosses Problem ist einfacher zu lösen, wenn es in mehrere einfachere Teilprobleme aufgeteilt wird.
 \end{itemize}
 
 \subsection{Funktionen (Vergleich zu C)}
-\label{sec:Funktionen (Vergleich zu C)}
 \begin{itemize}
 	\item Alles was in C möglich ist, gibt es auch in C++
 	\item Einige Punkte sind in C++ zusätzlich eingeführt worden:
@@ -40,7 +33,6 @@
 \end{itemize}
 
 \subsection{Definition von Funktionen}
-\label{sec:Definition von Funktionen}
 \begin{itemize}
 	\item Funktionskopf
 	\begin{itemize}
@@ -59,62 +51,74 @@
 \end{itemize}
 
 \subsection{Deklaration von Funktionen (Funktionsprototypen)}
-\label{sec:Deklaration von Funktionen}
-\lstinputlisting{\listings/fktproto.cpp}
+\begin{minipage}{0.75\linewidth}
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+
+void init(int* alpha);	// Funktionsprototyp (Deklaration)
+
+int main(void)
+{
+	int a;
+	init(&a);
+	cout << "Der Wert von a ist " << a << endl;
+	return 0;
+}
+
+void init(int* alpha)
+{
+	*alpha = 10;
+}
+\end{lstlisting}
+\end{minipage}
 
 \subsection{Kosten einer Funktion}
-\label{sec:Kosten einer Funktion}
 \begin{itemize}
-	\item Der Code einer Funktion ist nur einmal im Speicher vorhanden
+	\item Der Code einer Funktion ist nur einmal im Speicher vorhanden.
 	\begin{itemize}
 		\item Vorteil: spart Speicher
 	\end{itemize}
-	\item Der Aufruf einer Funktion bewirkt eine zeitliche Einbusseim Vergleich zu einer direkten Befehlsausführung
+	\item Der Aufruf einer Funktion bewirkt eine zeitliche Einbusse im Vergleich zu einer direkten Befehlsausführung.
 	\begin{itemize}
 		\item Nachteil: Zeitverlust, Overhead
 	\end{itemize}
 \end{itemize}
 
-% Unterkapitel: C-Makro
-
 \section{C-Makro}
-\label{sec:C-Makro}
 
 \subsection{C-Makro mit {\#define}}
-\label{sec:C-Makro mit define}
 \begin{itemize}
 	\item C-Makros bewirken eine reine Textersetzung ohne jegliche Typenprüfung
 	\item Bei Nebeneffekten (welche zwar vermieden werden sollten) verhalten sich Makros oft nicht wie beabsichtigt
 \end{itemize}
-\begin{achtung}	% Achtung-Box
+\begin{achtung}
 C-Makros lösen zwar das Problem mit dem Overhead, sind aber sehr unsicher. Bitte nicht einsetzen!
 \end{achtung}
 
 
 \subsection{Beispiel mit C-Makro: Maximum zweier int-Werte}
-\label{sec:Beispiel mit C-Makro: Maximum zweier int-Werte}
 \noindent
-\begin{minipage}{\linewidth}
+\begin{minipage}{0.6\linewidth}
 \begin{lstlisting}
 #define MAX(a,b)	((a)>(b) ? (a) : (b))
 
 int z1 = 4;
 int z2 = 6;
 int m = MAX(z1,z2);
-*@ \textbf{wird expandiert zu: m = ((z1)\frq(z2) ? (z1) : (z2));	// m=6, z1=4, z2=6} @*
+*@ \textbf{wird expandiert zu: m = ((z1)>(z2) ? (z1) : (z2));	// m=6, z1=4, z2=6} @*
 m = MAX(++z1,++z2);
 *@ \textbf{erwartet wird: m=7, z1=5, z2=7}@*
 \end{lstlisting}
 \end{minipage}
 
-\subsection{Beispiel mit C-Makro: Was passiert wirklich?}
-\label{sec:Beispiel mit C-Makro: Was passiert wirklich?}
+\subsubsection{Was passiert wirklich?}
 \noindent
-\begin{minipage}{\linewidth}
+\begin{minipage}{0.6\linewidth}
 \begin{lstlisting}
 m = MAX(++z1,++z2);
 *@\textbf{wird expandiert zu:}@*
-*@\textbf{ m = ((++z1)\frq(++z2) ? (++z1) : (++z2)); m = ((\color{red}5\color{black})\frq(\color{red}7\color{black}) ? (++z1) : (\color{red}8\color{black}));}@*
+*@\textbf{ m = ((++z1)>(++z2) ? (++z1) : (++z2));m = ((\color{red}5\color{black})>(\color{red}7\color{black}) ? (++z1) : (\color{red}8\color{black}));}@*
 *@\textbf{\color{red}// z2 wird zweimal inkrementiert!\color{black}}@*
 *@\textbf{// m=\color{red}8\color{black}, z1=5 ,z2=\color{red}8\color{black} }@*
 *@\textbf{erwartet wird:}@*
@@ -122,13 +126,9 @@ m = MAX(++z1,++z2);
 \end{lstlisting}
 \end{minipage}
 
-% Unterkapitel: inline-Funktionen
-
 \section{inline-Funktionen}
-\label{sec:inline-Funktionen}
 
 \subsection{Grundlegendes}
-\label{sec:inline-Funktionen: Grundlegendes}
 \begin{itemize}
 	\item Lösen das Overhead-Problem
 	\begin{itemize}
@@ -140,9 +140,8 @@ m = MAX(++z1,++z2);
 \end{itemize}
 
 \subsection{Beispiel mit inline-Code: Maximum zweier int-Werte}
-\label{sec:Beispiel mit inline-Code: Maximum zweier int-Werte}
 \noindent
-\begin{minipage}{\linewidth}
+\begin{minipage}{0.4\linewidth}
 \begin{lstlisting}
 inline int max(int a, int b)
 {
@@ -161,23 +160,16 @@ int main()
 \end{lstlisting}
 \end{minipage}
 
-% Unterkapitel: Grundsätze der Optimierungen
-
 \section{Grundsätze für Optimierungen}
-\label{sec:Grundsaetze fuer Optimierungen}
-\LARGE{\#1: Optimize: don't do it}
-\\
-\LARGE{\#2: If you have to do it: do it later}
-\normalsize
-
-% Unterkapitel: default-Argumente
+\begin{enumerate}
+	\item Optimize: don't do it
+	\item If you have to do it: do it later
+\end{enumerate} 
 
 \section{default-Argumente}
-\label{sec:default-Argumente}
 
 \subsection{Vorbelegte Parameter (default-Argumente)}
-\label{sec:Vorbelegte Parameter (default-Argumente)}
-\begin{minipage}{\linewidth}
+\begin{minipage}{0.65\linewidth}
 \begin{lstlisting}
 void prtDate(int day=1, int month=3, int year=2009);
 \end{lstlisting}
@@ -185,56 +177,56 @@ void prtDate(int day=1, int month=3, int year=2009);
 \normalsize
 \begin{itemize}
 	\item Parametern können im Funktionsprototypen (\color{red}bitte nur dort!\color{black}) Defaultwerte zugewiesen werden.
-	\item Beim Funktionsaufruf können (aber müssen nicht) die Parameter mit default-Werten weggelassen werden
-\\ \begin{achtung}Hinter (rechts von) einem default-Argument darf kein nicht vorbelegter Parameter mehr folgen, d.h. wenn bei einem Parameter ein default definiert wird, dann müssen bei allen weiteren Parametern dieser Funktion ebenfalls defaults definiert werden.
-		\end{achtung}
-	\item Grund: Die Parameterübergabe erfolgt in C++ von links nach rechts
+	\item Beim Funktionsaufruf können (aber müssen nicht) die Parameter mit default-Werten weggelassen werden\\
+	\begin{achtung}Hinter (rechts von) einem default-Argument darf kein nicht vorbelegter Parameter mehr folgen, d.h. wenn bei einem Parameter ein default definiert wird, dann müssen bei allen weiteren Parametern dieser Funktion ebenfalls defaults definiert werden.
+	\end{achtung}
+	\item Grund: Die Parameterübergabe erfolgt in C++ von links nach rechts.
 \end{itemize}
 
 \subsubsection{Beispiel: default-Argumente}
-\label{sec:Beispiel: default-Argumente}
 \noindent
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
 void prtDate(int day=1, int month=3, int year=2009);
-	
-*@{\textbf{\color{green}// erlaubt sind z.B. die folgenden Aufrufe:\color{black}}}@*
-prtDate();			// 1-3-2009
-prtDate(23);		// 23-3-2009
-prtDate(15,6);		// 15-6-2009
+\end{lstlisting}
+\end{minipage}
+\fcolorbox{red}{white}{\parbox{0.4\linewidth}{nicht erlaubt sind z.B. diese Deklarationen:}}\\
+\begin{minipage}{0.65\linewidth}
+\begin{lstlisting}
+void prtDate2(int day=7, int month, int year=2009);
+void prtDate3(int day, int month=3, int year);
+\end{lstlisting}
+\end{minipage}
+
+\fcolorbox{green}{white}{\parbox{0.4\linewidth}{erlaubt sind z.B. die folgenden Aufrufe:}}\\
+\begin{minipage}{0.4\linewidth}
+\begin{lstlisting}
+prtDate();					// 1-3-2009
+prtDate(23);				// 23-3-2009
+prtDate(15,6);			// 15-6-2009
 prtDate(24,7,2012);	// 24-7-2012
-
-	
-
-*@\textbf{\color{red}// nicht erlaubt sind z.B. diese Deklarationen:\color{black}}@*
-void prtDate2(int day=7, *@\color{red}int month\color{black}@*, int year=2009);
-void prtDate3(int day, int month=3,*@ \color{red}int year\color{black}@*);
 \end{lstlisting}
 \end{minipage}
 
 \subsection{Nutzen von default-Argumenten}
-\label{sec:Nutzen von default-Argumenten}
 \begin{itemize}
 	\item Wenn in einer bereits existierenden Funktion neue Argumente aufgenommen werden müssen, dann:
 	\begin{itemize}
-		\item Neue Argumente hinten als default-Argumente anfügen
-		\item Die bereits bestehenden alten Aufrufe (mit weniger Argumenten) können unverändert beibehalten werden
-		\item Die Implementation der Funktion muss angepasst werden
+		\item Neue Argumente hinten als default-Argumente anfügen.
+		\item Die bereits bestehenden alten Aufrufe (mit weniger Argumenten) können unverändert beibehalten werden.
+		\item Die Implementation der Funktion muss angepasst werden.
 	\end{itemize}
-	\item Sehr nützlich z.B. bei Konstruktoren in der objektorientierten Programmierung
+	\item Sehr nützlich z.B. bei Konstruktoren in der objektorientierten Programmierung.
 \end{itemize}
-
-% Unterkapitel: Overloading
 
 \section{Overloading}
 \label{sec:Overloading}
 
 \subsection{Überladen von Funktionen (overloading)}
-\label{sec:Ueberladen von Funktionen (overloading)}
 \begin{itemize}
 	\item Zweck:
 	\begin{itemize}
-		\item[\-] Eine Funktion sollte allenfalls mit unterschiedlichen Parametern aufgerufen werden können\\
+		\item[\-] Eine Funktion sollte allenfalls mit unterschiedlichen Parametern aufgerufen werden können:
 		\item[\-] void print(char ch);
 		\item[\-] void print(int i);
 		\item[\-] void print(double d);
@@ -244,18 +236,17 @@ void prtDate3(int day, int month=3,*@ \color{red}int year\color{black}@*);
 		\item[\-] void printChar(char ch);
 		\item[\-] void printInt(int i);
 		\item[\-] void printDouble(double d);
-		\item[\-] \color{red} Ist umständlicher und unverständlicher\color{black}
+		\item[\-] $\rightarrow$ Ist umständlicher und unverständlicher
  	\end{itemize}
 \end{itemize}
 
 \subsection{Overloading in C++}
-\label{sec:Overloading in C++}
 \begin{itemize}
 	\item Die Identifikation einer Funktion erfolgt über die Signatur, nicht nur über den Namen
 	\begin{itemize}
-		\item Die Signatur besteht aus:
-			\\ Name der Funktion \textbf{plus} die Parameterliste (Reihenfolge, Anzahl, Typ)
-			\\ (Der Returntyp wird nicht berücksichtigt)
+		\item Die Signatur besteht aus:\\
+			Name der Funktion \textbf{plus} die Parameterliste (Reihenfolge, Anzahl, Typ)\\
+			(Der Returntyp wird nicht berücksichtigt)
 	\end{itemize}
 	\item Der Name der Funktion ist identisch
 	\item Die Implementation muss für jede überladene Funktion separat erfolgen
@@ -265,48 +256,33 @@ Overloading sollte zurückhaltend eingesetzt werden. Wenn möglich sind default-
 \end{hinweis}
 
 \subsubsection{Deklaration von überladenen Funktionen: Regeln}
-\label{sec:Deklaration von ueberladenen Funktionen: Regeln}
 \begin{itemize}
 	\item Entsprechen Rückgabetyp und Parameterliste der zweiten Deklaration denen der ersten, so wird die zweite als gültige Re-Deklaration der ersten aufgefasst.
-	\item Unterscheiden sich die beiden Deklarationen nur bezüglich ihrer Rückgabetypen, so behandelt der Compiler die zweite Deklaration als fehlerhafte Re-Deklaration der ersten.
-		\\ Der Rückgabetyp von Funktionen kann nicht als Unterscheidungskriterium verwendet werden.
+	\item Unterscheiden sich die beiden Deklarationen nur bezüglich ihrer Rückgabetypen, so behandelt der Compiler die zweite Deklaration als fehlerhafte Re-Deklaration der ersten.\\
+	$\rightarrow$ Der Rückgabetyp von Funktionen kann nicht als Unterscheidungskriterium verwendet werden.
 	\item Nur wenn beide Deklarationen sich in Anzahl oder Typ ihrer Parameter unterscheiden, werden sie als zwei verschiedene Deklarationen mit demselben Funktionsnamen betrachtet (überladene Funktionen).
 \end{itemize}
 
 \subsubsection{Funktionen sollen nur dann überladen werden, wenn ...}
-\label{sec:Funktionen sollen nur dann ueberladen werden, wenn ...}
 \begin{itemize}
 	\item \textbf{die Funktionen eine vergleichbare Operation bezeichnen, die jeweils mit anderen Parametertypen ausgeführt wird}
 	\item \textbf{dieselbe Wirkung nicht durch default-Parameter erreicht werden kann}
 \end{itemize}
 
-% Unterkapitel: default-Parameter vs. Overloading
-
 \section{default-Parameter vs. Overloading}
-\label{sec:default-Parameter vs. Overloading}
-\noindent
-\begin{minipage}{\linewidth}
-\begin{lstlisting}
-*@\textbf{\color{red}// Variante mit Overloading}@*
-*@\textbf{\color{red}// 3 unterschiedliche Funktionen belegen Speicher}@*
-*@\textbf{\color{red}// 3 unterschiedliche Funktionenmüssen gewartet werden}@*
-void print(int i);
-void print(int i, int width);
-void print(int i, char fillchar, int width):
-	
-	
-*@\textbf{\color{green}// Variante mit default-Parametern}@*
-*@\textbf{\color{green}// Eine einzige Funktion belegt Speicher}@*
-*@\textbf{\color{green}// Nur eine Funktion muss gewartet werden}@*
-void print(int i, int width=0, char fillchar=0);	
-\end{lstlisting}
-\end{minipage}
-\\
-\\
+\fcolorbox{red}{white}{\parbox{0.5\linewidth}{\textbf{Variante mit Overloading:}\\
+3 unterschiedliche Funktionne belegen Speicher\\
+3 unterschiedliche Funktionen müssen gewartet werden\vspace{\baselineskip}\\
+void print(int i);\\
+void print(int i, int width);\\
+void print(int i, char fillchar, int width);}}
+\fcolorbox{green}{white}{\parbox{0.5\linewidth}{\textbf{Variante mit default-Parametern:}\\
+Eine einzige Funktion belegt Speicher\\
+Nur eine Funktion muss gewartet werden
+\vspace{\baselineskip}\\
+void print(int i, int width=0, char fillchar=0);}}
+
+\vspace{2\baselineskip}
 \begin{achtung}
-keinesfalls default-Parameter in überladenen Funktionen verwenden
+Keinesfalls default-Parameter in überladenen Funktionen verwenden!
 \end{achtung}
-% ENDE
-
-
- 

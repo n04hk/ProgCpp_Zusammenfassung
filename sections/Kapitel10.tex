@@ -37,7 +37,7 @@
 	\item Achtung: nicht mit Funktionsüberladung (gleicher Name aber unterschiedliche Signatur) verwechseln!
 \end{itemize}
 
-\subsubsection{Beispiel: Zeichnen von geometrische Figuren}
+\subsubsection{Beispiel: Zeichnen von geometrischen Figuren}
 \begin{itemize}
 	\item Eine immer gleich heissende Elementfunktion draw() hat unterschiedliche Implementationen, je nach Art des aktuellen Objekts.
 	\item Bsp.: Eine Zeichenfunktion für geometrische Objekte hat ganz unterschiedliche Implementationen, je nach dem ob es sich um einen Kreis, ein Rechteck, Textblock, Polygonzug, etc. handelt.
@@ -59,6 +59,7 @@
 \end{itemize}
 
 \subsection{Aufruf von virtuellen Elementfunktionen}
+\label{sec:aufrufVonVirtuellenElemenfunktionen}
 \begin{itemize}
 	\item Virtuelle Elementfunktionen können sowohl dynamisch (über Pointer oder Referenzen) als auch statisch aufgerufen werden.
 	\item Bei statischen Aufrufen erfolgt die Auswahl der richtigen Funktion bereits bei der Übersetzung (d.h. ohne Overhead)

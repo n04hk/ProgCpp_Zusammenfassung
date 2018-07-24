@@ -91,6 +91,17 @@
 %%%%%%%%%%%%
 % Listings %
 %%%%%%%%%%%%
+
+\makeatletter
+\newcommand\processAsterisk{%
+	\ifnum\lst@mode=\lst@Pmode\relax%
+	\textcolor{black}{*}%
+	\else
+	*%
+	\fi
+}
+\makeatother
+
 \lstset{
 	language=C++,
 	backgroundcolor=\color{timberwolf},
@@ -100,9 +111,12 @@
 	escapeinside={*@}{@*},
 	rulecolor=\color{black},
 	title=\lstname,
-	morekeywords={*, const}
+	morekeywords={*, const},
+	tabsize = 2,
+	literate={*}{\processAsterisk}1
 }
 \def\listings{./listings}	% Dateipfad für Listings
+
 
 %%%%%%%%%%%%%%%
 % Achtung-Box %

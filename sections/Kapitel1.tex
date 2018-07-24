@@ -1,14 +1,13 @@
 %!TEX root = ProgCPP_ZF.tex
 
 \part{Einführung}
-\label{sec:Einfuehrung}
-
 
 \section{Charakteristiken von C++}
-\label{sec:Charakteristiken von C++}
 \begin{itemize}
-	\item C++ erlaubt sowohl prozedurale, objektorientierte als auch generische Programmierung
-		Achtung: nicht jedes C++-Programm ist objektorientiert
+	\item C++ erlaubt sowohl prozedurale, objektorientierte als auch generische Programmierung\\
+	\begin{achtung}
+		Nicht jedes C++-Programm ist objektorientiert!
+	\end{achtung}
 	\item C++ ist sehr mächtig
 	\item C++ ist eine Obermenge von C
 	\item Syntaktisch ist C++ sehr ähnlich oder identisch zu C
@@ -16,11 +15,10 @@
 \end{itemize}
 
 \section{Entstehung von C++}
-\label{sec:Entstehung von C++}
 \begin{itemize}
-	\item C 					Ritchie 1971, typisiert
-	\item ANSI C 				seit 1983
-	\item C++ 					Stroustrup 1986, Klassen und OO
+	\item C Ritchie 1971, typisiert
+	\item ANSI C seit 1983
+	\item C++ Stroustrup 1986, Klassen und OO
 	\item Final Standard ISO/ANSI 	ab 1990 
 	\vspace{3mm}
 	\\ \textbf{ISO/IEC 14882:2003 Programming Languages - C++, aka C++03} 			
@@ -31,7 +29,6 @@
 \end{itemize}
 
 \section{Welches C++?}
-\label{sec:Welches C++?}
 \begin{itemize}
 	\item \textbf{Im Modul ProgCPP setzen wir den Standard 14882:2003, d.h. C++03 ein}
 	\item Wieso nicht C++11 oder C++14?
@@ -45,57 +42,55 @@
 \end{itemize}
 
 \section{C++-Unterstützung von Texas Instruments (TI)}
-\label{sec:C++-Unterstuetzung von Texas Instruments (TI)}
 \begin{itemize}
 	\item TI als Repräsentant für einen Anbieter von Embedded-Entwicklungsumgebungen
 	\item The TI compilers for all devices support
 	\begin{itemize}
-		\item C++98 (ISO/IEC 14882:1998)
-		\item C++03 (this is a bug fix update to C++98)
+		\item[\-] C++98 (ISO/IEC 14882:1998)
+		\item[\-] C++03 (this is a bug fix update to C++98)
 	\end{itemize}
 	\item The TI compiler does not support
 	\begin{itemize}
-		\item C++ TR1
-		\item C++11 (ISO/IEC 14882:2011)
+		\item[\-] C++ TR1
+		\item[\-] C++11 (ISO/IEC 14882:2011)
 	\end{itemize}
 	\item Noch neuere Versionen erst recht nicht
 \end{itemize}
 
 \section{Hello World!}
-\label{sec:Hello World!}
 \noindent
 \begin{minipage}{\linewidth}
-\lstinputlisting{\listings/hello.cpp}
-\label{lst:Hello World!}
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+
+int main(void)
+{
+	cout << "Hello World!" << endl;
+	return 0;
+}
+\end{lstlisting}
 \end{minipage}
 
 \section{C++-Compiler (noch nicht Eclipse)}
-\label{sec:C++-Compiler (noch nicht Eclipse)}
-Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) oder clang++ verwendet werden
-\\
-\begin{center}
-\textbf{g++ -o hello hello.cpp}
-\\
+Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) oder clang++ verwendet werden\\
+\textbf{g++ -o hello hello.cpp}\\
 \textbf{clang++ -o hello hello.cpp}
-\end{center}
 
 \section{Lexikalische Elemente von C++}
-\label{sec:Lexikalische Elemente von C++}
 \begin{itemize}
 	\item C++ ist hier völlig identisch zu C
 	\begin{itemize}
 		\item Bezeichner
-		\item Schlüsselwörter (werden ergänzt durch zusätzliche \textbf(\color{red}REFERENZ\color{black})
+		\item Schlüsselwörter (werden ergänzt durch zusätzliche)
 		\item Literale
 		\item Operatoren (werden ergänzt durch zusätzliche)
 		\item Kommentare
 	\end{itemize}
-	\item Codierstil beachten
-		\\ Die Ellemtel-Richtlinien haben sich etabliert \textbf(\color{red}siehe Anhang)
+	\item Codierstil beachten (Ellemtel-Richtlinien)
 \end{itemize}
 
 \section{Styleguide: Bezeichner (\raisebox{-0.9ex}{\~{ }}Namen)}
-\label{sec:Styleguide: Bezeichner}
 \begin{itemize}
 	\item Variablen, Konstanten und Objekte
 	\begin{itemize}
@@ -104,8 +99,8 @@ Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) ode
 		\item keine Underscores
 		\\
 		\item[\-] Beispiele: counter, maxSpeed
-		\\
 	\end{itemize}
+	\vspace{\baselineskip}
 	\item Funktionen
 	\begin{itemize}
 		\item mit Kleinbuchstaben beginnen
@@ -114,8 +109,8 @@ Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) ode
 		\item keine Underscores
 		\\
 		\item[\-] Beispiele: getCount(), init(), setMaxSpeed()
-		\\
 	\end{itemize}
+	\vspace{\baselineskip}
 	\item Klassen, Strukturen, Enums
 	\begin{itemize}
 		\item mit Grossbuchstaben beginnen
@@ -127,45 +122,35 @@ Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) ode
 \end{itemize}
 
 \section{Typkonzept}
-\label{sec:Typkonzept}
 
 \subsection{Datentypen}
-\label{sec:Datentypen}
 \begin{itemize}
 	\item In C++ gibt es die gleichen Basisdatentypen (plain old data types, POD types) wie in C
 	\item Zusätzlich: es gibt einen Typ für boole'sche Werte: \textbf{bool}
-		\\ \small{(Kap. 3.4.5, 4.3.1)}
 	\item Der Typ \textbf{bool} hat die beiden Werte \textbf{true} und \textbf{false}
 \end{itemize}
 
-\subsection{{\#}define		(Kap. 4.5)}
-\label{sec:define}
+\subsection{{\#}define}
 \begin{itemize}
 	\item In C oft noch geduldet, in C++ verpönt
-	\item \emph{\#define} bewirkt eine reine Textersetzung durch den Präprozessor, umgeht dadurch Syntax- und Typprüfung
-	\item Für die Definition von symbolischen Konstanten soll statt \emph{ \#define} das Schlüsselwort \textbf{const} oder \textbf{enum} verwendet 	werden
- 	\color{red}
-	\item schlecht:
-	\\
-	\#define PI			3.14159
-	\\ 
-	\#define VERSUCHE\_MAX	4
-	\color{green}
-	\item gut:
-	\\const double pi = 3.14159;
-	\\const int versucheMax = 4;
-	\\enum \{versucheMax = 4\};	// noch besser als const int
+	\item \emph{\#define} bewirkt eine reine Textersetzung durch den Präprozessor, umgeht dadurch Syntax- und Typenprüfung
+	\item Für die Definition von symbolischen Konstanten soll statt \emph{\#define} das Schlüsselwort \textbf{const} oder \textbf{enum} verwendet werden\\
+ 	\fcolorbox{red}{white}{\parbox{0.3\linewidth}{schlecht:\\
+ 		\#define PI 3.14159\\
+ 		\#define VERSUCHE\_MAX 4}}
+	\fcolorbox{green}{white}{\parbox{0.5\linewidth}{gut:\\
+		const double pi = 3.14159;\\
+		const int versucheMax = 4;\\
+		enum\{versucheMax = 4\};\quad //noch besser als const int}}
 \end{itemize}
 
 \section{Ausdrücke und Operatoren}
-\label{sec:Ausdruecke und Operatoren}
 \begin{itemize}
 	\item C++ ist hier völlig identisch zu C
 	\item Es gibt noch ein paar zusätzliche Operatoren in C++ (z.B. für type casting)
 \end{itemize}
 
 \section{Anweisungen}
-\label{sec:Anweisungen}
 \begin{itemize}
 	\item Die Syntax der Blockanweisung ist identisch zu C
 	\item Die Syntax der Steuerstrukturen ist identisch zu C
@@ -184,14 +169,13 @@ Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) ode
 \end{itemize}
 
 \section{Streams}
-\label{sec:Streams}
 
 \subsection{Streamkonzept}
-\label{sec:Streamkonzept}
+\label{sec:streamkonzept}
 \begin{itemize}
 	\item Ein Stream repräsentiert einen sequentiellen Datenstrom
-	\item Die Operatoren auf dem Stream sind << und >>
-		\\ Für vordefinierte Datentypen sind diese Operatoren schon definiert, für eigene selbstdefinierte Klassen können diese Operatoren überladen werden \textbf{\color{red}(KAPITEL ANGEBEN)}\color{black}
+	\item Die Operatoren auf dem Stream sind << und >>\\
+	Für vordefinierte Datentypen sind diese Operatoren schon definiert, für eigene selbstdefinierte Klassen können diese Operatoren überladen werden (\emph{siehe \ref{sec:streamkonzeptOverloading}})
 	\item C++ stellt 4 Standardströme zur Verfügung
 	\begin{itemize}
 		\item cin:	Standard-Eingabestrom, normalerweise die Tastatur
@@ -203,17 +187,16 @@ Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) ode
 \end{itemize}
 
 \subsection{Einsatz von Streams}
-\label{sec:Einsatz von Streams}
 \begin{itemize}
-	\item In C werden printf() und scanf() mit stdin, stdout, stderr verwendet
+	\item In C werden printf() und scanf() mit stdin, stdout, stderr verwendet.
 	\item printf() und scanf() könnten in C++ immer noch verwendet werden. Dies soll jedoch im Normalfall vermieden werden.
-	\item C++ bietet analog die Streams cin, cout, cerr an
-	\item Der Zugriff auf cin und cout ist einfacher und komfortabler als die Verwendung von printf() und scanf()
-	\item cin und cout müssen immer ganz links in einer Befehlszeile stehen. Die Daten kommen von cin (Tastatur, Operator \frq\frq) und gehen zu cout (Konsole, Operator \flq\flq)
+	\item C++ bietet analog die Streams cin, cout, cerr an.
+	\item Der Zugriff auf cin und cout ist einfacher und komfortabler als die Verwendung von printf() und scanf().
+	\item cin und cout müssen immer ganz links in einer Befehlszeile stehen. Die Daten kommen von cin (Tastatur, Operator >>) und gehen zu cout (Konsole, Operator <<).
 \end{itemize}
 
 \subsection{Ausgabe: Klasse ostream}
-\label{sec:Ausgabe: Klasse ostream}
+\label{sec:ostream}
 \begin{itemize}
 	\item Methoden für die Ausgabe von vordefinierten Datentypen, z.B.:
 		\\ ostream\& operator \flq\flq(int n);
@@ -227,7 +210,7 @@ Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) ode
 \end{itemize}
 
 \subsection{Eingabe: Klasse istream}
-\label{sec:Eingabe: Klasse istream}
+\label{sec:istream}
 \begin{itemize}
 	\item Methoden für die Eingabe von vordefinierten Datentypen, z.B.:
 		\\ istream\& operator \frq\frq(int\& n);
@@ -243,11 +226,9 @@ Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) ode
 
 \subsection{Formatierte Ein- und Ausgabe}
 \label{sec:Formatierte Ein- und Ausgabe}
-ios, eine Basisklasse von iostream, stellt verschiedene Möglichkeiten (Format Flags) vor, um die Ein- und Ausgabe zu beeinflussen.
-\\ \\
-Beispiel:
-\\ \\
-cout \flq\flq \color{red} showbase \flq\flq \color{green} hex \flq\flq \color{black}27;	// Ausgabe: \color{red}0x\color{green}1b \color{black}
+ios, eine Basisklasse von iostream, stellt verschiedene Möglichkeiten (Format Flags) vor, um die Ein- und Ausgabe zu beeinflussen.\\
+Beispiel:\\
+cout << \color{red}showbase\color{black} << \color{green}hex\color{black} << 27;	// Ausgabe: \color{red}0x\color{green}1b \color{black}
 
 \subsubsection{Format-Flags um Überblick {(unvollständig)}}
 \label{sec:Format-Flags um Ueberblick}
@@ -287,6 +268,3 @@ cout \flq\flq \color{red} showbase \flq\flq \color{green} hex \flq\flq \color{bl
 	uppercase	& Alle Kleinbuchstaben in Grossbuchstaben wandeln\\
 	\hline
 \end{tabularx}
-
-% ENDE
-
