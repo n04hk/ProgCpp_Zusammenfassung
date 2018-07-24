@@ -1,1 +1,0 @@
-# ProgCpp_Zusammenfassung
