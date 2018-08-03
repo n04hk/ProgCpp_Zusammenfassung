@@ -1,41 +1,36 @@
 %!TEX root = ProgCPP_ZF.tex
 
 \part{Module und Datenkapseln}
-\label{sec:Kapitel 6: Module und Datenkapseln}
 
 \section{Modul (Unit)}
-\label{sec:Modul (Unit)}
-Motivation:\\
+Motivation:
 \begin{itemize}
 	\item \textbf{Arbeitsteilung}
 	\item[\-] Grosse Programme werden von mehreren Personen entwickelt. Praktikabel ist, wenn nur eine Person an einer bestimmten Datei arbeitet.
 	\item \textbf{Effizienz}
-	\item[\-] Eine Übersetzungseinheit (Datei) muss bei jeder Änderung neu übersetzt werden (je grösser die Datei desto langsamer die Übersetzung)
+	\item[\-] Eine Übersetzungseinheit (Datei) muss bei jeder Änderung neu übersetzt werden (je grösser die Datei, desto langsamer die Übersetzung).
 	\item \textbf{Strukturierung}
-	\item[\-] Ein grosses  Programm in mehrere vernünftige Teile (Baugruppen, Units) aufteilen (Divide and conquer)
+	\item[\-] Ein grosses  Programm in mehrere vernünftige Teile (Baugruppen, Units) aufteilen (divide and conquer).
 \end{itemize}
 
 \subsection{Nomenklatur: Modul vs. Unit}
-\label{sec:Nomenklatur: Modul vs. Unit}
 \begin{itemize}
-	\item Ein Programmbaustein wird traditionell mit Modul (der oder das Modul) bezeichnet
-	\item Der Test eines Moduls heisst folglich Modultest
-	\item Das Vorgehen, welches Module generiert, heisst Modularisierung
-	\item Heute üblicher wird Modul mit Unit, der Test mit Unittest bezeichnet, das Vorgehen heisst weiterhin Modularisierung
-	\item Prinzipiell spreche ich künftig meist von Unit und Unittest
+	\item Ein Programmbaustein wird traditionell mit Modul (der oder das Modul) bezeichnet.
+	\item Der Test eines Moduls heisst folglich Modultest.
+	\item Das Vorgehen, welches Module generiert, heisst Modularisierung.
+	\item Heute üblicher wird Modul mit Unit, der Test mit Unittest bezeichnet, das Vorgehen heisst weiterhin Modularisierung.
+	\item Prinzipiell spreche ich künftig meist von Unit und Unittest.
 \end{itemize}
 
 \subsection{Ziele der Modularisierung}
-\label{sec:Ziele der Modularisierung}
 \begin{itemize}
-	\item Klare, möglichst schlanke Schnittstellen definieren
-	\item Units so bilden, dass Zusammengehörendes in einer Unit isoliert wird (Kohäsion) soll hoch sein
-	\item Schnittstellen zwischen den Units sollen klein sein (Kopplung soll klein sein)
-	\item Abhängigkeiten unter den Units sollen eine Hierarchie bilden, zirkuläre (gegenseitige) Abhängigkeiten müssen vermieden werden
+	\item Klare, möglichst schlanke Schnittstellen definieren.
+	\item Units so bilden, dass Zusammengehörendes in einer Unit isoliert wird (Kohäsion soll hoch sein).
+	\item Schnittstellen zwischen den Units sollen klein sein (Kopplung soll klein sein).
+	\item Abhängigkeiten unter den Units sollen eine Hierarchie bilden, zirkuläre (gegenseitige) Abhängigkeiten müssen vermieden werden.
 \end{itemize}
 
-\subsection{Eigenschaften einer Unit (eines Moduls)}
-\label{sec:Eigenschaften einer Unit (eines Moduls)}
+\subsection{Eigenschaften einer Unit}
 \begin{itemize}
 	\item realisiert eine in sich abgeschlossene Aufgabe
 	\item kommuniziert über ihre Schnittstelle mit der Umgebung
@@ -43,240 +38,211 @@ Motivation:\\
 	\item ihre Korrektheit kann ohne Kenntnis ihrer Einbettung in einem Gesamtsystem nachgewiesen werden (mittels Unittest)
 \end{itemize}
 
-\subsection{Bestandteile eine C++-Programms}
-\label{sec:Bestandteile eine C++-Programms}
-\begin{itemize}
-	\item \textbf{Eine} Hauptfunktion main()
-	\item Eine Reihe von unabhängigen Programmbausteinen (Units)
-\end{itemize}
-
 \subsection{Unitkonzept}
-\label{sec:Unitkonzept}
-\begin{itemize}
-	\item Interface definiert die Schnittstelle, d.h. die Deklarationen wie Funktionsprototypen, etc. (Schaufenster)
-	\item Implementation: In diesem Teil sind die Unterprogramme definiert, d.h. auscodiert (Werkstatt)
-	\item Das Interface wird in einer Headerdatei (*.h) beschrieben, die Implementation liegt in einer *.cpp-Datei
-\end{itemize}
-\noindent
-\begin{figure}[hh]
-	\centering
-	\includegraphics[width=0.3\linewidth]{images/unit1.pdf}
-\end{figure}
+\vspace{-\baselineskip}
+\begin{minipage}{0.6\linewidth}
+	\begin{itemize}
+		\item Interface definiert die Schnittstelle, d.h. die Deklarationen wie Funktionsprototypen, etc. (Schaufenster).
+		\item Implementation: In diesem Teil sind die Unterprogramme definiert, d.h. auscodiert (Werkstatt).
+		\item Das Interface wird in einer Headerdatei (*.h) beschrieben, die Implementation liegt in einer *.cpp-Datei.
+	\end{itemize}
+\end{minipage}
+\hspace{0.05\linewidth}
+\begin{minipage}{0.15\linewidth}
+	\includegraphics[width=\linewidth]{images/unit1.pdf}
+\end{minipage}
 
 \subsection{Geheimnisprinpzip (Information Hiding)}
-\label{sec:Geheimnisprinzip (Information Hiding)}
-
-\subsubsection{Information Hiding}
-\label{sec:Information Hiding}
 \begin{itemize}
-	\item In der Schnittstelle (Headerdatei) wird alles beschrieben, was ein Nutzer dieser Unit wissen muss
-	\item Der innere Aufbau der Unit (*.cpp) muss (darf) dem Nutzer der Unit nicht bekannt sein, er benötigt diese Informationen auch gar nicht
-	\item Der Nutzer der Unit darf keine Annahmen bezüglich des inneren Aufbaus der Unit treffen
-	\item Der Entwickler der Unit darf den inneren Aufbau der Unit ändern, solange dadurch die Schnittstelle nicht geändert werden muss
+	\item In der Schnittstelle (Headerdatei) wird alles beschrieben, was ein Nutzer dieser Unit wissen muss.
+	\item Der innere Aufbau der Unit (*.cpp) muss (darf) dem Nutzer der Unit nicht bekannt sein, er benötigt diese Informationen auch gar nicht.
+	\item Der Nutzer der Unit darf keine Annahmen bezüglich des inneren Aufbaus der Unit treffen.
+	\item Der Entwickler der Unit darf den inneren Aufbau der Unit ändern, solange dadurch die Schnittstelle nicht geändert werden muss.
 \end{itemize}
 
 \subsubsection{Konzept der Datenkapsel}
-\label{sec:Konzept der Datenkapsel}
 \begin{itemize}
-	\item Eine Unit besteht aus Funktionen und Daten
-	\item In der Schnittstelle wird definiert, was für den Nutzer zur Verfügung steht. Dies können Funktionen und Daten sein
-	\item Die Datenkapsel fordert nun zusätzlich, dass auf die Daten nicht direkt zugegriffen werden darf, sondern nur über Zugriffsfunktionen
+	\item Eine Unit besteht aus Funktionen und Daten.
+	\item In der Schnittstelle wird definiert, was für den Nutzer zur Verfügung steht. Dies können Funktionen und Daten sein.
+	\item Die Datenkapsel fordert nun zusätzlich, dass auf die Daten nicht direkt zugegriffen werden darf, sondern nur über Zugriffsfunktionen.
 \end{itemize}
 
+\begin{multicols}{2}
 \subsubsection{Beispiel für Datenzugriff bei Datenkapsel}
-\label{sec:Beispiel fuer Datenzugriff bei Datenkapsel}
-\noindent
+\vspace{-\baselineskip}
 \begin{minipage}{\linewidth}
-	\begin{lstlisting}
-	// interne Daten
-	int counter;	// gehoert zur Unit, nicht in Interface
-			// wie kann das in C bewerkstelligt werden?
-		
-	// Schnittstelle (Interface)
-	voi setCounter(int c)
-	{
-		counter = c;
-	}
+\begin{lstlisting}
+// interne Daten
+int counter;
 	
-	int getCounter(void)
-	{
-		return counter;
-	}
-	\end{lstlisting}
-\end{minipage}
+// Schnittstelle (Interface)
+void setCounter(int c)
+{
+	counter = c;
+}
 
+int getCounter(void)
+{
+	return counter;
+}
+\end{lstlisting}
+\end{minipage}
+\vfill\null
+\columnbreak
 \subsubsection{Beispiel für Unit Rechteck (ohne Datenkapsel)}
-\label{sec:Beispiel fuer Unit Rechteck (ohne Datenkapsel)}
-\noindent
+\vspace{-\baselineskip}
 \begin{minipage}{\linewidth}
-	\begin{lstlisting}
-	// interne Daten
-	double a;	// 1. Seite
-	double b;	// 2. Seite
-	double area;	// Rechtecksflaeche
-	
-	// Schnittstelle (Interface)
-	
-	// direkter Zugriff auf a, b, area
-	// Annahme: area hat immer den aktuellen Wert, d.h. es muss
-	// bei jeder Aenderung von a und b (durch den Client!) berechnet werden
-	\end{lstlisting}
+\begin{lstlisting}
+// interne Daten
+double a;
+double b;
+double area;
+
+// Schnittstelle (Interface)
+
+// direkter Zugriff auf a, b, area
+// area muss bei jeder Aenderung von a
+// und b (durch Client!) berechnet werden
+\end{lstlisting}
 \end{minipage}
 \begin{achtung}
 	Sehr gefährlich! (kann kaum sichergestellt werden)
 \end{achtung}
+\end{multicols}
 
+\vspace{-\baselineskip}
+\begin{multicols}{2}
 \subsubsection{Beispiel für Unit Rechteck: Verbesserung \#1}
-\label{sec:Beispiel fuer Unit Rechteck: Verbesserung 1}
-\noindent
+\vspace{-\baselineskip}
 \begin{minipage}{\linewidth}
-	\begin{lstlisting}
-	// interne Daten
-	double a;	// 1. Seite
-	double b;	// 2. Seite
-	double area;	// Rechtecksflaeche
-	
-	// Schnittstelle (Interface)
-	// kein direkter Zugriff mehr auf a, b, area
-	// Funktionen setA(), setB(), getA(), getB(), getArea()
-	void setA(double newA)
-	{
-		a = newA;
-		area = a * b;
-	}
-	
-	double getArea(void)
-	{
-		return area;
-	}
-	\end{lstlisting}
+\begin{lstlisting}
+// interne Daten
+double a;
+double b;
+double area;
+
+// Schnittstelle (Interface)
+// kein direkter Zugriff mehr auf a, b, area
+// Funktionen setA(), setB(), getA(), getB(), getArea()
+void setA(double newA)
+{
+	a = newA;
+	area = a * b;
+}
+
+double getArea(void)
+{
+	return area;
+}
+\end{lstlisting}
 \end{minipage}
 \begin{hinweis}
-	Evtl. gefährlich (Berechnung von area könnte vergessen werden). Und: soll die Multiplikation wirklich bei jeder Aenderung durchgefuehrt werden?
+	Evtl. gefährlich (Berechnung von area könnte vergessen werden). Und: die Multiplikation wird bei jeder Änderung durchgeführt (unnötig).
 \end{hinweis}
-
+\columnbreak
 \subsubsection{Beispiel für Unit Rechteck: Verbesserung \#2}
-\label{sec:Beispiel fuer Unit Rechteck: Verbesserung 2}
-\noindent
+\vspace{-\baselineskip}
 \begin{minipage}{\linewidth}
-	\begin{lstlisting}
-	// interne Daten
-	double a;	// 1. Seite
-	double b;	// 2. Seite
-	// double area;	// Rechtecksflaeche, Attribut wird entfernt
-	
-	// Schnittstelle (Interface)
-	// Attribut area wird entfernt
-	// Funktionen setA(), setB(), getA(), getB(), getArea()
-	void setA(double newA)
-	{
+\begin{lstlisting}
+// interne Daten
+double a;
+double b;
+
+// Schnittstelle (Interface)
+// Funktionen setA(), setB(), getA(), getB(), getArea()
+void setA(double newA)
+{
 	a = newA;
-	}
-	
-	double getArea(void)
-	{
-		return a * b;
-	}
-	\end{lstlisting}
+}
+
+double getArea(void)
+{
+	return a * b;
+}
+\end{lstlisting}
 \end{minipage}
 \begin{hinweis}
 	Dank Datenkapsel darf das Attribut area entfernt werden. Die Schnittstelle ändert sich dadurch nicht.
 \end{hinweis}
+\end{multicols}
 
-\subsection{Unit nutzen}
-\label{sec:Unit nutzen}
-\noindent
+\subsection{Unit-Schnittstelle definieren (in Headerdatei): \emph{include-Guard}}
 \begin{minipage}{\linewidth}
-	\begin{lstlisting}
-	#include "foo.h"
-	// dadurch wird die Schnittstelle der Unit foo bekanntgemacht
-	\end{lstlisting}
-\end{minipage}
+\begin{lstlisting}
+#ifndef FOO_H_
+#define FOO_H_
 
-\subsection{Unit-Schnittstelle definieren (in Headerdatei)}
-\label{sec:Unit-Schnittstelle definieren}
-\noindent
-\begin{minipage}{\linewidth}
-	\begin{lstlisting}
-	// Datei: foo.h
-	#ifndef FOO_H_
-	#define FOO_H_
-	
-	// Deklarationen
-	
-	
-	#endif /* FOO_H_ */
-	\end{lstlisting}
+// Deklarationen
+
+#endif /* FOO_H_ */
+\end{lstlisting}
 \end{minipage}
 \begin{hinweis}
-include-Guard: verhindert das mehrfache include derselben Datei
+\emph{include}-Guard: verhindert das mehrfache \emph{include} derselben Datei.
 \end{hinweis}
 
+\begin{multicols}{2}
 \subsection{Deklarationsreihenfolge in der Headerdatei (*.h)}
-\label{sec:Deklarationsreihenfolge in der Headerdatei}
 \begin{achtung}
-	kein using namespace ... in Headerdateien!
+	kein \emph{using namespace} ... in Headerdateien!
 \end{achtung}
 \begin{enumerate}
 	\item Dateikommentar
-	\item \#include der verwendeten System-Header (iostream, etc.)
-	\item[\-] \#include <...>
-	\item \#include der projektbezogenen Header (\#include "...")
+	\item \emph{\#include} der verwendeten System-Header (\emph{iostream}, etc.)
+	\item[\-] \emph{\#include <...>}
+	\item \emph{\#include} der projektbezogenen Header (\emph{\#include "..."})
 	\item Konstantendefinitionen
-	\item typedefs und Definitionen von Strukturen
+	\item \emph{typedefs} und Definitionen von Strukturen
 	\item Allenfalls extern-Deklarationen von globalen Variablen
 	\item Funktionsprototypen, inkl. Kommentare der Schnittstelle, bzw. Klassendeklarationen
 \end{enumerate}
 \begin{hinweis}
 	Punkte 2-7 sind innerhalb des inlcude-Guards.
 \end{hinweis}
-
+\columnbreak
 \subsection{Reihenfolge in der Implementierungsdatei (*.cpp)}
-\label{sec:Reihenfolge in der Implementierungsdatei}
 \begin{enumerate}
 	\item Dateikommentar
-	\item \#include der verwendeten System-Header (iostream, etc.)
-	\item \#include der projektbezogenen Header
+	\item \emph{\#include} der verwendeten System-Header (\emph{iostream}, etc.)
+	\item \emph{\#include} der projektbezogenen Header
 	\item allenfalls globale Variablen und statische Variablen
 	\item Präprozessor-Direktiven
 	\item Funktionsprototypen von lokalen, internen Funktionen
-	\item Definition von Funktionen und Klassen
-	\item[\-] \color{red} (Kommentare aus Headerdatei nicht wiederholen!)
+	\item Definition von Funktionen und Klassen (Kommentare aus Headerdatei nicht wiederholen!)
 \end{enumerate}
+\end{multicols}
 
-\subsection{\#include-Konzept}
-\label{sec:include-Konzept}
+\subsection{\emph{\#include}-Konzept}
 \begin{itemize}
-	\item Mit den \#includes wird oft ein Riesenchaos veranstaltet
-	\item Der "Einfachheit halber" werden ab und zu einfach alle oder fast alle Headerdateien inkludiert
+	\item Mit den \emph{\#includes} wird oft ein Riesenchaos veranstaltet
+	\item Der $"$Einfachheit halber$"$ werden ab und zu einfach alle oder fast alle Headerdateien inkludiert
 	\item Das muss unbedingt verhindert werden
 \end{itemize}
 \textbf{Regel: In jeder Datei (*.h, *.cpp, *.c) werden genau die Headerdateien inkludiert, welche diese Datei selbst benötigt!}
 
+\begin{multicols}{2}
 \subsection{Unit compilieren}
-\label{sec:Unit compilieren}
 \begin{center}
-	\textbf{g++ \color{red}-c\color{black} foo.cpp}
+	\textbf{g++ -c foo.cpp}
 \end{center}
 \begin{itemize}
-	\item Dadurch entsteht noch kein ausführbares Programm, sondern nur die Datei foo.o, der Objectcode
-	\item Dies muss mit allen *.cpp-Dateien gemacht werden
+	\item Dadurch entsteht noch kein ausführbares Programm, sondern nur die Datei \emph{foo.o}, der Objectcode.
+	\item Dies muss mit allen \emph{*.cpp}-Dateien gemacht werden.
 \end{itemize}
-
+\columnbreak
 \subsection{Units linken}
-\label{sec:Units linken}
 \begin{center}
-	g++ -o foo foo.o goo.o hoo.o
+	\textbf{g++ -o foo foo.o goo.o hoo.o}
 \end{center}
 \begin{itemize}
-	\item Alle Objectdateien müssen gelinkt werden
-	\item Dadurch werden allenfalls noch offene Verbindungen (Links) zu aufgerufenen Funktionen aufgelöst
+	\item Alle Objectdateien müssen gelinkt werden.
+	\item Dadurch werden allenfalls noch offene Verbindungen (Links) zu aufgerufenen Funktionen aufgelöst.
 \end{itemize}
+\end{multicols}
 
 \subsection{Buildprozess}
-\label{sec:Buildprozess}
 \begin{itemize}
-	\item Der Buildprozess beinhaltet alle Schritte, um ein ausführbares Programm zu erhalten, bzw. aufzubauen (englisch to build)
+	\item Der Buildprozess beinhaltet alle Schritte, um ein ausführbares Programm zu erhalten, bzw. aufzubauen (englisch to build).
 	\item[\-] g++ -c foo.cpp
 	\item[\-] g++ -c goo.cpp
 	\item[\-] g++ -c hoo.cpp	
@@ -287,28 +253,22 @@ include-Guard: verhindert das mehrfache include derselben Datei
 \end{hinweis}
 
 \subsection{Make-Tool}
-\label{sec:Makt-Tool}
 
-\subsubsection{Abhängigkeiten zwischen Dateien}
-\label{sec:Abhaengigkeiten zwischen Dateien}
-\noindent
-\begin{figure}[hh]
-	\centering
-	\includegraphics[width=0.5\linewidth]{images/make1.pdf}
-\end{figure}
-
-\subsubsection{make-File}
-\label{sec:make-File}
+\begin{multicols}{2}
+\subsubsection{\emph{make}-File}
 \begin{itemize}
-	\item In einem make-File können Abhängigkeiten definiert werden
-	\item Wenn eine Datei geändert wurde, dann werden alle Operationen ausgeführt mit den Dateien, welche von dieser geänderten Datei abhängen
-	\item Der Befehl (g++) wird z.B. nur dann ausgeführt, wenn sich an den Dateien, zu denen eine Abhängigkeit besteht, etwas geändert hat
+	\item In einem \emph{make}-File können Abhängigkeiten definiert werden.
+	\item Wenn eine Datei geändert wurde, dann werden alle Operationen ausgeführt mit den Dateien, welche von dieser geänderten Datei abhängen.
+	\item Der Befehl (g++) wird z.B. nur dann ausgeführt, wenn sich an den Dateien, zu denen eine Abhängigkeit besteht, etwas geändert hat.
 \end{itemize}
+\vfill\null
+\columnbreak
+\subsubsection{Abhängigkeiten zwischen Dateien}
+\includegraphics[width=0.7\linewidth]{images/make1.pdf}
+\end{multicols}
 
 \subsubsection{Beispiel: makefile}
-\label{sec:Beispiel: makefile}
 \noindent
-\begin{figure}[hh]
-	\centering
+\begin{minipage}{\linewidth}
 	\includegraphics[width=\linewidth]{images/makefile.pdf}
-\end{figure}
+\end{minipage}

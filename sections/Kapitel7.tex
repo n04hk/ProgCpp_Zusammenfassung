@@ -1,10 +1,9 @@
 %!TEX root = ProgCPP_ZF.tex
 
 \part{Eclipse IDE}
-\label{sec:Eclipse IDE}
 
+\begin{multicols}{2}
 \section{Eclipse}
-\label{sec:Eclipse}
 \begin{itemize}
 	\item Integrated Development Environment
 	\item[\-] (IDE, Integrierte Entwicklungsumgebung)
@@ -14,17 +13,18 @@
 	\item Auf verschiedenen Plattformen lauffähig (multi-platform)
 	\item Für unterschiedliche Programmiersprachen (multi-language)
 \end{itemize}
-
-\subsection{Workspace}
-\label{sec:Workspace}
+\vfill\null
+\columnbreak
+\section{subWorkspace}
 \begin{itemize}
-	\item Der Workspace enthält vom Benutzer definierte Daten (Projekte und Ressourcen wie Ordner und Files)
-	\item Er enthält alle User-Metadaten (Code, Scripts, Database objects, Konfigurationsdaten)
-	\item Ein Benutzer arbeitet zu einer bestimmten Zeit genau in einem einzigen Workspace
+	\item Der Workspace enthält vom Benutzer definierte Daten (Projekte und Ressourcen wie Ordner und Files).
+	\item Er enthält alle User-Metadaten (Code, Scripts, Database objects, Konfigurationsdaten).
+	\item Ein Benutzer arbeitet zu einer bestimmten Zeit genau in einem einzigen Workspace.
 \end{itemize}
+\end{multicols}
 
+\begin{multicols}{2}
 \subsection{Ressourcen (Resources)}
-\label{sec:Ressourcen (Resources)}
 \begin{itemize}
 	\item Oberbegriff für
 	\begin{itemize}
@@ -32,41 +32,40 @@
 		\item Ordner
 		\item Files
 	\end{itemize}
-	\item Üblicherweise in einer hierarchischen Struktur betrachtet
-	\item Können editiert werden
+	\item Üblicherweise in einer hierarchischen Struktur betrachtet.
+	\item Können editiert werden.
 \end{itemize}
-
+\vfill\null
+\columnbreak
 \subsection{Project}
-\label{sec:Project}
 \begin{itemize}
-	\item Ein logisches Speicherkonzept für die Speicherung von Programmen
-	\item Gehört einem Workspace an
-	\item Ist implementiert als Verzeichnis in einem Workspace
+	\item Ein logisches Speicherkonzept für die Speicherung von Programmen.
+	\item Gehört einem Workspace an.
+	\item Ist implementiert als Verzeichnis in einem Workspace.
 \end{itemize}
+\end{multicols}
 
 \subsection{Debugger}
-\label{sec:Debugger}
 
+\begin{multicols}{2}
 \subsubsection{Testen und Debugging}
-\label{sec:Testen und Debugging}
 \begin{itemize}
-	\item Testen und Debugging sind zwei unterschiedliche Prozesse
-	\item Das Ziel eines Tests ist, Fehler zu finden
-	\item Das Ziel des Debuggings ist, diese Fehler zu lokalisieren und zu korrigieren
+	\item Testen und Debugging sind zwei unterschiedliche Prozesse.
+	\item Das Ziel eines Tests ist, Fehler zu finden.
+	\item Das Ziel des Debuggings ist, diese Fehler zu lokalisieren und zu korrigieren.
 \end{itemize}
-
+\vfill\null
+\columnbreak
 \subsubsection{Funktionen eines Debuggers}
-\label{Fukntionen eines Debuggers}
 \begin{itemize}
 	\item Betrachten von Variablenwerten
 	\item Unterbrechung des Programmablaufs mit Breakpoints
 	\item Schrittweise Ausführung von Programmen (Step into, Step out)
 \end{itemize}
+\end{multicols}
 
 \subsubsection{Assertions (Zusicherungen)}
-\label{sec:Assertions (Zusicherungen)}
-\noindent
-\begin{minipage}{\linewidth}
+\begin{minipage}{0.25\linewidth}
 \begin{lstlisting}
 #include <cassert>
 assert(i>0);
@@ -75,19 +74,18 @@ assert(i>0);
 #include <assert.h>
 assert(i>0);
 \end{lstlisting}
+\end{minipage}%
+\begin{minipage}{0.75\linewidth}
+\begin{itemize}
+	\item Zweck: Überprüfung von logischen Annahmen während der Entwicklungsphase, speziell für die Überprüfung von Anfangs- und Endbedingungen in einer Funktion.
+	\item Das Programm bricht mit einer Fehlermeldung ab, falls das Argument den booleschen Wert false besitzt. Im Beispiel oben: Abbruch, falls i <= 0.
+	\item Zu beachten:
+	\begin{itemize}
+		\item assert() ist wirkungslos, wenn ohne Debugschalter compiliert wird. Dies ist in der (Release-)Version der Fall, die ausgeliefert wird.
+		\item Bei den assert()-Anweisungen darf deshalb kein Nebeneffekt programmiert werden, da dieser in der ausgelieferten Version fehlen würde.
+		\item Beispiel:
+		\item[\-] assert(openFile(filename) == ok);
+		\item[\-] Wenn ohne Debugschalter compiliert wird, würde das File nicht mehr geöffnet!
+	\end{itemize}
+\end{itemize}
 \end{minipage}
-\begin{itemize}
-	\item Zweck:
-	\item[\-] Überprüfung von logischen Annahmen während der Entwicklungsphase, speziell für die Überprüfung von Anfangs- und Endbedingungen in einer Funktion
-	\item Das Programm bricht mit einer Fehlermeldung ab, falls das Argument den bool'schen Wert false besitzt. Im Beispiel oben: Abbrich, falls i <= 0
-\end{itemize}
-
-\subsubsection{Zu beachten bei Assertions}
-\label{sec:Zu beachten bei Assertions}
-\begin{itemize}
-	\item assert() ist wirkungslos, wenn ohne Debugschalter compiliert wird. Dies ist in der (Release-)Version der Fall, die ausgeliefert wird
-	\item Bei den assert()-Anweisungen darf deshalb kein Nebeneffekt programmiert werden, da dieser in der ausgelieferten Version fehlen würde
-	\item Beispiel:
-	\item[\-] assert(openFile(filename) == ok);
-	\item[\-] Wenn ohne Debugschalter compiliert wird, würde das File nicht mehr geöffnet
-\end{itemize}
