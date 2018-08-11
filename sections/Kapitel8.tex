@@ -1,101 +1,14 @@
 %!TEX root = ProgCPP_ZF.tex
 
-%TODO Beispielprojekt in Anhang
+%TODO Beispielprojekt in Anhang%
 
 \part{Klassen}
-
-\section{Beispielprojekt Stack}
-
-\begin{multicols}{2}
-\subsection{Stack}
-\begin{minipage}{0.8\linewidth}
-	\begin{itemize}
-		\item Der Stack ist ein oft verwendetes Speicherkonstrukt für Daten.
-		\item Bei einem Stack werden neue Elemente immer oben eingefügt.
-		\item Elemente werden immer auch wieder oben weggenommen.
-		\item Synonyme:
-		\begin{itemize}
-			\item Stapel
-			\item LIFO (Last In First Out)
-			\item (Kellerspeicher)
-		\end{itemize}
-	\end{itemize}
-\end{minipage}%
-\begin{minipage}{0.2\linewidth}
-	\includegraphics[width=\linewidth]{images/klasse1.pdf}
-\end{minipage}
-\vfill\null
-\columnbreak
-\subsubsection{Stack - Operationen}
-\begin{tabular}{ll}
-	\hline 
-	push() & ein neues Objekt einfügen \\ 
-	\hline 
-	pop() & ein Objekt entfernen \\ 
-	\hline 
-	isEmpty() & liefert true falls der Stack leer ist \\ 
-	\hline 
-	isFull() & liefert true falls der Stack voll ist \\ 
-	\hline 
-	init() & initialisiert einen leeren Stack \\ 
-	\hline 
-\end{tabular}
-\end{multicols}
-
-\subsubsection{Demo: Codebeispiel für Stack (Stack\_Datenkapsel)}
-\lstinputlisting{listings/Stack_Datenkapsel/stack.h}
-\lstinputlisting{listings/Stack_Datenkapsel/stack.cpp}
-
-\subsubsection{Demo: Klasse Stack}
-\begin{itemize}
-	\item Stack::init() durch ctor ersetzen
-	\item Verhalten bei privatem Default Ctor
-	\item Verhalten bei privatem Copy Ctor
-	\begin{itemize}
-		\item Wenn der Copy Ctor privat deklariert wird (ohne ihn zu implementieren), dann verhindert der Compiler das Kopieren von Objekten dieser Klassen
-		\item Das kann in gewissen Fällen ein durchaus erwünschtes Verhalten sein
-	\end{itemize}
-\end{itemize}
-
-\begin{multicols}{2}
-\subsection{Queue}
-\begin{itemize}
-	\item Die Queue ist ein weiteres Speicherkonstrukt für Daten.
-	\item Bei einer Queue werden neue Elemente immer am Ende (tail) eingefügt.
-	\item Elemente werden immer am Anfang (head) weggenommen.
-	\item Synonyme:
-	\begin{itemize}
-		\item Warteschlange
-		\item FIFO (First In First Out)
-		\item Pipe
-		\item Buffer (engl.)
-		\item Puffer (dt.)
-	\end{itemize}
-\end{itemize}
-\vfill\null
-\columnbreak
-\subsubsection{Queue - Operationen}
-\begin{tabular}{lc}
-	enqueue() / write() & ein neues Objekt hinzufügen \\ 
-	\hline 
-	dequeue() / read() & ein Objekt entfernen \\ 
-	\hline 
-	isFull() & liefert true falls die Queue voll ist \\ 
-	\hline 
-	isEmpty() & liefert true falls die Queue leer ist \\ 
-	init() & initialisiert eine leere Queue \\ 
-\end{tabular}
-\begin{minipage}{0.7\linewidth}
-	\includegraphics[width=\linewidth]{images/klasse2.pdf}
-\end{minipage}
-\end{multicols}
 
 \section{Objektorientierte Programmierung}
 
 \subsection{Prozedurale vs. Objektorientierte Sicht}
 Die Objektorientierte Sicht ist meist die intuitivere Sicht der Realität als die prozedurale, da physisch existierende Objekte direkt als Objekte in einem objektorientierten Design modelliert werden können.
 
-\clearpage
 \section{Unified Modeling Language (UML)}
 \href{www.uml.org}{www.uml.org}
 \vspace{-\baselineskip}
@@ -157,6 +70,7 @@ Die Objektorientierte Sicht ist meist die intuitivere Sicht der Realität als di
 	\end{itemize}
 \end{itemize}
 
+\clearpage
 \subsection{Klasse definieren und Objekte anlegen: Syntax}
 Der Name der Klasse kann fast beliebig gewählt werden.\\
 \textbf{Konvention:} mit Grossbuchstaben beginnen
@@ -228,6 +142,7 @@ Der Name der Klasse kann fast beliebig gewählt werden.\\
 	\item[\-] Alle Daten sind im Innern (private-Abschnitt) verborgen, der Zugriff erfolgt über die so genannten Elementfunktionen.
 	\item Jede Klasse besteht damit aus zwei Dateien, der Schnittstellendatei (.h) und der Implementierungsdatei (.cpp).
 \end{itemize}
+\clearpage
 
 \section{Beispiel einer Klasse: Rechteck (Rectangle)}
 \begin{multicols}{2}
@@ -245,35 +160,90 @@ Der Name der Klasse kann fast beliebig gewählt werden.\\
 	\end{itemize}
 \end{itemize}
 \columnbreak
-\includegraphics[width=0.6\linewidth]{images/klasse4.pdf}
+\includegraphics[width=0.5\linewidth]{images/klasse4.pdf}
 \end{multicols}
 
+\begin{multicols}{2}
 \subsection{Klassendeklaration}
 \vspace{-\baselineskip}
-\begin{minipage}{0.4\linewidth}
-	\lstinputlisting{listings/rectangle.h}
+\begin{minipage}{\linewidth}
+\begin{lstlisting}
+class Rectangle
+{
+	public:
+		void setA(double newA);
+		void setB(double newB);
+		double getA() const;
+		double getB() const;
+		double getArea() const;
+	private:
+		double a;
+		double b;
+};
+\end{lstlisting}
 \end{minipage}
 
-\begin{multicols}{2}
-\subsection{Klassendefinition}
-\vspace{-\baselineskip}
-\begin{minipage}{\linewidth}
-	\lstinputlisting{listings/rectangle.cpp}
-\end{minipage}
-\vfill\null
-\columnbreak
 \subsection{Klassendefinition direkt}
 \vspace{-\baselineskip}
 \begin{minipage}{\linewidth}
-	\lstinputlisting{listings/rectangle_direkt.h}
+\begin{lstlisting}
+class Rectangle
+{
+	public:
+		void setA(double newA) {a = newA;}
+		void setB(double newB) {b = newB;}
+		double getA() const {return a;}
+		double getB() const {return b;}
+		double getArea() const {return a*b;}
+	private:
+		double a;
+		double b;
+};
+\end{lstlisting}
 \end{minipage}
 \begin{hinweis}
 	Ist ok bei sehr kurzen Methoden. Verletzt Information Hiding, Methoden sind jedoch implizit inline.
 \end{hinweis}
+
+\vfill\null
+\columnbreak
+
+\subsection{Klassendefinition}
+\vspace{-\baselineskip}
+\begin{minipage}{\linewidth}
+\begin{lstlisting}
+#include "rectangle.h"
+void Rectangle::setA(double newA)
+{
+	a = newA;
+}
+
+void Rectangle::setB(double newB)
+{
+	b = newB;
+}
+
+double Rectangle::getA() const
+{
+	return a;
+}
+
+double Rectangle::getB() const
+{
+	return b;
+}
+
+double Rectangle::getArea() const
+{
+	return a*b;
+}
+\end{lstlisting}	
+\end{minipage}
 \end{multicols}
 
 \subsection{Klassenschnittstelle}
 Die Schnittstelle einer Klasse sollte minimal und vollständig sein. Vollständig in dem Sinne, dass Benutzer der Klasse alle sinnvollen Aktionen ausführen können. Minimal wiederum bedeutet, dass das Klassen-Interface so klein wie möglich sein sollte.
+\clearpage
 
 \section{Elementfunktionen}
 \begin{itemize}
@@ -391,6 +361,7 @@ int Stack::peek() const
 \end{lstlisting}
 \end{minipage}
 
+\clearpage
 \section{Konstruktoren/Destruktoren}
 
 \subsection{\emph{this}-Pointer}
@@ -428,8 +399,6 @@ Der \emph{this}-Pointer ist ein Pointer auf das eigene aktuelle Objekt, welches 
 	\item \emph{static}-Elemente befinden sich ausserhalb eines Objektkontextes.
 	\item \emph{static}-Elemente können auch über den Klassennamen angesprochen werden (da sie sich im Kontext einer Klasse befinden).
 \end{itemize}
-
-\subsubsection{Syntax}
 \vspace{-\baselineskip}
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
@@ -519,27 +488,26 @@ Stack* pS = new Stack;
 	\end{lstlisting}	
 \end{minipage}
 \vfill\null
-\columnbreak
+\columnbreak%
 \subsubsection{Implementation von TString::TString()}
 \vspace{-\baselineskip}
 \begin{minipage}{\linewidth}
-	\begin{lstlisting}
-	// mit Anweisungen
-	TString::TString()
-	{
-		len = 0;
-		str = 0;
-	}
-	
-	// mit Initialisierungsliste (ist besser)
-	TString::TString()
-		: len(0), str(0)
-	{
-	}
-	\end{lstlisting}
+\begin{lstlisting}
+TString::TString()
+{
+	len = 0;	// mit Anweisungen
+	str = 0;
+}
+
+// mit Initialisierungsliste (besser)
+TString::TString()
+	: len(0), str(0)
+{
+}
+\end{lstlisting}
 \end{minipage}
 \begin{hinweis}
-	Objektinitialisierungen werden, sofern dies möglich ist, über die Initialisierungsliste durchgeführt. (Effizienzgründe)
+	Objektinitialisierungen werden wenn möglich über die Initialisierungsliste durchgeführt. (Effizienzgründe)
 \end{hinweis}
 \end{multicols}
 
@@ -606,6 +574,8 @@ TString::TString(const char* p)
 	Hier geht Initialisierungsliste nicht.
 \end{hinweis}
 \end{multicols}
+
+%TODO weiter korrigieren (Formatierung)%
 
 \subsubsection{Konstruktoren und Function Casts}
 \begin{itemize}
@@ -1001,14 +971,88 @@ struct FieldName
 	\item Die bessere Alternative ist die Verwendung von Bitmasken-Operationen. Diese können in C++ bspw. in inline-Funktionen verpackt werden.
 \end{itemize}
 
-%TODO weiter korrigieren
+\section{Beispielprojekt Stack}
 
-\subsection{Demo: Klasse Date}
-Eine Klasse zur Speicherung und Darstellung von Kalenderdaten, wie z.B. 17.4.2013
+\begin{multicols}{2}
+	\subsection{Stack}
+	\begin{minipage}{0.8\linewidth}
+		\begin{itemize}
+			\item Der Stack ist ein oft verwendetes Speicherkonstrukt für Daten.
+			\item Bei einem Stack werden neue Elemente immer oben eingefügt.
+			\item Elemente werden immer auch wieder oben weggenommen.
+			\item Synonyme:
+			\begin{itemize}
+				\item Stapel
+				\item LIFO (Last In First Out)
+				\item (Kellerspeicher)
+			\end{itemize}
+		\end{itemize}
+	\end{minipage}%
+	\begin{minipage}{0.2\linewidth}
+		\includegraphics[width=\linewidth]{images/klasse1.pdf}
+	\end{minipage}
+	\vfill\null
+	\columnbreak
+	\subsubsection{Stack - Operationen}
+	\begin{tabular}{ll}
+		\hline 
+		push() & ein neues Objekt einfügen \\ 
+		\hline 
+		pop() & ein Objekt entfernen \\ 
+		\hline 
+		isEmpty() & liefert true falls der Stack leer ist \\ 
+		\hline 
+		isFull() & liefert true falls der Stack voll ist \\ 
+		\hline 
+		init() & initialisiert einen leeren Stack \\ 
+		\hline 
+	\end{tabular}
+\end{multicols}
 
-%%% Datei einfügen %%%
+\subsubsection{Demo: Codebeispiel für Stack (Stack\_Datenkapsel)}
+\lstinputlisting{listings/Stack_Datenkapsel/stack.h}
+\lstinputlisting{listings/Stack_Datenkapsel/stack.cpp}
 
+\subsubsection{Demo: Klasse Stack}
+\begin{itemize}
+	\item Stack::init() durch ctor ersetzen
+	\item Verhalten bei privatem Default Ctor
+	\item Verhalten bei privatem Copy Ctor
+	\begin{itemize}
+		\item Wenn der Copy Ctor privat deklariert wird (ohne ihn zu implementieren), dann verhindert der Compiler das Kopieren von Objekten dieser Klassen
+		\item Das kann in gewissen Fällen ein durchaus erwünschtes Verhalten sein
+	\end{itemize}
+\end{itemize}
 
-
-
-%%% Complex Folien einfügen %%%
+\begin{multicols}{2}
+	\subsection{Queue}
+	\begin{itemize}
+		\item Die Queue ist ein weiteres Speicherkonstrukt für Daten.
+		\item Bei einer Queue werden neue Elemente immer am Ende (tail) eingefügt.
+		\item Elemente werden immer am Anfang (head) weggenommen.
+		\item Synonyme:
+		\begin{itemize}
+			\item Warteschlange
+			\item FIFO (First In First Out)
+			\item Pipe
+			\item Buffer (engl.)
+			\item Puffer (dt.)
+		\end{itemize}
+	\end{itemize}
+	\vfill\null
+	\columnbreak
+	\subsubsection{Queue - Operationen}
+	\begin{tabular}{lc}
+		enqueue() / write() & ein neues Objekt hinzufügen \\ 
+		\hline 
+		dequeue() / read() & ein Objekt entfernen \\ 
+		\hline 
+		isFull() & liefert true falls die Queue voll ist \\ 
+		\hline 
+		isEmpty() & liefert true falls die Queue leer ist \\ 
+		init() & initialisiert eine leere Queue \\ 
+	\end{tabular}
+	\begin{minipage}{0.7\linewidth}
+		\includegraphics[width=\linewidth]{images/klasse2.pdf}
+	\end{minipage}
+\end{multicols}
