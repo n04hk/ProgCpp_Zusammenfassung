@@ -35,7 +35,8 @@
 %\usepackage{mathrsfs}               % \mathscr (Benötigt für Fourierreihen-Symbol)									
 %\usepackage{mathtools}              % Extension package to amsmath									
 \usepackage{multicol}               % multicols-Umgebung \begin{multicols}{3} erzeugt Abschnitt mit 3 Spalten									
-\usepackage{multirow}               % Tabelle: ermöglicht es Felder mehrerer Zeilen in einem zusammenzufassen									
+\usepackage{multirow}               % Tabelle: ermöglicht es Felder mehrerer Zeilen in einem zusammenzufassen	
+\usepackage{nameref}				% Abschnittname in Kopfzeile
 \usepackage{pdflscape}              % adds PDF support to the environment 'landscape'									
 \usepackage{pxfonts}                % Symbole, griechisches Alphabet, Integrale...									
 \usepackage{rotating}               % sideways, turn{degree}, rotate{degree}, sidewaysfigure, sidewaystable Umgebung									
@@ -216,12 +217,26 @@
 \renewcommand{\headrulewidth}{0.5pt} 
 \renewcommand{\footrulewidth}{0.5pt}
 
+\newcommand*\parttitle{}	% speichert aktuellen part in parttitle, um ihn in Kopfzeile anzuzeigen
+\let\origpart\part
+\renewcommand*{\part}[2][]{%
+	\ifx\\#1\\% optional argument not present?
+		\origpart{#2}%
+		\renewcommand*\parttitle{#2}%
+	\else
+		\origpart[#1]{#2}%
+		\renewcommand*\parttitle{#1}%
+	\fi
+}
+
 %Kopfzeile links bzw innen
 \fancyhead[L]{\titleinfo{ }\tiny{(\versioninfo)}}
 %Kopfzeile mitte
-%\fancyhead[C]{}
+\fancyhead[C]{\parttitle}
 %Kopfzeile rechts bzw. aussen
 \fancyhead[R]{Seite \thepage{ }von \pageref{LastPage}}
+
+
 
 %Fusszeile links bzw. innen
 \fancyfoot[L]{\footnotesize{\authorname}}

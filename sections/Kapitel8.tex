@@ -1,7 +1,5 @@
 %!TEX root = ProgCPP_ZF.tex
 
-%TODO Beispielprojekt in Anhang%
-
 \part{Klassen}
 
 \section{Objektorientierte Programmierung}
@@ -50,14 +48,6 @@ Die Objektorientierte Sicht ist meist die intuitivere Sicht der Realität als di
 \end{itemize}
 \end{multicols}
 
-\subsection{Klassenbegriff}
-\begin{itemize}
-	\item Eine Klasse ist eine Struktur (eine Struktur besteht nur aus Daten), die mit den Funktionen, welche auf diesen Daten arbeiten, erweitert wurde.
-	\item Eine Klasse ist also eine Struktur, welche die Daten und die Funktionen auf diesen Daten in ein syntaktisches Konstrukt packt.
-	\item \textbf{Die Klasse ist die Umsetzung der Datenkapsel.}
-	\item Eine Klassendeklaration ist eine Typendefinition. Die "Variablen" einer Klasse werden als $"$Objekte$"$ bezeichnet.
-\end{itemize}
-
 \subsection{UML-Notation der Klasse}
 \begin{itemize}
 	\item Eine Klasse ist der Bauplan für Objekte.
@@ -70,23 +60,31 @@ Die Objektorientierte Sicht ist meist die intuitivere Sicht der Realität als di
 	\end{itemize}
 \end{itemize}
 
+\subsection{Klassenbegriff}
+\begin{itemize}
+	\item Eine Klasse ist eine Struktur (eine Struktur besteht nur aus Daten), die mit den Funktionen, welche auf diesen Daten arbeiten, erweitert wurde.
+	\item Eine Klasse ist also eine Struktur, welche die Daten und die Funktionen auf diesen Daten in ein syntaktisches Konstrukt packt.
+	\item \textbf{Die Klasse ist die Umsetzung der Datenkapsel.}
+	\item Eine Klassendeklaration ist eine Typendefinition. Die "Variablen" einer Klasse werden als $"$Objekte$"$ bezeichnet.
+\end{itemize}
+
 \clearpage
 \subsection{Klasse definieren und Objekte anlegen: Syntax}
 Der Name der Klasse kann fast beliebig gewählt werden.\\
 \textbf{Konvention:} mit Grossbuchstaben beginnen
-\noindent
 \begin{minipage}{0.7\linewidth}
-	\begin{lstlisting}
-	class Classname	// Deklaration der Klasse
-	{
-		...
-	};
-	
-	Classname obj1;				// Objekt definieren
-	Classname obj2;				// Objekt definieren
-	Classname* objPtr;			// Objekt-Pointer definieren
-	Classname& objRef = obj1;	// Objekt-Referenz definieren
-	\end{lstlisting}
+\vspace{-\baselineskip}
+\begin{lstlisting}
+class Classname	// Deklaration der Klasse
+{
+	...
+};
+
+Classname obj1;						// Objekt definieren
+Classname obj2;						// Objekt definieren
+Classname* objPtr;				// Objekt-Pointer definieren
+Classname& objRef = obj1;	// Objekt-Referenz definieren
+\end{lstlisting}
 \end{minipage}
 
 \section{Zugriffsschutz bei Klassen}
@@ -119,17 +117,17 @@ Der Name der Klasse kann fast beliebig gewählt werden.\\
 \subsubsection{Üblicher Aufbau einer Klassenschnittstelle}
 \vspace{-\baselineskip}
 \begin{minipage}{\linewidth}
-	\begin{lstlisting}
-	class Classname	// Klassendeklaration
-	{
-		public:
-			...
-		protected:
-			...
-		private:
-			...
-	};
-	\end{lstlisting}
+\begin{lstlisting}
+class Classname	// Klassendeklaration
+{
+	public:
+		...
+	protected:
+		...
+	private:
+		...
+};
+\end{lstlisting}
 \end{minipage}
 \begin{achtung}
 	Strichpunkt nicht vergessen!
@@ -139,7 +137,7 @@ Der Name der Klasse kann fast beliebig gewählt werden.\\
 \subsection{Information Hiding}
 \begin{itemize}
 	\item Klassen exportieren generell ausschliesslich Methoden.
-	\item[\-] Alle Daten sind im Innern (private-Abschnitt) verborgen, der Zugriff erfolgt über die so genannten Elementfunktionen.
+	\item[\-] Alle Daten sind im Innern (\emph{private}-Abschnitt) verborgen, der Zugriff erfolgt über die so genannten Elementfunktionen.
 	\item Jede Klasse besteht damit aus zwei Dateien, der Schnittstellendatei (.h) und der Implementierungsdatei (.cpp).
 \end{itemize}
 \clearpage
@@ -165,8 +163,8 @@ Der Name der Klasse kann fast beliebig gewählt werden.\\
 
 \begin{multicols}{2}
 \subsection{Klassendeklaration}
-\vspace{-\baselineskip}
 \begin{minipage}{\linewidth}
+\vspace{-\baselineskip}
 \begin{lstlisting}
 class Rectangle
 {
@@ -184,8 +182,8 @@ class Rectangle
 \end{minipage}
 
 \subsection{Klassendefinition direkt}
-\vspace{-\baselineskip}
 \begin{minipage}{\linewidth}
+\vspace{-\baselineskip}
 \begin{lstlisting}
 class Rectangle
 {
@@ -202,15 +200,15 @@ class Rectangle
 \end{lstlisting}
 \end{minipage}
 \begin{hinweis}
-	Ist ok bei sehr kurzen Methoden. Verletzt Information Hiding, Methoden sind jedoch implizit inline.
+	Ist ok bei sehr kurzen Methoden. Verletzt Information Hiding, Methoden sind jedoch \textbf{implizit inline}.
 \end{hinweis}
 
 \vfill\null
 \columnbreak
 
 \subsection{Klassendefinition}
-\vspace{-\baselineskip}
 \begin{minipage}{\linewidth}
+\vspace{-\baselineskip}
 \begin{lstlisting}
 #include "rectangle.h"
 void Rectangle::setA(double newA)
@@ -268,7 +266,9 @@ Die Schnittstelle einer Klasse sollte minimal und vollständig sein. Vollständi
 	\begin{itemize}
 		\item greifen nur lesend auf ein Objekt zu (immer const definieren!)
 		\item Beispiel:
-		\item[\-] \vspace{-\baselineskip} \begin{minipage}{0.4\linewidth}
+		\item[\-]
+	\begin{minipage}{0.4\linewidth}
+\vspace{-\baselineskip} 
 \begin{lstlisting}
 bool Stack::isEmpty() const;
 \end{lstlisting}
@@ -280,11 +280,11 @@ bool Stack::isEmpty() const;
 	\end{itemize}
 \end{itemize}
 
-\subsection{inline-Elementfunktionen}
+\subsection{\emph{inline}-Elementfunktionen}
 \begin{itemize}
-	\item Elementfunktionen, die innerhalb der Deklaration der Klassenschnittstelle (im .h-File) implementiert sind, werden als (implizite) inline-Funktionen behandelt.
+	\item Elementfunktionen, die innerhalb der Deklaration der Klassenschnittstelle (im \emph{.h}-File) implementiert sind, werden als (implizite) \emph{inline}-Funktionen behandelt.
 	\begin{itemize}
-		\item Implizite inline-Funktionen verletzen das Information Hiding Prinzip und sollten deshalb vermieden werden!
+		\item Implizite \emph{inline}-Funktionen verletzen das Information Hiding Prinzip und sollten deshalb vermieden werden!
 	\end{itemize}
 	\item Elementfunktionen können in der Klassenimplementation explizit mit dem Schlüsselwort \emph{inline} gekennzeichnet werden.
 	\item Jedoch: die impliziten \emph{inline}-Funktionen sind die Funktionen, die garantiert immer \emph{inline} verwendet werden (mit einigen wenigen Ausnahmen).
@@ -323,7 +323,7 @@ class Stack
 void fooReadOnly(const Stack& s)
 {
 	bool b = s.isEmpty();	// ok. s ist const, isEmpty() ist auch const
-	int i = s.pop();	// Fehler. s ist const, pop() nicht!
+	int i = s.pop();			// Fehler. s ist const, pop() nicht!
 }
 \end{lstlisting}
 \end{minipage}
@@ -366,24 +366,24 @@ int Stack::peek() const
 
 \subsection{\emph{this}-Pointer}
 Der \emph{this}-Pointer ist ein Pointer auf das eigene aktuelle Objekt, welches eine Elementfunktion (Methode) aufgerufen hat.
-\vspace{-\baselineskip}
 \begin{minipage}{\linewidth}
-	\begin{lstlisting}
-	const AnyClass& AnyClass::aMethod(const AnyClass& obj)
-	{
-		this->anyFoo();	// Aufruf einer Methode ueber this
-				// 'this' ist hier unnoetig, da Methode implizit mit aktuellem
-				// Objekt ausgefuehrt wird
-		if(this == &obj)// testen, ob eigene Adresse gleich der Adresse von obj ist
-			...
-		return *this;	// eigenes Objekt zurueckgeben
-	}
-	\end{lstlisting}
+\vspace{-\baselineskip}
+\begin{lstlisting}
+const AnyClass& AnyClass::aMethod(const AnyClass& obj)
+{
+	this->anyFoo();	// Aufruf einer Methode ueber this
+			// 'this' ist hier unnoetig, da Methode implizit mit aktuellem
+			// Objekt ausgefuehrt wird
+	if(this == &obj)// testen, ob eigene Adresse gleich der Adresse von obj ist
+		...
+	return *this;	// eigenes Objekt zurueckgeben
+}
+\end{lstlisting}
 \end{minipage}
 
 \subsection{\emph{friend}-Elemente}
 \begin{itemize}
-	\item \emph{friend} - Jede Klasse kann andere Klassen oder Funktionen "zum Freund" erklären. Dadurch werden die Zugriffsregeln durchbrochen.
+	\item \emph{friend} - Jede Klasse kann andere Klassen oder Funktionen $"$zum Freund$"$ erklären. Dadurch werden die Zugriffsregeln durchbrochen.
 	\item Jeder \emph{friend} darf auf \textbf{alle} Elemente der Klasse zugreifen.
 \end{itemize}
 \begin{achtung}
@@ -406,17 +406,17 @@ class T
 {
 	...
 	static int nrOfObjects = 34;	// Initialisierung ist ab C++03
-					// in der Deklaration nicht mehr erlaubt!
-	static int nrOfObjects;		// Korrekt
+																// in der Deklaration nicht mehr erlaubt!
+	static int nrOfObjects;				// Korrekt
 };
 
 static int T::nrOfObjects;	// Die Initialisierung kann in der Definition (.cpp)
 			// erfolgen. Das Schluesselwort static muss hier weggelassen werden.
-int T::nrOfObjects = 34;	// Definition (ist notwendig)
+int T::nrOfObjects = 34;		// Definition (ist notwendig)
 
 T myT;
 myT.nrOfObjects++;		// Zugriff ueber Objekt (falls public)
-T::nrOfObjects++;		// Zugriff ueber Klasse (falls public)
+T::nrOfObjects++;			// Zugriff ueber Klasse (falls public)
 \end{lstlisting}
 \end{minipage}
 
@@ -425,7 +425,7 @@ Aufgaben:
 \begin{itemize}
 	\item Die Neugründung einer Objekts einer Klasse.
 	\item Das $"$saubere$"$ initialisieren des Objekts, d.h. \textbf{alle} Attribute des Objekts müssen auf einen definierten Wert gesetzt werden.
-	\item Der Konstruktor hat in C++ denselben Namen wie die Klasse, hat keinen Rückgabetyp (auch nicht void) und kann überladen werden.\\
+	\item Der Konstruktor hat in C++ denselben Namen wie die Klasse, hat keinen Rückgabetyp (auch nicht \emph{void}) und kann überladen werden.\\
 	\vspace{-\baselineskip}
 	\begin{minipage}{0.55\linewidth}
 \begin{lstlisting}
@@ -515,22 +515,23 @@ TString::TString()
 \begin{itemize}
 	\item Der Default-Konstruktor wird implizit aufgerufen mit:\\
 	\vspace{-\baselineskip}
-	\begin{minipage}{\linewidth}
+	\begin{minipage}{0.2\linewidth}
 \begin{lstlisting}
 TString str;
 \end{lstlisting}
 	\end{minipage}
 	\item Ein TString-Objekt soll auch z.B: mit folgenden Anweisungen gegründet werden können:\\
 	\vspace{-\baselineskip}
-	\begin{minipage}{\linewidth}
+	\begin{minipage}{0.75\linewidth}
 \begin{lstlisting}
-	TString str1 = "Hello";								// implicit call
-	TString str2 = TString("Guten Morgen");	// explicit call
+TString str1 = "Hello";									// implicit call
+TString str2 = TString("Guten Morgen");	// explicit call
 \end{lstlisting}
 	\end{minipage}
 	\item Dazu bedarf es anderer (überladener) Konstruktoren.
 \end{itemize}
 
+\vspace{-2\baselineskip}
 \begin{multicols}{2}
 \subsubsection{Erweiterung der Klasse TString}
 \vspace{-\baselineskip}
@@ -575,25 +576,24 @@ TString::TString(const char* p)
 \end{hinweis}
 \end{multicols}
 
-%TODO weiter korrigieren (Formatierung)%
-
+\vspace{-\baselineskip}
 \subsubsection{Konstruktoren und Function Casts}
+\label{sec:Konstruktoren und Function Casts}
 \begin{itemize}
-	\item Konstruktoren mit nur einem Parameter können dazu verwendet werden, ein Objekt vom Typ T aus einem anderen Objekt zu erzeugen (Typumwandlung).
+	\item Konstruktoren mit nur einem Parameter können dazu verwendet werden, ein Objekt vom Typ \emph{T} aus einem anderen Objekt zu erzeugen (Typumwandlung).
 	\item Beispiel:
 	\item[\-] TString soll so erweitert werden, dass dem Konstruktor eine ganze Zahl übergeben wird und dieser daraus den entsprechenden String erzeugt.\\
 	\vspace{-\baselineskip}
-	\begin{minipage}{\linewidth}
+	\begin{minipage}{0.7\linewidth}
 \begin{lstlisting}
 TString::TString(int number);
-
 // explicit call:
 TString str1 = TString(12345);	// erzeugt "12345"
 \end{lstlisting}
 	\end{minipage}
 	\item Die implicit calls (bei Ctors mit einem Parameter)\\
-	\vspace{-\baselineskip}
 	\begin{minipage}{\linewidth}
+	\vspace{-\baselineskip}
 \begin{lstlisting}
 // implicit calls
 TString str2 = 12345;			// erzeugt "12345"
@@ -602,7 +602,8 @@ str2 = 789;		// erzeugt temporaeres Objekt "789" und weist dieses str2 zu
 	\end{minipage}
 	\item[\-] sind gelegentlich nicht erwünscht.
 	\item Wenn der Konstruktor mit explicit gekennzeichnet wird, kann dieser Ctor nicht mehr implizit, sondern nur explizit aufgerufen werden.
-	\begin{minipage}{\linewidth}
+	\begin{minipage}{0.85\linewidth}
+	\vspace{-\baselineskip}
 \begin{lstlisting}
 explicit TString::TString(int number);
 
@@ -614,7 +615,7 @@ str1 = 567;											// nicht erlaubt (implicit call)
 	\end{minipage}
 \end{itemize}
 
-\subsubsection{Erweiterung der Klasse TString mit explicit-Ctor}
+\subsubsection{Erweiterung der Klasse TString mit \emph{explicit}-Ctor}
 \vspace{-\baselineskip}
 \begin{minipage}{0.5\linewidth}
 \begin{lstlisting}
@@ -644,7 +645,7 @@ TString(const TString& s);		// Copy-Konstruktor
 // welche Konstruktoren werden aufgerufen?
 TString str1("Hello World");	// normaler Konstruktor TString(const char* p)
 TString str2 = str1;		// Copy-Konstr. (Initialisierung, nicht Zuweisung!)
-TString str3(str1);						// Copy-Konstruktor
+TString str3(str1);			// Copy-Konstruktor
 \end{lstlisting}
 	\end{minipage}
 \end{itemize}
@@ -655,26 +656,28 @@ TString str3(str1);						// Copy-Konstruktor
 	\item ein Objekt als Wertparameter (\emph{by value}) an eine Funktion übergeben wird (nicht aber bei Referenzierungsparametern $\rightarrow$ wichtig!).
 	\item ein Objekt \emph{by value} als Resultat einer Funktion zurückgegeben wird (nicht bei Referenzrückgaben).
 \end{itemize}
+\begin{hinweis}
 Ein Copy-Ctor wird nur dann benutzt, wenn ein neues Objekt erzeugt wird, aber nicht bei Zuweisungen, also Änderungen von Objekten.\\
 Bei Zuweisungen wird der vom System bereitgestellte Zuweisungsoperator benutzt, sofern kein eigener definiert wurde.
+\end{hinweis}
 
 \subsubsection{Erweiterung der Klasse TString mit Copy-Ctor}
 \vspace{-\baselineskip}
-\begin{minipage}{0.75\linewidth}
-	\begin{lstlisting}
-	class TString
-	{
-		public:
-			TString();									// Default-Konstruktor
-			TString(const TString& s);	// Copy-Konstruktor
-			TString(const char* p);
-			explicit TString(int number);
-			int getLen() const;
-		private:
-			int len;
-			char* str;
-	};
-	\end{lstlisting}
+\begin{minipage}{0.7\linewidth}
+\begin{lstlisting}
+class TString
+{
+	public:
+		TString();									// Default-Konstruktor
+		TString(const TString& s);	// Copy-Konstruktor
+		TString(const char* p);
+		explicit TString(int number);
+		int getLen() const;
+	private:
+		int len;
+		char* str;
+};
+\end{lstlisting}
 \end{minipage}
 
 \subsubsection{\emph{Shallow Copy} vs. \emph{Deep Copy}}
@@ -773,12 +776,12 @@ TString::~TString()
 class TString
 {
 	public:
-		TString();		// Default-Konstruktor
+		TString();									// Default-Konstruktor
 		TString(const TString& s);	// Copy-Konstruktor
 		TString(const char* p);
 		TString(int l, char fillChar);
 		explicit TString(int number);
-		~TString();		// Destruktor
+		~TString();									// Destruktor
 		int getLen() const;
 	private:
 		int len;
@@ -786,6 +789,7 @@ class TString
 };
 \end{lstlisting}
 \end{minipage}
+\clearpage\pagebreak
 
 \section{Handhabung von Klassen und Objekten}
 
@@ -808,7 +812,7 @@ class TString
 	\item Dazu müssen drei Bedingungen erfüllt sein:
 	\begin{itemize}
 		\item Ein korrekter Default-Konstruktor, plus evtl. weitere Konstruktoren müssen vorhanden sein.
-		\item Wenn die Klasse dynamische Daten enthält, braucht es auch einen Zuweisungsoperator (sieh Kap.\ref{sec:zuweisungsoperator}) und einen Copy-Konstruktor.
+		\item Wenn die Klasse dynamische Daten enthält, braucht es auch einen Zuweisungsoperator (siehe Kap.\ref{sec:zuweisungsoperator}) und einen Copy-Konstruktor.
 		\item Ein (virtueller) Destruktor garantiert die korrekte Zerstörung von Objekten.
 	\end{itemize}
 \end{itemize}
@@ -837,10 +841,10 @@ Lösung:
 	\item Für die Grundoperatoren +, -, *, /, +=, -=, *=, /= müssten nur noch die 8 Operatoren definiert werden.
 	\item Zusätzlich müsste noch die Typumwandlung von jedem Typ (\emph{short}, \emph{int}, etc.) in \emph{VeryLargeInt} definiert werden. 
 \end{itemize}
+\clearpage\pagebreak
 
 \subsection{Typumwandlung mit Konstruktor}
-\begin{itemize}
-	\item Häufig werden Typumwandlungen mit Hilfe von Konstruktoren implementiert:\\
+Häufig werden Typumwandlungen mit Hilfe von Konstruktoren implementiert:\\
 	\vspace{-\baselineskip}
 	\begin{minipage}{0.3\linewidth}
 \begin{lstlisting}
@@ -850,11 +854,10 @@ VeryLargeInt(int);
 	\item[\-] \begin{achtung}
 		  Aufpassen bei Implicit Calls von Ctors. (siehe Kap.\ref{sec:aufruf})
 		  \end{achtung}
-\end{itemize}
 Beispiel:
 \begin{itemize}
-	\item In Embedded Systems müssen häufig Befehle als Bytestream über einen Kommunikationskanal übertragen werden. Die Befehle beinhalten meist eine Befehls-ID, eine bis mehrere Befehlsparameter, Längenangaben, etc.. Das Befehlsformat ist eindeutig definiert.
-	\item Der Befehl könnte in einer Klasse Command abgebildet werden.
+	\item In Embedded Systems müssen häufig Befehle als Bytestream über einen Kommunikationskanal übertragen werden. Die Befehle beinhalten meist eine Befehls-ID, eine bis mehrere Befehlsparameter, Längenangaben, etc. Das Befehlsformat ist eindeutig definiert.
+	\item Der Befehl könnte in einer Klasse \emph{Command} abgebildet werden.
 	\item Die Interpretation des Bytestreams könnte als Typumwandlung in einem Konstrukor implementiert werden:\\
 	\vspace{-\baselineskip}
 	\begin{minipage}{0.45\linewidth}
@@ -862,14 +865,6 @@ Beispiel:
 Command(const uint8_t* byteStream);
 \end{lstlisting}
 	\end{minipage}
-\end{itemize}
-
-\subsection{Weiterführende Themen}
-
-\subsubsection{Zeiger auf Klassenelemente}
-\begin{itemize}
-	\item Kann in ganz speziellen Fällen nützlich sein.
-	\item Grundsätzlich sollen Zeiger auf Klassenelemente vermieden werden (gehört nicht zum Stoff, behandeln wir nicht).
 \end{itemize}
 
 \subsection{Unions (Varianten)}
@@ -884,11 +879,11 @@ Command(const uint8_t* byteStream);
 \end{itemize}
 
 \subsubsection{Definition von Uniontypen und Unionvariablen}
-Verwenden des Schlüsselworts \emph{union}\\
-Allgemeine Form:\\
 \begin{multicols}{2}
-\vspace{-\baselineskip}
+Verwenden des Schlüsselworts \emph{union}\\
+Allgemeine Form:
 \begin{minipage}{\linewidth}
+\vspace{-\baselineskip}
 \begin{lstlisting}
 union UnionName
 {
@@ -915,6 +910,8 @@ union UnionName
 \begin{achtung}
 Der Programmierer muss verfolgen, welcher Typ jeweils in der Union gespeichert ist. Der Datentyp, der entnommen wird, muss der sein, der zuletzt gespeichert wurde. \textbf{Sehr zurückhaltend einsetzen!}
 \end{achtung}
+\vfill
+\pagebreak\newpage
 
 \subsubsection{Beispiel: Definition einer Union}
 \vspace{-\baselineskip}
@@ -951,7 +948,7 @@ union Vario
 
 \subsubsection{Definition von Bitfeldern}
 \vspace{-\baselineskip}
-\begin{minipage}{\linewidth}
+\begin{minipage}{0.8\linewidth}
 \begin{lstlisting}
 struct FieldName
 {
@@ -961,15 +958,17 @@ struct FieldName
 };
 \end{lstlisting}
 \end{minipage}
-\begin{minipage}{0.8\linewidth}
+\begin{minipage}{0.6\linewidth}
 \includegraphics[width=\linewidth]{images/bitfelder.png}
 \end{minipage}
 
 \subsubsection{Bitfelder: Folgerungen}
 \begin{itemize}
-	\item Mit diesem Bitfeld-Mechanismus soll weder in C noch in C++ gearbeitet werden wenn der Code portabel sein soll.
+	\item Mit diesem Bitfeld-Mechanismus soll weder in C noch in C++ gearbeitet werden, wenn der Code portabel sein soll.
 	\item Die bessere Alternative ist die Verwendung von Bitmasken-Operationen. Diese können in C++ bspw. in inline-Funktionen verpackt werden.
 \end{itemize}
+\vfill
+\pagebreak\newpage
 
 \section{Beispielprojekt Stack}
 

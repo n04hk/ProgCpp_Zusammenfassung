@@ -4,36 +4,11 @@
 
 \section{Arrays}
 
-\subsection{Arrays: Vektoren}
-\begin{minipage}{0.5\linewidth}
-Problemstellung: Sie müssen 10 Messwerte (z.B. Temperaturwerte) vom Typ int speichern.\\
-\vspace{\baselineskip}
-Diese Darstellung ist sehr unhandlich.\\
-Wie würden sie 1000 Messwerte abspeichern?
-\vfill\null
-\end{minipage}
-\hspace{0.01\linewidth}
-\begin{minipage}{0.15\linewidth}
-\begin{lstlisting}
-int data1;
-int data2;
-int data3;
-int data4;
-int data5;
-int data6;
-int data7;
-int data8;
-int data9;
-int data10;
-\end{lstlisting}
-\end{minipage}
-
 \subsection{Der Array (Feld, Vektor)}
 \begin{minipage}{0.35\linewidth}
 Ein Array bietet eine kompakte Zusammenfassung von mehreren Variablen des gleichen Typs.
 \end{minipage}
 \hspace{0.01\linewidth}
-\noindent
 \begin{minipage}{0.6\linewidth}
 \begin{lstlisting}
 int data[10];		// ein Array von 10 int-Werten
@@ -46,18 +21,21 @@ double zahl[5];	// ein Array von 5 double-Werten
 \begin{hinweis}
 Der Zugriff auf ein Element eines Arrays erfolgt über den Array-Index. Ist ein Array mit n Elementen definiert, so ist darauf zu achten, dass in C++ (wie in C) der Index mit 0 beginnt und mit n-1 endet.
 \end{hinweis}
-\noindent
-\begin{minipage}{\linewidth}
+\begin{minipage}{0.65\linewidth}
+\vspace{-\baselineskip}
 \begin{lstlisting}
-int alpha[5];	// Array 'alpha' mit 5 int-Elementen 
+int alpha[5];		// Array 'alpha' mit 5 int-Elementen 
 alpha[0] = 14;	// 1. Element (Index 0) = 14
-alpha[4] = 3;	// letztes Element (Index 4)
+alpha[4] = 3;		// letztes Element (Index 4)
 \end{lstlisting}
+\end{minipage}\\
 \begin{achtung}
 Bereichsüberschreitung (geht in C++!)
 \end{achtung}
+\begin{minipage}{0.5\linewidth}
+\vspace{-\baselineskip}
 \begin{lstlisting}
-alpha[5] = 4;
+alpha[5] = 4;	// Bereichsueberschreitung
 \end{lstlisting}
 \end{minipage}
 
@@ -81,6 +59,7 @@ ptr = &alpha[2];
 \subsection{Äquivalenz von Array- und Pointernotation}
 \begin{minipage}{0.3\linewidth}
 Der Name des Arrays kann als konstante Adresse des ersten Elementes (Index 0) des Arrays betrachtet werden.
+\vfill\null
 \end{minipage}%
 \hspace{0.01\linewidth}
 \begin{minipage}{0.65\linewidth}
@@ -101,12 +80,12 @@ In C++ gibt es keinen Operator ==, der zwei Arrays miteinander vergleicht!
 \subsection{Der Arrayname ist ein nicht modifizierbarer L-Wert}
 \begin{itemize}
 	\item Der Arrayname ist die konstante Adresse des ersten Elementes des Arrays und kann nicht verändert werden.
-	\item Auf den Arraynamen können nur die beiden Operatoren \emph{sizeof} und \emph{\&} angewandt werden.
-	\item Der Arrayname (z.B. \emph{arr}), als auch der Adressoperator angewandt auf den Arraynamen (\emph{\&arr}) ergeben einen konstanten Pointer auf das erste Element des Arrays, der Typ ist jedoch verschieden.
+	\item Auf den Arraynamen können nur die beiden Operatoren \emph{sizeof} und $\&$ angewandt werden.
+	\item Der Arrayname (z.B. \emph{arr}), als auch der Adressoperator angewandt auf den Arraynamen (\emph{$\&$arr}) ergeben einen konstanten Pointer auf das erste Element des Arrays, der Typ ist jedoch verschieden.
 	\item Einem Arraynamen kann kein Wert zugewiesen werden (einer Pointervariablen schon).
 \end{itemize}
 
-\subsection{Automatische Initialisierung von Arrays}
+\subsection{Automatische Initialisierung}
 \begin{itemize}
 	\item Globale Arrays werden automatisch mit 0 initialisiert
 	\begin{itemize}
@@ -118,7 +97,7 @@ In C++ gibt es keinen Operator ==, der zwei Arrays miteinander vergleicht!
 	\end{itemize}
 \end{itemize}
 
-\subsection{Explizite Initialisierung von Arrays}
+\subsection{Explizite Initialisierung}
 \begin{itemize}
 	\item Bei der Definition eines Arrays kann ein Array explizit ("manuell") initialisiert werden.
 	\item Der Definition folgt ein Zuweisungsoperator und eine Liste von Initialisierungswerten.
@@ -129,7 +108,6 @@ In C++ gibt es keinen Operator ==, der zwei Arrays miteinander vergleicht!
 \end{itemize}
 
 \subsubsection{Beispiel}
-\noindent
 \begin{minipage}{0.35\linewidth}
 \begin{lstlisting}
 int alpha[3] = {1, 2*5, 3};
@@ -142,7 +120,6 @@ ist ''äquivalent'' zu:
 \begin{minipage}{0.2\linewidth}
 \begin{lstlisting}
 int alpha [3];
-
 alpha[0] = 1;
 alpha[1] = 2*5;
 alpha[2] = 3;
@@ -151,25 +128,27 @@ alpha[2] = 3;
 
 \subsubsection{Goodies für die explizite Initialisierung}
 \begin{itemize}
-	\item Werden bei der Initialisierung weniger Werte angegeben als der Array Elemente hat, so werden die restlichen Elemente mit 0 belegt.
-	\noindent
-	\begin{minipage}{\linewidth}
-	\begin{lstlisting}
-	int alpha[200] = {3, 105, 17}; 
-	// alpha[3] bis alpha[199] werden gleich 0 gesetzt
-	\end{lstlisting}
-	\end{minipage}
-	\item wird bei der Definition keine Array-Grösse angegeben, so zählt der Compiler die Anzahl Elemente automatisch (offenes Array ohne Längenangabe).
-	\noindent
-	\begin{minipage}{\linewidth}
-	\begin{lstlisting}
-	int alpha[] = {1, 2, 3, 4};
-	\end{lstlisting}
+	\item Werden bei der Initialisierung weniger Werte angegeben als der Array Elemente hat, so werden die restlichen Elemente mit 0 belegt:
+	\hspace{0.01\linewidth}
+	\begin{minipage}{0.7\linewidth}
+	\vspace{-\baselineskip}
+\begin{lstlisting}
+int alpha[200] = {3, 105, 17}; 
+// alpha[3] bis alpha[199] werden gleich 0 gesetzt
+\end{lstlisting}
+	\end{minipage}%
+	\item wird bei der Definition keine Array-Grösse angegeben, so zählt der Compiler die Anzahl Elemente automatisch (offenes Array ohne Längenangabe):
+	\hspace{0.01\linewidth}
+	\begin{minipage}{0.4\linewidth}
+	\vspace{-\baselineskip}
+\begin{lstlisting}
+int alpha[] = {1, 2, 3, 4};
+\end{lstlisting}
 	\end{minipage}
 \end{itemize}
 
 \subsection{Mehrdimensionale Arrays}
-\noindent
+\vspace{-\baselineskip}
 \begin{minipage}{0.2\linewidth}
 \begin{lstlisting}
 int alpha[3][4];
@@ -183,8 +162,8 @@ int alpha[3][4];
 Kann betrachtet werden als Vektor \emph{alpha[0]} bis \emph{alpha[2]}, wobei jedes Vektorelement wiederum einen Vektor mit 4 Elementen enthält.
 
 \subsubsection{Initialisierung eines mehrdimensionalen Arrays}
-\noindent
-\begin{minipage}{0.68\linewidth}
+\vspace{-\baselineskip}
+\begin{minipage}{0.68\linewidth}	
 \begin{lstlisting}
 int alpha[3][4] = {
 	{1, 3, 5, 7},
@@ -217,7 +196,7 @@ Das erste Element kann offen sein, das zweite muss angegeben werden (z.B. int al
 \end{itemize}
 
 \subsection{Beispiel: Array (Vektor) als Parameter}
-\noindent
+\vspace{-\baselineskip}
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
 enum {groesse = 3};
@@ -236,36 +215,36 @@ int main()
 \end{minipage}
 
 \subsection{Übergabe einer Matrix mittels offenem Array}
-\noindent
-\begin{minipage}{\linewidth}
+\vspace{-\baselineskip}
+\begin{minipage}{0.65\linewidth}
 \begin{lstlisting}
 void printMat(const double* const mat[],	// Matrix
-	int m,					// Anzahl Zeilen
-	int n);					// Anzahl Spalten
+	int m,													// Anzahl Zeilen
+	int n);													// Anzahl Spalten
 \end{lstlisting}
 \end{minipage}
 
 \begin{itemize}
 	\item Der Aufruf erfolgt mit\\
-	\vspace{-\baselineskip}
 	\begin{minipage}{0.6\linewidth}
-	\begin{lstlisting}
-	printMat(matA, rows, cols); // bevorzugt
-	\end{lstlisting}
+	\vspace{-\baselineskip}
+\begin{lstlisting}
+printMat(matA, rows, cols); // bevorzugt
+\end{lstlisting}
 	\end{minipage}\\
 	oder\\
-	\vspace{-\baselineskip}
 	\begin{minipage}{0.6\linewidth}
-	\begin{lstlisting}
-	printMat(&matA[0], rows, cols);
-	\end{lstlisting}
+	\vspace{-\baselineskip}
+\begin{lstlisting}
+printMat(&matA[0], rows, cols);
+\end{lstlisting}
 	\end{minipage}\\
 	oder\\
-	\vspace{-\baselineskip}
 	\begin{minipage}{0.6\linewidth}
-	\begin{lstlisting}
-	printMat(&(&matA[0])[0], rows, cols);
-	\end{lstlisting}
+	\vspace{-\baselineskip}
+\begin{lstlisting}
+printMat(&(&matA[0])[0], rows, cols);
+\end{lstlisting}
 	\end{minipage}
 	\item matA \hspace{1cm} ist vom Typ double**\\
 	matA[0] \hspace{6mm} ist vom Typ double*\\
@@ -276,22 +255,6 @@ void printMat(const double* const mat[],	// Matrix
 Strings sind char-Arrays, abgeschlossen mit dem Zeichen `\textbackslash0`, bzw. 0 (alles analog C).
 
 \section{Dynamische Speicherverwaltung}
-
-\subsection{Pro Memoria: Variablen}
-\begin{itemize}
-	\item Variablen erleichtern u.a. den Zugriff auf Speicherstellen
-	\begin{itemize}
-		\item statt über eine Adresse kann auf die Speicherstelle mit Hilfe des Variablennamens zugegriffen werden
-	\end{itemize}
-	\item Die Variablen müssen zur Entwicklungszeit im Code definiert werden
-	\begin{itemize}
-		\item zur Laufzeit können keine neuen Variablen erzeugt werden
-		\item der gesamte Speicherbedarf muss zur Entwicklungszeit statisch mittels Variablen festgelegt werden
-		\item wie gross wähle ich z.B. einen Array, welcher Messwerte enthält?
-		\item weiss ich zur Entwicklungszeit bereits die Zahl der Messwerte?
-	\end{itemize}
-	\item Der Speicher einer Variablen wird automatisch freigegeben, sobald die Variable nicht mehr gültig ist
-\end{itemize}
 
 \subsection{Dynamische Speicherverwaltung}
 \begin{itemize}
@@ -311,7 +274,7 @@ Zugriff auf dynamischen Speicher nie verlieren!
 \end{achtung}
 
 \subsection{Syntax}
-\noindent
+\vspace{-\baselineskip}
 \begin{minipage}{0.7\linewidth}
 \begin{lstlisting}
 int* pint = new int;		// Speicher fuer int alloziert
@@ -332,6 +295,8 @@ delete pCh2;
 \vspace{\baselineskip}
 \fcolorbox{red}{white}{\parbox{\linewidth}{\textbf{delete pCh2}\\ Ergibt Fehler, bereits über pCh1 freigegeben.}}
 \end{minipage}
+\vfill\null
+\pagebreak
 
 \subsection{Vorsichtsmassnahmen}
 \begin{itemize}
@@ -339,7 +304,7 @@ delete pCh2;
 	\item Die Anwendung des delete-Operators auf einen bereits freigegebenen Speicherbereich kann Probleme verursachen.
 	\item Oft wird deshalb ein Pointer nach der delete-Operation auf 0 gesetzt (defensiver Programmierstil).
 \end{itemize}
-\noindent
+\vspace{-\baselineskip}
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
 delete pInt;	// Speicher wieder freigeben
@@ -372,7 +337,7 @@ C++ besitzt keinen Garbage Collector. Der C++-Programmierer ist verantwortlich, 
 		\item \textbf{\emph{delete[]}, nicht nur \emph{delete!}}
 	\end{itemize}
 \end{itemize}
-\noindent
+\vspace{-\baselineskip}
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
 int* pInt = new int[100];	// statt einer Konstanten kann auch Variable verwendet werden (Normalfall)
@@ -384,23 +349,22 @@ delete[] pInt;	// korrekter Befehl
 \subsection{Dynamische Allozierung von Matrizen}
 \begin{itemize}
 	\item Oft wird eine m x n - Matrix als ein eindimensionaler Array der Grösse (m*n) implementiert. Der Zugriff geht dann jedoch nur noch über Pointer:\\
-	\vspace{-\baselineskip}
-\begin{minipage}{0.35\linewidth}
+	\begin{minipage}{0.35\linewidth}
+\vspace{-\baselineskip}
 \begin{lstlisting}
 *(matrix+2*n+3) = 23.44;
 \end{lstlisting}
-\end{minipage}
+	\end{minipage}
 	\item Mit der im folgenden gezeigten Variante kann auf ein Matrixelement über die Arrayindizes zugegriffen werden:\\
+	\begin{minipage}{0.35\linewidth}
 	\vspace{-\baselineskip}
-\begin{minipage}{0.35\linewidth}
 \begin{lstlisting}
 matrix[2][3] = 23.44;
 \end{lstlisting}
-\end{minipage}
+	\end{minipage}
 \end{itemize}
 
 \subsubsection{Dynamische Matrix mit 4 Zeilen und 3 Spalten}
-\noindent
 \begin{minipage}{0.2\linewidth}
 \begin{lstlisting}
 double** m = 0;
@@ -409,20 +373,18 @@ double** m = 0;
 \hspace{0.1\linewidth}
 \begin{minipage}{0.6\linewidth}
 	\input{images/dynamischMatrix1}
-\end{minipage}
-\vspace{\baselineskip}
-\noindent
+\end{minipage}\\
 \begin{minipage}{\linewidth}
+\vspace{-\baselineskip}
 \begin{lstlisting}
 m = new double*[4];	// Array mit 4 Elementen vom Typ double* (Pointer auf double)
 \end{lstlisting}
 \end{minipage}
-\begin{figure}[h]
+\begin{minipage}{0.6\linewidth}
 	\centering
 	\input{images/dynamischMatrix2}
-\end{figure}
+\end{minipage}\\
 \vspace{\baselineskip}
-\noindent
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
 for (int i=0; i<4; ++i)	
@@ -430,11 +392,11 @@ for (int i=0; i<4; ++i)
 												// m[i] selbst ist vom Typ double*	
 \end{lstlisting}
 \end{minipage}
-\begin{figure}[hh]
+\begin{minipage}{\linewidth}
 	\centering
 	\input{images/dynamischMatrix3}
-\end{figure}
-\\
+\end{minipage}\\
+\vspace{\baselineskip}
 Für die Konstanten 3 und 4 könnten auch Variablen verwendet werden (im Gegensatz zu einer statisch definierten Matrix).
 
 \subsubsection{Zugriff auf dynamisch erzeugte Matrix}
@@ -449,21 +411,21 @@ m[2][1] = 34.675;
 \begin{minipage}{0.5\linewidth}
 	\input{images/dynamischMatrix4}
 \end{minipage}
-
+\vfill\null
+\pagebreak
 
 \subsubsection{Dynamische Matrix freigeben}
-\noindent
 \begin{minipage}{0.6\linewidth}
 \begin{lstlisting}
 for(int i=0; i<4; ++i)
-	delete[] m[i]	// Zuerst jede Zeile freigeben		
+	delete[] m[i]	// Zuerst jede Zeile freigeben
 \end{lstlisting}
 \end{minipage}
-\begin{figure}[hh]
+\begin{minipage}{\linewidth}
 	\input{images/dynamischMatrix5}
 	\hspace{0.1\linewidth}
 	\input{images/dynamischMatrix6}
-\end{figure}
+\end{minipage}
 \vspace{\baselineskip}
 \noindent
 \begin{minipage}{\linewidth}
@@ -476,7 +438,7 @@ delete[] m;	// Nun noch den Array mit den double* freigeben
 	\hspace{0.1\linewidth}
 	\input{images/dynamischMatrix8}
 \end{figure}
-\vspace{\baselineskip}
+\vspace{\baselineskip}\\
 \begin{achtung}
 m zeigt immer noch auf die alte Adresse, an welcher sich aber keine gültigen Daten mehr befinden. (Allenfalls m wieder auf 0 setzen)
 \end{achtung}

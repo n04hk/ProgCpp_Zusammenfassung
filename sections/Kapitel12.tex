@@ -1,25 +1,21 @@
 %!TEX root = ProgCPP_ZF.tex
 
 \part{Templates}
-\label{sec:Templates}
 
 \section{Generische Programmierung mit Templates (Schablonen)}
-\label{sec:Generische Programmierung mit Templates (Schablonen)}
 
 \subsection{Motivation für Templates}
-\label{sec:Motivation für Templates}
 \begin{itemize}
 	\item Viele Algorithmen sollten für unterschiedliche Datentypen implementiert werden
 	\item Die Algorithmen unterscheiden sich kaum oder gar nicht von Typ zu Typ
 	\item Beispiele:
 	\begin{itemize}
-		\item In einem Stack sollten verschiedene Typen abgespeichert werden können (int, double, char,...)
+		\item In einem Stack sollten verschiedene Typen abgespeichert werden können (\emph{int}, \emph{double}, \emph{char}, ...)
 		\item Wenn für einen bestimmten Typ eine Ordnungsrelation (<) definiert ist, dann kann die Sortierung von solchen unterschiedlichen Typen mit einem einzigen Algorithmus implementiert werden
 	\end{itemize}
 \end{itemize}
 
 \subsection{Lösung mit bekannten Techniken}
-\label{sec:Lösung mit bekannten Techniken}
 \begin{itemize}
 	\item Für jeden Typ müsste eine eigene Version implementiert werden
 	\begin{itemize}
@@ -27,11 +23,10 @@
 		\item Alle Implementationen müssen getestet werden
 		\item Bei grundlegenden Korrekturen müssen alle Implementationen korrigiert werden
 	\end{itemize}
-	\item Eine (durchaus mögliche) "generische" C-Variante mit void* hat keine Typprüfung
+	\item Eine (durchaus mögliche) $"$generische$"$ C-Variante mit \emph{void*} hat keine Typprüfung
 \end{itemize}
 
 \subsection{Generische Programmierung mit Templates}
-\label{sec:Generische Programmierung mit Templates}
 \begin{itemize}
 	\item Single Source-Prinzip: ein bestimmtes Problem (Algorithmus) wird nur einmal unabhängig vom Typ gelöst
 	\item Template-Definitionen erzeugen grundsätzlich noch keine einzige Zeile Code. Erst wenn das Template wirklich verwendet wird, wird Code für diesen Typ erzeugt.
@@ -40,7 +35,6 @@
 \end{itemize}
 
 \section{Funktions-Templates}
-\label{sec:Funktions-Templates}
 \begin{itemize}
 	\item Templates verwenden den Typ als "Variable"
 	\item Die Algorithmen können unabhängig vom Typ (generisch) implementiert werden
@@ -49,124 +43,142 @@
 	\item Die Bindung zum konkreten Typ geschieht bereits zur Compiletime (early binding), sobald erkannt ist, mit welchem Typ das Template aufgerufen (benutzt) wird.
 \end{itemize}
 
+\begin{multicols}{2}
 \subsection{Syntax für Funktions-Templates}
-\label{sec:Syntax für Funktions-Templates}
 \begin{itemize}
-	\item Vor den Funktionsnamen wird das Schlüsselwort template, gefolgt von einer in spitzen Klammern eingeschlossenen Parameterliste gestellt.
-	\item Die Parameterliste enthält eine (nicht leere) Liste von Typ- und Klassenparametern, die mit dem Schlüsselwort class oder typename beginnen. (typename ist zu bevorzugen).\\
-	Die einzelnen Parameter werden mit Komma getrennt.
+	\item Vor den Funktionsnamen wird das Schlüsselwort \emph{template}, gefolgt von einer in spitzen Klammern eingeschlossenen Parameterliste gestellt.
+	\item Die Parameterliste enthält eine (nicht leere) Liste von Typ- und Klassenparametern, die mit dem Schlüsselwort \emph{class} oder \emph{typename} beginnen. \textbf{(typename ist zu bevorzugen)}. Die einzelnen Parameter werden mit Komma getrennt.
 \end{itemize}
-\noindent
+\vfill\null
+\columnbreak
 \begin{minipage}{\linewidth}
-	\begin{lstlisting}
-	template<typename A, typename B>
-	int foo(A a, B b, int i);
-	
-	template<typename Any> // or class Any
-	void swapIt(Any\& a, Any\& b);
-	
-	template<typename ElemType>
-	ElemType minimum(ElemType elemField[], int fieldSize);
-	\end{lstlisting}
-\end{minipage}
+\vspace{-\baselineskip}
+\begin{lstlisting}
+template<typename A, typename B>
+int foo(A a, B b, int i);
 
+template<typename Any> // or class Any
+void swapIt(Any& a, Any& b);
+
+template<typename ElemType>
+ElemType minimum(ElemType elemField[], int fieldSize);
+\end{lstlisting}
+\end{minipage}
+\end{multicols}
+\vfill
+\pagebreak\newpage
+
+\begin{multicols}{2}
 \subsection{Beispiel (aus Prata): Zwei Werte vertauschen}
-\label{sec:Beispiel (aus Prata): Zwei Werte vertauschen}
-\lstinputlisting{\listings/templateSwap.cpp}
-
-\subsection{inline bei Templates}
-\label{sec:inline bei Templates}
-\noindent
 \begin{minipage}{\linewidth}
-	\begin{lstlisting}
-	template<typename Any>
-	inline void swapIt(Any\& a, Any\& b)
-	{
-		Any temp;	// temp a variable of type Any
-		temp = a;
-		a = b;
-		b = temp;
-	}
-	\end{lstlisting}
+\vspace{-\baselineskip}
+\begin{lstlisting}
+#include <iostream>
+using namespaces std;
+
+template<typename Any> // Template-Dekl.
+void swapIt(Any& a, Any& b);
+
+int main(){...}
+
+template<typename Any> // Template-Def.
+void swapIt(Any& a, Any& b){
+	Any temp; 
+	temp = a;
+	a = b;
+	b = temp;
+}
+\end{lstlisting}
 \end{minipage}
-inline muss zwischen template und dem Returntyp stehen.
+\vfill\null
+\columnbreak
+\subsection{inline bei Templates}
+\begin{minipage}{\linewidth}
+\vspace{-\baselineskip}
+\begin{lstlisting}
+template<typename Any>
+inline void swapIt(Any\& a, Any\& b)
+{
+	Any temp;
+	temp = a;
+	a = b;
+	b = temp;
+}
+\end{lstlisting}
+\end{minipage}
+\emph{inline} muss zwischen \emph{template} und dem Returntyp stehen.
 \begin{achtung}
-Bei Verwendung von inline speziell zusammen mit Templates besteht die Gefahr von Code Bloat. Nur bei sehr kurzen Funktionen verwenden.	
+Bei Verwendung von \emph{inline} speziell zusammen mit Templates besteht die Gefahr von Code Bloat. Nur bei sehr kurzen Funktionen verwenden.	
 \end{achtung}
+\end{multicols}
 
 \subsection{Beispiel: kleinstes Element finden}
-\label{sec:Beispiel: kleinstes Element finden}
-\noindent
-\begin{minipage}{\linewidth}
-	\begin{lstlisting}
-	template<typename ElemType>
-	ElemType minimum(const ElemType elemField[], int size);
-	
-	template<typename ElemType>
-	ElemType minimum(const ElemType elemField[], int size)
+\vspace{-\baselineskip}
+\begin{minipage}{0.6\linewidth}
+\begin{lstlisting}
+template<typename ElemType>
+ElemType minimum(const ElemType elemField[], int size);
+
+template<typename ElemType>
+ElemType minimum(const ElemType elemField[], int size)
+{
+	int min = 0;	// Index des kleinsten Elementes
+	for(int i=1; i<size; ++i)
 	{
-		int min = 0;	// Index des kleinsten Elementes
-		for(int i=1; i<size; ++i)
-		{
-			if(elemField[i] < elemField[min])
-				min = i;
-		}
-		return elemField[min];
+		if(elemField[i] < elemField[min])
+			min = i;
 	}
-	\end{lstlisting}
+	return elemField[min];
+}
+\end{lstlisting}
 \end{minipage}
 \begin{achtung}
 Der Operator < muss für jeden verwendeten Typ definiert sein.
 \end{achtung}
 
 \subsection{Ausprägung von Funktions-Templates}
-\label{sec:Auspraegung von Funktions-Templates}
 \begin{itemize}
 	\item Sobald ein Typ in einem Funktions-Template verwendet wird, erkennt der Compiler, dass es sich um ein Template handelt und prägt es für diesen Typ aus (implizite Ausprägung).
-	\noindent
-	\begin{minipage}{\linewidth}
-		\begin{lstlisting}
-		int iF[] = {1, 54, 34, 23, 67, 4};
-		int i = minimum(iF, sizeof(iF)/sizeof(iF[0]));
-		\end{lstlisting}
+	\begin{minipage}{0.6\linewidth}
+	\vspace{-\baselineskip}
+\begin{lstlisting}
+int iF[] = {1, 54, 34, 23, 67, 4};
+int i = minimum(iF, sizeof(iF)/sizeof(iF[0]));
+\end{lstlisting}
 	\end{minipage}
 	\item Für die Auflösung werden nur die Funktionsparameter betrachtet, der Rückgabetyp wird nicht ausgewertet.
 \end{itemize}
 
 \subsection{Explizite Qualifizierung von Funktions-Templates}
-\label{sec:Explizite Qualifizierung von Funktions-Templates}
 \begin{itemize}
 	\item Funktions-Templates können explizit mit einem Typ qualifiziert werden
-	\noindent
-	\begin{minipage}{\linewidth}
-		\begin{lstlisting}
-		int iF[] = {1, 54, 34, 23, 67, 4};
-		int i = minimum<int>(iF, sizeof(iF)/sizeof(iF[0]));
-		\end{lstlisting}
+	\begin{minipage}{0.7\linewidth}
+	\vspace{-\baselineskip}
+\begin{lstlisting}
+int iF[] = {1, 54, 34, 23, 67, 4};
+int i = minimum<int>(iF, sizeof(iF)/sizeof(iF[0]));
+\end{lstlisting}
 	\end{minipage}
 	\item Mögliche Anwendungen: siehe Strasser s.233
 \end{itemize}
 
 \subsection{Überladen von Funktions-Templates}
-\label{sec:Ueberladen von Funktions-Templates}
 \begin{itemize}
-	\item Funktions-Templates können mit anderen Funktionstemplates und auch mit "normalen" Funktionen überladen werden
+	\item Funktions-Templates können mit anderen Funktionstemplates und auch mit $"$normalen$"$ Funktionen überladen werden
 	\begin{hinweis}
 	überladen = gleicher Funktionsname, unterschiedliche Parameterliste
 	\end{hinweis}
 	\item Namensauflösung
 	\begin{itemize}
 		\item Compiler geht die Liste der möglicherweise passenden Funktions-Templates durch und erzeugt die entsprechenden Template-Funktionen
-		\item Ergebnis ist eine Reihe von (eventuell) passenden Template-Funktionen, ergänzt durch die vorhandenen "normalen" Funktionen
+		\item Ergebnis ist eine Reihe von (eventuell) passenden Template-Funktionen, ergänzt durch die vorhandenen $"$normalen$"$ Funktionen
 		\item Aus dieser ganzen Auswahl wird die am besten passende Funktion ausgewählt
 	\end{itemize}
 \end{itemize}
 
+\begin{multicols}{2}
 \section{Klassen-Templates}
-\label{sec:Klassen-Templates}
-
 \subsection{Definition: Klassen-Template}
-\label{sec:Definition: Klassen-Template}
 \begin{itemize}
 	\item Klassen-Templates sind mit Typen oder Konstanten parametrisierbare Klassen
 	\item Im Gegensatz zu Funktions-Templates können in Klassen-Templates auch die Attribute der Klassen mit variablen Typen ausgestattet sein
@@ -175,117 +187,108 @@ Der Operator < muss für jeden verwendeten Typ definiert sein.
 		\item Diese Möglichkeit kann gerade in Embedded Systems sehr nützlich sein
 	\end{itemize}
 \end{itemize}
-
+\vfill\null
+\columnbreak
 \subsection{Syntax für Klassen-Templates}
-\label{sec:Syntax fuer Klassen-Templates}
 \begin{itemize}
 	\item Die Syntax ist analog zu den Funktions-Templates.
-	\item Vor die Klassendeklaration wird das Schlüsselwort template, gefolgt von einer in spitzen Klammern eingeschlossenen Parameterliste gestellt.
-	\item Die Parameterliste enthält eine (nicht leere) Liste von Typ- und Klassenparametern, die mit dem Schlüsselwort class oder typename (typename bevorzugen) beginnen oder auch von Ausdrücken.
+	\item Vor die Klassendeklaration wird das Schlüsselwort \emph{template}, gefolgt von einer in spitzen Klammern eingeschlossenen Parameterliste gestellt.
+	\item Die Parameterliste enthält eine (nicht leere) Liste von Typ- und Klassenparametern, die mit dem Schlüsselwort \emph{class} oder \emph{typename} (\emph{typename} bevorzugen) beginnen oder auch von Ausdrücken.
 	\item Die einzelnen Parameter werden mit Komma getrennt.
 \end{itemize}
+\end{multicols}
 
 \subsubsection{Beispiel zu Klassen-Template: Deklaration}
-\label{sec:Beispiel zu Klassen-Template: Deklaration}
-\noindent
-\begin{minipage}{\linewidth}
-	\begin{lstlisting}
-	template<typename ElemType, int size=100>
-	class Stack
-	{
-		public:
-			Stack();
-			~Stack();
-			void push(const ElemType\& elem);
-			ElemType pop();
-			bool wasError() const;
-			bool isEmpty() const;
-		private:
-			ElemType elems[size];
-			int top;
-			bool isError;
-	};
-	\end{lstlisting}
+\begin{minipage}{0.5\linewidth}
+\vspace{-\baselineskip}
+\begin{lstlisting}
+template<typename ElemType, int size=100>
+class Stack
+{
+	public:
+		Stack();
+		~Stack();
+		void push(const ElemType\& elem);
+		ElemType pop();
+		bool wasError() const;
+		bool isEmpty() const;
+	private:
+		ElemType elems[size];
+		int top;
+		bool isError;
+};
+\end{lstlisting}
 \end{minipage}
 
 \subsubsection{Beispiel zu Klassen-Template: Definition}
-\label{sec:Beispiel zu Klassen-Template: Definition}
-\noindent
-\begin{minipage}{\linewidth}
-	\begin{lstlisting}
-	template<typename ElemType, int size>
-	void Stack<ElemType, size>::push(const ElemType\& elem)
-	{
-		// implementation goes here
-	}
-	\end{lstlisting}
+\begin{minipage}{0.7\linewidth}
+\vspace{-\baselineskip}
+\begin{lstlisting}
+template<typename ElemType, int size>
+void Stack<ElemType, size>::push(const ElemType& elem)
+{
+	// implementation goes here
+}
+\end{lstlisting}
 \end{minipage}
-Die Syntax scheint bei der Definition etwas umständlich...
 
 \subsubsection{Beispiel zu Klassen-Template: Nutzung (Ausprägung)}
-\label{sec:Beispiel zu Klassen-Template: Nutzung (Auspraegung)}
-\noindent
-\begin{minipage}{\linewidth}
-	\begin{lstlisting}
-	Stack<int, 10>	s1;	// s1 ist ein Stack mit 10 int
-	Stack<int>		s2;	// s2 ist ein Stack mit 100 int (Default)
-	Stack<double>	s3;	// s3 ist ein Stack mit 100 double
-	\end{lstlisting}
+\begin{minipage}{0.7\linewidth}
+\vspace{-\baselineskip}
+\begin{lstlisting}
+Stack<int, 10> s1;	// s1 ist ein Stack mit 10 int
+Stack<int> s2;	// s2 ist ein Stack mit 100 int (Default)
+Stack<double> s3;		// s3 ist ein Stack mit 100 double
+\end{lstlisting}
 \end{minipage}
-...Die Syntax ist für die Nutzung genial einfach.
 
 \subsection{Bemerkungen}
-\label{sec:Bemerkungen}
 \begin{itemize}
-	\item Mit den Templates haben sie die Möglichkeit, auf Sourcecode-Ebene Elemente mit variablem Typ und variabler Grösse zu definieren, z.B.
-	\noindent
-	\begin{minipage}{\linewidth}
-		\begin{lstlisting}
-		Stack<int, 10>	s1;
-		\end{lstlisting}
+	\item Mit den Templates haben sie die Möglichkeit, auf Sourcecode-Ebene Elemente mit variablem Typ und variabler Grösse zu definieren, z.B.\hspace{0.05\linewidth}
+	\begin{minipage}{0.3\linewidth}
+	\vspace{-\baselineskip}
+\begin{lstlisting}
+Stack<int, 10>	s1;
+\end{lstlisting}
 	\end{minipage}
 	\item Die variable Stackgrösse 10 wird dabei nicht durch eine dynamische Allozierung auf dem Heap erreicht, sondern durch Einsetzen dieses Wertes im Template (Templateparameter size).
 	\item Dadurch wird ein Array der Grösse 10 \textbf{vom Compiler} erzeugt. Dies ist sehr effizient.
 \end{itemize}
 
 \subsection{Explizite Ausprägung von Klassen-Templates}
-\label{sec:Explizite Auspraegung von Klassen-Templates}
 Klassen-Templates können analog zu den Funktions-Templates explizit mit einem Typ qualifiziert werden
-\noindent
 \begin{minipage}{\linewidth}
-	\begin{lstlisting}
-		tenplate<typename KeyType, typename ElemType>
-		class Map
-		{
-			...
-		}
-		
-		class Map<int, TString>;
-		// Der Compiler praegt nun diese Kombination explizit aus
-	\end{lstlisting}
+\vspace{-\baselineskip}
+\begin{lstlisting}
+tenplate<typename KeyType, typename ElemType>
+class Map
+{
+	...
+}
+
+class Map<int, TString>; // Der Compiler praegt diese Kombination explizit aus
+\end{lstlisting}
 \end{minipage}
 
-\subsection{Klassen-Templates und getrennte Übersetzung: export}
-\label{sec:Klassen-Templates und getrennte Uebersetzung: export}
+\subsection{Klassen-Templates und getrennte Übersetzung: \emph{export}}
 \begin{achtung}
 	Ab dem Standard C++11 wird export nicht mehr unterstützt!
 \end{achtung}
-\begin{itemize}
-	\item Falls ein Template auch in anderen Übersetzungseinheiten benutzt wird, muss dieses Template bei der Deklaration mit dem Schlüsselwort export gekennzeichnet werden
-	\noindent
-	\begin{minipage}{\linewidth}
-		\begin{lstlisting}
-		export template<class ElemType, int size>
-		class Stack
-		{
-			...
-		};
-		\end{lstlisting}
-	\end{minipage}
-\end{itemize}
+Falls ein Template auch in anderen Übersetzungseinheiten benutzt wird, muss dieses Template bei der Deklaration mit dem Schlüsselwort \emph{export} gekennzeichnet werden\\
+\begin{minipage}{0.5\linewidth}
+\vspace{-\baselineskip}
+\begin{lstlisting}
+export template<class ElemType, int size>
+class Stack
+{
+	...
+};
+\end{lstlisting}
+\end{minipage}
+\vfill
+\pagebreak\newpage
 
 \subsection{Klassen-Templates und getrennte Übersetzung}
-\label{sec:Klassen-Templates und getrennte Uebersetzung}
 \begin{itemize}
 	\item Für diese Aufgabe muss eine etwas unschöne Methode gewählt werden.
 	\item Ein Template besteht wie andere Funktionen/Klassen auch aus einer Deklaration und einer Definition. Beim Template entsteht aus der Definition aber nicht direkt Objektcode, sondern sie ist nur eine Codeschablone.
@@ -294,33 +297,81 @@ Klassen-Templates können analog zu den Funktions-Templates explizit mit einem T
 \end{itemize}
 
 \subsubsection{File-Organisation \#1 bei Klassen-Templates}
-%\lstinputlisting{\listings/stack1.h}
-%\lstinputlisting{\listings/stack1.cpp}
-%\lstinputlisting{\listings/client1.cpp}
+\vspace{-\baselineskip}
+\begin{multicols}{2}
+\begin{lstlisting}
+// stack.h
+#ifndef STACK_H_
+#define STACK_H_
+template<typename ElemType, int size>
+class Stack
+{
+	...
+};
 
-%%% Files erstellen %%%
+// ugly, but cannot be avoided
+#include "stack.cpp"
+#endif
+\end{lstlisting}
+\vfill\null
+\columnbreak
+\begin{lstlisting}
+// stack.cpp
+// all definitions of class Stack
+// do NOT #include "stack.h"
+\end{lstlisting}
+\vspace{-\baselineskip}
+\begin{lstlisting}
+// client.cpp
+#include "stack.h"
 
+int main()
+{
+Stack<int, 50> s;
+...
+return 0;
+}
+\end{lstlisting}
+\end{multicols}
+\vspace{-\baselineskip}
 \begin{achtung}
-	Mögliche Probleme: stack.cpp darf nicht "normal" compiliert werden. Eine IDE wie Eclipse nimmt allenfalls alle *.cpp-Files in ihren Compile-Prozess. stack.cpp muss davon ausgeschlossen werden.
+	Mögliche Probleme: stack.cpp darf nicht $"$normal$"$ compiliert werden. Eine IDE wie Eclipse nimmt allenfalls alle *.cpp-Files in ihren Compile-Prozess. stack.cpp muss davon ausgeschlossen werden.
 \end{achtung}
 
-\subsubsection{Ausschliessen eines cpp-Files von Compilierung in Eclipse}
-\label{sec:Ausschliessen eines cpp-Files von Compilierung in Eclipse}
-%%% Bild einfügen %%%
-
-
 \subsubsection{File-Organisation \#2 bei Klassen-Templates}
-%\lstinputlisting{\listings/stack2.h}
-%\lstinputlisting{\listings/client2.cpp}
+\vspace{-\baselineskip}
+\begin{multicols}{2}
+\begin{lstlisting}
+// stack.h
+#ifndef STACK_H_
+#define STACK_H_
+template<typename ElemType, int size>
+class Stack
+{
+	...
+};
+//all definitions of class Stack
+#endif
+\end{lstlisting}
+\vfill\null
+\columnbreak
+\begin{lstlisting}
+// client.cpp
+#include "stack.h"
 
-%%% Files erstellen %%%
-
+int main()
+{
+Stack<int, 50> s;
+...
+return 0;
+}
+\end{lstlisting}
+\end{multicols}
+\vspace{-\baselineskip}
 \begin{hinweis}
 Sowohl die Deklaration als auch die Definition des Templates sind im File stack.h vorhanden. Dadurch gibt es keine Probleme mit IDEs.\\
 Nachteil: Deklaration und Definition sind nicht getrennt.
 \end{hinweis}
 
 \subsection{Fazit}
-\label{sec:Fazit}
-Sowohl Variante \#1 als auch \#2 haben Vor- und Nachteile.\\
-Wählen sie eine aus! (Ich bevorzuge \#2)
+Sowohl Variante \#1 als auch \#2 haben Vor- und Nachteile. Wählen sie eine aus! (Ich bevorzuge \#2)

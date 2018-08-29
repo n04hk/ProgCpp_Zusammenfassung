@@ -4,6 +4,7 @@
 
 \section{Grundlegendes}
 
+\begin{multicols}{2}
 \subsection{Synonyme für Funktionen}
 \begin{itemize}
 	\item Unterprogramm
@@ -11,15 +12,8 @@
 	\item Prozedur (Funktion ohne Rückgabewert)
 	\item Methode (in der Objektorientierten Programmierung)
 \end{itemize}
-
-\subsection{Aufgabe einer Funktion}
-\begin{itemize}
-	\item Gleichartige, funktional zusammengehörende Programmteile unter einem eigenen Namen zusammenfassen. Der Programmteil kann mit diesem Namen aufgerufen werden.
-	\item Einige Funktionen (im speziellen mathematische) sollen parametrisiert werden können, z.B. die Cosinusfunktion macht nur Sinn, wenn sie mit unterschiedlichen Argumenten aufgerufen werden kann.
-	\item Divide et impera (divide and conquer, teile und herrsche):\\
-	Ein grosses Problem ist einfacher zu lösen, wenn es in mehrere einfachere Teilprobleme aufgeteilt wird.
-\end{itemize}
-
+\vfill\null
+\columnbreak
 \subsection{Funktionen (Vergleich zu C)}
 \begin{itemize}
 	\item Alles was in C möglich ist, gibt es auch in C++
@@ -31,6 +25,17 @@
 		\item Überladen von Funktionen (overloading)
 	\end{itemize}
 \end{itemize}
+\end{multicols}
+
+\subsection{Aufgabe einer Funktion}
+\begin{itemize}
+	\item Gleichartige, funktional zusammengehörende Programmteile unter einem eigenen Namen zusammenfassen. Der Programmteil kann mit diesem Namen aufgerufen werden.
+	\item Einige Funktionen (im speziellen mathematische) sollen parametrisiert werden können, z.B. die Cosinusfunktion macht nur Sinn, wenn sie mit unterschiedlichen Argumenten aufgerufen werden kann.
+	\item Divide et impera (divide and conquer, teile und herrsche):\\
+	Ein grosses Problem ist einfacher zu lösen, wenn es in mehrere einfachere Teilprobleme aufgeteilt wird.
+\end{itemize}
+
+
 
 \subsection{Definition von Funktionen}
 \begin{itemize}
@@ -51,25 +56,10 @@
 \end{itemize}
 
 \subsection{Deklaration von Funktionen (Funktionsprototypen)}
-\begin{minipage}{0.75\linewidth}
+\vspace{-\baselineskip}
+\begin{minipage}{0.6\linewidth}
 \begin{lstlisting}
-#include <iostream>
-using namespace std;
-
-void init(int* alpha);	// Funktionsprototyp (Deklaration)
-
-int main(void)
-{
-	int a;
-	init(&a);
-	cout << "Der Wert von a ist " << a << endl;
-	return 0;
-}
-
-void init(int* alpha)
-{
-	*alpha = 10;
-}
+void init(int* alpha);	// Funktionsprototyp
 \end{lstlisting}
 \end{minipage}
 
@@ -129,6 +119,7 @@ m = MAX(++z1,++z2);
 \section{inline-Funktionen}
 \label{sec:inline}
 
+\begin{multicols}{2}
 \subsection{Grundlegendes}
 \begin{itemize}
 	\item Lösen das Overhead-Problem
@@ -139,10 +130,11 @@ m = MAX(++z1,++z2);
 	\item Einsetzen wenn der Codeumfang der Funktion sehr klein ist und die Funktion häufig aufgerufen wird (z.B. in Schleifen)
 	\item Achtung: Rekursive Funktionen und Funktionen, auf die mit einem Funktionspointer gezeigt wird, werden nicht inlined.
 \end{itemize}
-
+\vfill\null
+\columnbreak
 \subsection{Beispiel mit inline-Code: Maximum zweier int-Werte}
-\noindent
-\begin{minipage}{0.4\linewidth}
+\vspace{-\baselineskip}
+\begin{minipage}{\linewidth}
 \begin{lstlisting}
 inline int max(int a, int b)
 {
@@ -160,6 +152,7 @@ int main()
 }
 \end{lstlisting}
 \end{minipage}
+\end{multicols}
 
 \section{Grundsätze für Optimierungen}
 \begin{enumerate}
@@ -272,7 +265,7 @@ Overloading sollte zurückhaltend eingesetzt werden. Wenn möglich sind default-
 
 \section{default-Parameter vs. Overloading}
 \fcolorbox{red}{white}{\parbox{0.5\linewidth}{\textbf{Variante mit Overloading:}\\
-3 unterschiedliche Funktionne belegen Speicher\\
+3 unterschiedliche Funktionen belegen Speicher\\
 3 unterschiedliche Funktionen müssen gewartet werden\vspace{\baselineskip}\\
 void print(int i);\\
 void print(int i, int width);\\

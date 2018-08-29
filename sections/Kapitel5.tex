@@ -4,6 +4,7 @@
 
 \section{Strukturen in C++}
 \label{sec:strukturen}
+\vspace{-\baselineskip}
 \begin{minipage}{0.75\linewidth}
 \begin{itemize}
 	\item Grundsätzlich sind Strukturen in C++ identisch zu Strukturen in C
@@ -14,6 +15,7 @@
 \end{minipage}%
 \hspace{0.05\linewidth}
 \begin{minipage}{0.15\linewidth}
+\vspace{-\baselineskip}
 \begin{lstlisting}
 struct Point
 {
@@ -23,8 +25,10 @@ struct Point
 	
 Point p1;
 \end{lstlisting}
+\vfill\null
 \end{minipage}
 
+\vspace{-\baselineskip}
 \section{Gültigkeitsbereiche, Namensräume und Sichtbarkeit}
 
 \subsection{Gültigkeitsbereiche von Namen (Scope)}
@@ -146,8 +150,8 @@ Dadurch können (und sollen unbedingt!) die in C üblichen Modulkürzel vermiede
 	\item Deklaration von Namespaces
 	\item Namespace-Alias
 	\item[\-] Einem bestehenden Namespace einen anderen Namen zuweisen (eher selten)\\
-\vspace{-\baselineskip}
 \begin{minipage}{0.9\linewidth}
+\vspace{-\baselineskip}
 \begin{lstlisting}
 namespace fbssLib = financial_branch_and_system_service_library;
 \end{lstlisting}
@@ -157,18 +161,18 @@ namespace fbssLib = financial_branch_and_system_service_library;
 \end{itemize}
 
 \subsection{Deklaration von Namespaces}
-\vspace{-\baselineskip}
-\begin{minipage}{0.7\linewidth}
+\begin{minipage}[t]{0.7\linewidth}
 	\begin{itemize}
 		\item Alle in einem Namespace deklarierten Bezeichner werden diesem Namespace zugeordnet.
-		\item Auf die Bezeichner des Namespaces kann mit dem Scope-Operator :: zugegriffen werden
+		\item Auf die Bezeichner des Namespaces kann mit dem Scope-Operator \emph{::} zugegriffen werden
 		\item Syntax:
 		\item[\-] Hinter dem Schlüsselwort \emph{namespace} folgt der Name des Namespaces gefolgt von einem Block.
 		\item Innerhalb einer Datei kann mehr als ein Namespace deklariert werden (eher unüblich) und ein Namespace kann in mehreren Dateien deklariert sein (häufig, d.h. die Elemente eines Namespaces werden in mehreren Dateien implementiert).
 	\end{itemize}
 \end{minipage}%
 \hspace{0.04\linewidth}
-\begin{minipage}{0.25\linewidth}
+\begin{minipage}[t]{0.25\linewidth}
+\vspace{-3\baselineskip}
 \begin{lstlisting}
 namespace myLib1
 {
@@ -200,9 +204,9 @@ namespace myLib2
 	\item Deklariert nur einzelne Namen.
 \end{itemize}
 \end{minipage}
-\vspace{-\baselineskip}
 \hspace{0.04\linewidth}
 \begin{minipage}{0.45\linewidth}
+\vspace{-\baselineskip}
 \begin{lstlisting}
 int main()
 {
@@ -213,12 +217,12 @@ int main()
 \end{minipage}
 
 \subsection{\emph{using}-Direktive}
-\vspace{-\baselineskip}
-\begin{minipage}{0.5\linewidth}
+\begin{minipage}[t]{0.5\linewidth}
 	Eine \emph{using}-Direktive macht alle Namen aus einem Namensraum ohne explizite Namensraumangabe verwendbar.
 \end{minipage}%
 \hspace{0.04\linewidth}
-\begin{minipage}{0.45\linewidth}
+\begin{minipage}[t]{0.45\linewidth}
+\vspace{-3\baselineskip}
 \begin{lstlisting}
 usting namespace myLib1;
 
@@ -230,14 +234,12 @@ int main()
 \end{minipage}
 
 \subsection{\emph{using namespace} kann zu Konflikten führen}
-\vspace{-\baselineskip}
-\begin{minipage}{0.5\linewidth}
-\begin{itemize}
-	\item Wenn bei mehreren \emph{using namespace}-Deklarationen und/oder -Direktiven die Namen (ohne Namespace-Angabe) nicht eindeutig sind, müssen die Namen voll qualifiziert verwendet werden (mit Namespace-Angabe).
-\end{itemize}
+\begin{minipage}[t]{0.5\linewidth}
+Wenn bei mehreren \emph{using namespace}-Deklarationen und/oder -Direktiven die Namen (ohne Namespace-Angabe) nicht eindeutig sind, müssen die Namen voll qualifiziert verwendet werden (mit Namespace-Angabe).
 \end{minipage}%
 \hspace{0.04\linewidth}
-\begin{minipage}{0.45\linewidth}
+\begin{minipage}[t]{0.45\linewidth}
+\vspace{-3\baselineskip}
 \begin{lstlisting}
 using namespace myLib1;
 using namespace myLib2;
@@ -251,14 +253,12 @@ using namespace myLib2;
 \end{minipage}
 
 \subsection{Namenlose Namespaces}
-\vspace{-\baselineskip}
-\begin{minipage}{0.8\linewidth}
-	\begin{itemize}
-		\item Ein namenloser Namespace wird wie ein spezieller Namensraum mit einem systemweit eindeutigen Namen behandelt.
-	\end{itemize}
+\begin{minipage}[t]{0.8\linewidth}
+Ein namenloser Namespace wird wie ein spezieller Namensraum mit einem systemweit eindeutigen Namen behandelt.
 \end{minipage}%
 \hspace{0.04\linewidth}
-\begin{minipage}{0.15\linewidth}
+\begin{minipage}[t]{0.15\linewidth}
+\vspace{-3\baselineskip}
 \begin{lstlisting}
 namespace
 {
@@ -285,6 +285,7 @@ int main()
 }
 \end{lstlisting}
 \end{minipage}
+\pagebreak
 
 \section{Speicherklassen}
 
@@ -348,7 +349,7 @@ int main()
 \section{Typdefinitionen}
 
 \subsection{\emph{typedef} zur Vereinbarung eigener Datentypen\hfill}
-\begin{minipage}{0.6\linewidth}
+\begin{minipage}[t]{0.6\linewidth}
 \begin{itemize}
 	\item analog C
 	\item In C++ kann aber z.B. bei \emph{structs} das \emph{typedef} weggelassen werden.
@@ -356,7 +357,8 @@ int main()
 \end{itemize}
 \end{minipage}
 \hspace{0.05\linewidth}
-\begin{minipage}{0.3\linewidth}
+\begin{minipage}[t]{0.3\linewidth}
+\vspace{-3\baselineskip}
 In C:
 \vspace{-\baselineskip}
 \begin{lstlisting}
@@ -370,8 +372,8 @@ struct Point {int x;
 int y;
 };
 \end{lstlisting}
-\end{minipage}
-
+\end{minipage}%
+\vspace{-\baselineskip}
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
 struct Point {
@@ -423,7 +425,7 @@ typedef struct {int x;
 \end{minipage}
 	\item Überall im Code, wo nun das Wort Point gefunden wird, ersetzt der Compiler dieses in einem ersten Durchgang mit dem folgenden Text:
 	\item[\-]
-\noindent
+\vspace{-\baselineskip}
 \begin{minipage}{0.3\linewidth}
 \begin{lstlisting}
 typedef struct {int x;
@@ -435,13 +437,10 @@ typedef struct {int x;
 \section{Type-Cast (Typumwandlungen)}
 
 \subsection{Typumwandlungen im Allgemeinen}
-\begin{itemize}
-	\item Unsafe conversion
-	\item[\-] Wenn bei der Typumwandlung signifikante Stellen verloren gehen können (typischerweise bei einer Umwandlung von einem $"$grösseren$"$ in einen $"$kleineren$"$ Typ, z.B. von \emph{double} nach \emph{int}).
-	\item[\-] Bei \emph{int} ist sowohl die Genauigkeit kleiner als auch die maximal darstellbare Zahl.
-	\item Safe conversion
-	\item[\-] Wenn bei der Typumwandlung keine signifikanten Stellen verloren gehen können (typischerweise bei einer Umwandlung von einem $"$kleineren$"$ in einen $"$grösseren$"$ Typ, z.B. von \emph{int} nach \emph{double}.
-\end{itemize}
+\begin{description}
+	\item [Unsafe conversion:] Wenn bei der Typumwandlung signifikante Stellen verloren gehen können (typischerweise bei einer Umwandlung von einem $"$grösseren$"$ in einen $"$kleineren$"$ Typ, z.B. von \emph{double} nach \emph{int}). Bei \emph{int} ist sowohl die Genauigkeit kleiner als auch die maximal darstellbare Zahl.
+	\item [Safe conversion:] Wenn bei der Typumwandlung keine signifikanten Stellen verloren gehen können (typischerweise bei einer Umwandlung von einem $"$kleineren$"$ in einen $"$grösseren$"$ Typ, z.B. von \emph{int} nach \emph{double}.
+\end{description}
 
 \subsection{Implizite Typumwandlung}
 \begin{itemize}
@@ -500,6 +499,7 @@ int a = int(4.6);	// a == 4
 Aus dem Sourcecode geht nicht hervor, welche der aufgeführten Typumwandlungen der Programmierer wollte.\\ 
 \textbf{Diese beiden Casts sollten in C++ nicht verwendet werden!}
 \end{achtung}
+\pagebreak\newpage
 
 \subsubsection{Explizite Typumwandlung \#3: \emph{const\_cast}}
 \textbf{Anwendung:}\\
@@ -526,7 +526,7 @@ Wenn schon Typecast, dann ist \emph{static\_cast} \textbf{die häufigste}.
 
 \subsubsection{Explizite Typumwandlung \#5: \emph{dynamic\_cast}}
 \textbf{Anwendung:}\\
-Umwandlung von polymorphen Objekten im Zusammenhang mit dem Typensystem von C++ eingesetzt (Stichwort RTTI = Runtime Type Information System,sec:dynamic cast siehe Kap.\ref{sec:dynamic cast}).
+Umwandlung von polymorphen Objekten im Zusammenhang mit dem Typensystem von C++ eingesetzt (Stichwort RTTI = Runtime Type Information System, siehe Kap.\ref{sec:dynamic cast}).
 
 \subsubsection{Explizite Typumwandlung \#6: \emph{reinterpret\_cast}}
 \textbf{Anwendung:}\\

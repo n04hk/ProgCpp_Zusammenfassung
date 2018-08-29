@@ -1,7 +1,6 @@
 %!TEX root = ProgCPP_ZF.tex
 
 \part{Einführung}
-
 \section{Charakteristiken von C++}
 \begin{itemize}
 	\item C++ erlaubt sowohl prozedurale, objektorientierte als auch generische Programmierung\\
@@ -56,9 +55,11 @@
 	\end{itemize}
 	\item Noch neuere Versionen erst recht nicht
 \end{itemize}
+\pagebreak
 
+\begin{multicols}{2}
 \section{Hello World!}
-\noindent
+\vspace{-\baselineskip}
 \begin{minipage}{\linewidth}
 \begin{lstlisting}
 #include <iostream>
@@ -71,11 +72,16 @@ int main(void)
 }
 \end{lstlisting}
 \end{minipage}
-
+\vfill\null
+\columnbreak
 \section{C++-Compiler (noch nicht Eclipse)}
-Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) oder clang++ verwendet werden\\
-\textbf{g++ -o hello hello.cpp}\\
+Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) oder clang++ verwendet werden:\\
+
+\center{\textbf{g++ -o hello hello.cpp}}\\
 \textbf{clang++ -o hello hello.cpp}
+\flushleft
+\vfill\null
+\end{multicols}
 
 \section{Lexikalische Elemente von C++}
 \begin{itemize}

@@ -2,7 +2,7 @@
 
 \part{Überladen von Operatoren (Operator overloading)}
 \label{sec:operator overloading}
-Überladen ist hier nicht im Sinne von "zu viel laden" zu verstehen, sondern im Sinne von "drüber laden", "zudecken", "neu definieren".\\
+Überladen ist hier nicht im Sinne von $"$zu viel laden$"$ zu verstehen, sondern im Sinne von $"$drüber laden$"$, $"$zudecken$"$, $"$neu definieren$"$.\\
 Mit Operator overloading kann ein bestehender Operator neu definiert (überladen) werden.
 
 \section{Operator overloading in C++}
@@ -12,13 +12,13 @@ Mit Operator overloading kann ein bestehender Operator neu definiert (überladen
 	\begin{itemize}
 		\item Der Operator + kann bei einer String-Klasse sehr praktisch sein, um zwei Strings aneinanderzufügen.
 		\item Der Operator + kann definiert werden, um zwei Matrizen oder zwei komplexe Zahlen zu addieren.
-		\item Der Operator << kann für eine neue Klasse definiert werden, um auch Objekte dieser Klasse auf cout schreiben zu können. Damit können neue Klassen nahtlos in das bestehende C++-System integriert werden.
+		\item Der Operator << kann für eine neue Klasse definiert werden, um auch Objekte dieser Klasse auf \emph{cout} schreiben zu können. Damit können neue Klassen nahtlos in das bestehende C++-System integriert werden.
 	\end{itemize}
 	\item Operator overloading ist zwar nicht sehr objektorientiert aber enorm praktisch.
 \end{itemize}
-\vspace{\baselineskip}
-\textbf{Überladbare (overloadable) Operatorfunktionen in C++}\\
-\vspace{\baselineskip}
+
+\begin{multicols}{2}
+\subsection{Überladbare (overloadable) Operatorfunktionen in C++}
 \begin{tabular}{|l|c|c|c|c|}
 	\hline 
 	new & delete & new[] & delete[] &  \\ 
@@ -39,15 +39,17 @@ Mit Operator overloading kann ein bestehender Operator neu definiert (überladen
 	-> & () & [] &  &  \\ 
 	\hline 
 \end{tabular}
-
+\vfill\null
+\columnbreak
 \subsection{Operatorfunktion}
 Die erwähnten Operatoren sind in C++ mit einer Operatorfunktion implementiert, d.h. im Hintergrund wird eigentlich eine Funkion aufgerufen.\\
-Die Operatoren können sowohl in der üblichen Operatornotation als auch in der Funktionsnotation verwendet werden.
-\vspace{\baselineskip}
+Die Operatoren können sowohl in der üblichen Operatornotation als auch in der Funktionsnotation verwendet werden.\\
 \textbf{Beispiel: ein String zu einem bestehenden String addieren}\\
+\vspace{\baselineskip}
 Operatornotation (üblich): str3+= str2;\\
 \vspace{\baselineskip}
-Funktionsnotation (alternativ, unüblich): str3.operator +=(str2);
+Funktionsnotation (unüblich): str3.operator +=(str2);
+\end{multicols}
 
 \subsection{Randbedingungen zu Operator overloading}
 \begin{itemize}
@@ -57,7 +59,8 @@ Funktionsnotation (alternativ, unüblich): str3.operator +=(str2);
 	\item Default-Argumente sind bei Operatoren nicht möglich
 	\item nicht gefordert aber sinnvoll: die neue Operation sollte intuitiv dem bestehenden Operator zugeordnet werden können
 \end{itemize}
-\vspace{\baselineskip}
+
+\begin{multicols}{2}
 \subsection{Umsetzungsvarianten für Operator overloading}
 \begin{itemize}
 	\item Operator overloading als Elementfunktion
@@ -75,94 +78,115 @@ Funktionsnotation (alternativ, unüblich): str3.operator +=(str2);
 		\item Typischerweise für alle anderen
 	\end{itemize}
 \end{itemize}
+\vfill\null
+\columnbreak
+\includegraphics[width=0.8\linewidth]{images/operatorOverloadingBeide.png}
+\end{multicols}
 \begin{multicols}{2}
 	\includegraphics[width=\linewidth]{images/operatorOverloading.png}
 	\columnbreak
 	\includegraphics[width=\linewidth]{images/operatorOverloadingNormaleFunktion.png}
 \end{multicols}
-\includegraphics[width=\linewidth]{images/operatorOverloadingBeide.png}
 
 \subsubsection{Beispiel}
 \includegraphics[width=\linewidth]{images/verwendung.png}
 Problemlösung:
 \begin{itemize}
 	\item Ich möchte den Operator unbedingt auch so verwenden können:
-	\noindent
-	\item[\-]\vspace{-\baselineskip}\begin{minipage}{\linewidth}
+	\item[\-]\vspace{-\baselineskip}\begin{minipage}{0.4\linewidth}
 	\begin{lstlisting}
-	if("goo" < s2)
-	{...}
+	if("goo" < s2) {...}
 	\end{lstlisting}
 	\end{minipage}
 	\item Da der linke Operator zwingend ein Objekt der Klasse sein muss, geht das so nicht.
 	\item Lösung:
 	\begin{itemize}
-		\item Die Operatorfunktion wird nicht als Elementfunktion der Klasse definiert sondern als "normale" Funktion ausserhalb der Klasse.
-		\item Dadurch besteht jedoch kein Zugriff mehr auf die private und protected Elemente der Klasse
-		\item Die Operatorfunktion muss deshalb als friend deklariert werden (dies ist auch praktisch die einzige $"$erlaubte$"$ Verwendung von friend)
+		\item Die Operatorfunktion wird nicht als Elementfunktion der Klasse definiert sondern als $"$normale$"$ Funktion ausserhalb der Klasse.
+		\item Dadurch besteht jedoch kein Zugriff mehr auf die \emph{private} und \emph{protected} Elemente der Klasse
+		\item Die Operatorfunktion muss deshalb als friend deklariert werden (dies ist auch praktisch die einzige $"$erlaubte$"$ Verwendung von \emph{friend})
 	\end{itemize}
 \end{itemize}
+\vfill
+\pagebreak\newpage
 
-\includegraphics[width=\linewidth]{images/operatorenTypumwandlungen.png}
+\subsubsection{Operatoren und Typumwandlungen}
+Um zu vermeiden, dass für einen Operator unzählige Varianten mit Typen definiert werden müssen, kann auf benutzerdefinierte Typumwandlungen zurückgegriffen werden.
+\begin{minipage}{0.8\linewidth}
+\vspace{-\baselineskip}
+\begin{lstlisting}
+// die folgenden Deklarationen koennen ersetzt werden
+bool TString::operator <(const TString& s) const;
+bool TString::operator <(const char* p) const;
+friend bool operator <(const char* p, const TString& s);
+
+// diese Deklarationen genuegen
+TString(const char* p); // Typumwandlungs-Ctor
+friend bool operator <(const TString& s1, const TString& s2);
+\end{lstlisting}
+\end{minipage}
 
 \subsubsection{Zuweisungsoperator =}
 \label{sec:zuweisungsoperator}
-\noindent
-\begin{minipage}{\linewidth}
-	\begin{lstlisting}
-	TString& TString::operator=(const TString& s)
+\vspace{-\baselineskip}
+\begin{minipage}{0.6\linewidth}
+\begin{lstlisting}
+TString& TString::operator=(const TString& s)
+{
+	if (this == &s)
+		return *this;	// "a1 = a1"
+	
+	delete[] str;	// alte Inhalte loeschen
+	str = 0;
+	
+	len = s.len;	// neu allokieren und kopieren
+	if (s.str != 0)
 	{
-		if (this == &s)
-			return *this;	// "a1 = a1"
-		
-		delete[] str;	// alte Inhalte loeschen
-		str = 0;
-		
-		len = s.len;	// neu allokieren und kopieren
-		if (s.str != 0)
-		{
-			str = new char[len+1];
-			memcpy(str, s.str, len+1);
-		}
-		return *this;
+		str = new char[len+1];
+		memcpy(str, s.str, len+1);
 	}
-	\end{lstlisting}
+	return *this;
+}
+\end{lstlisting}
 \end{minipage}
 
+\begin{multicols}{2}
 \subsubsection{Indexoperator []}
 \begin{itemize}
-	\item Wir möchten auf einen einzelnen Buchstaben eines TString-Objekts mittels Indexoperator 	zugreifen können:
-	\noindent
+	\item Wir möchten auf einen einzelnen Buchstaben eines \emph{TString}-Objekts mittels Indexoperator zugreifen können:
 	\item[\-]\vspace{-\baselineskip}\begin{minipage}{\linewidth}
-		\begin{lstlisting}
-		TString s = "Hallo";
-		s[2] = 'h';
-		char ch = s[3];
-		\end{lstlisting}
+\begin{lstlisting}
+TString s = "Hallo";
+s[2] = 'h';
+char ch = s[3];
+\end{lstlisting}
 	\end{minipage}
-	\item Dies kann durch die explizite Implementation des Indexoperators in der Klasse TString erreicht werden
-	\item Die Operatorfunktion soll eine Referenz auf das gewünschte Zeichen zurückgeben, d.h. ein char\&
+	\item Dies kann durch die explizite Implementation des Indexoperators in der Klasse \emph{TString} erreicht werden
+	\item Die Operatorfunktion soll eine Referenz auf das gewünschte Zeichen zurückgeben, d.h. ein \emph{char\&}
 	\subitem \textbf{char\& operator[](int pos);}
 	\item Wieso braucht es zwei Varianten?
-	\item[\-] char\& operator[](int pos);
-	\item[\-] const char\& operator[](int pos) const;
-	\noindent
-	\item[\-]\vspace{-\baselineskip}\begin{minipage}{\linewidth}
-		\begin{lstlisting}
-		char& operator[](int pos);
-		TString s = "Hallo";
-		s[2] = 'h';
-		char ch = s[3];
-		
-		void foo(const TString& s)	
-		{
-			char ch = s[4];
-		}
-		\end{lstlisting}
-		\color{red}foo-Funktion geht mit erster Variante nicht!\color{black}\\Mit einem const-Objekt können nur const-Methoden aufgerufen werden. Deshalb braucht es auch die zweite Variante.
-	\end{minipage}
+	\item[\-] \textbf{char\& operator[](int pos);}
+	\item[\-] \textbf{const char\& operator[](int pos) const;}
 \end{itemize}
+\vfill\null
+\columnbreak
+\vspace{-\baselineskip}
+\begin{minipage}{\linewidth}
+\begin{lstlisting}
+char& operator[](int pos);
+TString s = "Hallo";
+s[2] = 'h';
+char ch = s[3];
 
+void foo(const TString& s)	
+{
+	char ch = s[4];
+}
+\end{lstlisting}
+\end{minipage}
+\color{red}foo-Funktion geht mit erster Variante nicht!\color{black}\\Mit einem const-Objekt können nur const-Methoden aufgerufen werden. Deshalb braucht es auch die zweite Variante.
+\end{multicols}
+
+\begin{multicols}{2}
 \subsubsection{Beispiel Klasse TString}
 \begin{itemize}
 	\item{\makebox[4cm]{Indexoperator\hfill}} []
@@ -173,14 +197,16 @@ Problemlösung:
 	\item{\makebox[4cm]{Vergleichsoperatoren\hfill}} ==\quad!=\quad<\quad>
 	\item{\makebox[4cm]{Verkettungsoperatoren\hfill}} +\quad+=
 \end{itemize}
-
+\vfill\null
+\columnbreak
 \subsubsection{Eigenen Zuweisungsoperator definieren}
 Wie beim Copy Konstruktor gilt auch für den Zuweisungsoperator:\\
 Wenn die Klasse Elemente auf dem Heap unterhält, dann muss der Zuweisungsoperator selbst definiert werden, damit eine Deep Copy erstellt wird.
+\end{multicols}
 
 \subsubsection{Zur Erinnerung: Kanonische Form einer Klasse}
 \begin{itemize}
-	\item Wenn eine Klasse in der kanonischen Form vorliegt, dann kann sie verwendet werden wie ein "normaler Typ"
+	\item Wenn eine Klasse in der kanonischen Form vorliegt, dann kann sie verwendet werden wie ein $"$normaler Typ$"$
 	\item Um das zu erreichen, müssen bei Klassen, welche Speicher auf dem Heap unterhalten, die folgenden Elemente definiert werden:
 	\begin{itemize}
 		\item Copy Konstruktor
@@ -193,19 +219,25 @@ Wenn die Klasse Elemente auf dem Heap unterhält, dann muss der Zuweisungsoperat
 \label{sec:streamkonzeptOverloading}
 (\emph{siehe \ref{sec:streamkonzept}})
 
-\subsubsection{Ausgabe: Klasse ostream}
+\subsubsection{Ausgabe: Klasse \emph{ostream}}
 \begin{itemize}
 	\item \emph{(siehe \ref{sec:ostream})}
-	\item Nutzung mit cout (vordefiniertes Objekt der Klasse ostream):\\
-	int i = 45;\\
-	cout << "Hallo " << i << endl;\\
-	TString s;\\
-	\color{red}cout << s;\qquad//funktioniert nicht, wenn Operator nicht überladen \color{black}
+	\item Nutzung mit \emph{cout} (vordefiniertes Objekt der Klasse \emph{ostream}):
 \end{itemize}
+\begin{minipage}{0.8\linewidth}
+\vspace{-\baselineskip}
+\begin{lstlisting}
+int i = 45;
+cout << "Hallo " << i << endl;
+TString s;
+cout << s;	//funktioniert nicht, wenn Operator nicht ueberladen
+\end{lstlisting}
+\end{minipage}
+
 
 \subsubsection{Operator << überschreiben}
-\noindent
-\begin{minipage}{\linewidth}
+\vspace{-\baselineskip}
+\begin{minipage}{0.8\linewidth}
 \begin{lstlisting}
 class TString
 {
@@ -224,21 +256,27 @@ ostream& operator <<(ostream& os, const TString& s)
 }
 \end{lstlisting}
 \end{minipage}
+\vfill
+\clearpage\pagebreak
 
 \subsubsection{Eingabe: Klasse istream}
 \begin{itemize}
 	\item \emph{(siehe \ref{sec:istream})}
-	\item Nutzung mit cin (vordefiniertes Objekt der Klasse istream):\\
-	double d;\\
-	string str;\\
-	cin >> d >> str;\\
-	TString s;\\
-	\color{red}cint >> s;\qquad// funktioniert nicht, wenn Operator nicht überladen \color{black}
+	\item Nutzung mit cin (vordefiniertes Objekt der Klasse istream):
 \end{itemize}
+\begin{minipage}{0.8\linewidth}
+\begin{lstlisting}
+double d;
+string str;
+cin >> d >> str;
+TString s;
+cint >> s;	// funktioniert nicht, wenn Operator nicht ueberladen
+\end{lstlisting}
+\end{minipage}
 
 \subsubsection{Operator >> überschreiben}
-\noindent
-\begin{minipage}{\linewidth}
+\vspace{-\baselineskip}
+\begin{minipage}{0.8\linewidth}
 \begin{lstlisting}
 class TString
 {
@@ -251,8 +289,8 @@ class TString
 char buffer[stringSize];	// statisch allokierter Eingabebuffer
 istream& operator >>(istream &is, TString &s)
 {
-	is >> buffer;		// in statische Buffer lesen
-	s = buffer;		// dann nach s kopieren
+	is >> buffer;						// in statische Buffer lesen
+	s = buffer;							// dann nach s kopieren
 	return is;
 }
 \end{lstlisting}
