@@ -83,19 +83,6 @@ Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) ode
 \vfill\null
 \end{multicols}
 
-\section{Lexikalische Elemente von C++}
-\begin{itemize}
-	\item C++ ist hier völlig identisch zu C
-	\begin{itemize}
-		\item Bezeichner
-		\item Schlüsselwörter (werden ergänzt durch zusätzliche)
-		\item Literale
-		\item Operatoren (werden ergänzt durch zusätzliche)
-		\item Kommentare
-	\end{itemize}
-	\item Codierstil beachten (Ellemtel-Richtlinien)
-\end{itemize}
-
 \section{Styleguide: Bezeichner (\raisebox{-0.9ex}{\~{ }}Namen)}
 \begin{itemize}
 	\item Variablen, Konstanten und Objekte
@@ -201,6 +188,7 @@ Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) ode
 	\item cin und cout müssen immer ganz links in einer Befehlszeile stehen. Die Daten kommen von cin (Tastatur, Operator >>) und gehen zu cout (Konsole, Operator <<).
 \end{itemize}
 
+\begin{multicols}{2}
 \subsection{Ausgabe: Klasse ostream}
 \label{sec:ostream}
 \begin{itemize}
@@ -214,7 +202,8 @@ Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) ode
 		\\ int i = 45;
 		\\cout \flq\flq \grqq Hallo  \grqq \flq\flq i \flq\flq endl;
 \end{itemize}
-
+\vfill\null
+\columnbreak
 \subsection{Eingabe: Klasse istream}
 \label{sec:istream}
 \begin{itemize}
@@ -229,12 +218,15 @@ Statt \textbf{gcc} (für C-Programme) muss \textbf{g++} (für C++-Programme) ode
 		\\ string str;
 		\\ cin \frq\frq d \frq\frq str;
 \end{itemize}
+\end{multicols}
 
 \subsection{Formatierte Ein- und Ausgabe}
 \label{sec:Formatierte Ein- und Ausgabe}
-ios, eine Basisklasse von iostream, stellt verschiedene Möglichkeiten (Format Flags) vor, um die Ein- und Ausgabe zu beeinflussen.\\
+ios, eine Basisklasse von iostream, stellt verschiedene Möglichkeiten (Format Flags) vor, um die Ein- und Ausgabe zu beeinflussen.
 Beispiel:\\
 cout << \color{red}showbase\color{black} << \color{green}hex\color{black} << 27;	// Ausgabe: \color{red}0x\color{green}1b \color{black}
+\vfill
+\pagebreak\newpage
 
 \subsubsection{Format-Flags um Überblick {(unvollständig)}}
 \label{sec:Format-Flags um Ueberblick}

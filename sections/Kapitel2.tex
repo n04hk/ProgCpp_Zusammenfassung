@@ -35,8 +35,6 @@
 	Ein grosses Problem ist einfacher zu lösen, wenn es in mehrere einfachere Teilprobleme aufgeteilt wird.
 \end{itemize}
 
-
-
 \subsection{Definition von Funktionen}
 \begin{itemize}
 	\item Funktionskopf
@@ -58,6 +56,7 @@
 \subsection{Deklaration von Funktionen (Funktionsprototypen)}
 \vspace{-\baselineskip}
 \begin{minipage}{0.6\linewidth}
+\vspace{-\baselineskip}
 \begin{lstlisting}
 void init(int* alpha);	// Funktionsprototyp
 \end{lstlisting}
@@ -65,14 +64,8 @@ void init(int* alpha);	// Funktionsprototyp
 
 \subsection{Kosten einer Funktion}
 \begin{itemize}
-	\item Der Code einer Funktion ist nur einmal im Speicher vorhanden.
-	\begin{itemize}
-		\item Vorteil: spart Speicher
-	\end{itemize}
-	\item Der Aufruf einer Funktion bewirkt eine zeitliche Einbusse im Vergleich zu einer direkten Befehlsausführung.
-	\begin{itemize}
-		\item Nachteil: Zeitverlust, Overhead
-	\end{itemize}
+	\item Vorteil: Der Code einer Funktion ist nur einmal im Speicher vorhanden. $\rightarrow$ spart Speicher
+	\item Nachteil: Der Aufruf einer Funktion bewirkt eine zeitliche Einbusse im Vergleich zu einer direkten Befehlsausführung. $\rightarrow$ Zeitverlust, Overhead
 \end{itemize}
 
 \section{C-Makro}
@@ -86,10 +79,9 @@ void init(int* alpha);	// Funktionsprototyp
 C-Makros lösen zwar das Problem mit dem Overhead, sind aber sehr unsicher. Bitte nicht einsetzen!
 \end{achtung}
 
-
 \subsection{Beispiel mit C-Makro: Maximum zweier int-Werte}
-\noindent
 \begin{minipage}{0.6\linewidth}
+\vspace{-\baselineskip}
 \begin{lstlisting}
 #define MAX(a,b)	((a)>(b) ? (a) : (b))
 
@@ -103,8 +95,8 @@ m = MAX(++z1,++z2);
 \end{minipage}
 
 \subsubsection{Was passiert wirklich?}
-\noindent
 \begin{minipage}{0.6\linewidth}
+\vspace{-\baselineskip}
 \begin{lstlisting}
 m = MAX(++z1,++z2);
 *@\textbf{wird expandiert zu:}@*
@@ -133,8 +125,8 @@ m = MAX(++z1,++z2);
 \vfill\null
 \columnbreak
 \subsection{Beispiel mit inline-Code: Maximum zweier int-Werte}
-\vspace{-\baselineskip}
 \begin{minipage}{\linewidth}
+\vspace{-\baselineskip}
 \begin{lstlisting}
 inline int max(int a, int b)
 {
@@ -159,11 +151,14 @@ int main()
 	\item Optimize: don't do it
 	\item If you have to do it: do it later
 \end{enumerate} 
+\vfill
+\pagebreak\newpage
 
 \section{default-Argumente}
 
 \subsection{Vorbelegte Parameter (default-Argumente)}
 \begin{minipage}{0.65\linewidth}
+\vspace{-\baselineskip}
 \begin{lstlisting}
 void prtDate(int day=1, int month=3, int year=2009);
 \end{lstlisting}
@@ -178,8 +173,8 @@ void prtDate(int day=1, int month=3, int year=2009);
 \end{itemize}
 
 \subsubsection{Beispiel: default-Argumente}
-\noindent
 \begin{minipage}{\linewidth}
+\vspace{-\baselineskip}
 \begin{lstlisting}
 void prtDate(int day=1, int month=3, int year=2009);
 \end{lstlisting}

@@ -61,8 +61,8 @@ pointer = &alpha;
 	\item[\color{red}{Typname}] Datentyp des Pointers
 	\item[\color{blue}{*}] Kennzeichnung des Pointers
 \end{description}
-\vspace{-\baselineskip}
 \begin{minipage}{0.5\linewidth}
+\vspace{-\baselineskip}
 \begin{lstlisting}
 *@\color{red}Typname\color{blue}* \color{black} pointerName;@*
 int* ptr1;		// ptr1: Pointer auf int
@@ -70,7 +70,7 @@ double* ptr2;	// ptr2: Pointer auf double
 \end{lstlisting}
 \end{minipage}
 \hspace{0.01\linewidth}
-\begin{minipage}{0.5\linewidth}
+\begin{minipage}{0.45\linewidth}
 	\includegraphics[width=\linewidth]{images/pointer2.pdf}
 \end{minipage}
 
@@ -162,6 +162,8 @@ ptr = &wert;	// ptr zeigt nun auf Variable wert
 	\includegraphics[width=\linewidth]{images/pointer7.pdf}
 	\includegraphics[width=\linewidth]{images/pointer8.pdf}
 \end{minipage}
+\vfill
+\pagebreak\newpage
 
 \subsubsection{const bei Pointern: Vorsicht}
 \underline{1. Variante: konstanter String}\\
@@ -435,6 +437,8 @@ Grund: Nach Beendigung der Funktion sind die lokalen Variablen ungültig.
 	\item Bei Referenzparametern (\emph{call by reference}) wird nur eine Referenz (Alias) des Originals übergeben.
 	\item Nur Parameter, welche \emph{by reference} übergeben werden, können in der Funktion (bleibend) verändert werden.
 \end{itemize}
+\vfill
+\pagebreak\newpage
 
 \subsubsection{3 Beispiele}
 
