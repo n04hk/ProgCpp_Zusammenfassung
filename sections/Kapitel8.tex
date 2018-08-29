@@ -423,7 +423,7 @@ T::nrOfObjects++;			// Zugriff ueber Klasse (falls public)
 \subsection{Konstruktor (Constructor, Ctor)}
 Aufgaben:
 \begin{itemize}
-	\item Die Neugründung einer Objekts einer Klasse.
+	\item Die Neugründung eines Objekts einer Klasse.
 	\item Das $"$saubere$"$ initialisieren des Objekts, d.h. \textbf{alle} Attribute des Objekts müssen auf einen definierten Wert gesetzt werden.
 	\item Der Konstruktor hat in C++ denselben Namen wie die Klasse, hat keinen Rückgabetyp (auch nicht \emph{void}) und kann überladen werden.\\
 	\vspace{-\baselineskip}
@@ -858,7 +858,7 @@ Beispiel:
 \begin{itemize}
 	\item In Embedded Systems müssen häufig Befehle als Bytestream über einen Kommunikationskanal übertragen werden. Die Befehle beinhalten meist eine Befehls-ID, eine bis mehrere Befehlsparameter, Längenangaben, etc. Das Befehlsformat ist eindeutig definiert.
 	\item Der Befehl könnte in einer Klasse \emph{Command} abgebildet werden.
-	\item Die Interpretation des Bytestreams könnte als Typumwandlung in einem Konstrukor implementiert werden:\\
+	\item Die Interpretation des Bytestreams könnte als Typumwandlung in einem Konstruktor implementiert werden:\\
 	\vspace{-\baselineskip}
 	\begin{minipage}{0.45\linewidth}
 \begin{lstlisting}
